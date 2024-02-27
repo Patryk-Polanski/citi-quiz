@@ -1,13 +1,15 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import AppLayout from "./ui/AppLayout";
-import DashboardPage from "./pages/Dashboard";
+import AppLayout from "./ui/AppLayout.tsx";
+import DashboardPage from "./pages/Dashboard.tsx";
 import FaqsPage from "./pages/Faqs";
 import ResourcesPage from "./pages/Resources";
 import SettingsPage from "./pages/Settings";
 import QuizzesPage from "./pages/Quizzes";
 import QuizPage from "./pages/Quiz";
 import Error from "./ui/Error";
+
+import "./index.css";
 
 const router = createBrowserRouter([
   {
