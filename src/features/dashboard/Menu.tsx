@@ -57,7 +57,7 @@ export default function Menu() {
                 iconName={menuItem.icon}
                 className="absolute left-0 top-0 -translate-x-3 -translate-y-3 opacity-50"
               />
-              <h3 className="ml-12 mr-auto pb-3 pt-5 text-2xl font-semibold">
+              <h3 className="ml-12 mr-auto pb-3 pt-5 font-laila text-2xl">
                 {menuItem.title}
               </h3>
               <span className="w-[2px] self-stretch bg-white opacity-60" />
