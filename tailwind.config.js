@@ -8,6 +8,15 @@ export default {
     },
     container: {
       padding: "1rem",
+      screens: {
+        tn: "100%",
+        sm: "100%",
+        md: "768px",
+        lg: "768px",
+        xl: "768px",
+        "2xl": "768px",
+        "3xl": "768px",
+      },
     },
     screens: {
       tn: "400px",
