@@ -1,7 +1,7 @@
 export default function Logo() {
   return (
-    <h1>
-      <span className="sr-only">Citi Quiz Logo</span>
+    <h1 className="relative">
+      <span className="invisible absolute">CitiQuiz Logo</span>
       <svg
         className="w-[200px]"
         width="235"

@@ -6,6 +6,9 @@ export default {
       laila: ["Laila", "sans-serif"],
       comfortaa: ["Comfortaa", "sans-serif"],
     },
+    container: {
+      padding: "1rem",
+    },
     screens: {
       tn: "400px",
       sm: "640px",

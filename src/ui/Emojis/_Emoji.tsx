@@ -34,7 +34,7 @@ export default function Emoji({ emojiName, className }: EmojiProps) {
   return (
     <img
       src={`../../../public/assets/emojis/${emojiName}.png`}
-      className={className}
+      className={`w-7 ${className}`}
     />
   );
 }
