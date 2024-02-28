@@ -39,14 +39,14 @@ export enum IconNames {
 }
 
 type IconProps = {
-  iconType: IconNames;
+  iconName: IconNames;
   className?: string;
 };
 
-export default function Icon({ iconType, className }: IconProps) {
+export default function Icon({ iconName, className }: IconProps) {
   let chosenIcon: ReactNode;
 
-  switch (iconType) {
+  switch (iconName) {
     case IconNames.Phone:
       chosenIcon = <Phone className={className} />;
       break;
