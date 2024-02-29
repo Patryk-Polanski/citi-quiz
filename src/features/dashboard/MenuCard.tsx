@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { type MenuCardTypes } from "../../types/cards";
-import Icon, { IconNames } from "../../ui/Icons/_Icon";
+import Icon, { IconNames } from "../../ui/icons/_Icon";
 
 type MenuCardProps = {
   menuItem: MenuCardTypes;
@@ -10,7 +10,7 @@ export default function MenuCard({ menuItem }: MenuCardProps) {
   return (
     <Link
       to={menuItem.link}
-      className="group relative z-10 block w-full overflow-hidden rounded-[40px] bg-gradient-to-br from-white/50 to-white/5 pb-2 pt-7 drop-shadow-xl backdrop-blur transition duration-0 ease-in-out after:absolute after:inset-0 after:rounded-[40px] after:border-2 after:border-white/20 after:transition after:duration-150 hover:after:border-white/60"
+      className="group relative z-10 block w-full overflow-hidden rounded-[40px] bg-gradient-to-br from-white/50 to-white/5 pb-2 pt-7 drop-shadow-xl backdrop-blur transition duration-0 ease-in-out after:absolute after:inset-0 after:rounded-[40px] after:border-2 after:border-white/20 after:transition after:duration-0 hover:after:border-white/60"
     >
       <div className="z-10 mb-2 flex items-center">
         <Icon

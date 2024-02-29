@@ -1,6 +1,6 @@
 import { type MenuCardTypes } from "../../types/cards";
 
-import { IconNames } from "../../ui/Icons/_Icon";
+import { IconNames } from "../../ui/icons/_Icon";
 import MenuCard from "./MenuCard";
 
 const menuCardsData: MenuCardTypes[] = [

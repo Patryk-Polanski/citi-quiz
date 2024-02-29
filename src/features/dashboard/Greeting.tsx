@@ -1,4 +1,4 @@
-import Emoji, { EmojiNames } from "../../ui/Emojis/_Emoji";
+import Emoji, { EmojiNames } from "../../ui/emojis/_Emoji";
 
 export default function Greeting() {
   return (

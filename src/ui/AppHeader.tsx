@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
-import Icon from "./Icons/_Icon";
+import Icon from "./icons/_Icon";
 
-import { IconNames } from "./Icons/_Icon";
+import { IconNames } from "./icons/_Icon";
 
 export default function AppHeader() {
   return (

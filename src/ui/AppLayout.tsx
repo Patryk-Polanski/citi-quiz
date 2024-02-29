@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 
 import AppHeader from "./AppHeader";
 import AppFooter from "./AppFooter";
+import BackgroundBlob from "./decorative/BackgroundBlob";
 
 export default function AppLayout() {
   return (
@@ -12,6 +13,10 @@ export default function AppLayout() {
           <Outlet />
         </div>
         <AppFooter />
+        <BackgroundBlob classes="top-[200px] right-[200px] h-8 w-8" />
+        <BackgroundBlob classes="top-[180px] left-[200px]" />
+        <BackgroundBlob classes="bottom-[180px] right-[200px]" />
+        <BackgroundBlob classes="bottom-[200px] left-[200px] h-8 w-8" />
       </div>
     </div>
   );
