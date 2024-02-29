@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import Icon from "./icons/_Icon";
 
-import { IconNames } from "./icons/_Icon";
+import { IconNames } from "../types/enums";
 
 export default function AppHeader() {
   return (

@@ -1,5 +1,7 @@
 import { type ReactNode } from "react";
 
+import { IconNames } from "../../types/enums";
+
 import Phone from "./Phone";
 import Account from "./Account";
 import Home from "./Home";
@@ -17,26 +19,6 @@ import Timer from "./Timer";
 import LockClosed from "./LockClosed";
 import LockOpen from "./LockOpen";
 import Question from "./Question";
-
-export enum IconNames {
-  Phone = "phone",
-  Help = "help",
-  Account = "account",
-  Home = "home",
-  Cross = "cross",
-  Tick = "tick",
-  Restart = "restart",
-  Chevron = "chevron",
-  Rocket = "rocket",
-  Target = "target",
-  Medal = "medal",
-  Book = "book",
-  Question = "question",
-  Settings = "settings",
-  Timer = "timer",
-  LockClosed = "lock-closed",
-  LockOpen = "lock-open",
-}
 
 type IconProps = {
   iconName: IconNames;
