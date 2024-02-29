@@ -3,7 +3,7 @@ export default function Logo() {
     <h1 className="relative">
       <span className="invisible absolute">CitiQuiz Logo</span>
       <svg
-        className="w-[200px]"
+        className="w-[180px]"
         width="235"
         height="144"
         viewBox="0 0 235 144"
