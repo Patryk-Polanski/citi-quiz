@@ -55,7 +55,7 @@ export default function Menu() {
             <div className="z-10 mb-2 flex items-center">
               <Icon
                 iconName={menuItem.icon}
-                className="absolute left-0 top-0 -translate-x-3 -translate-y-3 opacity-50"
+                className="absolute left-0 top-0 w-[76px] -translate-x-3 -translate-y-3 opacity-50"
               />
               <h3 className="ml-12 mr-auto pb-3 pt-5 font-laila text-2xl">
                 {menuItem.title}

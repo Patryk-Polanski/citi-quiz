@@ -6,7 +6,7 @@ import { IconNames } from "./Icons/_Icon";
 
 export default function AppHeader() {
   return (
-    <header className="mx-auto grid max-w-[2000px] grid-cols-6 px-4 py-4">
+    <header className="mx-auto grid w-full max-w-[2000px] grid-cols-6 px-4 py-4">
       <Icon className="w-16" iconName={IconNames.Help} />
       <Link to="/" className="col-span-4 justify-self-center">
         <Logo />
