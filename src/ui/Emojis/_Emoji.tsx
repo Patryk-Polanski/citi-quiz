@@ -9,7 +9,7 @@ type EmojiProps = {
 export default function Emoji({ emojiName, className }: EmojiProps) {
   return (
     <img
-      src={`../../../public/assets/emojis/${emojiName}.png`}
+      src={`/assets/emojis/${emojiName}.png`}
       className={`w-6 ${className}`}
     />
   );

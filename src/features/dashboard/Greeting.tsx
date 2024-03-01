@@ -58,7 +58,7 @@ export default function Greeting() {
         {/* emoji */}
         <span className="ml-1 h-8 overflow-hidden rounded-md">
           <ul
-            className="flex flex-col justify-center bg-white/20 transition-all delay-[1200ms] duration-[4000ms] ease-in-out"
+            className="flex flex-col justify-center bg-white/20 transition-all delay-[1400ms] duration-[4000ms] ease-in-out"
             style={{
               transform: emojisReady
                 ? `translateY(-${(rootFontSize + 16) * randomEmojiIndex + "px"})`
