@@ -45,3 +45,12 @@ export enum IconNames {
   LockClosed = "lock-closed",
   LockOpen = "lock-open",
 }
+
+export enum BlobGradients {
+  Green = "from-green-600/40 via-green-600/20 to-green-600/0",
+  Amber = "from-amber-600/40 via-amber-600/20 to-amber-600/0",
+  Sky = "from-sky-500/40 via-sky-500/20  to-sky-500/40",
+  Red = "from-red-500/40 via-red-500/20 to-red-500/0",
+  Yellow = "from-yellow-500/40 via-yellow-500/20 to-yellow-500/0",
+  Fuchsia = "from-fuchsia-600/40 via-fuchsia-600/20 to-fuchsia-600/0",
+}
