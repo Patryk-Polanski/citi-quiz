@@ -1,6 +1,7 @@
 // .d.ts file extenstion throws errors when enums are exported
 
 export enum EmojiNames {
+  Unknown = "unknown",
   Adventurer = "adventurer",
   Explorer = "explorer",
   Virtuoso = "virtuoso",
