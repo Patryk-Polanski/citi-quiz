@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 
 import AppHeader from "./AppHeader";
 import AppFooter from "./AppFooter";
-import BackgroundBlob from "./decorative/BackgroundBlob";
+import BackgroundBlob from "../ui/decorative/BackgroundBlob";
 
 export default function AppLayout() {
   return (
