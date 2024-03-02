@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-import { IconNames, QuizTypes } from "../types/enums";
+import { BlobGradients, IconNames } from "../types/enums";
 import ProgressBar from "../features/quiz/ProgressBar";
 import QuizHeader from "../features/quiz/QuizHeader";
 import AnswerCard from "../features/quiz/AnswerCard";
@@ -147,16 +147,22 @@ export default function QuizPage() {
         <h4 className="text-2xl">Question {questionIndex + 1}</h4>
         <h4 className="mt-4 text-2xl">{currentQuestion.current.question}</h4>
       </div>
-      <div className="mt-8 flex flex-col gap-4 font-laila text-xl">
-        {currentQuestion.current.options.map((option) => (
-          <AnswerCard
-            key={option.letter}
-            option={option}
-            chosenLetter={chosenLetter}
-            questionResult={questionResult}
-            onOptionSelect={setChosenLetter}
-          />
-        ))}
+      <div className="relative">
+        <span
+          className={`absolute left-1/4 top-1/2 h-[120%] w-2/3 -translate-y-1/2 rounded-full bg-gradient-radial ${BlobGradients.Fuchsia} opacity-80 blur-lg`}
+        />
+        <ul className="mt-8 flex flex-col gap-4 font-laila text-xl">
+          {currentQuestion.current.options.map((option) => (
+            <li key={option.letter}>
+              <AnswerCard
+                option={option}
+                chosenLetter={chosenLetter}
+                questionResult={questionResult}
+                onOptionSelect={setChosenLetter}
+              />
+            </li>
+          ))}
+        </ul>
       </div>
       {chosenLetter !== "-1" ? (
         <div className="mt-6 flex flex-col items-center justify-center gap-6">
