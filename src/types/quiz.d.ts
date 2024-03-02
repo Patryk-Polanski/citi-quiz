@@ -21,3 +21,5 @@ export type Quiz = {
   score: Score[];
   questions: Question[];
 };
+
+export type QuestionResult = "unselected" | "correct" | "wrong";

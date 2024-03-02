@@ -6,8 +6,8 @@ import QuizHeader from "../features/quiz/QuizHeader";
 import AnswerCard from "../features/quiz/AnswerCard";
 import Button from "../ui/Button";
 import Icon from "../ui/icons/_Icon";
-import { useRef, useState } from "react";
-import { type Question, type Quiz } from "../types/quiz";
+import { useMemo, useRef, useState } from "react";
+import { type QuestionResult, type Question, type Quiz } from "../types/quiz";
 
 const tempQuiz: Quiz = {
   quizId: "1",
@@ -110,18 +110,23 @@ const tempQuiz: Quiz = {
 export default function QuizPage() {
   const { quizId } = useParams();
   const [questionIndex, setQuestionIndex] = useState(0);
-  const [questionAnswered, setQuestionAnswered] = useState(false);
+  const [chosenLetter, setChosenLetter] = useState("-1");
+
   const currentQuestion = useRef<Question | null>(
     tempQuiz.questions[questionIndex],
   );
 
-  if (quizId === QuizTypes.Survival) {
-    return <h1>This is a survival quiz</h1>;
-  }
+  const questionResult: QuestionResult = useMemo(() => {
+    if (chosenLetter === "-1") return "unselected";
 
-  if (quizId === QuizTypes.TryAgain) {
-    return <h1>This is a try again quiz</h1>;
-  }
+    if (chosenLetter === currentQuestion.current?.answer) {
+      alert("correct");
+      return "correct";
+    } else {
+      alert("wrong");
+      return "wrong";
+    }
+  }, [chosenLetter]);
 
   const handleNextQuestion = () => {
     if (questionIndex === tempQuiz.questions.length - 1) {
@@ -131,14 +136,7 @@ export default function QuizPage() {
 
     setQuestionIndex((prevQuestionIndex) => prevQuestionIndex + 1);
     currentQuestion.current = tempQuiz.questions[questionIndex + 1];
-    setQuestionAnswered(false);
-  };
-
-  const handleOptionSelect = (optionLetter: string | undefined) => {
-    if (optionLetter === currentQuestion.current?.answer) alert("correct");
-    else alert("wrong");
-
-    setQuestionAnswered(true);
+    setChosenLetter("-1");
   };
 
   return currentQuestion.current ? (
@@ -154,11 +152,13 @@ export default function QuizPage() {
           <AnswerCard
             key={option.letter}
             option={option}
-            onOptionSelect={handleOptionSelect}
+            chosenLetter={chosenLetter}
+            questionResult={questionResult}
+            onOptionSelect={setChosenLetter}
           />
         ))}
       </div>
-      {questionAnswered ? (
+      {chosenLetter !== "-1" ? (
         <div className="mt-6 flex flex-col items-center justify-center gap-6">
           <Button onClick={handleNextQuestion} el="button">
             <span>
