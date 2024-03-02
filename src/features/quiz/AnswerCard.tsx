@@ -1,12 +1,26 @@
+import { useRef } from "react";
+
 import { type Option } from "../../types/quiz";
 
 type AnswerCardProps = {
   option: Option;
+  onOptionSelect: (optionLetter: string | undefined) => void;
 };
 
-export default function AnswerCard({ option }: AnswerCardProps) {
+export default function AnswerCard({
+  option,
+  onOptionSelect,
+}: AnswerCardProps) {
+  const optionRef = useRef<HTMLDivElement | null>(null);
+
   return (
     <div
+      ref={optionRef}
+      onClick={() =>
+        onOptionSelect(
+          optionRef.current?.getAttribute("data-option-letter") || undefined,
+        )
+      }
       className="group flex cursor-pointer items-center gap-2"
       data-option-letter={option.letter}
     >

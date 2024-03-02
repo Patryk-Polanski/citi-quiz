@@ -110,6 +110,7 @@ const tempQuiz: Quiz = {
 export default function QuizPage() {
   const { quizId } = useParams();
   const [questionIndex, setQuestionIndex] = useState(0);
+  const [questionAnswered, setQuestionAnswered] = useState(false);
   const currentQuestion = useRef<Question | null>(
     tempQuiz.questions[questionIndex],
   );
@@ -123,15 +124,26 @@ export default function QuizPage() {
   }
 
   const handleNextQuestion = () => {
-    if (questionIndex === tempQuiz.questions.length - 1) return;
+    if (questionIndex === tempQuiz.questions.length - 1) {
+      alert("Quiz complete");
+      return;
+    }
 
     setQuestionIndex((prevQuestionIndex) => prevQuestionIndex + 1);
     currentQuestion.current = tempQuiz.questions[questionIndex + 1];
+    setQuestionAnswered(false);
+  };
+
+  const handleOptionSelect = (optionLetter: string | undefined) => {
+    if (optionLetter === currentQuestion.current?.answer) alert("correct");
+    else alert("wrong");
+
+    setQuestionAnswered(true);
   };
 
   return currentQuestion.current ? (
     <>
-      <QuizHeader />
+      <QuizHeader quizId={tempQuiz.quizId} />
       <ProgressBar />
       <div className="mt-8 text-center font-laila">
         <h4 className="text-2xl">Question {questionIndex + 1}</h4>
@@ -139,17 +151,27 @@ export default function QuizPage() {
       </div>
       <div className="mt-8 flex flex-col gap-4 font-laila text-xl">
         {currentQuestion.current.options.map((option) => (
-          <AnswerCard key={option.letter} option={option} />
+          <AnswerCard
+            key={option.letter}
+            option={option}
+            onOptionSelect={handleOptionSelect}
+          />
         ))}
       </div>
-      <div className="mt-6 flex flex-col items-center justify-center gap-6">
-        <Button onClick={handleNextQuestion} el="button">
-          <span>Next question</span>
-          <span className="w-[2px] self-stretch bg-white opacity-60" />
-          <Icon iconName={IconNames.Chevron} className="h-5 w-5" />
-        </Button>
-        <p>{currentQuestion.current.explanation}</p>
-      </div>
+      {questionAnswered ? (
+        <div className="mt-6 flex flex-col items-center justify-center gap-6">
+          <Button onClick={handleNextQuestion} el="button">
+            <span>
+              {questionIndex < tempQuiz.questions.length - 1
+                ? "Next question"
+                : "Finish"}
+            </span>
+            <span className="w-[2px] self-stretch bg-white opacity-60" />
+            <Icon iconName={IconNames.Chevron} className="h-5 w-5" />
+          </Button>
+          <p>{currentQuestion.current.explanation}</p>
+        </div>
+      ) : null}
     </>
   ) : null;
 }
