@@ -54,3 +54,9 @@ export enum BlobGradients {
   Yellow = "from-yellow-500/40 via-yellow-500/20 to-yellow-500/0",
   Fuchsia = "from-fuchsia-600/40 via-fuchsia-600/20 to-fuchsia-600/0",
 }
+
+export enum QuizTypes {
+  Survival = "survival",
+  TryAgain = "try-again",
+  Standard = "standard",
+}

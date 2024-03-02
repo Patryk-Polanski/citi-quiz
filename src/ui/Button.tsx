@@ -26,8 +26,9 @@ export default function Button(props: ButtonProps | LinkProps) {
     );
 
   return (
-    <button className={`${defaultClasses} ${props.className}`} {...props}>
-      Button
-    </button>
+    <button
+      className={`${defaultClasses} ${props.className}`}
+      {...props}
+    ></button>
   );
 }
