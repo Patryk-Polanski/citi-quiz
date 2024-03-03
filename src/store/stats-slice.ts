@@ -4,7 +4,7 @@ import { type userStats } from "../types/stats";
 const initialState: userStats = {
   quizzes: [],
   tryAgainQuestionIds: [],
-  activeQuizId: "",
+  activeQuizId: null,
   activeQuizScore: [],
 };
 
@@ -12,7 +12,7 @@ export const statsSlice = createSlice({
   name: "stats",
   initialState,
   reducers: {
-    setActiveQuiz(state, action: PayloadAction<string>) {
+    setActiveQuiz(state, action: PayloadAction<string | null>) {
       state.activeQuizId = action.payload;
     },
   },

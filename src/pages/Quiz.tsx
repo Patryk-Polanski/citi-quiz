@@ -1,10 +1,11 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { setActiveQuiz } from "../store/stats-slice";
 import { useAppDispatch, useAppSelector } from "../hooks/useStore";
 import { BlobGradients, IconNames } from "../types/enums";
-import { type QuestionResult, type Question, type Quiz } from "../types/quiz";
+import { type QuestionResult, type Question, Quiz } from "../types/quiz";
+import { TEMP_DATA } from "../utils/constants";
 
 import ProgressBar from "../features/quiz/ProgressBar";
 import QuizHeader from "../features/quiz/QuizHeader";
@@ -12,158 +13,67 @@ import AnswerCard from "../features/quiz/AnswerCard";
 import Button from "../ui/Button";
 import Icon from "../ui/icons/_Icon";
 
-const tempQuiz: Quiz = {
-  quizId: "1",
-  score: [],
-  questions: [
-    {
-      questionId: "1-1",
-      question: "In which country is the Lake District?",
-      options: [
-        {
-          letter: "A",
-          answer: "Scotland",
-        },
-        {
-          letter: "B",
-          answer: "Northern Ireland",
-        },
-        {
-          letter: "C",
-          answer: "Wales",
-        },
-        {
-          letter: "D",
-          answer: "England",
-        },
-      ],
-      answer: "D",
-      explanation: "Lake District is situated in England.",
-    },
-    {
-      questionId: "1-2",
-      question: "Which of the following is associated with Christmas?",
-      options: [
-        {
-          letter: "A",
-          answer: "Santa Claus",
-        },
-        {
-          letter: "B",
-          answer: "Sending anonymous cards",
-        },
-        {
-          letter: "C",
-          answer: "Guy Fawkes",
-        },
-        {
-          letter: "D",
-          answer: "Practical jokes",
-        },
-      ],
-      answer: "A",
-      explanation:
-        "Santa Claus is one of the main talking points during Christmas.",
-    },
-    {
-      questionId: "1-3",
-      question: "Which of the following statements is correct?",
-      options: [
-        {
-          letter: "A",
-          answer: "In the UK, betting and gambling were illegal until 2005",
-        },
-        {
-          letter: "B",
-          answer: "In the UK, betting and gamblig are legal",
-        },
-      ],
-      answer: "B",
-      explanation: "Betting and gambling have always been legal in the UK.",
-    },
-    {
-      questionId: "1-4",
-      question:
-        "The game of golf is traditionally thought to have originated in which country?",
-      options: [
-        {
-          letter: "A",
-          answer: "England",
-        },
-        {
-          letter: "B",
-          answer: "Spain",
-        },
-        {
-          letter: "C",
-          answer: "USA",
-        },
-        {
-          letter: "D",
-          answer: "Scotland",
-        },
-      ],
-      answer: "D",
-      explanation:
-        "Scotland was the nation to invent the first version of golf.",
-    },
-  ],
-};
-
 export default function QuizPage() {
   const { quizId } = useParams();
-  const dispatch = useAppDispatch();
-
   const { activeQuizId } = useAppSelector((store) => store.stats);
+  const dispatch = useAppDispatch();
   const [questionIndex, setQuestionIndex] = useState(0);
-  const [chosenLetter, setChosenLetter] = useState("-1");
+  const [chosenLetter, setChosenLetter] = useState<string | null>(null);
 
   useEffect(() => {
-    dispatch(setActiveQuiz(quizId || ""));
+    dispatch(setActiveQuiz(quizId || null));
+    return () => {
+      dispatch(setActiveQuiz(null));
+    };
   }, [dispatch, quizId]);
 
-  console.log("🚀 ~ QuizPage ~ activeQuizId:", activeQuizId);
-  const currentQuestion = useRef<Question | null>(
-    tempQuiz.questions[questionIndex],
-  );
+  const activeQuiz = useMemo(() => {
+    if (!activeQuizId) return null;
+    return TEMP_DATA.find((quiz) => quiz.quizId === activeQuizId) as
+      | Quiz
+      | undefined;
+  }, [activeQuizId]);
+
+  const activeQuestion = useMemo(() => {
+    if (!activeQuiz) return;
+    return activeQuiz.questions[questionIndex] as Question | null;
+  }, [activeQuiz, questionIndex]);
 
   const questionResult: QuestionResult = useMemo(() => {
-    if (chosenLetter === "-1") return "unselected";
+    if (chosenLetter === null) return "unselected";
 
-    if (chosenLetter === currentQuestion.current?.answer) {
+    if (chosenLetter === activeQuestion?.answer) {
       alert("correct");
       return "correct";
     } else {
       alert("wrong");
       return "wrong";
     }
-  }, [chosenLetter]);
+  }, [chosenLetter, activeQuestion?.answer]);
 
   const handleNextQuestion = () => {
-    if (questionIndex === tempQuiz.questions.length - 1) {
+    if (questionIndex === activeQuiz?.questions.length || 0 - 1) {
       alert("Quiz complete");
       return;
     }
-
     setQuestionIndex((prevQuestionIndex) => prevQuestionIndex + 1);
-    currentQuestion.current = tempQuiz.questions[questionIndex + 1];
-    setChosenLetter("-1");
+    setChosenLetter(null);
   };
 
-  return currentQuestion.current ? (
+  return activeQuiz && activeQuestion ? (
     <>
-      <QuizHeader quizId={tempQuiz.quizId} />
+      <QuizHeader quizId={activeQuiz.quizId} />
       <ProgressBar />
       <div className="mt-8 text-center font-laila">
         <h4 className="text-2xl">Question {questionIndex + 1}</h4>
-        <h4 className="mt-4 text-2xl">{currentQuestion.current.question}</h4>
+        <h4 className="mt-4 text-2xl">{activeQuestion.question}</h4>
       </div>
       <div className="relative">
         <span
           className={`absolute left-1/4 top-1/2 h-[120%] w-2/3 -translate-y-1/2 rounded-full bg-gradient-radial ${BlobGradients.Fuchsia} opacity-80 blur-lg`}
         />
         <ul className="mt-8 flex flex-col gap-4 font-laila text-xl">
-          {currentQuestion.current.options.map((option) => (
+          {activeQuestion.options.map((option) => (
             <li key={option.letter}>
               <AnswerCard
                 option={option}
@@ -175,18 +85,18 @@ export default function QuizPage() {
           ))}
         </ul>
       </div>
-      {chosenLetter !== "-1" ? (
+      {chosenLetter !== null ? (
         <div className="mt-6 flex flex-col items-center justify-center gap-6">
           <Button onClick={handleNextQuestion} el="button">
             <span>
-              {questionIndex < tempQuiz.questions.length - 1
+              {questionIndex < activeQuiz.questions.length - 1
                 ? "Next question"
                 : "Finish"}
             </span>
             <span className="w-[2px] self-stretch bg-white opacity-60" />
             <Icon iconName={IconNames.Chevron} className="h-5 w-5" />
           </Button>
-          <p>{currentQuestion.current.explanation}</p>
+          <p>{activeQuestion.explanation}</p>
         </div>
       ) : null}
     </>

@@ -4,9 +4,9 @@ import { type QuestionResult, type Option } from "../../types/quiz";
 
 type AnswerCardProps = {
   option: Option;
-  chosenLetter: string;
+  chosenLetter: string | null;
   questionResult: QuestionResult;
-  onOptionSelect: React.Dispatch<React.SetStateAction<string>>;
+  onOptionSelect: React.Dispatch<React.SetStateAction<string | null>>;
 };
 
 export default function AnswerCard({

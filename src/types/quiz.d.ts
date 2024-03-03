@@ -11,14 +11,8 @@ export type Question = {
   explanation: string;
 };
 
-export type Score = {
-  questionId: string;
-  passed: boolean;
-};
-
 export type Quiz = {
   quizId: string;
-  score: Score[];
   questions: Question[];
 };
 

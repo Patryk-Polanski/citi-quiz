@@ -1,10 +1,8 @@
 export type userStats = {
   quizzes: quizStats[];
   tryAgainQuestionIds: string[];
-  activeQuizId: string;
+  activeQuizId: string | null;
   activeQuizScore: quizStats[];
 };
 
-export type quizStats = {
-  questions: [questionId: string, pass: boolean];
-};
+export type quizStats = { questionId: string; pass: boolean };

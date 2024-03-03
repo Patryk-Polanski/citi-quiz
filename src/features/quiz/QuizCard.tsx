@@ -7,7 +7,7 @@ import Icon from "../../ui/icons/_Icon";
 export default function QuizCard({ index }: { index: number }) {
   return (
     <Link
-      to={`/quiz/${index - 1}`}
+      to={`/quiz/${index}`}
       className="group relative z-10 block w-full overflow-hidden rounded-[20px] bg-gradient-to-br from-white/50 to-white/5 py-2 pl-4 drop-shadow-xl backdrop-blur transition duration-0 ease-in-out after:absolute after:inset-0 after:rounded-[20px] after:border-2 after:border-white/20 after:transition after:duration-0 hover:after:border-white/60"
     >
       <div className="flex items-center justify-between">
