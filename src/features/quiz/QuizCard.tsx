@@ -1,23 +1,13 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import { useAppDispatch } from "../../hooks/useStore";
-import { setActiveQuiz } from "../../store/stats-slice";
 import { IconNames } from "../../types/enums";
 
 import Icon from "../../ui/icons/_Icon";
-import Button from "../../ui/Button";
 
 export default function QuizCard({ index }: { index: number }) {
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
-
   return (
-    <Button
-      onClick={() => {
-        dispatch(setActiveQuiz(index - 1 + ""));
-        navigate(`/quiz/${index - 1}`);
-      }}
-      el="button"
+    <Link
+      to={`/quiz/${index - 1}`}
       className="group relative z-10 block w-full overflow-hidden rounded-[20px] bg-gradient-to-br from-white/50 to-white/5 py-2 pl-4 drop-shadow-xl backdrop-blur transition duration-0 ease-in-out after:absolute after:inset-0 after:rounded-[20px] after:border-2 after:border-white/20 after:transition after:duration-0 hover:after:border-white/60"
     >
       <div className="flex items-center justify-between">
@@ -30,6 +20,6 @@ export default function QuizCard({ index }: { index: number }) {
         <span className="my-2 w-[2px] self-stretch bg-white opacity-60" />
         <Icon iconName={IconNames.Chevron} className="mx-2 h-5" />
       </div>
-    </Button>
+    </Link>
   );
 }

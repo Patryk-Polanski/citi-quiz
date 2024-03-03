@@ -5,6 +5,7 @@ const initialState: userStats = {
   quizzes: [],
   tryAgainQuestionIds: [],
   activeQuizId: "",
+  activeQuizScore: [],
 };
 
 export const statsSlice = createSlice({
