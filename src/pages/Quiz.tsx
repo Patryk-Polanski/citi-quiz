@@ -8,6 +8,9 @@ import Button from "../ui/Button";
 import Icon from "../ui/icons/_Icon";
 import { useMemo, useRef, useState } from "react";
 import { type QuestionResult, type Question, type Quiz } from "../types/quiz";
+import { type TypedUseSelectorHook, useSelector } from "react-redux";
+import { RootState } from "../store/store";
+import { useAppSelector } from "../hooks/useStore";
 
 const tempQuiz: Quiz = {
   quizId: "1",
@@ -109,9 +112,11 @@ const tempQuiz: Quiz = {
 
 export default function QuizPage() {
   const { quizId } = useParams();
+  const { activeQuizId } = useAppSelector((store) => store.stats);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [chosenLetter, setChosenLetter] = useState("-1");
 
+  console.log("🚀 ~ QuizPage ~ activeQuizId:", activeQuizId);
   const currentQuestion = useRef<Question | null>(
     tempQuiz.questions[questionIndex],
   );

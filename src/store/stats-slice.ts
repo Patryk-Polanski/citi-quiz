@@ -16,3 +16,5 @@ export const statsSlice = createSlice({
     },
   },
 });
+
+export const { setActiveQuiz } = statsSlice.actions;
