@@ -100,5 +100,17 @@ export default function QuizPage() {
         </div>
       ) : null}
     </>
-  ) : null;
+  ) : (
+    <div className="mt-8 flex flex-col items-center justify-center gap-8">
+      <p>Could not find a quiz with an id of {quizId}</p>
+      <Button el="link" href="/">
+        <Icon
+          iconName={IconNames.Chevron}
+          className="h-[18px] w-[18px] rotate-180"
+        />
+        <span className="w-[2px] self-stretch bg-white opacity-60" />
+        <span>Back Home</span>
+      </Button>
+    </div>
+  );
 }
