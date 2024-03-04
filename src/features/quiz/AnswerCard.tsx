@@ -5,6 +5,7 @@ import { type QuestionResult, type Option } from "../../types/quiz";
 type AnswerCardProps = {
   option: Option;
   chosenLetter: string | null;
+  correctLetter: string;
   questionResult: QuestionResult;
   onOptionSelect: React.Dispatch<React.SetStateAction<string | null>>;
 };
@@ -12,6 +13,7 @@ type AnswerCardProps = {
 export default function AnswerCard({
   option,
   chosenLetter,
+  correctLetter,
   questionResult,
   onOptionSelect,
 }: AnswerCardProps) {
@@ -29,6 +31,11 @@ export default function AnswerCard({
     chosenLetter === optionRef.current?.getAttribute("data-option-letter")
   ) {
     borderClasses = "after:border-red-600 text-red-600";
+  } else if (
+    questionResult === "wrong" &&
+    correctLetter === optionRef.current?.getAttribute("data-option-letter")
+  ) {
+    borderClasses = "after:border-green-600 text-green-600";
   }
 
   return (

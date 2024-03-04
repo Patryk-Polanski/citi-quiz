@@ -52,7 +52,8 @@ export default function QuizPage() {
   }, [chosenLetter, activeQuestion?.answer]);
 
   const handleNextQuestion = () => {
-    if (questionIndex === activeQuiz?.questions.length || 0 - 1) {
+    // -99 is used as 0 or -1 causes logic issues
+    if (questionIndex + 1 === activeQuiz?.questions.length) {
       alert("Quiz complete");
       return;
     }
@@ -78,6 +79,7 @@ export default function QuizPage() {
               <AnswerCard
                 option={option}
                 chosenLetter={chosenLetter}
+                correctLetter={activeQuestion.answer}
                 questionResult={questionResult}
                 onOptionSelect={setChosenLetter}
               />
@@ -85,6 +87,7 @@ export default function QuizPage() {
           ))}
         </ul>
       </div>
+      {/* chosen letter needs to exist for next/finish buttons to appear */}
       {chosenLetter !== null ? (
         <div className="mt-6 flex flex-col items-center justify-center gap-6">
           <Button onClick={handleNextQuestion} el="button">
@@ -101,6 +104,7 @@ export default function QuizPage() {
       ) : null}
     </>
   ) : (
+    // Show error message
     <div className="mt-8 flex flex-col items-center justify-center gap-8">
       <p>Could not find a quiz with an id of {quizId}</p>
       <Button el="link" href="/">
