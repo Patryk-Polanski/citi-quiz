@@ -43,16 +43,13 @@ export default function QuizPage() {
     if (chosenLetter === null) return "unselected";
 
     if (chosenLetter === activeQuestion?.answer) {
-      alert("correct");
       return "correct";
     } else {
-      alert("wrong");
       return "wrong";
     }
   }, [chosenLetter, activeQuestion?.answer]);
 
   const handleNextQuestion = () => {
-    // -99 is used as 0 or -1 causes logic issues
     if (questionIndex + 1 === activeQuiz?.questions.length) {
       alert("Quiz complete");
       return;
