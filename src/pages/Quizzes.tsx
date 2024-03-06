@@ -1,8 +1,6 @@
 import QuizCard from "../features/quiz/QuizCard";
 import { BlobGradients } from "../types/enums";
-
-const tempArr = new Array(24);
-tempArr.fill(1);
+import { TEMP_DATA } from "../utils/constants";
 
 export default function QuizzesPage() {
   return (
@@ -14,11 +12,7 @@ export default function QuizzesPage() {
         className={`absolute bottom-1/3 right-1/4 h-3/4 w-2/3 rounded-full bg-gradient-radial blur-lg ${BlobGradients.Green}`}
       />
       <ul className="mt-5 grid w-full grid-cols-2 items-center gap-5">
-        {[
-          tempArr.map((quizCard, index) => (
-            <QuizCard key={index} index={index + 1} />
-          )),
-        ]}
+        {[TEMP_DATA.map((quiz) => <QuizCard key={quiz.quizId} quiz={quiz} />)]}
       </ul>
     </div>
   );
