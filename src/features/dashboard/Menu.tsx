@@ -1,29 +1,12 @@
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import { BlobGradients, IconNames } from "../../types/enums";
 
 import { TEMP_DATA } from "../../utils/constants";
-import { useAppDispatch } from "../../hooks/useStore";
-import { setQuizzesStats } from "../../store/stats-slice";
 
 import { type MenuCardTypes } from "../../types/cards";
 import MenuCard from "./MenuCard";
 
 export default function Menu() {
-  const dispatch = useAppDispatch();
-
-  // todo: replace later with tanstack query when db is ready
-  useEffect(() => {
-    const stats = TEMP_DATA.map((quiz) => {
-      const questionsStats = quiz.questions.map((question) => ({
-        questionId: question.questionId,
-        pass: false,
-      }));
-      return questionsStats;
-    });
-
-    dispatch(setQuizzesStats(stats));
-  }, [dispatch]);
-
   const menuCardsData: MenuCardTypes[] = useMemo(
     () => [
       {

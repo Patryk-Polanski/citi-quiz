@@ -1,10 +1,30 @@
+import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
+
+import { TEMP_DATA } from "../utils/constants";
+import { useAppDispatch } from "../hooks/useStore";
+import { setQuizzesStats } from "../store/stats-slice";
 
 import AppHeader from "./AppHeader";
 import AppFooter from "./AppFooter";
 import BackgroundBlob from "../ui/decorative/BackgroundBlob";
 
 export default function AppLayout() {
+  const dispatch = useAppDispatch();
+
+  // todo: replace later with tanstack query when db is ready
+  useEffect(() => {
+    const stats = TEMP_DATA.map((quiz) => {
+      const questionsStats = quiz.questions.map((question) => ({
+        questionId: question.questionId,
+        pass: false,
+      }));
+      return questionsStats;
+    });
+
+    dispatch(setQuizzesStats(stats));
+  }, [dispatch]);
+
   return (
     <div className="relative min-h-screen bg-sky-600 font-comfortaa text-white">
       <div className="flex min-h-screen flex-col bg-gradient-to-br from-white/50 to-white/20">

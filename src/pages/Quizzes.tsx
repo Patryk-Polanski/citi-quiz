@@ -7,6 +7,8 @@ import { useAppSelector } from "../hooks/useStore";
 export default function QuizzesPage() {
   const { quizzes: quizzesStats } = useAppSelector((store) => store.stats);
 
+  if (quizzesStats.length < 1) return null;
+
   return (
     <div className="relative">
       <span
