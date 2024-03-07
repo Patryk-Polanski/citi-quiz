@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { type userStats } from "../types/stats";
+import { type userStats, quizStats } from "../types/stats";
 
 const initialState: userStats = {
   quizzes: [],
@@ -15,7 +15,10 @@ export const statsSlice = createSlice({
     setActiveQuiz(state, action: PayloadAction<string | null>) {
       state.activeQuizId = action.payload;
     },
+    setQuizzesStats(state, action: PayloadAction<quizStats[][]>) {
+      state.quizzes = action.payload;
+    },
   },
 });
 
-export const { setActiveQuiz } = statsSlice.actions;
+export const { setActiveQuiz, setQuizzesStats } = statsSlice.actions;

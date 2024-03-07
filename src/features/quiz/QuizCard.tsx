@@ -4,8 +4,26 @@ import { IconNames } from "../../types/enums";
 
 import Icon from "../../ui/icons/_Icon";
 import { Quiz } from "../../types/quiz";
+import { quizStats } from "../../types/stats";
+import { useMemo } from "react";
 
-export default function QuizCard({ quiz }: { quiz: Quiz }) {
+type QuizCardProps = {
+  quiz: Quiz;
+  quizStats: quizStats[];
+};
+
+export default function QuizCard({ quiz, quizStats }: QuizCardProps) {
+  const highestScore = useMemo(() => {
+    return quizStats.reduce(
+      (acc, question) => (question.pass ? acc + 1 : acc),
+      0,
+    );
+  }, [quizStats]);
+
+  const highestScorePercentage = useMemo(() => {
+    return Math.floor((highestScore / quizStats.length) * 100);
+  }, [highestScore, quizStats.length]);
+
   return (
     <Link
       to={`/quiz/${quiz.quizId}`}
@@ -15,8 +33,10 @@ export default function QuizCard({ quiz }: { quiz: Quiz }) {
         <h3 className="font-laila text-2xl">Test {quiz.quizId}</h3>
         <div className="mx-auto flex flex-col items-center text-sm">
           <p>Highest score</p>
-          <span>18/24</span>
-          <span>75%</span>
+          <span>
+            {highestScore}/{quizStats.length}
+          </span>
+          <span>{highestScorePercentage}%</span>
         </div>
         <span className="my-2 w-[2px] self-stretch bg-white opacity-60" />
         <Icon iconName={IconNames.Chevron} className="mx-2 h-5" />

@@ -1,5 +1,5 @@
 export type userStats = {
-  quizzes: quizStats[];
+  quizzes: quizStats[][];
   tryAgainQuestionIds: string[];
   activeQuizId: string | null;
   activeQuizScore: quizStats[];
