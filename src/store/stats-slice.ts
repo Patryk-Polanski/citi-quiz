@@ -18,7 +18,19 @@ export const statsSlice = createSlice({
     setQuizzesStats(state, action: PayloadAction<quizStats[][]>) {
       state.quizzes = action.payload;
     },
+    updateActiveQuizScore(state, action: PayloadAction<quizStats>) {
+      state.activeQuizScore.push(action.payload);
+    },
+    resetActiveQuiz(state) {
+      state.activeQuizId = null;
+      state.activeQuizScore = [];
+    },
   },
 });
 
-export const { setActiveQuiz, setQuizzesStats } = statsSlice.actions;
+export const {
+  setActiveQuiz,
+  setQuizzesStats,
+  updateActiveQuizScore,
+  resetActiveQuiz,
+} = statsSlice.actions;

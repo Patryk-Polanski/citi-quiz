@@ -1,7 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-import { setActiveQuiz } from "../store/stats-slice";
+import {
+  resetActiveQuiz,
+  setActiveQuiz,
+  updateActiveQuizScore,
+} from "../store/stats-slice";
 import { useAppDispatch, useAppSelector } from "../hooks/useStore";
 import { BlobGradients, IconNames } from "../types/enums";
 import { type QuestionResult, type Question, Quiz } from "../types/quiz";
@@ -14,18 +18,12 @@ import Button from "../ui/Button";
 import Icon from "../ui/icons/_Icon";
 
 export default function QuizPage() {
+  const navigate = useNavigate();
   const { quizId } = useParams();
   const { activeQuizId } = useAppSelector((store) => store.stats);
   const dispatch = useAppDispatch();
   const [questionIndex, setQuestionIndex] = useState(0);
   const [chosenLetter, setChosenLetter] = useState<string | null>(null);
-
-  useEffect(() => {
-    dispatch(setActiveQuiz(quizId || null));
-    return () => {
-      dispatch(setActiveQuiz(null));
-    };
-  }, [dispatch, quizId]);
 
   const activeQuiz = useMemo(() => {
     if (!activeQuizId) return null;
@@ -44,14 +42,44 @@ export default function QuizPage() {
 
     if (chosenLetter === activeQuestion?.answer) {
       return "correct";
-    } else {
+    } else if (chosenLetter !== activeQuestion?.answer) {
       return "wrong";
     }
+    return "unselected";
   }, [chosenLetter, activeQuestion?.answer]);
+
+  useEffect(() => {
+    dispatch(setActiveQuiz(quizId || null));
+    return () => {
+      dispatch(setActiveQuiz(null));
+    };
+  }, [dispatch, quizId]);
+
+  useEffect(() => {
+    if (!activeQuestion?.questionId) return;
+
+    if (questionResult === "correct") {
+      dispatch(
+        updateActiveQuizScore({
+          questionId: activeQuestion.questionId,
+          pass: true,
+        }),
+      );
+    } else if (questionResult === "wrong") {
+      dispatch(
+        updateActiveQuizScore({
+          questionId: activeQuestion.questionId,
+          pass: false,
+        }),
+      );
+    }
+  }, [questionResult, activeQuestion?.questionId, dispatch]);
 
   const handleNextQuestion = () => {
     if (questionIndex + 1 === activeQuiz?.questions.length) {
       alert("Quiz complete");
+      navigate("/");
+      dispatch(resetActiveQuiz());
       return;
     }
     setQuestionIndex((prevQuestionIndex) => prevQuestionIndex + 1);
@@ -61,7 +89,7 @@ export default function QuizPage() {
   return activeQuiz && activeQuestion ? (
     <>
       <QuizHeader quizId={activeQuiz.quizId} />
-      <ProgressBar />
+      <ProgressBar questionsNumber={activeQuiz.questions.length} />
       <div className="mt-8 text-center font-laila">
         <h4 className="text-2xl">Question {questionIndex + 1}</h4>
         <h4 className="mt-4 text-2xl">{activeQuestion.question}</h4>

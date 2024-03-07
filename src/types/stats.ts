@@ -5,4 +5,4 @@ export type userStats = {
   activeQuizScore: quizStats[];
 };
 
-export type quizStats = { questionId: string; pass: boolean };
+export type quizStats = { questionId: string | null; pass: boolean };

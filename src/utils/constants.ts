@@ -314,7 +314,7 @@ export const TEMP_DATA: Quiz[] = [
             answer: "Murder, assault and theft are civil disputes",
           },
         ],
-        answer: "B",
+        answer: "A",
         explanation: "Murder, assault and theft are crimes.",
       },
       {
