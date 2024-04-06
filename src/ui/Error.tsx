@@ -1,7 +1,7 @@
 import { useRouteError, isRouteErrorResponse } from "react-router-dom";
 import BackgroundBlob from "./decorative/BackgroundBlob";
 import Button from "./Button";
-import Icon from "./icons/_Icon";
+import Icon from "./Icons/Icon";
 import { IconNames } from "../types/enums";
 
 type ErrorProps = {

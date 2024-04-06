@@ -1,5 +1,5 @@
 import { IconNames } from "../../types/enums";
-import Icon from "../../ui/icons/_Icon";
+import Icon from "../../ui/Icons/Icon";
 
 import Countdown from "./Countdown";
 

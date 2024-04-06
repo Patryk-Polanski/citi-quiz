@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import { IconNames } from "../../types/enums";
 
-import Icon from "../../ui/icons/_Icon";
+import Icon from "src/ui/Icons/Icon";
 import { Quiz } from "../../types/quiz";
 import { quizStats } from "../../types/stats";
 import { useMemo } from "react";

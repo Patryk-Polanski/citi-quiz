@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../ui/Logo";
-import Icon from "../ui/icons/_Icon";
+import Icon from "src/ui/Icons/Icon";
 import Button from "../ui/Button";
 
 import { IconNames } from "../types/enums";

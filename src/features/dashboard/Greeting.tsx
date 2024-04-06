@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-import { EmojiNames } from "../../types/enums";
-import Emoji from "../../ui/emojis/_Emoji";
-import { generateRandomNumber } from "../../utils/helpers";
+import { EmojiNames } from "src/types/enums";
+import Emoji from "src/ui/Emojis/Emoji";
+import { generateRandomNumber } from "src/utils/helpers";
 
 const emojisData = Object.values(EmojiNames);
 emojisData.shift();

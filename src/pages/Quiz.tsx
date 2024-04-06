@@ -15,7 +15,7 @@ import ProgressBar from "../features/quiz/ProgressBar";
 import QuizHeader from "../features/quiz/QuizHeader";
 import AnswerCard from "../features/quiz/AnswerCard";
 import Button from "../ui/Button";
-import Icon from "../ui/icons/_Icon";
+import Icon from "../ui/Icons/Icon";
 
 export default function QuizPage() {
   const navigate = useNavigate();
