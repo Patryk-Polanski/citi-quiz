@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-import { IconNames } from "../../types/enums";
-import Icon from "../../ui/Icons/Icon";
+import { IconNames } from "src/types/enums";
+import Icon from "src/ui/Icons/Icon";
 
 export default function AnswerCardPopup({ passed }: { passed: boolean }) {
   const [isMounted, setIsMounted] = useState(true);

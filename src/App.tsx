@@ -1,13 +1,13 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import AppLayout from "./pages/AppLayout";
-import DashboardPage from "./pages/Dashboard";
-import FaqsPage from "./pages/Faqs";
-import ResourcesPage from "./pages/Resources";
-import SettingsPage from "./pages/Settings";
-import QuizzesPage from "./pages/Quizzes";
-import QuizPage from "./pages/Quiz";
-import Error from "./ui/Error";
+import AppLayout from "src/pages/AppLayout";
+import DashboardPage from "src/pages/Dashboard";
+import FaqsPage from "src/pages/Faqs";
+import ResourcesPage from "src/pages/Resources";
+import SettingsPage from "src/pages/Settings";
+import QuizzesPage from "src/pages/Quizzes";
+import QuizPage from "src/pages/Quiz";
+import Error from "src/ui/Error";
 
 import "./index.css";
 

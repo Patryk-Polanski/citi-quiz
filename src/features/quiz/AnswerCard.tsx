@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-import { type QuestionResult, type Option } from "../../types/quiz";
+import { type QuestionResult, type Option } from "src/types/quiz";
 import AnswerCardPopup from "./AnswerCardPopup";
 
 type AnswerCardProps = {

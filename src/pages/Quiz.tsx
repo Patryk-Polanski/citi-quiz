@@ -5,11 +5,11 @@ import {
   resetActiveQuiz,
   setActiveQuiz,
   updateActiveQuizScore,
-} from "../store/stats-slice";
-import { useAppDispatch, useAppSelector } from "../hooks/useStore";
-import { BlobGradients, IconNames } from "../types/enums";
-import { type QuestionResult, type Question, Quiz } from "../types/quiz";
-import { TEMP_DATA } from "../utils/constants";
+} from "src/store/stats-slice";
+import { useAppDispatch, useAppSelector } from "src/hooks/useStore";
+import { BlobGradients, IconNames } from "src/types/enums";
+import { type QuestionResult, type Question, Quiz } from "src/types/quiz";
+import { TEMP_DATA } from "src/utils/constants";
 
 import ProgressBar from "../features/quiz/ProgressBar";
 import QuizHeader from "../features/quiz/QuizHeader";

@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { IconNames } from "../../types/enums";
 
 import Icon from "src/ui/Icons/Icon";
-import { Quiz } from "../../types/quiz";
-import { quizStats } from "../../types/stats";
+import { Quiz } from "src/types/quiz";
+import { quizStats } from "src/types/stats";
 import { useMemo } from "react";
 
 type QuizCardProps = {

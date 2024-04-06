@@ -1,9 +1,9 @@
 import { useMemo } from "react";
-import { BlobGradients, IconNames } from "../../types/enums";
+import { BlobGradients, IconNames } from "src/types/enums";
 
-import { TEMP_DATA } from "../../utils/constants";
+import { TEMP_DATA } from "src/utils/constants";
 
-import { type MenuCardTypes } from "../../types/cards";
+import { type MenuCardTypes } from "src/types/cards";
 import MenuCard from "./MenuCard";
 
 export default function Menu() {

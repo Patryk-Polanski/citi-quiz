@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 
-import { TEMP_DATA } from "../utils/constants";
-import { useAppDispatch } from "../hooks/useStore";
-import { setQuizzesStats } from "../store/stats-slice";
+import { TEMP_DATA } from "src/utils/constants";
+import { useAppDispatch } from "src/hooks/useStore";
+import { setQuizzesStats } from "src/store/stats-slice";
 
 import AppHeader from "./AppHeader";
 import AppFooter from "./AppFooter";
-import BackgroundBlob from "../ui/decorative/BackgroundBlob";
+import BackgroundBlob from "src/ui/decorative/BackgroundBlob";
 
 export default function AppLayout() {
   const dispatch = useAppDispatch();

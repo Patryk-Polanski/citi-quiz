@@ -3,7 +3,7 @@ import {
   useSelector,
   type TypedUseSelectorHook,
 } from "react-redux";
-import { AppDispatch, RootState } from "../store/store";
+import { AppDispatch, RootState } from "src/store/store";
 
 type DispatchFunction = () => AppDispatch;
 

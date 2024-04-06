@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { type MenuCardTypes } from "../../types/cards";
+import { type MenuCardTypes } from "src/types/cards";
 import Icon from "src/ui/Icons/Icon";
-import { IconNames } from "../../types/enums";
+import { IconNames } from "src/types/enums";
 
 type MenuCardProps = {
   menuItem: MenuCardTypes;

@@ -1,8 +1,8 @@
-import QuizCard from "../features/quiz/QuizCard";
-import { BlobGradients } from "../types/enums";
+import QuizCard from "src/features/quiz/QuizCard";
+import { BlobGradients } from "src/types/enums";
 
-import { TEMP_DATA } from "../utils/constants";
-import { useAppSelector } from "../hooks/useStore";
+import { TEMP_DATA } from "src/utils/constants";
+import { useAppSelector } from "src/hooks/useStore";
 
 export default function QuizzesPage() {
   const { quizzes: quizzesStats } = useAppSelector((store) => store.stats);

@@ -1,5 +1,5 @@
-import Greeting from "../features/dashboard/Greeting";
-import Menu from "../features/dashboard/Menu";
+import Greeting from "src/features/dashboard/Greeting";
+import Menu from "src/features/dashboard/Menu";
 
 export default function DashboardPage() {
   return (

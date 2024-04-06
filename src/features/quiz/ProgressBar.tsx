@@ -1,4 +1,4 @@
-import { useAppSelector } from "../../hooks/useStore";
+import { useAppSelector } from "src/hooks/useStore";
 
 type ProgressBarProps = {
   questionsNumber: number;
