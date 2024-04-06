@@ -6,7 +6,7 @@ export type Option = {
 export type Question = {
   questionId: string;
   question: string;
-  options: option[];
+  options: Option[];
   answer: string;
   explanation: string;
 };

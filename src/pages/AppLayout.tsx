@@ -29,9 +29,9 @@ export default function AppLayout() {
     <div className="relative min-h-screen bg-sky-600 font-comfortaa text-white">
       <div className="flex min-h-screen flex-col bg-gradient-to-br from-white/50 to-white/20">
         <AppHeader />
-        <div className="container mx-auto grow">
+        <main className="container mx-auto grow">
           <Outlet />
-        </div>
+        </main>
         <AppFooter />
         <BackgroundBlob classes="top-[200px] right-[200px] h-8 w-8" />
         <BackgroundBlob classes="top-[180px] left-[200px]" />
