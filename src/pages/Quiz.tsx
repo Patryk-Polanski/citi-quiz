@@ -5,26 +5,28 @@ import {
   resetActiveQuiz,
   setActiveQuiz,
   updateActiveQuizScore,
+  updateQuizzesStats,
 } from "src/store/stats-slice";
 import { useAppDispatch, useAppSelector } from "src/hooks/useStore";
 import { BlobGradients, IconNames } from "src/types/enums";
 import { type QuestionResult, type Question, Quiz } from "src/types/quiz";
 import { TEMP_DATA } from "src/utils/constants";
 
-import ProgressBar from "../features/quiz/ProgressBar";
-import QuizHeader from "../features/quiz/QuizHeader";
-import AnswerCard from "../features/quiz/AnswerCard";
-import Button from "../ui/Button";
-import Icon from "../ui/Icons/Icon";
+import ProgressBar from "src/features/quiz/ProgressBar";
+import QuizHeader from "src/features/quiz/QuizHeader";
+import AnswerCard from "src/features/quiz/AnswerCard";
+import Button from "src/ui/Button";
+import Icon from "src/ui/Icons/Icon";
 
 export default function QuizPage() {
   const navigate = useNavigate();
   const { quizId } = useParams();
-  const { activeQuizId } = useAppSelector((store) => store.stats);
+  const { activeQuizId, activeQuizScore } = useAppSelector(
+    (store) => store.stats,
+  );
   const dispatch = useAppDispatch();
   const [questionIndex, setQuestionIndex] = useState(0);
   const [chosenLetter, setChosenLetter] = useState<string | null>(null);
-
   const activeQuiz = useMemo(() => {
     if (!activeQuizId) return null;
     return TEMP_DATA.find((quiz) => quiz.quizId === activeQuizId) as
@@ -77,9 +79,10 @@ export default function QuizPage() {
 
   const handleNextQuestion = () => {
     if (questionIndex + 1 === activeQuiz?.questions.length) {
+      dispatch(updateQuizzesStats(activeQuizScore));
+      dispatch(resetActiveQuiz());
       alert("Quiz complete");
       navigate("/");
-      dispatch(resetActiveQuiz());
       return;
     }
     setQuestionIndex((prevQuestionIndex) => prevQuestionIndex + 1);
