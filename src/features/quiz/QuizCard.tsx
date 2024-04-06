@@ -6,6 +6,7 @@ import Icon from "src/ui/Icons/Icon";
 import { Quiz } from "src/types/quiz";
 import { quizStats } from "src/types/stats";
 import { useMemo } from "react";
+import { calcHighestScore } from "src/utils/helpers";
 
 type QuizCardProps = {
   quiz: Quiz;
@@ -14,10 +15,7 @@ type QuizCardProps = {
 
 export default function QuizCard({ quiz, quizStats }: QuizCardProps) {
   const highestScore = useMemo(() => {
-    return quizStats.reduce(
-      (acc, question) => (question.pass ? acc + 1 : acc),
-      0,
-    );
+    return calcHighestScore(quizStats);
   }, [quizStats]);
 
   const highestScorePercentage = useMemo(() => {
