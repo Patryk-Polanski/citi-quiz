@@ -2,19 +2,36 @@ import { useAppSelector } from "src/hooks/useStore";
 
 type ProgressBarProps = {
   questionsNumber: number;
+  quizId: string;
 };
 
-export default function ProgressBar({ questionsNumber }: ProgressBarProps) {
+export default function ProgressBar({
+  questionsNumber,
+  quizId,
+}: ProgressBarProps) {
   const { activeQuizScore } = useAppSelector((state) => state.stats);
+
+  if (quizId === "survival") {
+    return (
+      <div className="mt-4 grid h-[14px] w-full overflow-hidden rounded-md opacity-70">
+        <span
+          style={{
+            gridColumnStart: 1,
+            gridColumnEnd: -1,
+          }}
+          className="relative rounded-md bg-white/30 text-black after:absolute after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:text-3xl after:content-['∞']"
+        />
+      </div>
+    );
+  }
 
   return (
     <>
       <div
         style={{
           gridTemplateColumns: `repeat(${questionsNumber}, 1fr)`,
-          opacity: "0.7",
         }}
-        className="mt-4 grid h-[14px] w-full overflow-hidden rounded-md"
+        className="mt-4 grid h-[14px] w-full overflow-hidden rounded-md opacity-70"
       >
         {activeQuizScore
           ? activeQuizScore.map((score) => (

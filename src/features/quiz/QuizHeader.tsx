@@ -11,7 +11,7 @@ export default function QuizHeader({ quizId }: QuizHeaderProps) {
   return (
     <div className="flex items-end justify-between font-laila">
       <h3 className="mr-auto text-2xl">Quiz {quizId.replace("-", " ")}</h3>
-      {quizId !== "try-again" ? (
+      {quizId !== "try-again" && quizId !== "survival" ? (
         <Countdown />
       ) : (
         <span className="mr-2">no time limit</span>

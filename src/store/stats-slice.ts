@@ -7,6 +7,7 @@ const initialState: userStats = {
   tryAgainQuestionIds: [],
   activeQuizId: null,
   activeQuizScore: [],
+  survivalQuizHighestScore: 0,
 };
 
 export const statsSlice = createSlice({
@@ -45,6 +46,9 @@ export const statsSlice = createSlice({
     resetTryAgainQuestionIds(state) {
       state.tryAgainQuestionIds = [];
     },
+    updateSurvivalQuizHighestScore(state, action: PayloadAction<number>) {
+      state.survivalQuizHighestScore = action.payload;
+    },
   },
 });
 
@@ -56,4 +60,5 @@ export const {
   resetActiveQuiz,
   updateTryAgainQuestionIds,
   resetTryAgainQuestionIds,
+  updateSurvivalQuizHighestScore,
 } = statsSlice.actions;

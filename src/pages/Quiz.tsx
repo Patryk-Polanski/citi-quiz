@@ -8,12 +8,13 @@ import {
   updateQuizzesStats,
   updateTryAgainQuestionIds,
   resetTryAgainQuestionIds,
+  updateSurvivalQuizHighestScore,
 } from "src/store/stats-slice";
 import { useAppDispatch, useAppSelector } from "src/hooks/useStore";
 import { BlobGradients, IconNames } from "src/types/enums";
 import { type QuestionResult, type Question, Quiz } from "src/types/quiz";
 import { TEMP_DATA } from "src/utils/constants";
-import { createTryAgainQuiz } from "src/utils/helpers";
+import { createTryAgainQuiz, createSurvivalQuiz } from "src/utils/helpers";
 
 import ProgressBar from "src/features/quiz/ProgressBar";
 import QuizHeader from "src/features/quiz/QuizHeader";
@@ -24,9 +25,12 @@ import Icon from "src/ui/Icons/Icon";
 export default function QuizPage() {
   const navigate = useNavigate();
   const { quizId } = useParams();
-  const { activeQuizId, activeQuizScore, tryAgainQuestionIds } = useAppSelector(
-    (store) => store.stats,
-  );
+  const {
+    activeQuizId,
+    activeQuizScore,
+    tryAgainQuestionIds,
+    survivalQuizHighestScore,
+  } = useAppSelector((store) => store.stats);
   const dispatch = useAppDispatch();
   const [questionIndex, setQuestionIndex] = useState(0);
   const [chosenLetter, setChosenLetter] = useState<string | null>(null);
@@ -38,6 +42,10 @@ export default function QuizPage() {
 
     if (quizId === "try-again") {
       return createTryAgainQuiz(TEMP_DATA, tryAgainQuestionIds);
+    }
+
+    if (quizId === "survival") {
+      return createSurvivalQuiz(TEMP_DATA);
     }
 
     return TEMP_DATA.find((quiz) => quiz.quizId === activeQuizId) as
@@ -79,6 +87,17 @@ export default function QuizPage() {
         }),
       );
     } else if (questionResult === "wrong") {
+      if (quizId === "survival") {
+        if (activeQuizScore.length > survivalQuizHighestScore) {
+          dispatch(updateSurvivalQuizHighestScore(activeQuizScore.length));
+        }
+        dispatch(updateTryAgainQuestionIds(tempTryAgainQuestionIds));
+        dispatch(resetActiveQuiz());
+        alert("Quiz complete");
+        navigate("/");
+        return;
+      }
+
       dispatch(
         updateActiveQuizScore({
           questionId: activeQuestion.questionId,
@@ -96,7 +115,9 @@ export default function QuizPage() {
     if (questionIndex + 1 === activeQuiz?.questions.length) {
       if (quizId === "try-again") {
         dispatch(resetTryAgainQuestionIds());
-      } else if (quizId !== "try-again") {
+      } else if (quizId === "survival") {
+        dispatch(updateSurvivalQuizHighestScore(activeQuizScore.length));
+      } else {
         dispatch(updateQuizzesStats(activeQuizScore));
       }
       dispatch(updateTryAgainQuestionIds(tempTryAgainQuestionIds));
@@ -112,7 +133,10 @@ export default function QuizPage() {
   return activeQuiz && activeQuestion ? (
     <>
       <QuizHeader quizId={activeQuiz.quizId} />
-      <ProgressBar questionsNumber={activeQuiz.questions.length} />
+      <ProgressBar
+        quizId={activeQuiz.quizId}
+        questionsNumber={activeQuiz.questions.length}
+      />
       <div className="mt-8 text-center font-laila">
         <h4 className="text-2xl">Question {questionIndex + 1}</h4>
         <h4 className="mt-4 text-2xl">{activeQuestion.question}</h4>

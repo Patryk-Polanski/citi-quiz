@@ -29,3 +29,12 @@ export function createTryAgainQuiz(
 
   return { quizId: "try-again", questions: tryAgainQuiz };
 }
+
+export function createSurvivalQuiz(allQuizzes: Quiz[]) {
+  const survivalQuiz: Question[] = [];
+  allQuizzes.forEach((quiz) => {
+    survivalQuiz.push(...quiz.questions);
+  });
+
+  return { quizId: "survival", questions: survivalQuiz };
+}
