@@ -37,6 +37,14 @@ export const statsSlice = createSlice({
       state.activeQuizId = null;
       state.activeQuizScore = [];
     },
+    updateTryAgainQuestionIds(state, action: PayloadAction<string[]>) {
+      state.tryAgainQuestionIds = [
+        ...new Set([...state.tryAgainQuestionIds, ...action.payload]),
+      ];
+    },
+    resetTryAgainQuestionIds(state) {
+      state.tryAgainQuestionIds = [];
+    },
   },
 });
 
@@ -46,4 +54,6 @@ export const {
   updateQuizzesStats,
   updateActiveQuizScore,
   resetActiveQuiz,
+  updateTryAgainQuestionIds,
+  resetTryAgainQuestionIds,
 } = statsSlice.actions;

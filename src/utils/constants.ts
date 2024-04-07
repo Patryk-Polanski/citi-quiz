@@ -1,4 +1,4 @@
-import { Quiz } from "../types/quiz";
+import { Quiz } from "src/types/quiz";
 
 export const TEMP_DATA: Quiz[] = [
   {

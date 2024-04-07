@@ -6,11 +6,14 @@ import {
   setActiveQuiz,
   updateActiveQuizScore,
   updateQuizzesStats,
+  updateTryAgainQuestionIds,
+  resetTryAgainQuestionIds,
 } from "src/store/stats-slice";
 import { useAppDispatch, useAppSelector } from "src/hooks/useStore";
 import { BlobGradients, IconNames } from "src/types/enums";
 import { type QuestionResult, type Question, Quiz } from "src/types/quiz";
 import { TEMP_DATA } from "src/utils/constants";
+import { createTryAgainQuiz } from "src/utils/helpers";
 
 import ProgressBar from "src/features/quiz/ProgressBar";
 import QuizHeader from "src/features/quiz/QuizHeader";
@@ -21,18 +24,26 @@ import Icon from "src/ui/Icons/Icon";
 export default function QuizPage() {
   const navigate = useNavigate();
   const { quizId } = useParams();
-  const { activeQuizId, activeQuizScore } = useAppSelector(
+  const { activeQuizId, activeQuizScore, tryAgainQuestionIds } = useAppSelector(
     (store) => store.stats,
   );
   const dispatch = useAppDispatch();
   const [questionIndex, setQuestionIndex] = useState(0);
   const [chosenLetter, setChosenLetter] = useState<string | null>(null);
+  const [tempTryAgainQuestionIds, setTempTryAgainQuestionIds] = useState<
+    string[]
+  >([]);
   const activeQuiz = useMemo(() => {
     if (!activeQuizId) return null;
+
+    if (quizId === "try-again") {
+      return createTryAgainQuiz(TEMP_DATA, tryAgainQuestionIds);
+    }
+
     return TEMP_DATA.find((quiz) => quiz.quizId === activeQuizId) as
       | Quiz
       | undefined;
-  }, [activeQuizId]);
+  }, [activeQuizId, quizId, tryAgainQuestionIds]);
 
   const activeQuestion = useMemo(() => {
     if (!activeQuiz) return;
@@ -74,12 +85,21 @@ export default function QuizPage() {
           pass: false,
         }),
       );
+      setTempTryAgainQuestionIds((prevState) => [
+        ...prevState,
+        activeQuestion.questionId,
+      ]);
     }
   }, [questionResult, activeQuestion?.questionId, dispatch]);
 
   const handleNextQuestion = () => {
     if (questionIndex + 1 === activeQuiz?.questions.length) {
-      dispatch(updateQuizzesStats(activeQuizScore));
+      if (quizId === "try-again") {
+        dispatch(resetTryAgainQuestionIds());
+      } else if (quizId !== "try-again") {
+        dispatch(updateQuizzesStats(activeQuizScore));
+      }
+      dispatch(updateTryAgainQuestionIds(tempTryAgainQuestionIds));
       dispatch(resetActiveQuiz());
       alert("Quiz complete");
       navigate("/");
