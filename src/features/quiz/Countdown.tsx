@@ -24,7 +24,7 @@ export default function Countdown() {
 
   return (
     <div>
-      <span className="ml-2 text-xl">{displayTime}</span>
+      <span className="mr-2 text-xl">{displayTime}</span>
     </div>
   );
 }
