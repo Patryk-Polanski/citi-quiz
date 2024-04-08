@@ -35,6 +35,17 @@ export function createSurvivalQuiz(allQuizzes: Quiz[]) {
   allQuizzes.forEach((quiz) => {
     survivalQuiz.push(...quiz.questions);
   });
+  const survivalQuizRandom: Question[] = [];
+  const randomNumbers = Array.from(
+    Array(survivalQuiz.length),
+    (_, index) => index,
+  );
 
-  return { quizId: "survival", questions: survivalQuiz };
+  survivalQuiz.forEach((question, index) => {
+    const randomNumber = generateRandomNumber(0, survivalQuiz.length - index);
+    survivalQuizRandom[randomNumbers[randomNumber]] = question;
+    randomNumbers.splice(randomNumber, 1);
+  });
+
+  return { quizId: "survival", questions: survivalQuizRandom };
 }

@@ -8,7 +8,9 @@ import { type MenuCardTypes } from "src/types/cards";
 import MenuCard from "./MenuCard";
 
 export default function Menu() {
-  const { tryAgainQuestionIds } = useAppSelector((store) => store.stats);
+  const { tryAgainQuestionIds, survivalQuizHighestScore } = useAppSelector(
+    (store) => store.stats,
+  );
   const menuCardsData: MenuCardTypes[] = useMemo(
     () => [
       {
@@ -20,7 +22,7 @@ export default function Menu() {
       },
       {
         title: "Survival",
-        subtitle: "Highest score: 27",
+        subtitle: "Highest score: " + survivalQuizHighestScore,
         link: "/quiz/survival",
         blobColor: BlobGradients.Amber,
         icon: IconNames.Target,
