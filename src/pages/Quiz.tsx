@@ -73,7 +73,7 @@ export default function QuizPage() {
   useEffect(() => {
     dispatch(setActiveQuiz(quizId || null));
     return () => {
-      dispatch(setActiveQuiz(null));
+      dispatch(resetActiveQuiz());
     };
   }, [dispatch, quizId]);
 
