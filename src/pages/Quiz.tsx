@@ -33,6 +33,7 @@ export default function QuizPage() {
   } = useAppSelector((store) => store.stats);
   const dispatch = useAppDispatch();
   const [questionIndex, setQuestionIndex] = useState(0);
+  const [terminateQuizEarly, setTerminateQuizEarly] = useState(false);
   const [chosenLetter, setChosenLetter] = useState<string | null>(null);
   const [tempTryAgainQuestionIds, setTempTryAgainQuestionIds] = useState<
     string[]
@@ -87,14 +88,13 @@ export default function QuizPage() {
         }),
       );
     } else if (questionResult === "wrong") {
+      setTempTryAgainQuestionIds((prevState) => [
+        ...prevState,
+        activeQuestion.questionId,
+      ]);
+
       if (quizId === "survival") {
-        if (activeQuizScore.length > survivalQuizHighestScore) {
-          dispatch(updateSurvivalQuizHighestScore(activeQuizScore.length));
-        }
-        dispatch(updateTryAgainQuestionIds(tempTryAgainQuestionIds));
-        dispatch(resetActiveQuiz());
-        alert("Quiz complete");
-        navigate("/");
+        setTerminateQuizEarly(true);
         return;
       }
 
@@ -104,19 +104,26 @@ export default function QuizPage() {
           pass: false,
         }),
       );
-      setTempTryAgainQuestionIds((prevState) => [
-        ...prevState,
-        activeQuestion.questionId,
-      ]);
     }
-  }, [questionResult, activeQuestion?.questionId, dispatch]);
+  }, [
+    questionResult,
+    activeQuestion?.questionId,
+    dispatch,
+    activeQuiz,
+    quizId,
+  ]);
 
   const handleNextQuestion = () => {
-    if (questionIndex + 1 === activeQuiz?.questions.length) {
+    if (
+      questionIndex + 1 === activeQuiz?.questions.length ||
+      terminateQuizEarly
+    ) {
       if (quizId === "try-again") {
         dispatch(resetTryAgainQuestionIds());
       } else if (quizId === "survival") {
-        dispatch(updateSurvivalQuizHighestScore(activeQuizScore.length));
+        if (activeQuizScore.length > survivalQuizHighestScore) {
+          dispatch(updateSurvivalQuizHighestScore(activeQuizScore.length));
+        }
       } else {
         dispatch(updateQuizzesStats(activeQuizScore));
       }
@@ -164,7 +171,8 @@ export default function QuizPage() {
         <div className="mt-6 flex flex-col items-center justify-center gap-6">
           <Button onClick={handleNextQuestion} el="button">
             <span>
-              {questionIndex < activeQuiz.questions.length - 1
+              {questionIndex < activeQuiz.questions.length - 1 &&
+              !terminateQuizEarly
                 ? "Next question"
                 : "Finish"}
             </span>
@@ -177,16 +185,18 @@ export default function QuizPage() {
     </>
   ) : (
     // Show error message
-    <div className="mt-8 flex flex-col items-center justify-center gap-8">
-      <p>Could not find a quiz with an id of {quizId}</p>
-      <Button el="link" href="/">
-        <Icon
-          iconName={IconNames.Chevron}
-          className="h-[18px] w-[18px] rotate-180"
-        />
-        <span className="w-[2px] self-stretch bg-white opacity-60" />
-        <span>Back Home</span>
-      </Button>
-    </div>
+    <>
+      <div className="mt-8 flex flex-col items-center justify-center gap-8">
+        <p>Could not find a quiz with an id of {quizId}</p>
+        <Button el="link" href="/">
+          <Icon
+            iconName={IconNames.Chevron}
+            className="h-[18px] w-[18px] rotate-180"
+          />
+          <span className="w-[2px] self-stretch bg-white opacity-60" />
+          <span>Back Home</span>
+        </Button>
+      </div>
+    </>
   );
 }
