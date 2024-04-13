@@ -64,7 +64,7 @@ export default function Menu() {
       {menuCardsData.map((menuItem, index) => (
         <li key={menuItem.link} className="relative">
           <span
-            className={`absolute bg-gradient-radial ${index % 2 === 0 ? "-right-8" : "-left-8"} top-1/2 h-60 w-60 -translate-y-1/2 rounded-full ${menuItem.blobColor} blur-lg`}
+            className={`absolute bg-gradient-radial ${index % 2 === 0 ? "-right-8" : "-left-8"} pointer-events-none top-1/2 h-60 w-60 -translate-y-1/2 rounded-full ${menuItem.blobColor} blur-lg`}
           />
           <MenuCard menuItem={menuItem} />
         </li>

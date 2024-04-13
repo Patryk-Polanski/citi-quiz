@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import {
@@ -38,6 +38,8 @@ export default function QuizPage() {
   const [tempTryAgainQuestionIds, setTempTryAgainQuestionIds] = useState<
     string[]
   >([]);
+  const buttonRef = useRef<HTMLDivElement | null>(null);
+
   const activeQuiz = useMemo(() => {
     if (!activeQuizId) return null;
 
@@ -60,6 +62,9 @@ export default function QuizPage() {
   }, [activeQuiz, questionIndex]);
 
   const questionResult: QuestionResult = useMemo(() => {
+    if (buttonRef.current)
+      buttonRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+
     if (chosenLetter === null) return "unselected";
 
     if (chosenLetter === activeQuestion?.answer) {
@@ -76,6 +81,10 @@ export default function QuizPage() {
       dispatch(resetActiveQuiz());
     };
   }, [dispatch, quizId]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [questionIndex]);
 
   useEffect(() => {
     if (!activeQuestion?.questionId) return;
@@ -172,21 +181,23 @@ export default function QuizPage() {
         </ul>
       </div>
       {/* chosen letter needs to exist for next/finish buttons to appear */}
-      {chosenLetter !== null ? (
-        <div className="mt-6 flex flex-col items-center justify-center gap-6">
-          <Button onClick={handleNextQuestion} el="button">
-            <span>
-              {questionIndex < activeQuiz.questions.length - 1 &&
-              !terminateQuizEarly
-                ? "Next question"
-                : "Finish"}
-            </span>
-            <span className="w-[2px] self-stretch bg-white opacity-60" />
-            <Icon iconName={IconNames.Chevron} className="h-5 w-5" />
-          </Button>
-          <p>{activeQuestion.explanation}</p>
-        </div>
-      ) : null}
+      <div ref={buttonRef}>
+        {chosenLetter !== null ? (
+          <div className="mt-6 flex flex-col items-center justify-center gap-6">
+            <Button onClick={handleNextQuestion} el="button">
+              <span>
+                {questionIndex < activeQuiz.questions.length - 1 &&
+                !terminateQuizEarly
+                  ? "Next question"
+                  : "Finish"}
+              </span>
+              <span className="w-[2px] self-stretch bg-white opacity-60" />
+              <Icon iconName={IconNames.Chevron} className="h-5 w-5" />
+            </Button>
+            <p>{activeQuestion.explanation}</p>
+          </div>
+        ) : null}
+      </div>
     </>
   ) : (
     // Show error message

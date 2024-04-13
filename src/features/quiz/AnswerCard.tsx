@@ -42,15 +42,21 @@ export default function AnswerCard({
     borderClasses = "after:border-green-600 text-green-600";
   }
 
+  const handleOptionSelect = () => {
+    if (chosenLetter) return;
+    onOptionSelect(
+      optionRef.current?.getAttribute("data-option-letter") || "-1",
+    );
+    // window.scrollTo(
+    //   0,
+    //   document.body.scrollHeight || document.documentElement.scrollHeight,
+    // );
+  };
+
   return (
     <div
       ref={optionRef}
-      onClick={() => {
-        if (chosenLetter) return;
-        onOptionSelect(
-          optionRef.current?.getAttribute("data-option-letter") || "-1",
-        );
-      }}
+      onClick={handleOptionSelect}
       className={`group relative flex 
         ${!chosenLetter ? "cursor-pointer" : chosenLetter === optionRef.current?.getAttribute("data-option-letter") ? "cursor-auto" : "cursor-not-allowed"} items-center gap-2`}
       data-option-letter={option.letter}
