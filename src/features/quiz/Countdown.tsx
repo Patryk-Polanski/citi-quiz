@@ -1,8 +1,23 @@
 import { useEffect, useState } from "react";
 
-export default function Countdown() {
-  const [time, setTime] = useState(2699); // 2700 is 45 minutes in seconds (-1 second)
-  const [displayTime, setDisplayTime] = useState("45:00");
+import { useAppDispatch, useAppSelector } from "src/hooks/useStore";
+import {
+  resetActiveQuiz,
+  updateQuizzesStats,
+  updateTryAgainQuestionIds,
+} from "src/store/stats-slice";
+import { useNavigate } from "react-router-dom";
+
+type CountdownProps = {
+  tempTryAgainQuestionIds: string[];
+};
+
+export default function Countdown({ tempTryAgainQuestionIds }: CountdownProps) {
+  const [time, setTime] = useState(4); // 2700 is 45 minutes in seconds (-1 second)
+  const [displayTime, setDisplayTime] = useState("00:05");
+  const dispatch = useAppDispatch();
+  const { activeQuizScore } = useAppSelector((store) => store.stats);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -17,10 +32,16 @@ export default function Countdown() {
 
     if (time < 0) {
       clearInterval(interval);
+
+      dispatch(updateQuizzesStats(activeQuizScore));
+      dispatch(updateTryAgainQuestionIds(tempTryAgainQuestionIds));
+      dispatch(resetActiveQuiz());
+      alert("time run out");
+      navigate("/");
     }
 
     return () => clearInterval(interval);
-  }, [time]);
+  }, [time, activeQuizScore, tempTryAgainQuestionIds, dispatch, navigate]);
 
   return (
     <div>

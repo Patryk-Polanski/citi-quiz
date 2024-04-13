@@ -114,6 +114,7 @@ export default function QuizPage() {
   ]);
 
   const handleNextQuestion = () => {
+    // end the quiz
     if (
       questionIndex + 1 === activeQuiz?.questions.length ||
       terminateQuizEarly
@@ -133,13 +134,17 @@ export default function QuizPage() {
       navigate("/");
       return;
     }
+    // move onto next question
     setQuestionIndex((prevQuestionIndex) => prevQuestionIndex + 1);
     setChosenLetter(null);
   };
 
   return activeQuiz && activeQuestion ? (
     <>
-      <QuizHeader quizId={activeQuiz.quizId} />
+      <QuizHeader
+        tempTryAgainQuestionIds={tempTryAgainQuestionIds}
+        quizId={activeQuiz.quizId}
+      />
       <ProgressBar
         quizId={activeQuiz.quizId}
         questionsNumber={activeQuiz.questions.length}

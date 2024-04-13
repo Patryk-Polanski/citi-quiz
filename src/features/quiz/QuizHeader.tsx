@@ -5,14 +5,18 @@ import Countdown from "./Countdown";
 
 type QuizHeaderProps = {
   quizId: string;
+  tempTryAgainQuestionIds: string[];
 };
 
-export default function QuizHeader({ quizId }: QuizHeaderProps) {
+export default function QuizHeader({
+  quizId,
+  tempTryAgainQuestionIds,
+}: QuizHeaderProps) {
   return (
     <div className="flex items-end justify-between font-laila">
       <h3 className="mr-auto text-2xl">Quiz {quizId.replace("-", " ")}</h3>
       {quizId !== "try-again" && quizId !== "survival" ? (
-        <Countdown />
+        <Countdown tempTryAgainQuestionIds={tempTryAgainQuestionIds} />
       ) : (
         <span className="mr-2">no time limit</span>
       )}

@@ -28,8 +28,14 @@ export const statsSlice = createSlice({
       );
       const finishedQuizScore = calcHighestScore(action.payload);
 
-      if (finishedQuizScore > currentHighestScore)
-        state.quizzes[Number(state.activeQuizId) - 1] = action.payload;
+      if (finishedQuizScore > currentHighestScore) {
+        state.quizzes[Number(state.activeQuizId) - 1] = state.quizzes[
+          Number(state.activeQuizId) - 1
+        ].map((question, index) => {
+          if (action.payload[index]?.pass) return action.payload[index];
+          return question;
+        });
+      }
     },
     updateActiveQuizScore(state, action: PayloadAction<quizStats>) {
       state.activeQuizScore.push(action.payload);
