@@ -45,12 +45,14 @@ export default function AnswerCard({
   return (
     <div
       ref={optionRef}
-      onClick={() =>
+      onClick={() => {
+        if (chosenLetter) return;
         onOptionSelect(
           optionRef.current?.getAttribute("data-option-letter") || "-1",
-        )
-      }
-      className="group relative flex cursor-pointer items-center gap-2"
+        );
+      }}
+      className={`group relative flex 
+        ${!chosenLetter ? "cursor-pointer" : chosenLetter === optionRef.current?.getAttribute("data-option-letter") ? "cursor-auto" : "cursor-not-allowed"} items-center gap-2`}
       data-option-letter={option.letter}
     >
       {answerPopup}
