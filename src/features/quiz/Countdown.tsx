@@ -13,8 +13,8 @@ type CountdownProps = {
 };
 
 export default function Countdown({ tempTryAgainQuestionIds }: CountdownProps) {
-  const [time, setTime] = useState(4); // 2700 is 45 minutes in seconds (-1 second)
-  const [displayTime, setDisplayTime] = useState("00:05");
+  const [time, setTime] = useState(2700); // 2700 is 45 minutes in seconds (-1 second)
+  const [displayTime, setDisplayTime] = useState("45:00");
   const dispatch = useAppDispatch();
   const { activeQuizScore } = useAppSelector((store) => store.stats);
   const navigate = useNavigate();
