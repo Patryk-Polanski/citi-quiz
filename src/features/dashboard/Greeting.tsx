@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import { useAppSelector, useAppDispatch } from "src/hooks/useStore";
+import { setGreeting } from "src/store/greeting-slice";
 import { EmojiNames } from "src/types/enums";
 import Emoji from "src/ui/Emojis/Emoji";
 import { generateRandomNumber } from "src/utils/helpers";
@@ -21,12 +23,21 @@ const randomEmojiIndex = generateRandomNumber(
 
 export default function Greeting() {
   const [emojisReady, setEmojisReady] = useState(false);
+  const dispatch = useAppDispatch();
+  const { emojiIndex } = useAppSelector((store) => store.greeting);
 
   useEffect(() => {
+    setTimeout(
+      () => {
+        setEmojisReady(true);
+      },
+      emojiIndex ? 0 : 1000,
+    );
+    if (emojiIndex) return;
     setTimeout(() => {
-      setEmojisReady(true);
-    }, 1000);
-  }, []);
+      dispatch(setGreeting(randomEmojiIndex));
+    }, 5000);
+  }, [dispatch, emojiIndex]);
 
   return (
     <div className="flex items-center gap-1">
@@ -36,10 +47,10 @@ export default function Greeting() {
         <span className="ml-1 h-8 overflow-hidden rounded-md">
           <ul
             aria-hidden={true}
-            className="flex flex-col justify-center bg-white/20 transition-all delay-[800ms] duration-[4000ms] ease-in-out"
+            className={`flex flex-col justify-center bg-white/20 ${!emojiIndex && "transition-all delay-[800ms] duration-[4000ms]"}  ease-in-out`}
             style={{
               transform: emojisReady
-                ? `translateY(-${(rootFontSize + 16) * randomEmojiIndex + "px"})`
+                ? `translateY(-${(rootFontSize + 16) * (emojiIndex || randomEmojiIndex) + "px"})`
                 : "",
             }}
           >
@@ -58,10 +69,10 @@ export default function Greeting() {
         {/* emoji */}
         <span className="ml-1 h-8 overflow-hidden rounded-md">
           <ul
-            className="flex flex-col justify-center bg-white/20 transition-all delay-[1400ms] duration-[4000ms] ease-in-out"
+            className={`flex flex-col justify-center bg-white/20 ${!emojiIndex && "transition-all delay-[1400ms] duration-[4000ms]"} ease-in-out`}
             style={{
               transform: emojisReady
-                ? `translateY(-${(rootFontSize + 16) * randomEmojiIndex + "px"})`
+                ? `translateY(-${(rootFontSize + 16) * (emojiIndex || randomEmojiIndex) + "px"})`
                 : "",
             }}
           >

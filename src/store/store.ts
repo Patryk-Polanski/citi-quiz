@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { statsSlice } from "./stats-slice";
+import { greetingSlice } from "./greeting-slice";
 
 export const store = configureStore({
   reducer: {
     stats: statsSlice.reducer,
+    greeting: greetingSlice.reducer,
   },
 });
 
