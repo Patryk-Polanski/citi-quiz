@@ -192,7 +192,11 @@ export default function QuizPage() {
     // Show error message
     <>
       <div className="mt-8 flex flex-col items-center justify-center gap-8">
-        <p>Could not find a quiz with an id of {quizId}</p>
+        {quizId === "try-again" ? (
+          <p>You haven't failed any questions yet!</p>
+        ) : (
+          <p>Could not find a quiz with an id of {quizId}</p>
+        )}
         <Button el="link" href="/">
           <Icon
             iconName={IconNames.Chevron}
