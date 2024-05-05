@@ -14,7 +14,11 @@ import { useAppDispatch, useAppSelector } from "src/hooks/useStore";
 import { BlobGradients, IconNames } from "src/types/enums";
 import { type QuestionResult, type Question, Quiz } from "src/types/quiz";
 import { TEMP_DATA } from "src/utils/constants";
-import { createTryAgainQuiz, createSurvivalQuiz } from "src/utils/helpers";
+import {
+  createTryAgainQuiz,
+  createSurvivalQuiz,
+  arraysAreEqual,
+} from "src/utils/helpers";
 
 import Button from "src/ui/Button";
 import Icon from "src/ui/Icons/Icon";
@@ -34,7 +38,7 @@ export default function QuizPage() {
   const dispatch = useAppDispatch();
   const [questionIndex, setQuestionIndex] = useState(0);
   const [terminateQuizEarly, setTerminateQuizEarly] = useState(false);
-  const [chosenLetter, setChosenLetter] = useState<string | null>(null);
+  const [chosenLetter, setChosenLetter] = useState<string[] | null>(null);
   const [tempTryAgainQuestionIds, setTempTryAgainQuestionIds] = useState<
     string[]
   >([]);
@@ -44,18 +48,18 @@ export default function QuizPage() {
   const activeQuiz = useMemo(() => {
     if (!activeQuizId) return null;
 
-    if (quizId === "try-again") {
-      return createTryAgainQuiz(TEMP_DATA, tryAgainQuestionIds);
-    }
+    // if (quizId === "try-again") {
+    //   return createTryAgainQuiz(TEMP_DATA, tryAgainQuestionIds);
+    // }
 
-    if (quizId === "survival") {
-      return createSurvivalQuiz(TEMP_DATA);
-    }
+    // if (quizId === "survival") {
+    //   return createSurvivalQuiz(TEMP_DATA);
+    // }
 
     return TEMP_DATA.find((quiz) => quiz.quizId === activeQuizId) as
       | Quiz
       | undefined;
-  }, [activeQuizId, quizId, tryAgainQuestionIds]);
+  }, [activeQuizId]);
 
   const activeQuestion = useMemo(() => {
     if (!activeQuiz) return;
@@ -66,13 +70,28 @@ export default function QuizPage() {
     if (buttonRef.current)
       buttonRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
 
-    if (chosenLetter === null) return "unselected";
+    if (!chosenLetter) return "unselected";
 
-    if (chosenLetter === activeQuestion?.answer) {
-      return "correct";
-    } else if (chosenLetter !== activeQuestion?.answer) {
-      return "wrong";
+    // if chosenLetter arr is the same length as activeQuestion answer array, then arrays must be equal to be correct
+    if (chosenLetter.length === activeQuestion?.answer.length) {
+      if (arraysAreEqual(activeQuestion?.answer || [], chosenLetter)) {
+        return "correct";
+      } else {
+        return "wrong";
+      }
     }
+
+    // if chosen letter arr is not of the same length as activeQuestion answer array, check if all the answers are currently correct
+    if (chosenLetter.length !== activeQuestion?.answer.length) {
+      let arePickedLettersCorrect: boolean = true;
+      chosenLetter.forEach((letter) => {
+        if (!activeQuestion?.answer.includes(letter))
+          arePickedLettersCorrect = false;
+      });
+      if (!arePickedLettersCorrect) return "wrong";
+      return "correct-multiple";
+    }
+
     return "unselected";
   }, [chosenLetter, activeQuestion?.answer]);
 
@@ -113,17 +132,17 @@ export default function QuizPage() {
         activeQuestion.questionId,
       ]);
 
-      if (quizId === "survival") {
-        setTerminateQuizEarly(true);
-        return;
-      }
-
       dispatch(
         updateActiveQuizScore({
           questionId: activeQuestion.questionId,
           pass: false,
         }),
       );
+
+      // if (quizId === "survival") {
+      //   setTerminateQuizEarly(true);
+      //   return;
+      // }
     }
   }, [
     questionResult,
@@ -139,18 +158,17 @@ export default function QuizPage() {
       questionIndex + 1 === activeQuiz?.questions.length ||
       terminateQuizEarly
     ) {
-      if (quizId === "try-again") {
-        dispatch(resetTryAgainQuestionIds());
-      } else if (quizId === "survival") {
-        if (activeQuizScore.length > survivalQuizHighestScore) {
-          dispatch(updateSurvivalQuizHighestScore(activeQuizScore.length));
-        }
-      } else {
-        dispatch(updateQuizzesStats(activeQuizScore));
-      }
+      // if (quizId === "try-again") {
+      //   dispatch(resetTryAgainQuestionIds());
+      // } else if (quizId === "survival") {
+      //   if (activeQuizScore.length > survivalQuizHighestScore) {
+      //     dispatch(updateSurvivalQuizHighestScore(activeQuizScore.length));
+      //   }
+      // } else {
+      // }
+      dispatch(updateQuizzesStats(activeQuizScore));
       dispatch(updateTryAgainQuestionIds(tempTryAgainQuestionIds));
       setIsCompleteDialogOpen(true);
-      // navigate("/");
       return;
     }
     // move onto next question
@@ -203,7 +221,9 @@ export default function QuizPage() {
         </div>
         {/* chosen letter needs to exist for next/finish buttons to appear */}
         <div ref={buttonRef}>
-          {chosenLetter !== null ? (
+          {(chosenLetter !== null &&
+            chosenLetter.length === activeQuestion.answer.length) ||
+          questionResult === "wrong" ? (
             <div className="mt-6 flex flex-col items-center justify-center gap-6">
               <Button onClick={handleNextQuestion} el="button">
                 <span>

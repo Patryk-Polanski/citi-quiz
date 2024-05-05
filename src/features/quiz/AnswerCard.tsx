@@ -5,10 +5,10 @@ import AnswerCardPopup from "./AnswerCardPopup";
 
 type AnswerCardProps = {
   option: Option;
-  chosenLetter: string | null;
-  correctLetter: string;
+  chosenLetter: string[] | null;
+  correctLetter: string[];
   questionResult: QuestionResult;
-  onOptionSelect: React.Dispatch<React.SetStateAction<string | null>>;
+  onOptionSelect: React.Dispatch<React.SetStateAction<string[] | null>>;
 };
 
 export default function AnswerCard({
@@ -24,33 +24,45 @@ export default function AnswerCard({
   let answerPopup: React.ReactNode;
 
   if (
-    questionResult === "correct" &&
-    chosenLetter === optionRef.current?.getAttribute("data-option-letter")
+    (questionResult === "correct" || questionResult === "correct-multiple") &&
+    chosenLetter?.includes(
+      optionRef.current?.getAttribute("data-option-letter") || "-1",
+    )
   ) {
     borderClasses = "after:border-green-600 text-green-600";
     answerPopup = <AnswerCardPopup passed={true} />;
   } else if (
     questionResult === "wrong" &&
-    chosenLetter === optionRef.current?.getAttribute("data-option-letter")
+    correctLetter.includes(
+      optionRef.current?.getAttribute("data-option-letter") || "-1",
+    )
+  ) {
+    borderClasses = "after:border-green-600 text-green-600";
+  } else if (
+    questionResult === "wrong" &&
+    chosenLetter?.includes(
+      optionRef.current?.getAttribute("data-option-letter") || "-1",
+    )
   ) {
     borderClasses = "after:border-red-600 text-red-600";
     answerPopup = <AnswerCardPopup passed={false} />;
-  } else if (
-    questionResult === "wrong" &&
-    correctLetter === optionRef.current?.getAttribute("data-option-letter")
-  ) {
-    borderClasses = "after:border-green-600 text-green-600";
   }
 
   const handleOptionSelect = () => {
-    if (chosenLetter) return;
-    onOptionSelect(
-      optionRef.current?.getAttribute("data-option-letter") || "-1",
-    );
-    // window.scrollTo(
-    //   0,
-    //   document.body.scrollHeight || document.documentElement.scrollHeight,
-    // );
+    if (
+      chosenLetter?.length === correctLetter.length ||
+      questionResult === "wrong"
+    )
+      return;
+    onOptionSelect((prevVal) => {
+      if (!prevVal) {
+        return [optionRef.current?.getAttribute("data-option-letter") || "-1"];
+      }
+      return [
+        ...prevVal,
+        optionRef.current?.getAttribute("data-option-letter") || "-1",
+      ];
+    });
   };
 
   return (
@@ -58,7 +70,7 @@ export default function AnswerCard({
       ref={optionRef}
       onClick={handleOptionSelect}
       className={`group relative flex 
-        ${!chosenLetter ? "cursor-pointer" : chosenLetter === optionRef.current?.getAttribute("data-option-letter") ? "cursor-auto" : "cursor-not-allowed"} items-center gap-2`}
+        cursor-pointer items-center gap-2`}
       data-option-letter={option.letter}
     >
       {answerPopup}

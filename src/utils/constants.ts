@@ -25,7 +25,7 @@ export const TEMP_DATA: Quiz[] = [
             answer: "England",
           },
         ],
-        answer: "D",
+        answer: ["D"],
         explanation: "Lake District is situated in England.",
       },
       {
@@ -49,7 +49,7 @@ export const TEMP_DATA: Quiz[] = [
             answer: "Practical jokes",
           },
         ],
-        answer: "A",
+        answer: ["A"],
         explanation:
           "Santa Claus is one of the main talking points during Christmas.",
       },
@@ -66,7 +66,7 @@ export const TEMP_DATA: Quiz[] = [
             answer: "In the UK, betting and gamblig are legal",
           },
         ],
-        answer: "B",
+        answer: ["B"],
         explanation: "Betting and gambling have always been legal in the UK.",
       },
       {
@@ -91,7 +91,7 @@ export const TEMP_DATA: Quiz[] = [
             answer: "Scotland",
           },
         ],
-        answer: "D",
+        answer: ["D"],
         explanation:
           "Scotland was the nation to invent the first version of golf.",
       },
@@ -122,7 +122,7 @@ export const TEMP_DATA: Quiz[] = [
             answer: "India",
           },
         ],
-        answer: "D",
+        answer: ["D"],
         explanation:
           "India was part of the British Empire during Queen Victoria's reign.",
       },
@@ -147,7 +147,7 @@ export const TEMP_DATA: Quiz[] = [
             answer: "Because she executed her husband",
           },
         ],
-        answer: "B",
+        answer: ["B"],
         explanation:
           "This unfortunate 'Bloody Mary' nickname was thanks to her persecution of Protestant heretics, whom she burned at the stake in the hundreds.",
       },
@@ -172,7 +172,7 @@ export const TEMP_DATA: Quiz[] = [
             answer: "Northern Ireland",
           },
         ],
-        answer: "B",
+        answer: ["B"],
         explanation:
           "Snowdon is a mountain in the Snowdonia region of North Wales.",
       },
@@ -189,7 +189,7 @@ export const TEMP_DATA: Quiz[] = [
             answer: "The King is the ceremonial head of the Commonwealth",
           },
         ],
-        answer: "B",
+        answer: ["B"],
         explanation: "The King is the ceremonial head of the Commonwealth.",
       },
       {
@@ -213,7 +213,7 @@ export const TEMP_DATA: Quiz[] = [
             answer: "A poet, actor and playwright",
           },
         ],
-        answer: "D",
+        answer: ["D"],
         explanation:
           "William Shakespeare was an English playwright, poet and actor. He is widely regarded as the greatest writer in the English language and the world's pre-eminent dramatist.",
       },
@@ -239,7 +239,7 @@ export const TEMP_DATA: Quiz[] = [
             answer: "South Africa",
           },
         ],
-        answer: "B",
+        answer: ["B"],
         explanation:
           "Concorde is a retired Anglo-French supersonic airliner jointly developed and manufactured by Sud Aviation and the British Aircraft Corporation.",
       },
@@ -269,7 +269,7 @@ export const TEMP_DATA: Quiz[] = [
             answer: "The summer of 1940",
           },
         ],
-        answer: "D",
+        answer: ["D"],
         explanation: "The Battle of Britain took place in 1940",
       },
       {
@@ -293,7 +293,7 @@ export const TEMP_DATA: Quiz[] = [
             answer: "Edinburgh",
           },
         ],
-        answer: "D",
+        answer: ["D"],
         explanation: "Stormont is located in Belfast",
       },
     ],
@@ -314,7 +314,7 @@ export const TEMP_DATA: Quiz[] = [
             answer: "Murder, assault and theft are civil disputes",
           },
         ],
-        answer: "A",
+        answer: ["A"],
         explanation: "Murder, assault and theft are crimes.",
       },
       {
@@ -338,7 +338,7 @@ export const TEMP_DATA: Quiz[] = [
             answer: "Sir Tim Berners Lee",
           },
         ],
-        answer: "D",
+        answer: ["D"],
         explanation:
           "Sir Tim Berners Lee is an English computer scientist best known as the inventor of the World Wide Web.",
       },
@@ -363,9 +363,88 @@ export const TEMP_DATA: Quiz[] = [
             answer: "A poet",
           },
         ],
-        answer: "D",
+        answer: ["D"],
         explanation:
           "William Wordsworth was an English Romantic poet who, with Samuel Taylor Coleridge, helped to launch the Romantic Age in English literature with their joint publication Lyrical Ballads.",
+      },
+    ],
+  },
+  {
+    quizId: "5",
+    questions: [
+      {
+        questionId: "5-1",
+        question: "Where does the UK parliament sit?",
+        options: [
+          {
+            letter: "A",
+            answer: "Westminster",
+          },
+          {
+            letter: "B",
+            answer: "Downing Street",
+          },
+          {
+            letter: "C",
+            answer: "Stormont",
+          },
+          {
+            letter: "D",
+            answer: "Edinburgh Castle",
+          },
+        ],
+        answer: ["A"],
+        explanation: "The UK parliament is situated in Westminster",
+      },
+      {
+        questionId: "5-2",
+        question:
+          "Which two of the following are required by law to give balanced coverage of rival political parties?",
+        options: [
+          {
+            letter: "A",
+            answer: "Newspapers",
+          },
+          {
+            letter: "B",
+            answer: "Radio",
+          },
+          {
+            letter: "C",
+            answer: "Television",
+          },
+          {
+            letter: "D",
+            answer: "The internet",
+          },
+        ],
+        answer: ["B", "C"],
+        explanation:
+          "Radio and television are required to give balanced press coverage of rival political parties",
+      },
+      {
+        questionId: "5-3",
+        question: "How many wives did Henry VII have?",
+        options: [
+          {
+            letter: "A",
+            answer: "One",
+          },
+          {
+            letter: "B",
+            answer: "Four",
+          },
+          {
+            letter: "C",
+            answer: "Six",
+          },
+          {
+            letter: "D",
+            answer: "Eight",
+          },
+        ],
+        answer: ["C"],
+        explanation: "Henry VII had six wives",
       },
     ],
   },

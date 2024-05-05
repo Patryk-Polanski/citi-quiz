@@ -66,3 +66,26 @@ export function getResultsReactions(result: number) {
     return { emoji: EmojiReactions.Amazing, message: "Amazing" };
   }
 }
+
+export function arraysAreEqual(
+  // If arrays have different lengths, they can't be equal
+  arr1: (string | number)[],
+  arr2: (string | number)[],
+) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  // Sort the arrays to ensure elements are in the same order
+  arr1.sort();
+  arr2.sort();
+
+  // Iterate over each element and compare
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) {
+      return false;
+    }
+  }
+
+  // If all elements match, arrays are equal
+  return true;
+}

@@ -7,7 +7,7 @@ export type Question = {
   questionId: string;
   question: string;
   options: Option[];
-  answer: string;
+  answer: string[];
   explanation: string;
 };
 
@@ -16,4 +16,8 @@ export type Quiz = {
   questions: Question[];
 };
 
-export type QuestionResult = "unselected" | "correct" | "wrong";
+export type QuestionResult =
+  | "unselected"
+  | "correct"
+  | "correct-multiple"
+  | "wrong";
