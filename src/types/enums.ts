@@ -24,12 +24,15 @@ export enum EmojiNames {
   Conqueror = "conqueror",
   Performer = "performer",
   Warrior = "warrior",
-  ReactionAmazing = "reaction-amazing",
-  ReactionGreat = "reaction-great",
-  ReactionGood = "reaction-good",
-  ReactionLaughable = "reaction-laughable",
-  ReactionEmbarassing = "reaction-embarrassing",
-  ReactionTerrible = "reaction-terrible",
+}
+
+export enum EmojiReactions {
+  Amazing = "reaction-amazing",
+  Great = "reaction-great",
+  Good = "reaction-good",
+  Laughable = "reaction-laughable",
+  Embarassing = "reaction-embarrassing",
+  Terrible = "reaction-terrible",
 }
 
 export enum IconNames {

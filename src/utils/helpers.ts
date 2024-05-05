@@ -1,6 +1,6 @@
 import { quizStats } from "src/types/stats";
 import { Question, Quiz } from "src/types/quiz";
-import { EmojiNames } from "src/types/enums";
+import { EmojiReactions } from "src/types/enums";
 
 export function generateRandomNumber(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -53,16 +53,16 @@ export function createSurvivalQuiz(allQuizzes: Quiz[]) {
 
 export function getResultsReactions(result: number) {
   if (result < 18) {
-    return { emoji: EmojiNames.ReactionTerrible, message: "Terrible" };
+    return { emoji: EmojiReactions.Terrible, message: "Terrible" };
   } else if (result < 34) {
-    return { emoji: EmojiNames.ReactionEmbarassing, message: "Embarassing" };
+    return { emoji: EmojiReactions.Embarassing, message: "Embarassing" };
   } else if (result < 52) {
-    return { emoji: EmojiNames.ReactionLaughable, message: "Laughable" };
+    return { emoji: EmojiReactions.Laughable, message: "Laughable" };
   } else if (result < 70) {
-    return { emoji: EmojiNames.ReactionGood, message: "Good" };
+    return { emoji: EmojiReactions.Good, message: "Good" };
   } else if (result < 86) {
-    return { emoji: EmojiNames.ReactionGreat, message: "Great" };
+    return { emoji: EmojiReactions.Great, message: "Great" };
   } else {
-    return { emoji: EmojiNames.ReactionAmazing, message: "Amazing" };
+    return { emoji: EmojiReactions.Amazing, message: "Amazing" };
   }
 }
