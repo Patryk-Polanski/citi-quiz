@@ -77,7 +77,7 @@ export default function Greeting() {
             }}
           >
             <li key="unknown" className="p-1">
-              <Emoji emojiName={EmojiNames.Unknown} />
+              <Emoji emojiName={EmojiNames.Unknown} className="w-6" />
             </li>
             {extendedEmojisArr.map((emoji, index) => {
               return (

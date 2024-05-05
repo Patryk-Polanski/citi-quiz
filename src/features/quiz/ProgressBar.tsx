@@ -1,8 +1,8 @@
 import { useAppSelector } from "src/hooks/useStore";
 
 type ProgressBarProps = {
-  questionsNumber: number;
-  quizId: string;
+  questionsNumber: number | undefined;
+  quizId: string | undefined;
 };
 
 export default function ProgressBar({
@@ -10,6 +10,8 @@ export default function ProgressBar({
   quizId,
 }: ProgressBarProps) {
   const { activeQuizScore } = useAppSelector((state) => state.stats);
+
+  if (!questionsNumber || !quizId) return null;
 
   if (quizId === "survival") {
     return (

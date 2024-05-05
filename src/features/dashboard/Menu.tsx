@@ -56,7 +56,7 @@ export default function Menu() {
         icon: IconNames.Question,
       },
     ],
-    [tryAgainQuestionIds],
+    [tryAgainQuestionIds, survivalQuizHighestScore],
   );
 
   return (
