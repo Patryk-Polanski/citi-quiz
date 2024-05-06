@@ -7,6 +7,7 @@ import ResourcesPage from "src/pages/Resources";
 import SettingsPage from "src/pages/Settings";
 import QuizzesPage from "src/pages/Quizzes";
 import QuizPage from "src/pages/Quiz";
+import TryAgainQuizPage from "src/pages/QuizTryAgain";
 import Error from "src/ui/Error";
 
 import "./index.css";
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
         path: "/quizzes",
         element: <QuizzesPage />,
       },
+      { path: "/quiz/try-again", element: <TryAgainQuizPage /> },
       { path: "/quiz/:quizId", element: <QuizPage /> },
       { path: "/resources", element: <ResourcesPage /> },
       { path: "/settings", element: <SettingsPage /> },

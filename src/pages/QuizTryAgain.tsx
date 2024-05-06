@@ -1,65 +1,44 @@
 import { useEffect, useMemo, useState, useRef } from "react";
-import { useParams } from "react-router-dom";
 
 import {
   resetActiveQuiz,
+  resetTryAgainQuestionIds,
   setActiveQuiz,
   updateActiveQuizScore,
-  updateQuizzesStats,
   updateTryAgainQuestionIds,
-  resetTryAgainQuestionIds,
-  updateSurvivalQuizHighestScore,
 } from "src/store/stats-slice";
 import { useAppDispatch, useAppSelector } from "src/hooks/useStore";
 import { BlobGradients, IconNames } from "src/types/enums";
-import { type QuestionResult, type Question, Quiz } from "src/types/quiz";
+import { type QuestionResult, type Question } from "src/types/quiz";
 import { TEMP_DATA } from "src/utils/constants";
-import {
-  createTryAgainQuiz,
-  createSurvivalQuiz,
-  arraysAreEqual,
-} from "src/utils/helpers";
+import { createTryAgainQuiz, arraysAreEqual } from "src/utils/helpers";
 
 import Button from "src/ui/Button";
 import Icon from "src/ui/Icons/Icon";
 import ProgressBar from "src/features/quiz/ProgressBar";
 import QuizHeader from "src/features/quiz/QuizHeader";
 import AnswerCard from "src/features/quiz/AnswerCard";
-import QuizComplete from "src/ui/dialogs/QuizComplete";
+import TryAgainQuizComplete from "src/ui/dialogs/TryAgainQuizComplete";
 
-export default function QuizPage() {
-  const { quizId } = useParams();
-  const {
-    activeQuizId,
-    activeQuizScore,
-    tryAgainQuestionIds,
-    survivalQuizHighestScore,
-  } = useAppSelector((store) => store.stats);
+export default function TryAgainQuizPage() {
+  const { activeQuizId, activeQuizScore, tryAgainQuestionIds } = useAppSelector(
+    (store) => store.stats,
+  );
   const dispatch = useAppDispatch();
   const [questionIndex, setQuestionIndex] = useState(0);
-  const [terminateQuizEarly, setTerminateQuizEarly] = useState(false);
   const [chosenLetter, setChosenLetter] = useState<string[] | null>(null);
   const [tempTryAgainQuestionIds, setTempTryAgainQuestionIds] = useState<
     string[]
   >([]);
   const buttonRef = useRef<HTMLDivElement | null>(null);
   const [isQuizComplete, setIsQuizComplete] = useState(false);
+  const tryAgainQuestionsIdsLength = useRef<number>(0);
 
   const activeQuiz = useMemo(() => {
     if (!activeQuizId) return null;
 
-    // if (quizId === "try-again") {
-    //   return createTryAgainQuiz(TEMP_DATA, tryAgainQuestionIds);
-    // }
-
-    // if (quizId === "survival") {
-    //   return createSurvivalQuiz(TEMP_DATA);
-    // }
-
-    return TEMP_DATA.find((quiz) => quiz.quizId === activeQuizId) as
-      | Quiz
-      | undefined;
-  }, [activeQuizId]);
+    return createTryAgainQuiz(TEMP_DATA, tryAgainQuestionIds);
+  }, [activeQuizId, tryAgainQuestionIds]);
 
   const activeQuestion = useMemo(() => {
     if (!activeQuiz) return;
@@ -95,22 +74,12 @@ export default function QuizPage() {
     return "unselected";
   }, [chosenLetter, activeQuestion?.answer]);
 
-  const handleRestartQuiz = () => {
-    if (quizId) {
-      dispatch(resetActiveQuiz());
-      dispatch(setActiveQuiz(quizId));
-      setQuestionIndex(0);
-      setChosenLetter(null);
-      setIsQuizComplete(false);
-    }
-  };
-
   useEffect(() => {
-    dispatch(setActiveQuiz(quizId || null));
+    dispatch(setActiveQuiz("try-again"));
     return () => {
       dispatch(resetActiveQuiz());
     };
-  }, [dispatch, quizId]);
+  }, [dispatch]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -138,35 +107,14 @@ export default function QuizPage() {
           pass: false,
         }),
       );
-
-      // if (quizId === "survival") {
-      //   setTerminateQuizEarly(true);
-      //   return;
-      // }
     }
-  }, [
-    questionResult,
-    activeQuestion?.questionId,
-    dispatch,
-    activeQuiz,
-    quizId,
-  ]);
+  }, [questionResult, activeQuestion?.questionId, dispatch, activeQuiz]);
 
   const handleNextQuestion = () => {
     // end the quiz
-    if (
-      questionIndex + 1 === activeQuiz?.questions.length ||
-      terminateQuizEarly
-    ) {
-      // if (quizId === "try-again") {
-      //   dispatch(resetTryAgainQuestionIds());
-      // } else if (quizId === "survival") {
-      //   if (activeQuizScore.length > survivalQuizHighestScore) {
-      //     dispatch(updateSurvivalQuizHighestScore(activeQuizScore.length));
-      //   }
-      // } else {
-      // }
-      dispatch(updateQuizzesStats(activeQuizScore));
+    if (questionIndex + 1 === activeQuiz?.questions.length) {
+      tryAgainQuestionsIdsLength.current = tryAgainQuestionIds.length;
+      dispatch(resetTryAgainQuestionIds());
       dispatch(updateTryAgainQuestionIds(tempTryAgainQuestionIds));
       setIsQuizComplete(true);
       return;
@@ -178,9 +126,8 @@ export default function QuizPage() {
 
   if (isQuizComplete) {
     return (
-      <QuizComplete
-        onQuizRestart={handleRestartQuiz}
-        questionsNumber={activeQuiz?.questions.length}
+      <TryAgainQuizComplete
+        questionsNumber={tryAgainQuestionsIdsLength}
         activeQuizScore={activeQuizScore}
       />
     );
@@ -227,8 +174,7 @@ export default function QuizPage() {
             <div className="mt-6 flex flex-col items-center justify-center gap-6">
               <Button onClick={handleNextQuestion} el="button">
                 <span>
-                  {questionIndex < activeQuiz.questions.length - 1 &&
-                  !terminateQuizEarly
+                  {questionIndex < activeQuiz.questions.length - 1
                     ? "Next question"
                     : "Finish"}
                 </span>
@@ -246,7 +192,7 @@ export default function QuizPage() {
   // show error
   return (
     <div className="mt-8 flex flex-col items-center justify-center gap-8">
-      <p>Could not find a quiz with an id of {quizId}</p>
+      <p>You haven't failed any questions!</p>
       <Button el="link" href="/">
         <Icon
           iconName={IconNames.Chevron}

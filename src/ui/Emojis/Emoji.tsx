@@ -1,8 +1,8 @@
 // emojis pngs are in the public folder so the img path can be dynamic
-import { EmojiNames } from "../../types/enums";
+import { EmojiNames, EmojiReactions } from "src/types/enums";
 
 type EmojiProps = {
-  emojiName: EmojiNames;
+  emojiName: EmojiNames | EmojiReactions;
   className?: string;
 };
 

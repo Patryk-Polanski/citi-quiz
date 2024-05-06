@@ -1,7 +1,8 @@
+import { MutableRefObject } from "react";
 import { useAppSelector } from "src/hooks/useStore";
 
 type ProgressBarProps = {
-  questionsNumber: number | undefined;
+  questionsNumber: number | MutableRefObject<number> | undefined;
   quizId: string | undefined;
 };
 

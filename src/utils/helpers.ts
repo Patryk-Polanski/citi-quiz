@@ -56,14 +56,14 @@ export function getResultsReactions(result: number) {
     return { emoji: EmojiReactions.Terrible, message: "Terrible" };
   } else if (result < 34) {
     return { emoji: EmojiReactions.Embarassing, message: "Embarassing" };
-  } else if (result < 52) {
+  } else if (result < 50) {
     return { emoji: EmojiReactions.Laughable, message: "Laughable" };
-  } else if (result < 70) {
-    return { emoji: EmojiReactions.Good, message: "Good" };
-  } else if (result < 86) {
-    return { emoji: EmojiReactions.Great, message: "Great" };
+  } else if (result < 74) {
+    return { emoji: EmojiReactions.Good, message: "Getting there" };
+  } else if (result < 90) {
+    return { emoji: EmojiReactions.Great, message: "Great!" };
   } else {
-    return { emoji: EmojiReactions.Amazing, message: "Amazing" };
+    return { emoji: EmojiReactions.Amazing, message: "Amazing!" };
   }
 }
 
