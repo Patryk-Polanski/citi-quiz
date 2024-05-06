@@ -44,7 +44,7 @@ export default function ProgressBar({
               />
             ))
           : null}
-        {activeQuizScore.length < questionsNumber ? (
+        {activeQuizScore.length < (questionsNumber || questionsNumber) ? (
           <span
             style={{
               gridColumnStart: activeQuizScore.length + 1,

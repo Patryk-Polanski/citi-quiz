@@ -7,18 +7,12 @@ import {
   updateActiveQuizScore,
   updateQuizzesStats,
   updateTryAgainQuestionIds,
-  resetTryAgainQuestionIds,
-  updateSurvivalQuizHighestScore,
 } from "src/store/stats-slice";
 import { useAppDispatch, useAppSelector } from "src/hooks/useStore";
 import { BlobGradients, IconNames } from "src/types/enums";
 import { type QuestionResult, type Question, Quiz } from "src/types/quiz";
 import { TEMP_DATA } from "src/utils/constants";
-import {
-  createTryAgainQuiz,
-  createSurvivalQuiz,
-  arraysAreEqual,
-} from "src/utils/helpers";
+import { arraysAreEqual } from "src/utils/helpers";
 
 import Button from "src/ui/Button";
 import Icon from "src/ui/Icons/Icon";
@@ -29,15 +23,11 @@ import QuizComplete from "src/ui/dialogs/QuizComplete";
 
 export default function QuizPage() {
   const { quizId } = useParams();
-  const {
-    activeQuizId,
-    activeQuizScore,
-    tryAgainQuestionIds,
-    survivalQuizHighestScore,
-  } = useAppSelector((store) => store.stats);
+  const { activeQuizId, activeQuizScore } = useAppSelector(
+    (store) => store.stats,
+  );
   const dispatch = useAppDispatch();
   const [questionIndex, setQuestionIndex] = useState(0);
-  const [terminateQuizEarly, setTerminateQuizEarly] = useState(false);
   const [chosenLetter, setChosenLetter] = useState<string[] | null>(null);
   const [tempTryAgainQuestionIds, setTempTryAgainQuestionIds] = useState<
     string[]
@@ -47,14 +37,6 @@ export default function QuizPage() {
 
   const activeQuiz = useMemo(() => {
     if (!activeQuizId) return null;
-
-    // if (quizId === "try-again") {
-    //   return createTryAgainQuiz(TEMP_DATA, tryAgainQuestionIds);
-    // }
-
-    // if (quizId === "survival") {
-    //   return createSurvivalQuiz(TEMP_DATA);
-    // }
 
     return TEMP_DATA.find((quiz) => quiz.quizId === activeQuizId) as
       | Quiz
@@ -138,11 +120,6 @@ export default function QuizPage() {
           pass: false,
         }),
       );
-
-      // if (quizId === "survival") {
-      //   setTerminateQuizEarly(true);
-      //   return;
-      // }
     }
   }, [
     questionResult,
@@ -154,18 +131,7 @@ export default function QuizPage() {
 
   const handleNextQuestion = () => {
     // end the quiz
-    if (
-      questionIndex + 1 === activeQuiz?.questions.length ||
-      terminateQuizEarly
-    ) {
-      // if (quizId === "try-again") {
-      //   dispatch(resetTryAgainQuestionIds());
-      // } else if (quizId === "survival") {
-      //   if (activeQuizScore.length > survivalQuizHighestScore) {
-      //     dispatch(updateSurvivalQuizHighestScore(activeQuizScore.length));
-      //   }
-      // } else {
-      // }
+    if (questionIndex + 1 === activeQuiz?.questions.length) {
       dispatch(updateQuizzesStats(activeQuizScore));
       dispatch(updateTryAgainQuestionIds(tempTryAgainQuestionIds));
       setIsQuizComplete(true);
@@ -227,8 +193,7 @@ export default function QuizPage() {
             <div className="mt-6 flex flex-col items-center justify-center gap-6">
               <Button onClick={handleNextQuestion} el="button">
                 <span>
-                  {questionIndex < activeQuiz.questions.length - 1 &&
-                  !terminateQuizEarly
+                  {questionIndex < activeQuiz.questions.length - 1
                     ? "Next question"
                     : "Finish"}
                 </span>
