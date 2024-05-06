@@ -43,7 +43,10 @@ export function createSurvivalQuiz(allQuizzes: Quiz[]) {
   );
 
   survivalQuiz.forEach((question, index) => {
-    const randomNumber = generateRandomNumber(0, survivalQuiz.length - index);
+    const randomNumber = generateRandomNumber(
+      0,
+      survivalQuiz.length - (index + 1),
+    );
     survivalQuizRandom[randomNumbers[randomNumber]] = question;
     randomNumbers.splice(randomNumber, 1);
   });
