@@ -127,7 +127,7 @@ export default function TryAgainQuizPage() {
   if (isQuizComplete) {
     return (
       <TryAgainQuizComplete
-        questionsNumber={tryAgainQuestionsIdsLength}
+        questionsNumber={tryAgainQuestionsIdsLength.current}
         activeQuizScore={activeQuizScore}
       />
     );

@@ -4,12 +4,12 @@ import { BlobGradients, IconNames } from "src/types/enums";
 import Emoji from "src/ui/Emojis/Emoji";
 import { useParams } from "react-router-dom";
 import ProgressBar from "src/features/quiz/ProgressBar";
-import { MutableRefObject, useMemo } from "react";
+import { useMemo } from "react";
 import { calcHighestScore, getResultsReactions } from "src/utils/helpers";
 import { quizStats } from "src/types/stats";
 
 type QuizCompleteProps = {
-  questionsNumber: MutableRefObject<number>;
+  questionsNumber: number;
   activeQuizScore: quizStats[];
 };
 
@@ -24,9 +24,7 @@ export default function TryAgainQuizComplete({
   }, [activeQuizScore]);
 
   const activeQuizPercentage = useMemo(() => {
-    return Math.floor(
-      (activeQuizResults / (questionsNumber.current || 0)) * 100,
-    );
+    return Math.floor((activeQuizResults / (questionsNumber || 0)) * 100);
   }, [activeQuizResults, questionsNumber]);
 
   const resultsReactions = useMemo(
@@ -48,8 +46,7 @@ export default function TryAgainQuizComplete({
           <h3 className="mt-2 text-xl">Score:</h3>
           <div className="mt-2 flex w-full flex-col">
             <span className="text-2xl font-medium">
-              {activeQuizResults}/{questionsNumber.current} -{" "}
-              {activeQuizPercentage}%
+              {activeQuizResults}/{questionsNumber} - {activeQuizPercentage}%
             </span>
             <ProgressBar quizId={quizId} questionsNumber={questionsNumber} />
           </div>

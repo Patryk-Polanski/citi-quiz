@@ -1,8 +1,7 @@
-import { MutableRefObject } from "react";
 import { useAppSelector } from "src/hooks/useStore";
 
 type ProgressBarProps = {
-  questionsNumber: number | MutableRefObject<number> | undefined;
+  questionsNumber: number | undefined;
   quizId: string | undefined;
 };
 
@@ -44,7 +43,7 @@ export default function ProgressBar({
               />
             ))
           : null}
-        {activeQuizScore.length < (questionsNumber || questionsNumber) ? (
+        {activeQuizScore.length < questionsNumber ? (
           <span
             style={{
               gridColumnStart: activeQuizScore.length + 1,
