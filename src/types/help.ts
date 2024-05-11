@@ -1,7 +1,7 @@
-export type faq = {
+export type Faq = {
   id: string;
   question: string;
   answer: string;
 };
 
-export type faqs = faq[];
+export type Faqs = Faq[];

@@ -1,11 +1,11 @@
 import { useCallback, useMemo, useState } from "react";
 import { IconNames } from "src/types/enums";
-import { faq } from "src/types/help";
+import { Faq } from "src/types/help";
 import Icon from "src/ui/Icons/Icon";
 import Button from "src/ui/Button";
 
 type AccordionProps = {
-  faq: faq;
+  faq: Faq;
 };
 
 export default function Accordion({

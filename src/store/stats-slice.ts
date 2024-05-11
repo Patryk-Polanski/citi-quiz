@@ -1,8 +1,8 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { type userStats, quizStats } from "../types/stats";
+import { type UserStats, QuizStats } from "../types/stats";
 import { calcHighestScore } from "src/utils/helpers";
 
-const initialState: userStats = {
+const initialState: UserStats = {
   quizzes: [],
   tryAgainQuestionIds: [],
   activeQuizId: null,
@@ -14,13 +14,13 @@ export const statsSlice = createSlice({
   name: "stats",
   initialState,
   reducers: {
-    setActiveQuiz(state, action: PayloadAction<userStats["activeQuizId"]>) {
+    setActiveQuiz(state, action: PayloadAction<UserStats["activeQuizId"]>) {
       state.activeQuizId = action.payload;
     },
-    setQuizzesStats(state, action: PayloadAction<quizStats[][]>) {
+    setQuizzesStats(state, action: PayloadAction<QuizStats[][]>) {
       state.quizzes = action.payload;
     },
-    updateQuizzesStats(state, action: PayloadAction<quizStats[]>) {
+    updateQuizzesStats(state, action: PayloadAction<QuizStats[]>) {
       if (!state.activeQuizId) return;
 
       const currentHighestScore = calcHighestScore(
@@ -37,7 +37,7 @@ export const statsSlice = createSlice({
         });
       }
     },
-    updateActiveQuizScore(state, action: PayloadAction<quizStats>) {
+    updateActiveQuizScore(state, action: PayloadAction<QuizStats>) {
       state.activeQuizScore.push(action.payload);
     },
     resetActiveQuiz(state) {

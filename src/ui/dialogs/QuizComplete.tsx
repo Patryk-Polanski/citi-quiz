@@ -7,11 +7,11 @@ import ProgressBar from "src/features/quiz/ProgressBar";
 import { useAppSelector } from "src/hooks/useStore";
 import { useMemo } from "react";
 import { calcHighestScore, getResultsReactions } from "src/utils/helpers";
-import { quizStats } from "src/types/stats";
+import { QuizStats } from "src/types/stats";
 
 type QuizCompleteProps = {
   questionsNumber: number | undefined;
-  activeQuizScore: quizStats[];
+  activeQuizScore: QuizStats[];
   onQuizRestart: () => void;
 };
 

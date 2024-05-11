@@ -1,9 +1,9 @@
-export type userStats = {
-  quizzes: quizStats[][];
+export type UserStats = {
+  quizzes: QuizStats[][];
   tryAgainQuestionIds: string[];
   activeQuizId: string | null;
-  activeQuizScore: quizStats[];
+  activeQuizScore: QuizStats[];
   survivalQuizHighestScore: number;
 };
 
-export type quizStats = { questionId: string | null; pass: boolean };
+export type QuizStats = { questionId: string | null; pass: boolean };

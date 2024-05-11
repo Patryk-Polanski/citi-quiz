@@ -1,16 +1,14 @@
 import Icon from "src/ui/Icons/Icon";
 import Button from "src/ui/Button";
 import { BlobGradients, IconNames } from "src/types/enums";
-import Emoji from "src/ui/Emojis/Emoji";
 import ProgressBar from "src/features/quiz/ProgressBar";
-import { useAppSelector } from "src/hooks/useStore";
 import { useMemo } from "react";
-import { calcHighestScore, getResultsReactions } from "src/utils/helpers";
-import { quizStats } from "src/types/stats";
+import { calcHighestScore } from "src/utils/helpers";
+import { QuizStats } from "src/types/stats";
 
 type QuizCompleteProps = {
   questionsNumber: number | undefined;
-  activeQuizScore: quizStats[];
+  activeQuizScore: QuizStats[];
   survivalQuizHighestScore: number;
   onQuizRestart: () => void;
 };

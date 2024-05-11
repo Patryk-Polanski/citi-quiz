@@ -1,8 +1,8 @@
 import Accordion from "src/features/help/Accordion";
 import { BlobGradients } from "src/types/enums";
-import { faqs } from "src/types/help";
+import { Faqs } from "src/types/help";
 
-const FAQS: faqs = [
+const FAQS: Faqs = [
   {
     id: "01",
     question: "What is the purpose of this app?",

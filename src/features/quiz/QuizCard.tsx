@@ -4,13 +4,13 @@ import { IconNames } from "../../types/enums";
 
 import Icon from "src/ui/Icons/Icon";
 import { Quiz } from "src/types/quiz";
-import { quizStats } from "src/types/stats";
+import { QuizStats } from "src/types/stats";
 import { useMemo } from "react";
 import { calcHighestScore } from "src/utils/helpers";
 
 type QuizCardProps = {
   quiz: Quiz;
-  quizStats: quizStats[];
+  quizStats: QuizStats[];
 };
 
 export default function QuizCard({ quiz, quizStats }: QuizCardProps) {

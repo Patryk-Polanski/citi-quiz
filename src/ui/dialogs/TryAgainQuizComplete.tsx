@@ -6,11 +6,11 @@ import { useParams } from "react-router-dom";
 import ProgressBar from "src/features/quiz/ProgressBar";
 import { useMemo } from "react";
 import { calcHighestScore, getResultsReactions } from "src/utils/helpers";
-import { quizStats } from "src/types/stats";
+import { QuizStats } from "src/types/stats";
 
 type QuizCompleteProps = {
   questionsNumber: number;
-  activeQuizScore: quizStats[];
+  activeQuizScore: QuizStats[];
 };
 
 export default function TryAgainQuizComplete({
