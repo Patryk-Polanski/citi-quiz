@@ -2,6 +2,7 @@ import { useRef } from "react";
 
 import { type QuestionResult, type Option } from "src/types/quiz";
 import AnswerCardPopup from "./AnswerCardPopup";
+import Button from "src/ui/Button";
 
 type AnswerCardProps = {
   option: Option;
@@ -66,24 +67,30 @@ export default function AnswerCard({
   };
 
   return (
-    <div
-      ref={optionRef}
+    <Button
+      el="button"
       onClick={handleOptionSelect}
-      className={`group relative flex 
-        cursor-pointer items-center gap-2`}
-      data-option-letter={option.letter}
+      classes={`group relative flex w-full
+        cursor-pointer items-center gap-2 bg-none border-0 after:border-transparent after:hover:border-transparent drop-shadow-none px-0 py-0`}
     >
-      {answerPopup}
       <div
-        className={`rounded-[20px] bg-gradient-to-br from-white/50 to-white/5 px-6 py-4 drop-shadow-xl backdrop-blur transition duration-0 ease-in-out after:absolute after:inset-0 after:rounded-[20px] after:border-2 after:transition after:duration-0 ${borderClasses}`}
+        ref={optionRef}
+        data-option-letter={option.letter}
+        className="group relative flex 
+        w-full cursor-pointer items-center gap-2"
       >
-        {option.letter}
+        {answerPopup}
+        <div
+          className={`rounded-[20px] bg-gradient-to-br from-white/50 to-white/5 px-6 py-4 drop-shadow-xl backdrop-blur transition duration-0 ease-in-out after:absolute after:inset-0 after:rounded-[20px] after:border-2 after:transition after:duration-0 ${borderClasses}`}
+        >
+          {option.letter}
+        </div>
+        <div
+          className={`w-full rounded-[20px] bg-gradient-to-br from-white/50 to-white/5 px-6 py-4 drop-shadow-xl backdrop-blur transition duration-0 ease-in-out after:absolute after:inset-0 after:rounded-[20px] after:border-2  after:transition after:duration-0 ${borderClasses} text-left`}
+        >
+          {option.answer}
+        </div>
       </div>
-      <div
-        className={`w-full rounded-[20px] bg-gradient-to-br from-white/50 to-white/5 px-6 py-4 drop-shadow-xl backdrop-blur transition duration-0 ease-in-out after:absolute after:inset-0 after:rounded-[20px] after:border-2  after:transition after:duration-0 ${borderClasses}`}
-      >
-        {option.answer}
-      </div>
-    </div>
+    </Button>
   );
 }
