@@ -37,8 +37,8 @@ export default function SurvivalQuizComplete({
           <span
             className={`pointer-events-none absolute -bottom-1/3 left-16 h-80 w-80 -translate-y-1/2 rounded-full bg-gradient-radial ${BlobGradients.Fuchsia} opacity-60 blur-[20px]`}
           />
-          <h2 className="text-3xl">Survival Quiz</h2>
-          <h3 className="mt-2 text-xl">Score:</h3>
+          <h2>Survival Quiz</h2>
+          <h3 className="mt-2">Score:</h3>
           <div className="mt-2 flex w-full flex-col">
             <span className="text-2xl font-medium">
               {activeQuizResults}/{questionsNumber} - {activeQuizPercentage}%

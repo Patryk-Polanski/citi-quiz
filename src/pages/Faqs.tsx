@@ -32,7 +32,7 @@ const FAQS: Faqs = [
 export default function FaqsPage() {
   return (
     <section>
-      <h2 className="mb-10 mt-6 text-center font-laila text-3xl">FAQs</h2>
+      <h2 className="mb-10 mt-6 text-center">FAQs</h2>
       <div className="relative">
         <span
           className={`absolute left-0 top-0 h-full w-full rounded-full bg-gradient-radial blur-lg ${BlobGradients.Amber}`}

@@ -159,9 +159,9 @@ export default function SurvivalQuizPage() {
           quizId={activeQuiz.quizId}
           questionsNumber={activeQuiz.questions.length}
         />
-        <div className="mt-8 text-center font-laila">
-          <h4 className="text-2xl">Question {questionIndex + 1}</h4>
-          <h4 className="mt-4 text-2xl">{activeQuestion.question}</h4>
+        <div className="mt-8 text-center">
+          <h3>Question {questionIndex + 1}</h3>
+          <h3 className="mt-4">{activeQuestion.question}</h3>
         </div>
         <div className="relative">
           <span

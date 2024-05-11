@@ -17,12 +17,12 @@ export default function Error({ errorMessage }: ErrorProps) {
       <div className="flex min-h-dvh flex-col items-center justify-center gap-3 bg-gradient-to-br from-white/50 to-white/20">
         {isRouteErrorResponse(error) ? (
           <>
-            <h1>404: Page not found</h1>
+            <h1 className="h2">404: Page not found</h1>
             <small>{error.data}</small>
           </>
         ) : (
           <>
-            <h1>404: Could not find the requested data</h1>
+            <h1 className="h2">404: Could not find the requested data</h1>
             <small>
               {errorMessage ? errorMessage : "Something went wrong..."}
             </small>

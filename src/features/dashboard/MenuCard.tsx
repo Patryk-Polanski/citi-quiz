@@ -18,7 +18,7 @@ export default function MenuCard({ menuItem }: MenuCardProps) {
           iconName={menuItem.icon}
           className="absolute left-0 top-0 w-[76px] -translate-x-3 -translate-y-3 opacity-50 transition duration-300 ease-in-out group-hover:translate-x-0 group-hover:translate-y-[22%] group-hover:scale-50 group-hover:opacity-80"
         />
-        <h3 className="ml-12 mr-auto pb-3 pt-5 font-laila text-2xl transition duration-200 ease-in-out group-hover:translate-x-4">
+        <h3 className="ml-12 mr-auto pb-3 pt-5 transition duration-200 ease-in-out group-hover:translate-x-4">
           {menuItem.title}
         </h3>
         <span className="w-[2px] self-stretch bg-white opacity-60" />

@@ -13,8 +13,8 @@ export default function QuizHeader({
   tempTryAgainQuestionIds,
 }: QuizHeaderProps) {
   return (
-    <div className="flex items-end justify-between font-laila">
-      <h3 className="mr-auto text-2xl">Quiz {quizId.replace("-", " ")}</h3>
+    <div className="flex items-end justify-between">
+      <h3 className="mr-auto">Quiz {quizId.replace("-", " ")}</h3>
       {quizId !== "try-again" && quizId !== "survival" ? (
         <Countdown tempTryAgainQuestionIds={tempTryAgainQuestionIds} />
       ) : (
