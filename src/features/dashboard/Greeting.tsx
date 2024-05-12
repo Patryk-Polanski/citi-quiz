@@ -31,10 +31,6 @@ export default function Greeting() {
           .getComputedStyle(greetingRef.current)
           .getPropertyValue("font-size"),
       );
-      console.log(
-        "🚀 ~ useEffect ~ computedFontSize:",
-        computedFontSize.current,
-      );
     }
     setTimeout(
       () => {

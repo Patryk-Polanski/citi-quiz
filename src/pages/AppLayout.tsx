@@ -8,12 +8,11 @@ import { setQuizzesStats } from "src/store/stats-slice";
 import AppHeader from "./AppHeader";
 import AppFooter from "./AppFooter";
 import BackgroundBlob from "src/ui/decorative/BackgroundBlob";
+import useLocalStorage from "src/hooks/useLocalStorage";
 
 export default function AppLayout() {
   const dispatch = useAppDispatch();
-
-  // todo: replace later with tanstack query when db is ready
-  useEffect(() => {
+  const [statsLocalStorage] = useLocalStorage("citiquiz", () => {
     const stats = TEMP_DATA.map((quiz) => {
       const questionsStats = quiz.questions.map((question) => ({
         questionId: question.questionId,
@@ -21,9 +20,17 @@ export default function AppLayout() {
       }));
       return questionsStats;
     });
+    return {
+      quizzes: stats,
+      tryAgainQuestionIds: [],
+      survivalQuizHighestScore: 0,
+    };
+  });
 
-    dispatch(setQuizzesStats(stats));
-  }, [dispatch]);
+  // todo: replace later with tanstack query when db is ready
+  useEffect(() => {
+    dispatch(setQuizzesStats(statsLocalStorage));
+  }, [dispatch, statsLocalStorage]);
 
   return (
     <div className="relative min-h-screen bg-sky-600 font-comfortaa text-white">

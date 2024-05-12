@@ -20,12 +20,13 @@ import ProgressBar from "src/features/quiz/ProgressBar";
 import QuizHeader from "src/features/quiz/QuizHeader";
 import AnswerCard from "src/features/quiz/AnswerCard";
 import QuizComplete from "src/ui/dialogs/QuizComplete";
+import useLocalStorage from "src/hooks/useLocalStorage";
+import { UserStats } from "src/types/stats";
 
 export default function QuizPage() {
   const { quizId } = useParams();
-  const { activeQuizId, activeQuizScore } = useAppSelector(
-    (store) => store.stats,
-  );
+  const { stats } = useAppSelector((store) => store);
+  const { activeQuizId, activeQuizScore } = stats;
   const dispatch = useAppDispatch();
   const [questionIndex, setQuestionIndex] = useState(0);
   const [chosenLetter, setChosenLetter] = useState<string[] | null>(null);
@@ -34,6 +35,8 @@ export default function QuizPage() {
   >([]);
   const buttonRef = useRef<HTMLDivElement | null>(null);
   const [isQuizComplete, setIsQuizComplete] = useState(false);
+  const [_statsLocalStorage, setStatsLocalStorage] =
+    useLocalStorage("citiquiz");
 
   const activeQuiz = useMemo(() => {
     if (!activeQuizId) return null;
@@ -134,6 +137,14 @@ export default function QuizPage() {
     if (questionIndex + 1 === activeQuiz?.questions.length) {
       dispatch(updateQuizzesStats(activeQuizScore));
       dispatch(updateTryAgainQuestionIds(tempTryAgainQuestionIds));
+      5;
+      setStatsLocalStorage(
+        (prevVal: Omit<UserStats, "activeQuizId" | "activeQuizScore">) => ({
+          ...prevVal,
+          quizzes: [],
+          tryAgainQuestionIds: [],
+        }),
+      );
       setIsQuizComplete(true);
       return;
     }

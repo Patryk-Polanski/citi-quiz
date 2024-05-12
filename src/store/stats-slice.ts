@@ -17,8 +17,15 @@ export const statsSlice = createSlice({
     setActiveQuiz(state, action: PayloadAction<UserStats["activeQuizId"]>) {
       state.activeQuizId = action.payload;
     },
-    setQuizzesStats(state, action: PayloadAction<QuizStats[][]>) {
-      state.quizzes = action.payload;
+    setQuizzesStats(
+      state,
+      action: PayloadAction<
+        Omit<UserStats, "activeQuizId" | "activeQuizScore">
+      >,
+    ) {
+      state.quizzes = action.payload.quizzes;
+      state.tryAgainQuestionIds = action.payload.tryAgainQuestionIds;
+      state.survivalQuizHighestScore = action.payload.survivalQuizHighestScore;
     },
     updateQuizzesStats(state, action: PayloadAction<QuizStats[]>) {
       if (!state.activeQuizId) return;
