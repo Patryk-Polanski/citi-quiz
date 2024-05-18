@@ -6,7 +6,7 @@ import Icon from "src/ui/Icons/Icon";
 import { Quiz } from "src/types/quiz";
 import { QuizStats } from "src/types/stats";
 import { useMemo } from "react";
-import { calcHighestScore } from "src/utils/helpers";
+import { calcHighestScore } from "src/utils/dataManipulation";
 
 type QuizCardProps = {
   quiz: Quiz;

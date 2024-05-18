@@ -1,6 +1,5 @@
 import { IconNames } from "src/types/enums";
 import Icon from "src/ui/Icons/Icon";
-
 import Countdown from "./Countdown";
 
 type QuizHeaderProps = {

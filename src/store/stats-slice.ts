@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { type UserStats, QuizStats } from "../types/stats";
-import { calcHighestScore } from "src/utils/helpers";
+import { calcHighestScore } from "src/utils/dataManipulation";
 
 const initialState: UserStats = {
   quizzes: [],
@@ -17,7 +17,7 @@ export const statsSlice = createSlice({
     setActiveQuiz(state, action: PayloadAction<UserStats["activeQuizId"]>) {
       state.activeQuizId = action.payload;
     },
-    setQuizzesStats(
+    setInitialStats(
       state,
       action: PayloadAction<
         Omit<UserStats, "activeQuizId" | "activeQuizScore">
@@ -67,7 +67,7 @@ export const statsSlice = createSlice({
 
 export const {
   setActiveQuiz,
-  setQuizzesStats,
+  setInitialStats,
   updateQuizzesStats,
   updateActiveQuizScore,
   resetActiveQuiz,

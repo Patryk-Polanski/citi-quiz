@@ -3,7 +3,7 @@ import Button from "src/ui/Button";
 import { BlobGradients, IconNames } from "src/types/enums";
 import ProgressBar from "src/features/quiz/ProgressBar";
 import { useMemo } from "react";
-import { calcHighestScore } from "src/utils/helpers";
+import { calcHighestScore } from "src/utils/dataManipulation";
 import { QuizStats } from "src/types/stats";
 
 type QuizCompleteProps = {

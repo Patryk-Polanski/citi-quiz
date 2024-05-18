@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 import { TEMP_DATA } from "src/utils/constants";
 import { useAppDispatch } from "src/hooks/useStore";
-import { setQuizzesStats } from "src/store/stats-slice";
+import { setInitialStats } from "src/store/stats-slice";
 
 import AppHeader from "./AppHeader";
 import AppFooter from "./AppFooter";
@@ -29,8 +29,8 @@ export default function AppLayout() {
 
   // todo: replace later with tanstack query when db is ready
   useEffect(() => {
-    dispatch(setQuizzesStats(statsLocalStorage));
-  }, [dispatch, statsLocalStorage]);
+    dispatch(setInitialStats(statsLocalStorage));
+  }, []);
 
   return (
     <div className="relative min-h-screen bg-sky-600 font-comfortaa text-white">

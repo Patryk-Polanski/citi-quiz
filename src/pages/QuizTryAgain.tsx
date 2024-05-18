@@ -11,7 +11,8 @@ import { useAppDispatch, useAppSelector } from "src/hooks/useStore";
 import { BlobGradients, IconNames } from "src/types/enums";
 import { type QuestionResult, type Question } from "src/types/quiz";
 import { TEMP_DATA } from "src/utils/constants";
-import { createTryAgainQuiz, arraysAreEqual } from "src/utils/helpers";
+import { arraysAreEqual } from "src/utils/helpers";
+import { createTryAgainQuiz } from "src/utils/dataManipulation";
 
 import Button from "src/ui/Button";
 import Icon from "src/ui/Icons/Icon";

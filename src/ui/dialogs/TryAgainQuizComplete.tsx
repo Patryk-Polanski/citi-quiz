@@ -5,7 +5,8 @@ import Emoji from "src/ui/Emojis/Emoji";
 import { useParams } from "react-router-dom";
 import ProgressBar from "src/features/quiz/ProgressBar";
 import { useMemo } from "react";
-import { calcHighestScore, getResultsReactions } from "src/utils/helpers";
+import { getResultsReactions } from "src/utils/helpers";
+import { calcHighestScore } from "src/utils/dataManipulation";
 import { QuizStats } from "src/types/stats";
 
 type QuizCompleteProps = {
