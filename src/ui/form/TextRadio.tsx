@@ -1,5 +1,7 @@
 import { ChangeEvent } from "react";
 
+const afterStyles = `after:absolute after:-top-8 after:left-1/2 after:-translate-x-1/2 after:text-lg after:font-bold after:content-['⌄']`;
+
 type TextRadioType = {
   id: string;
   name: string;
@@ -30,7 +32,7 @@ export default function TextRadio({
       />
       <label
         htmlFor={id}
-        className={`relative cursor-pointer ${fontSize === value && `after:absolute after:-top-8 after:left-1/2 after:-translate-x-1/2 after:text-lg after:font-bold after:content-['⌄']`}`}
+        className={`relative cursor-pointer ${fontSize === value && afterStyles}`}
       >
         {text ? text : value}
       </label>

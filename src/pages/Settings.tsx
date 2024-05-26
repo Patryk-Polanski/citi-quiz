@@ -1,13 +1,25 @@
-import { type ChangeEvent, useState } from "react";
+import { type ChangeEvent, useState, useCallback } from "react";
 import Setting from "src/features/settings/Setting";
+import SwatchRadio from "src/ui/form/SwatchRadio";
 import TextRadio from "src/ui/form/TextRadio";
 
 export default function SettingsPage() {
   const [fontSize, setFontSize] = useState("medium");
+  const [background, setBackground] = useState("bg-sky-600");
 
-  const handleFontSizeChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setFontSize(e.target.value);
-  };
+  const handleFontSizeChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      setFontSize(e.target.value);
+    },
+    [],
+  );
+
+  const handleBackgroundChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      setBackground(e.target.value);
+    },
+    [],
+  );
 
   return (
     <section>
@@ -42,7 +54,40 @@ export default function SettingsPage() {
           </div>
         </Setting>
         <Setting title="Background">
-          <p>Background</p>
+          <div className="flex gap-6">
+            <SwatchRadio
+              id="bg-sky-600"
+              name="background"
+              value="bg-sky-600"
+              swatchClass="before:bg-sky-600"
+              background={background}
+              onChange={handleBackgroundChange}
+            />
+            <SwatchRadio
+              id="bg-orange"
+              name="background"
+              value="bg-orange"
+              swatchClass="before:bg-orange-600"
+              background={background}
+              onChange={handleBackgroundChange}
+            />
+            <SwatchRadio
+              id="bg-green-600"
+              name="background"
+              value="bg-green-600"
+              swatchClass="before:bg-green-600"
+              background={background}
+              onChange={handleBackgroundChange}
+            />
+            <SwatchRadio
+              id="bg-red-600"
+              name="background"
+              value="bg-red-600"
+              swatchClass="before:bg-red-600"
+              background={background}
+              onChange={handleBackgroundChange}
+            />
+          </div>
         </Setting>
         <Setting title="Reset app*" subtitle="*This will delete all data">
           <p>Data</p>
