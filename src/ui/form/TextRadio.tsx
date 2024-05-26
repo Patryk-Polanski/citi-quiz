@@ -32,7 +32,7 @@ export default function TextRadio({
       />
       <label
         htmlFor={id}
-        className={`relative cursor-pointer ${fontSize === value && afterStyles}`}
+        className={`relative cursor-pointer p-2 ${fontSize === value && afterStyles}`}
       >
         {text ? text : value}
       </label>

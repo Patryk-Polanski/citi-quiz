@@ -77,7 +77,7 @@ export default function SettingsPage() {
           </div>
         </Setting>
         <Setting title="Background">
-          <div className="flex gap-6">
+          <div className="flex gap-7">
             {BACKGROUNDS.map((color) => (
               <SwatchRadio
                 key={color.id}
