@@ -1,3 +1,50 @@
+import ListItem from "src/features/learning/ListItem";
+import { LearningResources } from "src/types/resources";
+import Button from "src/ui/Button";
+
+const resources: LearningResources = [
+  {
+    text: "Official Life in the UK study book and practice questions",
+    imagePath: "/assets/images/study-books.png",
+    alt: "image of official study books",
+    id: "1",
+  },
+  {
+    text: "Official Life in the UK e-Learning subscription",
+    imagePath: "/assets/images/study-platform.png",
+    alt: "image of official study app",
+    id: "2",
+  },
+  {
+    text: "Official Life in the UK App (Android & IOS)",
+    imagePath: "/assets/images/study-app.png",
+    alt: "image of official app",
+    imagePath2: "/assets/images/study-badge.png",
+    alt2: "official study app badge",
+    id: "3",
+  },
+];
+
 export default function ResourcesPage() {
-  return <div>Resources</div>;
+  return (
+    <section>
+      <h2 className="mb-10 mt-6 text-center">Learning Resources</h2>
+      <ol className="flex flex-col gap-12">
+        {resources.map((resource) => (
+          <ListItem key={resource.id} resource={resource} />
+        ))}
+      </ol>
+      <p className="mt-24 text-center">
+        For more information&nbsp;
+        <Button
+          el="link"
+          href="https://www.officiallifeintheuk.co.uk/shop"
+          target="_blank"
+          classes="inline"
+        >
+          Click here
+        </Button>
+      </p>
+    </section>
+  );
 }
