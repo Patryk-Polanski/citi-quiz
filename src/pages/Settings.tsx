@@ -3,6 +3,40 @@ import Setting from "src/features/settings/Setting";
 import SwatchRadio from "src/ui/form/SwatchRadio";
 import TextRadio from "src/ui/form/TextRadio";
 
+const FONT_SIZES = [
+  {
+    id: "small",
+    value: "small",
+  },
+  {
+    id: "medium",
+    value: "medium",
+  },
+  {
+    id: "large",
+    value: "large",
+  },
+];
+
+const BACKGROUNDS = [
+  {
+    id: "bg-sky-600",
+    value: "bg-sky-600",
+  },
+  {
+    id: "bg-orange-600",
+    value: "bg-orange-600",
+  },
+  {
+    id: "bg-green-600",
+    value: "bg-green-600",
+  },
+  {
+    id: "bg-red-600",
+    value: "bg-red-600",
+  },
+];
+
 export default function SettingsPage() {
   const [fontSize, setFontSize] = useState("medium");
   const [background, setBackground] = useState("bg-sky-600");
@@ -30,63 +64,31 @@ export default function SettingsPage() {
       <div className="mt-14 flex flex-col gap-12">
         <Setting title="Font size">
           <div className="flex gap-6">
-            <TextRadio
-              id="small"
-              name="font-size"
-              value="small"
-              fontSize={fontSize}
-              onChange={handleFontSizeChange}
-            />
-            <TextRadio
-              id="medium"
-              name="font-size"
-              value="medium"
-              fontSize={fontSize}
-              onChange={handleFontSizeChange}
-            />
-            <TextRadio
-              id="large"
-              name="font-size"
-              value="large"
-              fontSize={fontSize}
-              onChange={handleFontSizeChange}
-            />
+            {FONT_SIZES.map((size) => (
+              <TextRadio
+                key={size.id}
+                id={size.id}
+                name="font-size"
+                value={size.value}
+                fontSize={fontSize}
+                onChange={handleFontSizeChange}
+              />
+            ))}
           </div>
         </Setting>
         <Setting title="Background">
           <div className="flex gap-6">
-            <SwatchRadio
-              id="bg-sky-600"
-              name="background"
-              value="bg-sky-600"
-              swatchClass="before:bg-sky-600"
-              background={background}
-              onChange={handleBackgroundChange}
-            />
-            <SwatchRadio
-              id="bg-orange"
-              name="background"
-              value="bg-orange"
-              swatchClass="before:bg-orange-600"
-              background={background}
-              onChange={handleBackgroundChange}
-            />
-            <SwatchRadio
-              id="bg-green-600"
-              name="background"
-              value="bg-green-600"
-              swatchClass="before:bg-green-600"
-              background={background}
-              onChange={handleBackgroundChange}
-            />
-            <SwatchRadio
-              id="bg-red-600"
-              name="background"
-              value="bg-red-600"
-              swatchClass="before:bg-red-600"
-              background={background}
-              onChange={handleBackgroundChange}
-            />
+            {BACKGROUNDS.map((color) => (
+              <SwatchRadio
+                key={color.id}
+                id={color.id}
+                name="background"
+                value={color.value}
+                swatchClass={`before:${color.value}`}
+                background={background}
+                onChange={handleBackgroundChange}
+              />
+            ))}
           </div>
         </Setting>
         <Setting title="Reset app*" subtitle="*This will delete all data">
