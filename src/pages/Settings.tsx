@@ -1,7 +1,10 @@
-import { type ChangeEvent, useState, useCallback } from "react";
+import { type ChangeEvent, useState, useCallback, useRef } from "react";
 import Setting from "src/features/settings/Setting";
+import LockClosed from "src/ui/Icons/LockClosed";
+import LockOpen from "src/ui/Icons/LockOpen";
 import SwatchRadio from "src/ui/form/SwatchRadio";
 import TextRadio from "src/ui/form/TextRadio";
+import Toggle from "src/ui/form/Toggle";
 
 const FONT_SIZES = [
   {
@@ -40,6 +43,9 @@ const BACKGROUNDS = [
 export default function SettingsPage() {
   const [fontSize, setFontSize] = useState("medium");
   const [background, setBackground] = useState("bg-sky-600");
+  const [isClearDataAllowed, setIsClearDataAllowed] = useState(false);
+  const [clearData, setClearData] = useState(false);
+  const resetAppSubtitle = useRef("*This will delete all data");
 
   const handleFontSizeChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -55,13 +61,19 @@ export default function SettingsPage() {
     [],
   );
 
+  const handleEraseData = useCallback(() => {
+    setClearData((prevVal) => !prevVal);
+    resetAppSubtitle.current = "Application data has been reset";
+    setIsClearDataAllowed(false);
+  }, []);
+
   return (
     <section>
       <h2 className="mb-6 mt-6 text-center">Settings</h2>
       <small className="block text-center">
         Changes are saved automatically
       </small>
-      <div className="mt-14 flex flex-col gap-12">
+      <div className="mt-14 flex flex-col gap-16">
         <Setting title="Font size">
           <div className="flex gap-6">
             {FONT_SIZES.map((size) => (
@@ -91,8 +103,26 @@ export default function SettingsPage() {
             ))}
           </div>
         </Setting>
-        <Setting title="Reset app*" subtitle="*This will delete all data">
-          <p>Data</p>
+        <Setting title="Reset app*" subtitle={resetAppSubtitle.current}>
+          <div className="flex items-center gap-4 leading-none">
+            <Toggle
+              id="erase-data"
+              name="erase-data"
+              value="erase-data"
+              isClearDataAllowed={isClearDataAllowed}
+              onChange={handleEraseData}
+            />
+            {!isClearDataAllowed && (
+              <div onClick={() => !clearData && setIsClearDataAllowed(true)}>
+                <LockClosed className="h-7 w-7" />
+              </div>
+            )}
+            {isClearDataAllowed && (
+              <div onClick={() => !clearData && setIsClearDataAllowed(false)}>
+                <LockOpen className="h-7 w-7" />
+              </div>
+            )}
+          </div>
         </Setting>
       </div>
     </section>
