@@ -1,10 +1,10 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
-type greetingTypes = {
+type GreetingTypes = {
   emojiIndex: number | null;
 };
 
-const initialState: greetingTypes = {
+const initialState: GreetingTypes = {
   emojiIndex: null,
 };
 
@@ -12,7 +12,7 @@ export const greetingSlice = createSlice({
   name: "greeting",
   initialState,
   reducers: {
-    setGreeting(state, action: PayloadAction<greetingTypes["emojiIndex"]>) {
+    setGreeting(state, action: PayloadAction<GreetingTypes["emojiIndex"]>) {
       state.emojiIndex = action.payload;
     },
   },

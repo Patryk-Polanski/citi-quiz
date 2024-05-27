@@ -1,4 +1,9 @@
 import { type ChangeEvent, useState, useCallback, useRef } from "react";
+
+import { useAppSelector } from "src/hooks/useStore";
+import { useAppDispatch } from "src/hooks/useStore";
+import { setFontSize, setBackground } from "src/store/settings-slice";
+
 import Setting from "src/features/settings/Setting";
 import LockClosed from "src/ui/Icons/LockClosed";
 import LockOpen from "src/ui/Icons/LockOpen";
@@ -41,24 +46,24 @@ const BACKGROUNDS = [
 ];
 
 export default function SettingsPage() {
-  const [fontSize, setFontSize] = useState("medium");
-  const [background, setBackground] = useState("bg-sky-600");
+  const { fontSize, background } = useAppSelector((store) => store.settings);
+  const dispatch = useAppDispatch();
   const [isClearDataAllowed, setIsClearDataAllowed] = useState(false);
   const [clearData, setClearData] = useState(false);
   const resetAppSubtitle = useRef("*This will delete all data");
 
   const handleFontSizeChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
-      setFontSize(e.target.value);
+      dispatch(setFontSize(e.target.value));
     },
-    [],
+    [dispatch],
   );
 
   const handleBackgroundChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
-      setBackground(e.target.value);
+      dispatch(setBackground(e.target.value));
     },
-    [],
+    [dispatch],
   );
 
   const handleEraseData = useCallback(() => {
@@ -113,12 +118,18 @@ export default function SettingsPage() {
               onChange={handleEraseData}
             />
             {!isClearDataAllowed && (
-              <div onClick={() => !clearData && setIsClearDataAllowed(true)}>
+              <div
+                className={!clearData ? "cursor-pointer" : ""}
+                onClick={() => !clearData && setIsClearDataAllowed(true)}
+              >
                 <LockClosed className="h-7 w-7" />
               </div>
             )}
             {isClearDataAllowed && (
-              <div onClick={() => !clearData && setIsClearDataAllowed(false)}>
+              <div
+                className={!clearData ? "cursor-pointer" : ""}
+                onClick={() => !clearData && setIsClearDataAllowed(false)}
+              >
                 <LockOpen className="h-7 w-7" />
               </div>
             )}
