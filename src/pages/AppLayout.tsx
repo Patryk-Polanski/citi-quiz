@@ -9,27 +9,36 @@ import AppHeader from "./AppHeader";
 import AppFooter from "./AppFooter";
 import BackgroundBlob from "src/ui/decorative/BackgroundBlob";
 import useLocalStorage from "src/hooks/useLocalStorage";
+import { setSettings } from "src/store/settings-slice";
+
+const stats = TEMP_DATA.map((quiz) => {
+  const questionsStats = quiz.questions.map((question) => ({
+    questionId: question.questionId,
+    pass: false,
+  }));
+  return questionsStats;
+});
 
 export default function AppLayout() {
   const dispatch = useAppDispatch();
-  const [statsLocalStorage] = useLocalStorage("citiquiz", () => {
-    const stats = TEMP_DATA.map((quiz) => {
-      const questionsStats = quiz.questions.map((question) => ({
-        questionId: question.questionId,
-        pass: false,
-      }));
-      return questionsStats;
-    });
-    return {
+  const [statsLocalStorage] = useLocalStorage("citiquiz", {
+    stats: {
       quizzes: stats,
       tryAgainQuestionIds: [],
       survivalQuizHighestScore: 0,
-    };
+    },
+    settings: {
+      fontSize: "medium",
+      background: "bg-sky-600",
+    },
   });
 
   // todo: replace later with tanstack query when db is ready
   useEffect(() => {
-    dispatch(setInitialStats(statsLocalStorage));
+    if (statsLocalStorage?.stats)
+      dispatch(setInitialStats(statsLocalStorage.stats));
+    if (statsLocalStorage?.settings)
+      dispatch(setSettings(statsLocalStorage.settings));
   }, []);
 
   return (

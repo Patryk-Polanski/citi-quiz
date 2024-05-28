@@ -1,6 +1,7 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { type UserStats, QuizStats } from "../types/stats";
+import type { UserStats, QuizStats } from "../types/stats";
 import { calcHighestScore } from "src/utils/dataManipulation";
+import { DefaultValueTypes } from "src/hooks/useLocalStorage";
 
 const initialState: UserStats = {
   quizzes: [],
@@ -17,12 +18,7 @@ export const statsSlice = createSlice({
     setActiveQuiz(state, action: PayloadAction<UserStats["activeQuizId"]>) {
       state.activeQuizId = action.payload;
     },
-    setInitialStats(
-      state,
-      action: PayloadAction<
-        Omit<UserStats, "activeQuizId" | "activeQuizScore">
-      >,
-    ) {
+    setInitialStats(state, action: PayloadAction<DefaultValueTypes["stats"]>) {
       state.quizzes = action.payload.quizzes;
       state.tryAgainQuestionIds = action.payload.tryAgainQuestionIds;
       state.survivalQuizHighestScore = action.payload.survivalQuizHighestScore;

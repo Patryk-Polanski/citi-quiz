@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Outlet } from "react-router-dom";
 
-import useLocalStorage from "src/hooks/useLocalStorage";
+import useLocalStorage, { DefaultValueTypes } from "src/hooks/useLocalStorage";
 import { useAppSelector } from "src/hooks/useStore";
 
 export default function QuizWrapper() {
@@ -15,11 +15,14 @@ export default function QuizWrapper() {
       isInitialMount.current = false;
       return;
     }
-    setStatsLocalStorage({
-      quizzes: stats.quizzes,
-      tryAgainQuestionIds: stats.tryAgainQuestionIds,
-      survivalQuizHighestScore: stats.survivalQuizHighestScore,
-    });
+    setStatsLocalStorage((prevVal: DefaultValueTypes) => ({
+      ...prevVal,
+      stats: {
+        quizzes: stats.quizzes,
+        tryAgainQuestionIds: stats.tryAgainQuestionIds,
+        survivalQuizHighestScore: stats.survivalQuizHighestScore,
+      },
+    }));
   }, [
     stats.quizzes,
     stats.tryAgainQuestionIds,
