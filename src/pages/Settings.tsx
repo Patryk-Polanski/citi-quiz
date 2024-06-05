@@ -1,4 +1,10 @@
-import { type ChangeEvent, useState, useCallback, useRef } from "react";
+import {
+  type ChangeEvent,
+  useState,
+  useCallback,
+  useRef,
+  useEffect,
+} from "react";
 
 import { useAppSelector } from "src/hooks/useStore";
 import { useAppDispatch } from "src/hooks/useStore";
@@ -10,6 +16,9 @@ import LockOpen from "src/ui/Icons/LockOpen";
 import SwatchRadio from "src/ui/form/SwatchRadio";
 import TextRadio from "src/ui/form/TextRadio";
 import Toggle from "src/ui/form/Toggle";
+import useLocalStorage, {
+  type DefaultValueTypes,
+} from "src/hooks/useLocalStorage";
 
 const FONT_SIZES = [
   {
@@ -32,16 +41,16 @@ const BACKGROUNDS = [
     value: "bg-sky-600",
   },
   {
-    id: "bg-orange-600",
-    value: "bg-orange-600",
+    id: "bg-orange-700",
+    value: "bg-orange-700",
   },
   {
-    id: "bg-green-600",
-    value: "bg-green-600",
+    id: "bg-green-700",
+    value: "bg-green-700",
   },
   {
-    id: "bg-red-600",
-    value: "bg-red-600",
+    id: "bg-red-700",
+    value: "bg-red-700",
   },
 ];
 
@@ -51,6 +60,8 @@ export default function SettingsPage() {
   const [isClearDataAllowed, setIsClearDataAllowed] = useState(false);
   const [clearData, setClearData] = useState(false);
   const resetAppSubtitle = useRef("*This will delete all data");
+  const [_statsLocalStorage, setStatsLocalStorage] =
+    useLocalStorage("citiquiz");
 
   const handleFontSizeChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -71,6 +82,16 @@ export default function SettingsPage() {
     resetAppSubtitle.current = "Application data has been reset";
     setIsClearDataAllowed(false);
   }, []);
+
+  useEffect(() => {
+    setStatsLocalStorage((prevVal: DefaultValueTypes) => ({
+      ...prevVal,
+      settings: {
+        background,
+        fontSize,
+      },
+    }));
+  }, [setStatsLocalStorage, fontSize, background]);
 
   return (
     <section>

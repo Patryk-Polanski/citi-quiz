@@ -6,6 +6,18 @@ html {
   scrollbar-gutter: stable;
 }
 
+html.small {
+  font-size: 94%;
+}
+
+html.medium {
+  font-size: 100%;
+}
+
+html.large {
+  font-size: 106%;
+}
+
 h1,
 .h1 {
   @apply font-laila text-4xl;

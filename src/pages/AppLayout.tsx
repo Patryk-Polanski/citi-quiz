@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 
 import { TEMP_DATA } from "src/utils/constants";
-import { useAppDispatch } from "src/hooks/useStore";
+import { useAppDispatch, useAppSelector } from "src/hooks/useStore";
 import { setInitialStats } from "src/store/stats-slice";
 
 import AppHeader from "./AppHeader";
@@ -32,6 +32,7 @@ export default function AppLayout() {
       background: "bg-sky-600",
     },
   });
+  const { background, fontSize } = useAppSelector((store) => store.settings);
 
   // todo: replace later with tanstack query when db is ready
   useEffect(() => {
@@ -41,8 +42,14 @@ export default function AppLayout() {
       dispatch(setSettings(statsLocalStorage.settings));
   }, []);
 
+  useEffect(() => {
+    document.getElementsByTagName("html")[0].className = fontSize;
+  }, [fontSize]);
+
   return (
-    <div className="relative min-h-screen bg-sky-600 font-comfortaa text-white">
+    <div
+      className={`relative min-h-screen ${background} font-comfortaa text-white`}
+    >
       <div className="flex min-h-screen flex-col bg-gradient-to-br from-white/50 to-white/20">
         <AppHeader />
         <main className="container mx-auto grow">
