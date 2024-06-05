@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 
-import { TEMP_DATA } from "src/utils/constants";
+import { TEMP_DATA, initialUserData } from "src/utils/constants";
 import { useAppDispatch, useAppSelector } from "src/hooks/useStore";
 import { setInitialStats } from "src/store/stats-slice";
 
@@ -11,36 +11,16 @@ import BackgroundBlob from "src/ui/decorative/BackgroundBlob";
 import useLocalStorage from "src/hooks/useLocalStorage";
 import { setSettings } from "src/store/settings-slice";
 
-const stats = TEMP_DATA.map((quiz) => {
-  const questionsStats = quiz.questions.map((question) => ({
-    questionId: question.questionId,
-    pass: false,
-  }));
-  return questionsStats;
-});
-
 export default function AppLayout() {
   const dispatch = useAppDispatch();
-  const [statsLocalStorage] = useLocalStorage("citiquiz", {
-    stats: {
-      quizzes: stats,
-      tryAgainQuestionIds: [],
-      survivalQuizHighestScore: 0,
-    },
-    settings: {
-      fontSize: "medium",
-      background: "bg-sky-600",
-    },
-  });
+  const [statsLocalStorage] = useLocalStorage("citiquiz", initialUserData);
   const { background, fontSize } = useAppSelector((store) => store.settings);
 
   // todo: replace later with tanstack query when db is ready
   useEffect(() => {
-    if (statsLocalStorage?.stats)
-      dispatch(setInitialStats(statsLocalStorage.stats));
-    if (statsLocalStorage?.settings)
-      dispatch(setSettings(statsLocalStorage.settings));
-  }, []);
+    dispatch(setInitialStats(statsLocalStorage.stats));
+    dispatch(setSettings(statsLocalStorage.settings));
+  }, [statsLocalStorage, dispatch]);
 
   useEffect(() => {
     document.getElementsByTagName("html")[0].className = fontSize;

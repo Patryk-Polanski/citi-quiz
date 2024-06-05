@@ -449,3 +449,23 @@ export const TEMP_DATA: Quiz[] = [
     ],
   },
 ];
+
+const stats = TEMP_DATA.map((quiz) => {
+  const questionsStats = quiz.questions.map((question) => ({
+    questionId: question.questionId,
+    pass: false,
+  }));
+  return questionsStats;
+});
+
+export const initialUserData = {
+  stats: {
+    quizzes: stats,
+    tryAgainQuestionIds: [],
+    survivalQuizHighestScore: 0,
+  },
+  settings: {
+    fontSize: "medium",
+    background: "bg-sky-600",
+  },
+};

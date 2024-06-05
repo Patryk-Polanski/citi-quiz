@@ -8,7 +8,16 @@ import {
 
 import { useAppSelector } from "src/hooks/useStore";
 import { useAppDispatch } from "src/hooks/useStore";
-import { setFontSize, setBackground } from "src/store/settings-slice";
+import {
+  setFontSize,
+  setBackground,
+  setSettings,
+} from "src/store/settings-slice";
+
+import useLocalStorage, {
+  type DefaultValueTypes,
+} from "src/hooks/useLocalStorage";
+import { initialUserData } from "src/utils/constants";
 
 import Setting from "src/features/settings/Setting";
 import LockClosed from "src/ui/Icons/LockClosed";
@@ -16,9 +25,7 @@ import LockOpen from "src/ui/Icons/LockOpen";
 import SwatchRadio from "src/ui/form/SwatchRadio";
 import TextRadio from "src/ui/form/TextRadio";
 import Toggle from "src/ui/form/Toggle";
-import useLocalStorage, {
-  type DefaultValueTypes,
-} from "src/hooks/useLocalStorage";
+import { setInitialStats } from "src/store/stats-slice";
 
 const FONT_SIZES = [
   {
@@ -60,8 +67,7 @@ export default function SettingsPage() {
   const [isClearDataAllowed, setIsClearDataAllowed] = useState(false);
   const [clearData, setClearData] = useState(false);
   const resetAppSubtitle = useRef("*This will delete all data");
-  const [_statsLocalStorage, setStatsLocalStorage] =
-    useLocalStorage("citiquiz");
+  const [statsLocalStorage, setStatsLocalStorage] = useLocalStorage("citiquiz");
 
   const handleFontSizeChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -79,9 +85,10 @@ export default function SettingsPage() {
 
   const handleEraseData = useCallback(() => {
     setClearData((prevVal) => !prevVal);
+    setStatsLocalStorage(initialUserData);
     resetAppSubtitle.current = "Application data has been reset";
     setIsClearDataAllowed(false);
-  }, []);
+  }, [setStatsLocalStorage]);
 
   useEffect(() => {
     setStatsLocalStorage((prevVal: DefaultValueTypes) => ({
@@ -92,6 +99,11 @@ export default function SettingsPage() {
       },
     }));
   }, [setStatsLocalStorage, fontSize, background]);
+
+  useEffect(() => {
+    dispatch(setInitialStats(statsLocalStorage.stats));
+    dispatch(setSettings(statsLocalStorage.settings));
+  }, [statsLocalStorage, dispatch]);
 
   return (
     <section>
