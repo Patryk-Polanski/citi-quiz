@@ -17,21 +17,15 @@ const randomEmojiIndex = generateRandomNumber(
   emojisData.length * 2,
 );
 
+const greetingFontSize = 18;
+
 export default function Greeting() {
   const [emojisReady, setEmojisReady] = useState(false);
   const dispatch = useAppDispatch();
   const { emojiIndex } = useAppSelector((store) => store.greeting);
   const greetingRef = useRef<HTMLHeadingElement | null>(null);
-  const computedFontSize = useRef<number>(16);
 
   useEffect(() => {
-    if (greetingRef.current) {
-      computedFontSize.current = parseInt(
-        window
-          .getComputedStyle(greetingRef.current)
-          .getPropertyValue("font-size"),
-      );
-    }
     setTimeout(
       () => {
         setEmojisReady(true);
@@ -47,29 +41,32 @@ export default function Greeting() {
   return (
     <div className="flex items-center gap-1">
       <h2
-        className="flex items-center justify-end text-lg leading-7"
+        className="flex items-center justify-end text-[18px] leading-[28px]"
         ref={greetingRef}
       >
         Welcome back,
         {/* emoji name */}
-        <span className="ml-1 h-9 overflow-hidden rounded-md">
+        <span className="ml-1 h-[36px] overflow-hidden rounded-md">
           <ul
             aria-hidden={true}
-            className={`flex flex-col justify-center bg-white/20 ${!emojiIndex && "transition-all delay-[800ms] duration-[4000ms]"}  ease-in-out`}
+            className={`flex flex-col justify-center bg-white/20 ${!emojiIndex && "transition-all delay-[800ms] duration-[4000ms]"} ease-in-out`}
             style={{
               transform: emojisReady
-                ? `translateY(-${(computedFontSize.current + computedFontSize.current) * (emojiIndex || randomEmojiIndex) + "px"})`
+                ? `translateY(-${(greetingFontSize + greetingFontSize) * (emojiIndex || randomEmojiIndex) + "px"})`
                 : "",
             }}
           >
-            <li key="unknown" className="p-1 text-center text-lg leading-7">
+            <li
+              key="unknown"
+              className="p-1 text-center text-[18px] leading-[28px]"
+            >
               ???
             </li>
             {extendedEmojisArr.map((emojiName, index) => {
               return (
                 <li
                   key={`${emojiName}-${index}`}
-                  className="p-1 text-center text-lg leading-7"
+                  className="h-[36px] p-1 text-center text-[18px] leading-[28px]"
                 >
                   {emojiName.replace("-", " ")}
                 </li>
@@ -83,20 +80,20 @@ export default function Greeting() {
             className={`flex flex-col justify-center bg-white/20 ${!emojiIndex && "transition-all delay-[1400ms] duration-[4000ms]"} ease-in-out`}
             style={{
               transform: emojisReady
-                ? `translateY(-${(computedFontSize.current + computedFontSize.current) * (emojiIndex || randomEmojiIndex) + "px"})`
+                ? `translateY(-${(greetingFontSize + greetingFontSize) * (emojiIndex || randomEmojiIndex) + "px"})`
                 : "",
             }}
           >
             <li key="unknown" className="p-1">
               <Emoji
                 emojiName={EmojiNames.Unknown}
-                className="box-border w-7"
+                className="box-border w-[28px]"
               />
             </li>
             {extendedEmojisArr.map((emoji, index) => {
               return (
                 <li key={`${emoji}-${index}`} className="p-[4px]">
-                  <Emoji emojiName={emoji} className="box-border w-7" />
+                  <Emoji emojiName={emoji} className="box-border w-[28px]" />
                 </li>
               );
             })}
