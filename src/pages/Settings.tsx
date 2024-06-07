@@ -44,7 +44,7 @@ const FONT_SIZES = [
 
 const BACKGROUNDS = [
   {
-    id: "bg-sky-600",
+    id: "bg-sky-700",
     value: "bg-sky-600",
   },
   {
@@ -63,6 +63,7 @@ const BACKGROUNDS = [
 
 export default function SettingsPage() {
   const { fontSize, background } = useAppSelector((store) => store.settings);
+  const stats = useAppSelector((store) => store.stats);
   const dispatch = useAppDispatch();
   const [isClearDataAllowed, setIsClearDataAllowed] = useState(false);
   const [clearData, setClearData] = useState(false);
@@ -85,25 +86,23 @@ export default function SettingsPage() {
 
   const handleEraseData = useCallback(() => {
     setClearData((prevVal) => !prevVal);
+    dispatch(setInitialStats(initialUserData.stats));
+    dispatch(setSettings(initialUserData.settings));
     setStatsLocalStorage(initialUserData);
     resetAppSubtitle.current = "Application data has been reset";
     setIsClearDataAllowed(false);
-  }, [setStatsLocalStorage]);
+  }, [setStatsLocalStorage, dispatch]);
 
   useEffect(() => {
     setStatsLocalStorage((prevVal: DefaultValueTypes) => ({
       ...prevVal,
+      stats,
       settings: {
         background,
         fontSize,
       },
     }));
-  }, [setStatsLocalStorage, fontSize, background]);
-
-  useEffect(() => {
-    dispatch(setInitialStats(statsLocalStorage.stats));
-    dispatch(setSettings(statsLocalStorage.settings));
-  }, [statsLocalStorage, dispatch]);
+  }, [setStatsLocalStorage, fontSize, background, stats]);
 
   return (
     <section>
