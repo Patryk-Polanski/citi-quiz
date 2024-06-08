@@ -8,11 +8,13 @@ import Help from "src/ui/sliders/Help";
 import Logo from "src/ui/Logo";
 import Icon from "src/ui/Icons/Icon";
 import Button from "src/ui/Button";
+import Account from "src/ui/dialogs/Account";
 
 const urlswithBackBtn = ["/quizzes", "/settings", "/resources", "/faqs"];
 
 export default function AppHeader() {
   const [isHelpSliderOpen, setIsHelpSliderOpen] = useState(false);
+  const [isAccountModalOpen, setIsAccountModalOpen] = useState(false);
   const location = useLocation();
   const { pathname } = location;
 
@@ -43,14 +45,24 @@ export default function AppHeader() {
         <Link to="/" className="col-span-4 justify-self-center">
           <Logo />
         </Link>
-        <Icon
-          className="col-span-2 w-16 justify-self-end"
-          iconName={IconNames.Account}
-        />
+        <Button
+          el="button"
+          omitStyles
+          classes="col-span-2 justify-self-end self-start"
+          onClick={() => setIsAccountModalOpen(true)}
+        >
+          <Icon className="h-16 w-16" iconName={IconNames.Account} />
+        </Button>
       </header>
       {createPortal(
         isHelpSliderOpen ? (
           <Help onClose={() => setIsHelpSliderOpen(false)} />
+        ) : null,
+        document.getElementById("portal-root")!,
+      )}
+      {createPortal(
+        isAccountModalOpen ? (
+          <Account onClose={() => setIsAccountModalOpen(false)} />
         ) : null,
         document.getElementById("portal-root")!,
       )}

@@ -2,8 +2,8 @@ import { useEffect, useRef } from "react";
 
 import { IconNames } from "src/types/enums";
 
-import Button from "../Button";
-import Icon from "../Icons/Icon";
+import Button from "src/ui/Button";
+import Icon from "src/ui/Icons/Icon";
 
 type HelpProps = {
   onClose: () => void;
@@ -17,7 +17,7 @@ export default function Help({ onClose }: HelpProps) {
       if (e.key === "Escape") onClose();
     };
     const handleClick = (e: MouseEvent) => {
-      const target = e.target as Element;
+      const target = e.target as HTMLElement;
       if (!target?.closest("#helpSlider")) {
         onClose();
         console.log("close!");
