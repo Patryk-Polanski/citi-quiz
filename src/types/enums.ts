@@ -53,6 +53,7 @@ export enum IconNames {
   Timer = "timer",
   LockClosed = "lock-closed",
   LockOpen = "lock-open",
+  Close = "close",
 }
 
 export enum BlobGradients {

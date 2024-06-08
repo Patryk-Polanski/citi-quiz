@@ -18,6 +18,10 @@ html.large {
   font-size: 107%;
 }
 
+body {
+  @apply font-comfortaa;
+}
+
 h1,
 .h1 {
   @apply font-laila text-4xl;

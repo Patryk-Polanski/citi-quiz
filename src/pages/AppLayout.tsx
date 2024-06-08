@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 
-import { TEMP_DATA, initialUserData } from "src/utils/constants";
+import { initialUserData } from "src/utils/constants";
 import { useAppDispatch, useAppSelector } from "src/hooks/useStore";
 import { setInitialStats } from "src/store/stats-slice";
 

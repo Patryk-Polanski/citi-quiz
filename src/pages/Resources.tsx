@@ -40,9 +40,10 @@ export default function ResourcesPage() {
           el="link"
           href="https://www.officiallifeintheuk.co.uk/shop"
           target="_blank"
-          classes="inline"
+          omitStyles
+          classes="inline underline"
         >
-          Click here
+          click here
         </Button>
       </p>
     </section>

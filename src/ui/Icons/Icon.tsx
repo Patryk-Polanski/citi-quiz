@@ -19,6 +19,7 @@ import Timer from "./Timer";
 import LockClosed from "./LockClosed";
 import LockOpen from "./LockOpen";
 import Question from "./Question";
+import Close from "./Close";
 
 type IconProps = {
   iconName: IconNames;
@@ -87,6 +88,10 @@ export default function Icon({ iconName, className }: IconProps) {
 
     case IconNames.LockOpen:
       chosenIcon = <LockOpen className={className} />;
+      break;
+
+    case IconNames.Close:
+      chosenIcon = <Close className={className} />;
       break;
 
     case IconNames.Home:
