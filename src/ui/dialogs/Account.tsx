@@ -1,7 +1,7 @@
 import Button from "src/ui/Button";
 import Icon from "src/ui/Icons/Icon";
 import { IconNames } from "src/types/enums";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Input from "../form/Input";
 
 const commonTabClasses =
@@ -23,6 +23,9 @@ export default function Account({ onClose }: AccountProps) {
   const [windowState, setWindowState] = useState<AccountWindows>(
     AccountWindows.Login,
   );
+  const usernameRef = useRef<HTMLInputElement | null>(null);
+  const passwordRef = useRef<HTMLInputElement | null>(null);
+  const passwordConfirmationRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -40,6 +43,31 @@ export default function Account({ onClose }: AccountProps) {
       if (!target.closest("#accountModal")) onClose();
     },
     [onClose],
+  );
+
+  const handleLoginSubmit = useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      console.log(
+        "onLoginSubmit",
+        usernameRef.current?.value,
+        passwordRef.current?.value,
+      );
+    },
+    [],
+  );
+
+  const handleRegisterSubmit = useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      console.log(
+        "onRegisterSubmit",
+        usernameRef.current?.value,
+        passwordRef.current?.value,
+        passwordConfirmationRef.current?.value,
+      );
+    },
+    [],
   );
 
   return (
@@ -61,21 +89,69 @@ export default function Account({ onClose }: AccountProps) {
             {windowState === AccountWindows.Login && (
               <div className="text-center">
                 <h5 className="mt-2 text-center">
-                  Log in to save your quizzes data
+                  Login to save your quizzes data
                 </h5>
-                <form>
-                  <Input />
-                  <Input />
+                <form
+                  className="mb-2 mt-4 flex flex-col gap-2"
+                  onSubmit={handleLoginSubmit}
+                >
+                  <Input
+                    id="username"
+                    label="Username:"
+                    name="username"
+                    inputRef={usernameRef}
+                  />
+                  <Input
+                    id="password"
+                    label="Password:"
+                    name="password"
+                    type="password"
+                    inputRef={passwordRef}
+                  />
+                  <Button
+                    el="button"
+                    type="submit"
+                    classes="mt-2 self-center text-sm px-6 py-3 rounded-lg after:rounded-lg"
+                  >
+                    Submit
+                  </Button>
                 </form>
               </div>
             )}
             {windowState === AccountWindows.Register && (
               <div className="text-center">
                 <h5 className="mt-2 text-center">Create an account</h5>
-                <form>
-                  <Input />
-                  <Input />
-                  <Input />
+                <form
+                  className="mb-2 mt-4 flex flex-col gap-2"
+                  onSubmit={handleRegisterSubmit}
+                >
+                  <Input
+                    id="username"
+                    label="Username:"
+                    name="username"
+                    inputRef={usernameRef}
+                  />
+                  <Input
+                    id="password"
+                    label="Password:"
+                    name="password"
+                    type="password"
+                    inputRef={passwordRef}
+                  />
+                  <Input
+                    id="conform-password"
+                    label="Confirm password:"
+                    name="conform-password"
+                    type="password"
+                    inputRef={passwordConfirmationRef}
+                  />
+                  <Button
+                    el="button"
+                    type="submit"
+                    classes="mt-2 self-center text-sm px-6 py-3 rounded-lg after:rounded-lg"
+                  >
+                    Submit
+                  </Button>
                 </form>
               </div>
             )}
