@@ -6,8 +6,8 @@ type SettingProps = {
 
 export default function Setting({ title, subtitle, children }: SettingProps) {
   return (
-    <div className="flex items-center justify-between">
-      <div>
+    <div className="flex flex-col items-center justify-between gap-8 text-left sm:flex-row sm:gap-2">
+      <div className="text-center sm:text-left">
         <h5>{title}</h5>
         <small>{subtitle && subtitle}</small>
       </div>

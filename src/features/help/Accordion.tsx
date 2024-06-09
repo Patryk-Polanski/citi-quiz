@@ -35,7 +35,7 @@ export default function Accordion({
         aria-expanded={!isOpen ? "false" : "true"}
         onClick={toggleOpen}
       >
-        <p className="font-bold">{question}</p>
+        <p className="text-left font-bold">{question}</p>
         <Icon
           iconName={IconNames.Chevron}
           className={`h-[18px] w-[18px] ${!isOpen ? "rotate-90" : "-rotate-90"} transition-transform duration-200 ease-out`}
