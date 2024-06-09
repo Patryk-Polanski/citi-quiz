@@ -10,7 +10,7 @@ export default function ListItem({
   return (
     <li className="flex flex-col items-start gap-6">
       <div className="flex items-center gap-4">
-        <span className="flex h-10 w-10 items-center justify-center rounded-full border-2">
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2">
           <span>{id}</span>
         </span>
         <p>{text}</p>
@@ -21,7 +21,7 @@ export default function ListItem({
           <img
             src={imagePath2}
             alt={alt2}
-            className="absolute bottom-0 right-0 w-20 translate-x-1/2 translate-y-1/2"
+            className="absolute bottom-0 right-0 w-20 translate-x-4 translate-y-1/2 sm:translate-x-1/2"
           />
         )}
       </div>

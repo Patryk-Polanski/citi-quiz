@@ -19,7 +19,7 @@ html.large {
 }
 
 body {
-  @apply font-comfortaa;
+  @apply font-comfortaa text-base;
 }
 
 h1,
