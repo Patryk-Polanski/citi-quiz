@@ -65,11 +65,11 @@ export default function QuizComplete({
             <Emoji emojiName={resultsReactions.emoji} className="mt-4 w-16" />
             <span className="text-lg">{resultsReactions.message}</span>
           </div>
-          <span className="mt-2 text-2xl font-medium">
+          <span className="mt-2 text-lg font-medium md:text-2xl">
             Highest score: {highestScore}/{questionsNumber}
           </span>
         </div>
-        <div className="mt-8 flex items-center justify-center gap-5">
+        <div className="mt-8 flex flex-col items-center justify-center gap-5 sm:flex-row">
           <Button el="link" href="/">
             <span>Back Home</span>
             <span className="w-[2px] grow self-stretch bg-white opacity-60" />

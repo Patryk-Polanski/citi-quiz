@@ -28,7 +28,10 @@ export default function AppHeader() {
               omitStyles
               onClick={() => setIsHelpSliderOpen(true)}
             >
-              <Icon className="w-16" iconName={IconNames.Help} />
+              <Icon
+                className="hidden h-auto w-14 md:block md:w-16"
+                iconName={IconNames.Help}
+              />
             </Button>
             {urlswithBackBtn.includes(pathname) ? (
               <Button el="link" href="/">
@@ -51,7 +54,7 @@ export default function AppHeader() {
           classes="col-span-2 justify-self-end self-start"
           onClick={() => setIsAccountModalOpen(true)}
         >
-          <Icon className="h-16 w-16" iconName={IconNames.Account} />
+          <Icon className="h-auto w-14 md:w-16" iconName={IconNames.Account} />
         </Button>
       </header>
       {createPortal(

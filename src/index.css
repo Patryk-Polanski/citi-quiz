@@ -19,32 +19,32 @@ html.large {
 }
 
 body {
-  @apply font-comfortaa text-base;
+  @apply font-comfortaa text-sm md:text-base;
 }
 
 h1,
 .h1 {
-  @apply font-laila text-4xl;
+  @apply font-laila text-3xl md:text-4xl;
 }
 
 h2,
 .h2 {
-  @apply font-laila text-3xl;
+  @apply font-laila text-2xl md:text-3xl;
 }
 
 h3,
 .h3 {
-  @apply font-laila text-2xl;
+  @apply font-laila text-xl md:text-2xl;
 }
 
 h4,
 .h4 {
-  @apply text-lg;
+  @apply text-base md:text-lg;
 }
 
 h5,
 .h5 {
-  @apply text-base;
+  @apply text-sm md:text-base;
 }
 
 h6,

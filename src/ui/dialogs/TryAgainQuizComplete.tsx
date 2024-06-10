@@ -46,7 +46,7 @@ export default function TryAgainQuizComplete({
           <h2>Try again Quiz</h2>
           <h3 className="mt-2">Score:</h3>
           <div className="mt-2 flex w-full flex-col">
-            <span className="text-2xl font-medium">
+            <span className="text-lg font-medium md:text-2xl">
               {activeQuizResults}/{questionsNumber} - {activeQuizPercentage}%
             </span>
             <ProgressBar quizId={quizId} questionsNumber={questionsNumber} />

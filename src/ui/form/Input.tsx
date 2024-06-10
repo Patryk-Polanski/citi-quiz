@@ -20,7 +20,7 @@ export default function Input({
   inputRef,
 }: InputType) {
   return (
-    <div className="flex flex-col gap-1 px-10">
+    <div className="flex flex-col gap-1 px-4 md:px-10">
       <label className="text-left text-sm" htmlFor={id}>
         {label}
       </label>

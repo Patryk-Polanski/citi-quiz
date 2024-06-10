@@ -17,7 +17,7 @@ export default function QuizzesPage() {
       <span
         className={`absolute bottom-1/3 right-1/4 h-3/4 w-2/3 rounded-full bg-gradient-radial blur-lg ${BlobGradients.Green}`}
       />
-      <ul className="mt-5 grid w-full grid-cols-2 items-center gap-5">
+      <ul className="mt-5 grid w-full grid-cols-1 items-center gap-3 md:grid-cols-2 md:gap-5">
         {[
           TEMP_DATA.map((quiz) => {
             const quizStats = quizzesStats[Number(quiz.quizId) - 1];

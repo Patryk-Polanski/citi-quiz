@@ -7,7 +7,10 @@ export default {
       comfortaa: ["Comfortaa", "sans-serif"],
     },
     container: {
-      padding: "1rem",
+      padding: {
+        DEFAULT: "0.8rem",
+        sm: "1rem",
+      },
       screens: {
         tn: "100%",
         sm: "100%",

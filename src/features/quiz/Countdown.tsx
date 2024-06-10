@@ -45,7 +45,7 @@ export default function Countdown({ tempTryAgainQuestionIds }: CountdownProps) {
 
   return (
     <div>
-      <span className="mr-2 text-xl">{displayTime}</span>
+      <span className="mr-2 text-lg md:text-xl">{displayTime}</span>
     </div>
   );
 }

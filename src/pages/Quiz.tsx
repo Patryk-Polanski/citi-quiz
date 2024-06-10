@@ -170,7 +170,7 @@ export default function QuizPage() {
           <span
             className={`absolute left-1/4 top-1/2 h-[120%] w-2/3 -translate-y-1/2 rounded-full bg-gradient-radial ${BlobGradients.Fuchsia} opacity-80 blur-lg`}
           />
-          <ul className="mt-8 flex flex-col gap-4 font-laila text-xl">
+          <ul className="mt-8 flex flex-col gap-4 font-laila text-lg md:text-xl">
             {activeQuestion.options.map((option) => (
               <li key={option.letter}>
                 <AnswerCard

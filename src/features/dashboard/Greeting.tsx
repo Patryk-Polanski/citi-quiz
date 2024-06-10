@@ -41,10 +41,12 @@ export default function Greeting() {
   return (
     <div className="flex items-center gap-1">
       <h2
-        className="flex items-center justify-end text-[18px] leading-[28px]"
+        className="flex flex-wrap items-center justify-center text-[18px] leading-[28px]"
         ref={greetingRef}
       >
-        Welcome back,
+        <span className="mb-2 w-full text-center sm:mb-0 sm:w-fit">
+          Welcome back,
+        </span>
         {/* emoji name */}
         <span className="ml-1 h-[36px] overflow-hidden rounded-md">
           <ul

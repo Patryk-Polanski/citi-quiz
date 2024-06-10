@@ -60,7 +60,7 @@ export default function Menu() {
   );
 
   return (
-    <ul className="grid w-full grid-cols-2 items-center gap-5">
+    <ul className="grid w-full grid-cols-1 items-center gap-3 sm:grid-cols-2 sm:gap-5">
       {menuCardsData.map((menuItem, index) => (
         <li key={menuItem.link} className="relative">
           <span

@@ -28,7 +28,7 @@ export default function AppLayout() {
 
   return (
     <div
-      className={`relative min-h-screen ${background} font-comfortaa text-white`}
+      className={`relative min-h-screen ${background} overflow-x-hidden font-comfortaa text-white`}
     >
       <div className="flex min-h-screen flex-col bg-gradient-to-br from-white/50 to-white/20">
         <AppHeader />

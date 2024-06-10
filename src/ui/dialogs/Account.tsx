@@ -73,11 +73,11 @@ export default function Account({ onClose }: AccountProps) {
   return (
     <div
       onClick={handleClose}
-      className="fixed inset-0 z-40 flex items-center justify-center bg-white/50"
+      className="fixed inset-0 z-40 flex items-center justify-center bg-white/60"
     >
       <div id="accountModal" className="-translate-y-16">
-        <div className="min-h-28 min-w-96 overflow-hidden rounded-tl-3xl rounded-tr-3xl border-2 border-white bg-sky-700 text-white">
-          <div className="min-h-28 min-w-96 bg-gradient-to-br from-white/60 to-white/30 p-5 font-medium">
+        <div className="min-h-28 overflow-hidden rounded-tl-3xl rounded-tr-3xl border-2 border-white bg-sky-700 text-white sm:min-w-96">
+          <div className="min-h-28 bg-gradient-to-br from-white/60 to-white/30 p-5 font-medium sm:min-w-96">
             <Button
               el="button"
               onClick={onClose}
