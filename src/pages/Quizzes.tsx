@@ -1,8 +1,15 @@
+import { motion as m } from "framer-motion";
+
 import QuizCard from "src/features/quiz/QuizCard";
 import { BlobGradients } from "src/types/enums";
 
 import { TEMP_DATA } from "src/utils/constants";
 import { useAppSelector } from "src/hooks/useStore";
+import { blobAnim, genericAnimProps } from "src/utils/motion/shared/animations";
+import {
+  genericCardAnim,
+  genericCardsAnim,
+} from "src/utils/motion/cards/animations";
 
 export default function QuizzesPage() {
   const { quizzes: quizzesStats } = useAppSelector((store) => store.stats);
@@ -11,22 +18,32 @@ export default function QuizzesPage() {
 
   return (
     <div className="relative">
-      <span
+      <m.span
         className={`absolute left-1/3 top-1/3 h-3/4 w-2/3 rounded-full bg-gradient-radial blur-lg ${BlobGradients.Green}`}
+        {...genericAnimProps}
+        variants={blobAnim}
       />
-      <span
+      <m.span
         className={`absolute bottom-1/3 right-1/4 h-3/4 w-2/3 rounded-full bg-gradient-radial blur-lg ${BlobGradients.Green}`}
+        {...genericAnimProps}
+        variants={blobAnim}
       />
-      <ul className="mt-5 grid w-full grid-cols-1 items-center gap-3 md:grid-cols-2 md:gap-5">
+      <m.ul
+        className="mt-5 grid w-full grid-cols-1 items-center gap-3 md:grid-cols-2 md:gap-5"
+        {...genericAnimProps}
+        variants={genericCardsAnim}
+      >
         {[
           TEMP_DATA.map((quiz) => {
             const quizStats = quizzesStats[Number(quiz.quizId) - 1];
             return (
-              <QuizCard key={quiz.quizId} quiz={quiz} quizStats={quizStats} />
+              <m.div variants={genericCardAnim}>
+                <QuizCard key={quiz.quizId} quiz={quiz} quizStats={quizStats} />
+              </m.div>
             );
           }),
         ]}
-      </ul>
+      </m.ul>
     </div>
   );
 }

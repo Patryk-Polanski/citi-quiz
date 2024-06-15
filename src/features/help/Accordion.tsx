@@ -26,7 +26,7 @@ export default function Accordion({
   }, [isOpen]);
 
   return (
-    <div className="relative z-10 mb-4">
+    <li className="relative z-10 mb-4">
       <Button
         el="button"
         aria-controls={`accordion-${id}`}
@@ -50,6 +50,6 @@ export default function Accordion({
           <p className="p-4">{answer}</p>
         </div>
       </div>
-    </div>
+    </li>
   );
 }

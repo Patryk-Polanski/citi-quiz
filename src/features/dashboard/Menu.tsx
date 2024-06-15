@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { motion as m } from "framer-motion";
 
 import { useAppSelector } from "src/hooks/useStore";
 import { BlobGradients, IconNames } from "src/types/enums";
@@ -6,6 +7,11 @@ import { TEMP_DATA } from "src/utils/constants";
 
 import { type MenuCardTypes } from "src/types/cards";
 import MenuCard from "./MenuCard";
+import { blobAnim, genericAnimProps } from "src/utils/motion/shared/animations";
+import {
+  genericCardAnim,
+  genericCardsAnim,
+} from "src/utils/motion/cards/animations";
 
 export default function Menu() {
   const { tryAgainQuestionIds, survivalQuizHighestScore } = useAppSelector(
@@ -60,15 +66,23 @@ export default function Menu() {
   );
 
   return (
-    <ul className="grid w-full grid-cols-1 items-center gap-3 sm:grid-cols-2 sm:gap-5">
+    <m.ul
+      className="grid w-full grid-cols-1 items-center gap-3 sm:grid-cols-2 sm:gap-5"
+      {...genericAnimProps}
+      variants={genericCardsAnim}
+    >
       {menuCardsData.map((menuItem, index) => (
         <li key={menuItem.link} className="relative">
-          <span
+          <m.span
+            {...genericAnimProps}
+            variants={blobAnim}
             className={`absolute bg-gradient-radial ${index % 2 === 0 ? "-right-8" : "-left-8"} pointer-events-none top-1/2 h-60 w-60 -translate-y-1/2 rounded-full ${menuItem.blobColor} blur-lg`}
           />
-          <MenuCard menuItem={menuItem} />
+          <m.div variants={genericCardAnim}>
+            <MenuCard menuItem={menuItem} />
+          </m.div>
         </li>
       ))}
-    </ul>
+    </m.ul>
   );
 }

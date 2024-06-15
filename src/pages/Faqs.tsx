@@ -1,6 +1,13 @@
+import { motion as m } from "framer-motion";
+
 import Accordion from "src/features/help/Accordion";
 import { BlobGradients } from "src/types/enums";
 import { Faqs } from "src/types/help";
+import {
+  genericCardAnim,
+  genericCardsAnim,
+} from "src/utils/motion/cards/animations";
+import { blobAnim, genericAnimProps } from "src/utils/motion/shared/animations";
 
 const FAQS: Faqs = [
   {
@@ -33,14 +40,22 @@ export default function FaqsPage() {
   return (
     <section>
       <h2 className="mb-10 mt-6 text-center">FAQs</h2>
-      <div className="relative">
-        <span
+      <m.ul
+        className="relative"
+        {...genericAnimProps}
+        variants={genericCardsAnim}
+      >
+        <m.span
+          {...genericAnimProps}
+          variants={blobAnim}
           className={`absolute left-0 top-0 h-full w-full rounded-full bg-gradient-radial blur-lg ${BlobGradients.Amber}`}
         />
         {FAQS.map((faq) => (
-          <Accordion faq={faq} />
+          <m.div variants={genericCardAnim}>
+            <Accordion faq={faq} />
+          </m.div>
         ))}
-      </div>
+      </m.ul>
     </section>
   );
 }
