@@ -2,13 +2,13 @@ import { motion as m } from "framer-motion";
 
 import {
   genericAnimProps,
-  slideDownAnim,
+  slideAnim,
 } from "src/utils/motion/shared/animations";
 
 import ListItem from "src/features/learning/ListItem";
 import { LearningResources } from "src/types/resources";
 import Button from "src/ui/Button";
-import { slideDownAnimParent } from "src/utils/motion/shared/animations";
+import { slideAnimParent } from "src/utils/motion/shared/animations";
 
 const resources: LearningResources = [
   {
@@ -40,12 +40,12 @@ export default function ResourcesPage() {
       <m.ol
         className="flex flex-col gap-12"
         {...genericAnimProps}
-        variants={slideDownAnimParent}
+        variants={slideAnimParent}
       >
         {resources.map((resource) => (
           <m.li
             className="flex flex-col items-start gap-6"
-            variants={slideDownAnim}
+            variants={slideAnim()}
           >
             <ListItem key={resource.id} resource={resource} />
           </m.li>

@@ -1,6 +1,8 @@
+import { motion as m } from "framer-motion";
+
 import Icon from "src/ui/Icons/Icon";
 import Button from "src/ui/Button";
-import { BlobGradients, IconNames } from "src/types/enums";
+import { AnimDirection, BlobGradients, IconNames } from "src/types/enums";
 import Emoji from "src/ui/Emojis/Emoji";
 import { useParams } from "react-router-dom";
 import ProgressBar from "src/features/quiz/ProgressBar";
@@ -9,6 +11,8 @@ import { useMemo } from "react";
 import { getResultsReactions } from "src/utils/helpers";
 import { calcHighestScore } from "src/utils/dataManipulation";
 import { QuizStats } from "src/types/stats";
+import { slideAnim } from "src/utils/motion/shared/animations";
+import { genericAnimProps } from "src/utils/motion/shared/animations";
 
 type QuizCompleteProps = {
   questionsNumber: number | undefined;
@@ -44,7 +48,11 @@ export default function QuizComplete({
   );
 
   return (
-    <div className="container mt-8 flex w-full items-center justify-center">
+    <m.div
+      className="container mt-8 flex w-full items-center justify-center"
+      {...genericAnimProps}
+      variants={slideAnim(AnimDirection.up)}
+    >
       <div className="w-full">
         <div className="relative flex flex-col items-center gap-5 rounded-[20px] bg-gradient-to-br from-white/50 to-white/5 px-6 pb-10 pt-9 text-center font-laila after:absolute after:inset-0 after:rounded-[20px] after:border-2 after:border-white/20">
           <span
@@ -59,12 +67,20 @@ export default function QuizComplete({
             <span className="text-2xl font-medium">
               {activeQuizResults}/{questionsNumber} - {activeQuizPercentage}%
             </span>
-            <ProgressBar quizId={quizId} questionsNumber={questionsNumber} />
+            <ProgressBar
+              quizId={quizId}
+              questionsNumber={questionsNumber}
+              staggerChildren
+            />
           </div>
-          <div className="flex flex-col items-center gap-3">
+          <m.div
+            className="flex flex-col items-center gap-3"
+            {...genericAnimProps}
+            variants={slideAnim(AnimDirection.up)}
+          >
             <Emoji emojiName={resultsReactions.emoji} className="mt-4 w-16" />
             <span className="text-lg">{resultsReactions.message}</span>
-          </div>
+          </m.div>
           <span className="mt-2 text-lg font-medium md:text-2xl">
             Highest score: {highestScore}/{questionsNumber}
           </span>
@@ -82,6 +98,6 @@ export default function QuizComplete({
           </Button>
         </div>
       </div>
-    </div>
+    </m.div>
   );
 }

@@ -9,6 +9,7 @@ import Logo from "src/ui/Logo";
 import Icon from "src/ui/Icons/Icon";
 import Button from "src/ui/Button";
 import Account from "src/ui/dialogs/Account";
+import { AnimatePresence } from "framer-motion";
 
 const urlswithBackBtn = ["/quizzes", "/settings", "/resources", "/faqs"];
 
@@ -64,9 +65,11 @@ export default function AppHeader() {
         document.getElementById("portal-root")!,
       )}
       {createPortal(
-        isAccountModalOpen ? (
-          <Account onClose={() => setIsAccountModalOpen(false)} />
-        ) : null,
+        <AnimatePresence>
+          {isAccountModalOpen ? (
+            <Account onClose={() => setIsAccountModalOpen(false)} />
+          ) : null}
+        </AnimatePresence>,
         document.getElementById("portal-root")!,
       )}
     </>

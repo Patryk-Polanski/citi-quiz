@@ -9,8 +9,8 @@ import { motion as m } from "framer-motion";
 
 import {
   genericAnimProps,
-  slideDownAnim,
-  slideDownAnimParent,
+  slideAnim,
+  slideAnimParent,
 } from "src/utils/motion/shared/animations";
 
 import { useAppSelector } from "src/hooks/useStore";
@@ -120,9 +120,9 @@ export default function SettingsPage() {
       <m.div
         className="mt-14 flex flex-col gap-16"
         {...genericAnimProps}
-        variants={slideDownAnimParent}
+        variants={slideAnimParent}
       >
-        <m.div variants={slideDownAnim}>
+        <m.div variants={slideAnim()}>
           <Setting title="Font size">
             <div className="flex gap-6">
               {FONT_SIZES.map((size) => (
@@ -138,7 +138,7 @@ export default function SettingsPage() {
             </div>
           </Setting>
         </m.div>
-        <m.div variants={slideDownAnim}>
+        <m.div variants={slideAnim()}>
           <Setting title="Background">
             <div className="flex gap-7">
               {BACKGROUNDS.map((color) => (
@@ -155,7 +155,7 @@ export default function SettingsPage() {
             </div>
           </Setting>
         </m.div>
-        <m.div variants={slideDownAnim}>
+        <m.div variants={slideAnim()}>
           <Setting title="Reset app*" subtitle={resetAppSubtitle.current}>
             <div className="flex items-center gap-4 leading-none">
               <Toggle

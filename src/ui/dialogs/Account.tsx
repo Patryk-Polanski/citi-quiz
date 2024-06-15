@@ -1,8 +1,13 @@
+import { motion as m } from "framer-motion";
 import Button from "src/ui/Button";
 import Icon from "src/ui/Icons/Icon";
-import { IconNames } from "src/types/enums";
+import { AnimDirection, IconNames } from "src/types/enums";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Input from "../form/Input";
+import {
+  genericAnimProps,
+  slideAnim,
+} from "src/utils/motion/shared/animations";
 
 const commonTabClasses =
   "w-[48%] text-sky-700 font-semibold after:border-t-white/0 hover:after:border-t-white/0";
@@ -71,9 +76,12 @@ export default function Account({ onClose }: AccountProps) {
   );
 
   return (
-    <div
+    <m.div
+      key="account-dialog"
       onClick={handleClose}
       className="fixed inset-0 z-40 flex items-center justify-center bg-white/60"
+      {...genericAnimProps}
+      variants={slideAnim(AnimDirection.up)}
     >
       <div id="accountModal" className="-translate-y-16">
         <div className="min-h-28 overflow-hidden rounded-tl-3xl rounded-tr-3xl border-2 border-white bg-sky-700 text-white sm:min-w-96">
@@ -200,6 +208,6 @@ export default function Account({ onClose }: AccountProps) {
           )}
         </div>
       </div>
-    </div>
+    </m.div>
   );
 }

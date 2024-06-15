@@ -1,10 +1,14 @@
+import { motion as m } from "framer-motion";
+
 import Icon from "src/ui/Icons/Icon";
 import Button from "src/ui/Button";
-import { BlobGradients, IconNames } from "src/types/enums";
+import { AnimDirection, BlobGradients, IconNames } from "src/types/enums";
 import ProgressBar from "src/features/quiz/ProgressBar";
 import { useMemo } from "react";
 import { calcHighestScore } from "src/utils/dataManipulation";
 import { QuizStats } from "src/types/stats";
+import { slideAnim } from "src/utils/motion/shared/animations";
+import { genericAnimProps } from "src/utils/motion/shared/animations";
 
 type QuizCompleteProps = {
   questionsNumber: number | undefined;
@@ -28,7 +32,11 @@ export default function SurvivalQuizComplete({
   }, [activeQuizResults, questionsNumber]);
 
   return (
-    <div className="container mt-8 flex w-full items-center justify-center">
+    <m.div
+      className="container mt-8 flex w-full items-center justify-center"
+      {...genericAnimProps}
+      variants={slideAnim(AnimDirection.up)}
+    >
       <div className="w-full">
         <div className="relative flex flex-col items-center gap-5 rounded-[20px] bg-gradient-to-br from-white/50 to-white/5 px-6 pb-10 pt-9 text-center font-laila after:absolute after:inset-0 after:rounded-[20px] after:border-2 after:border-white/20">
           <span
@@ -46,6 +54,7 @@ export default function SurvivalQuizComplete({
             <ProgressBar
               quizId={"survival"}
               questionsNumber={questionsNumber}
+              staggerChildren
             />
           </div>
           <span className="mt-2 text-lg font-medium md:text-2xl">
@@ -65,6 +74,6 @@ export default function SurvivalQuizComplete({
           </Button>
         </div>
       </div>
-    </div>
+    </m.div>
   );
 }

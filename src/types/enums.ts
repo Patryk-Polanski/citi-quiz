@@ -70,3 +70,8 @@ export enum QuizTypes {
   TryAgain = "try-again",
   Standard = "standard",
 }
+
+export enum AnimDirection {
+  up = "UP",
+  down = "DOWN",
+}
