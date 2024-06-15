@@ -5,6 +5,13 @@ import {
   useRef,
   useEffect,
 } from "react";
+import { motion as m } from "framer-motion";
+
+import {
+  genericAnimProps,
+  slideDownAnim,
+  slideDownAnimParent,
+} from "src/utils/motion/shared/animations";
 
 import { useAppSelector } from "src/hooks/useStore";
 import { useAppDispatch } from "src/hooks/useStore";
@@ -110,64 +117,74 @@ export default function SettingsPage() {
       <small className="block text-center">
         Changes are saved automatically
       </small>
-      <div className="mt-14 flex flex-col gap-16">
-        <Setting title="Font size">
-          <div className="flex gap-6">
-            {FONT_SIZES.map((size) => (
-              <TextRadio
-                key={size.id}
-                id={size.id}
-                name="font-size"
-                value={size.value}
-                fontSize={fontSize}
-                onChange={handleFontSizeChange}
+      <m.div
+        className="mt-14 flex flex-col gap-16"
+        {...genericAnimProps}
+        variants={slideDownAnimParent}
+      >
+        <m.div variants={slideDownAnim}>
+          <Setting title="Font size">
+            <div className="flex gap-6">
+              {FONT_SIZES.map((size) => (
+                <TextRadio
+                  key={size.id}
+                  id={size.id}
+                  name="font-size"
+                  value={size.value}
+                  fontSize={fontSize}
+                  onChange={handleFontSizeChange}
+                />
+              ))}
+            </div>
+          </Setting>
+        </m.div>
+        <m.div variants={slideDownAnim}>
+          <Setting title="Background">
+            <div className="flex gap-7">
+              {BACKGROUNDS.map((color) => (
+                <SwatchRadio
+                  key={color.id}
+                  id={color.id}
+                  name="background"
+                  value={color.value}
+                  swatchClass={`before:${color.value}`}
+                  background={background}
+                  onChange={handleBackgroundChange}
+                />
+              ))}
+            </div>
+          </Setting>
+        </m.div>
+        <m.div variants={slideDownAnim}>
+          <Setting title="Reset app*" subtitle={resetAppSubtitle.current}>
+            <div className="flex items-center gap-4 leading-none">
+              <Toggle
+                id="erase-data"
+                name="erase-data"
+                value="erase-data"
+                isClearDataAllowed={isClearDataAllowed}
+                onChange={handleEraseData}
               />
-            ))}
-          </div>
-        </Setting>
-        <Setting title="Background">
-          <div className="flex gap-7">
-            {BACKGROUNDS.map((color) => (
-              <SwatchRadio
-                key={color.id}
-                id={color.id}
-                name="background"
-                value={color.value}
-                swatchClass={`before:${color.value}`}
-                background={background}
-                onChange={handleBackgroundChange}
-              />
-            ))}
-          </div>
-        </Setting>
-        <Setting title="Reset app*" subtitle={resetAppSubtitle.current}>
-          <div className="flex items-center gap-4 leading-none">
-            <Toggle
-              id="erase-data"
-              name="erase-data"
-              value="erase-data"
-              isClearDataAllowed={isClearDataAllowed}
-              onChange={handleEraseData}
-            />
-            {!isClearDataAllowed && (
-              <div
-                className={!clearData ? "cursor-pointer" : ""}
-                onClick={() => !clearData && setIsClearDataAllowed(true)}
-              >
-                <LockClosed className="h-7 w-7" />
-              </div>
-            )}
-            {isClearDataAllowed && (
-              <div
-                className={!clearData ? "cursor-pointer" : ""}
-                onClick={() => !clearData && setIsClearDataAllowed(false)}
-              >
-                <LockOpen className="h-7 w-7" />
-              </div>
-            )}
-          </div>
-        </Setting>
-      </div>
+              {!isClearDataAllowed && (
+                <div
+                  className={!clearData ? "cursor-pointer" : ""}
+                  onClick={() => !clearData && setIsClearDataAllowed(true)}
+                >
+                  <LockClosed className="h-7 w-7" />
+                </div>
+              )}
+              {isClearDataAllowed && (
+                <div
+                  className={!clearData ? "cursor-pointer" : ""}
+                  onClick={() => !clearData && setIsClearDataAllowed(false)}
+                >
+                  <LockOpen className="h-7 w-7" />
+                </div>
+              )}
+            </div>
+          </Setting>
+        </m.div>
+      </m.div>
     </section>
   );
 }

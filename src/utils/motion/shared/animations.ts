@@ -13,3 +13,20 @@ export const blobAnim = {
     transition: { duration: 1.8 },
   },
 };
+
+export const slideDownAnimParent = {
+  animate: {
+    transition: { staggerChildren: 0.05 },
+  },
+};
+
+export const slideDownAnim = {
+  initial: {
+    opacity: 0,
+    transform: "translateY(-1rem)",
+  },
+  animate: {
+    opacity: 1,
+    transform: "translateY(0)",
+  },
+};

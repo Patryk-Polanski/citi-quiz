@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState, useRef } from "react";
+import { motion as m } from "framer-motion";
 
 import {
   resetActiveQuiz,
@@ -13,6 +14,11 @@ import { type QuestionResult, type Question } from "src/types/quiz";
 import { TEMP_DATA } from "src/utils/constants";
 import { arraysAreEqual } from "src/utils/helpers";
 import { createTryAgainQuiz } from "src/utils/dataManipulation";
+import {
+  genericCardAnim,
+  genericCardsAnim,
+} from "src/utils/motion/cards/animations";
+import { blobAnim, genericAnimProps } from "src/utils/motion/shared/animations";
 
 import Button from "src/ui/Button";
 import Icon from "src/ui/Icons/Icon";
@@ -150,12 +156,19 @@ export default function TryAgainQuizPage() {
           <h3 className="mt-4">{activeQuestion.question}</h3>
         </div>
         <div className="relative">
-          <span
-            className={`absolute left-1/4 top-1/2 h-[120%] w-2/3 -translate-y-1/2 rounded-full bg-gradient-radial ${BlobGradients.Fuchsia} opacity-80 blur-lg`}
-          />
-          <ul className="mt-8 flex flex-col gap-4 font-laila text-lg md:text-xl">
+          <m.ul
+            key={activeQuestion.questionId}
+            className="mt-8 flex flex-col gap-4 font-laila text-lg md:text-xl"
+            {...genericAnimProps}
+            variants={genericCardsAnim}
+          >
+            <m.span
+              className={`absolute left-1/4 top-1/2 h-[120%] w-2/3 -translate-y-1/2 rounded-full bg-gradient-radial ${BlobGradients.Fuchsia} opacity-80 blur-lg`}
+              {...genericAnimProps}
+              variants={blobAnim}
+            />
             {activeQuestion.options.map((option) => (
-              <li key={option.letter}>
+              <m.li key={option.letter} variants={genericCardAnim}>
                 <AnswerCard
                   option={option}
                   chosenLetter={chosenLetter}
@@ -163,9 +176,9 @@ export default function TryAgainQuizPage() {
                   questionResult={questionResult}
                   onOptionSelect={setChosenLetter}
                 />
-              </li>
+              </m.li>
             ))}
-          </ul>
+          </m.ul>
         </div>
         {/* chosen letter needs to exist for next/finish buttons to appear */}
         <div ref={buttonRef}>

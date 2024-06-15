@@ -24,7 +24,7 @@ export default function AppFooter() {
             el="link"
             href="https://www.linkedin.com/in/patryk-polanski/"
             omitStyles
-            classes="inline"
+            classes="inline underline"
             target="_blank"
           >
             Patryk Polanski.

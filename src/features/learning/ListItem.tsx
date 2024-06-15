@@ -8,7 +8,7 @@ export default function ListItem({
   resource: { id, text, imagePath, alt, imagePath2, alt2 },
 }: ListItemProps) {
   return (
-    <li className="flex flex-col items-start gap-6">
+    <>
       <div className="flex items-center gap-4">
         <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2">
           <span>{id}</span>
@@ -25,6 +25,6 @@ export default function ListItem({
           />
         )}
       </div>
-    </li>
+    </>
   );
 }
