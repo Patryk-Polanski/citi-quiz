@@ -1,15 +1,20 @@
 import { useEffect, useRef } from "react";
+import { motion as m } from "framer-motion";
 
+import { useAppSelector } from "src/hooks/useStore";
 import { IconNames } from "src/types/enums";
 
 import Button from "src/ui/Button";
 import Icon from "src/ui/Icons/Icon";
+import { genericAnimProps } from "src/utils/motion/shared/animations";
+import { sliderAnim } from "src/utils/motion/sliders/animations";
 
 type HelpProps = {
   onClose: () => void;
 };
 
 export default function Help({ onClose }: HelpProps) {
+  const { background } = useAppSelector((store) => store.settings);
   const helpSliderRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -32,12 +37,14 @@ export default function Help({ onClose }: HelpProps) {
   }, [onClose]);
 
   return (
-    <div
+    <m.div
       id="helpSlider"
       ref={helpSliderRef}
-      className="fixed left-0 top-0 z-20 h-full w-full max-w-md border-r-2 bg-sky-700 text-white"
+      className={`${background} fixed left-0 top-0 z-20 h-full w-full max-w-md border-r-2 text-white`}
+      {...genericAnimProps}
+      variants={sliderAnim}
     >
-      <div className="flex h-full flex-col bg-gradient-to-br from-white/50 to-white/30 p-6 font-medium">
+      <div className="flex h-full flex-col bg-gradient-to-br from-white/50 to-white/20 p-6 font-medium">
         <Button
           el="button"
           onClick={onClose}
@@ -87,6 +94,6 @@ export default function Help({ onClose }: HelpProps) {
           </p>
         </div>
       </div>
-    </div>
+    </m.div>
   );
 }

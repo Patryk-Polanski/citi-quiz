@@ -21,7 +21,7 @@ export default function Input({
 }: InputType) {
   return (
     <div className="flex flex-col gap-1 px-4 md:px-10">
-      <label className="text-left text-sm" htmlFor={id}>
+      <label className="text-left text-sm font-semibold" htmlFor={id}>
         {label}
       </label>
       <input

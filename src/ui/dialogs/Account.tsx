@@ -1,8 +1,11 @@
 import { motion as m } from "framer-motion";
-import Button from "src/ui/Button";
-import Icon from "src/ui/Icons/Icon";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+
+import { useAppSelector } from "src/hooks/useStore";
 import { AnimDirection, IconNames } from "src/types/enums";
-import { useCallback, useEffect, useRef, useState } from "react";
+
+import Icon from "src/ui/Icons/Icon";
+import Button from "src/ui/Button";
 import Input from "../form/Input";
 import {
   genericAnimProps,
@@ -10,9 +13,7 @@ import {
 } from "src/utils/motion/shared/animations";
 
 const commonTabClasses =
-  "w-[48%] text-sky-700 font-semibold after:border-t-white/0 hover:after:border-t-white/0";
-
-const activeTabClasses = "bg-sky-700 text-white";
+  "w-[48%] text-slate-700 font-semibold after:border-t-white/0 hover:after:border-t-white/0";
 
 enum AccountWindows {
   Login = "login",
@@ -31,6 +32,12 @@ export default function Account({ onClose }: AccountProps) {
   const usernameRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
   const passwordConfirmationRef = useRef<HTMLInputElement | null>(null);
+  const { background } = useAppSelector((store) => store.settings);
+
+  const activeTabClasses = useMemo(
+    () => `${background} text-white`,
+    [background],
+  );
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -84,7 +91,9 @@ export default function Account({ onClose }: AccountProps) {
       variants={slideAnim(AnimDirection.up)}
     >
       <div id="accountModal" className="-translate-y-16">
-        <div className="min-h-28 overflow-hidden rounded-tl-3xl rounded-tr-3xl border-2 border-white bg-sky-700 text-white sm:min-w-96">
+        <div
+          className={`min-h-28 overflow-hidden rounded-tl-3xl rounded-tr-3xl border-2 border-white ${background} text-white sm:min-w-96`}
+        >
           <div className="min-h-28 bg-gradient-to-br from-white/60 to-white/30 p-5 font-medium sm:min-w-96">
             <Button
               el="button"
@@ -96,11 +105,11 @@ export default function Account({ onClose }: AccountProps) {
             </Button>
             {windowState === AccountWindows.Login && (
               <div className="text-center">
-                <h5 className="mt-2 text-center">
+                <h5 className="mt-2 text-center font-bold">
                   Login to save your quizzes data
                 </h5>
                 <form
-                  className="mb-2 mt-4 flex flex-col gap-2"
+                  className="mb-2 mt-4 flex flex-col gap-3"
                   onSubmit={handleLoginSubmit}
                 >
                   <Input
@@ -119,7 +128,7 @@ export default function Account({ onClose }: AccountProps) {
                   <Button
                     el="button"
                     type="submit"
-                    classes="mt-2 self-center text-sm px-6 py-3 rounded-lg after:rounded-lg"
+                    classes="mt-2 self-center text-sm px-6 py-3 rounded-lg after:rounded-lg font-bold"
                   >
                     Submit
                   </Button>
@@ -128,9 +137,11 @@ export default function Account({ onClose }: AccountProps) {
             )}
             {windowState === AccountWindows.Register && (
               <div className="text-center">
-                <h5 className="mt-2 text-center">Create an account</h5>
+                <h5 className="mt-2 text-center font-bold">
+                  Create an account
+                </h5>
                 <form
-                  className="mb-2 mt-4 flex flex-col gap-2"
+                  className="mb-2 mt-4 flex flex-col gap-3"
                   onSubmit={handleRegisterSubmit}
                 >
                   <Input
@@ -156,7 +167,7 @@ export default function Account({ onClose }: AccountProps) {
                   <Button
                     el="button"
                     type="submit"
-                    classes="mt-2 self-center text-sm px-6 py-3 rounded-lg after:rounded-lg"
+                    classes="mt-2 self-center text-sm px-6 py-3 rounded-lg after:rounded-lg font-bold"
                   >
                     Submit
                   </Button>

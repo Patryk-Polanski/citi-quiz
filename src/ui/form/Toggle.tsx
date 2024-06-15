@@ -27,7 +27,7 @@ export default function Toggle({
       />
       <label
         htmlFor={id}
-        className="relative inline-block h-8 w-20 cursor-pointer leading-none transition-transform ease-out before:inline-block before:h-full before:w-full before:rounded-full before:bg-sky-200 before:content-[''] after:absolute after:left-1 after:top-1/2 after:inline-block after:h-6 after:w-6 after:-translate-y-1/2 after:rounded-full after:bg-sky-600 after:duration-500 after:content-[''] peer-checked:after:translate-x-12"
+        className={`relative inline-block h-8 w-20 cursor-pointer leading-none transition-transform ease-out before:inline-block before:h-full before:w-full before:rounded-full before:bg-slate-200 before:content-[''] after:absolute after:left-1 after:top-1/2 after:inline-block after:h-6 after:w-6 after:-translate-y-1/2 after:rounded-full after:bg-slate-600 after:duration-500 after:content-[''] peer-checked:after:translate-x-12`}
       ></label>
     </div>
   );

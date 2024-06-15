@@ -23,7 +23,7 @@ export default function AppHeader() {
     <>
       <header className="mx-auto grid w-full max-w-[2000px] grid-cols-8 px-4 py-4">
         <div className="col-span-2">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center md:gap-4">
             <Button
               el="button"
               omitStyles
@@ -38,9 +38,9 @@ export default function AppHeader() {
               <Button el="link" href="/">
                 <Icon
                   iconName={IconNames.Chevron}
-                  className="h-[18px] w-[18px] rotate-180"
+                  className="hidden h-[18px] w-[18px] rotate-180 sm:block"
                 />
-                <span className="w-[2px] self-stretch bg-white opacity-60" />
+                <span className="hidden w-[2px] self-stretch bg-white opacity-60 sm:block" />
                 <Icon iconName={IconNames.Home} className="h-5 w-5" />
               </Button>
             ) : null}
@@ -59,9 +59,11 @@ export default function AppHeader() {
         </Button>
       </header>
       {createPortal(
-        isHelpSliderOpen ? (
-          <Help onClose={() => setIsHelpSliderOpen(false)} />
-        ) : null,
+        <AnimatePresence>
+          {isHelpSliderOpen ? (
+            <Help onClose={() => setIsHelpSliderOpen(false)} />
+          ) : null}
+        </AnimatePresence>,
         document.getElementById("portal-root")!,
       )}
       {createPortal(
