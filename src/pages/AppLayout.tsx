@@ -10,6 +10,8 @@ import AppFooter from "./AppFooter";
 import BackgroundBlob from "src/ui/decorative/BackgroundBlob";
 import useLocalStorage from "src/hooks/useLocalStorage";
 import { setSettings } from "src/store/settings-slice";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "src/lib/firebase";
 
 export default function AppLayout() {
   const dispatch = useAppDispatch();
@@ -25,6 +27,20 @@ export default function AppLayout() {
   useEffect(() => {
     document.getElementsByTagName("html")[0].className = fontSize;
   }, [fontSize]);
+
+  useEffect(() => {
+    // get quizzes from firestore
+    const quizzesDbRef = collection(db, "quizzes");
+    getDocs(quizzesDbRef)
+      .then((snapshot) => {
+        const quizzes = [];
+        snapshot.docs.forEach((doc) => {
+          quizzes.push({ ...doc.data(), id: doc.id });
+        });
+        console.log("db quizzes", quizzes);
+      })
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
     <div
