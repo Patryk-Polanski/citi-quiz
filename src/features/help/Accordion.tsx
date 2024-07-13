@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
 import { IconNames } from "src/types/enums";
 import { Faq } from "src/types/help";
-import Icon from "src/ui/Icons/Icon";
+import Icon from "src/ui/icons/Icon";
 import Button from "src/ui/Button";
 
 type AccordionProps = {

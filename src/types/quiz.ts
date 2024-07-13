@@ -14,6 +14,7 @@ export type Question = {
 export type Quiz = {
   quizId: string;
   questions: Question[];
+  quizNumber: string;
 };
 
 export type QuestionResult =

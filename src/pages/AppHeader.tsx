@@ -6,7 +6,7 @@ import { IconNames } from "../types/enums";
 import Help from "src/ui/sliders/Help";
 
 import Logo from "src/ui/Logo";
-import Icon from "src/ui/Icons/Icon";
+import Icon from "src/ui/icons/Icon";
 import Button from "src/ui/Button";
 import Account from "src/ui/dialogs/Account";
 import { AnimatePresence } from "framer-motion";

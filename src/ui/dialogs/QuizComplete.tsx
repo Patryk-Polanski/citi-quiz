@@ -1,6 +1,6 @@
 import { motion as m } from "framer-motion";
 
-import Icon from "src/ui/Icons/Icon";
+import Icon from "src/ui/icons/Icon";
 import Button from "src/ui/Button";
 import { AnimDirection, BlobGradients, IconNames } from "src/types/enums";
 import Emoji from "src/ui/Emojis/Emoji";

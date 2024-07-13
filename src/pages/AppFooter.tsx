@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { IconNames } from "src/types/enums";
 
 import Button from "src/ui/Button";
-import Icon from "src/ui/Icons/Icon";
+import Icon from "src/ui/icons/Icon";
 import Help from "src/ui/sliders/Help";
 
 export default function AppFooter() {

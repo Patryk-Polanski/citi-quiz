@@ -5,7 +5,7 @@ import { useAppSelector } from "src/hooks/useStore";
 import { IconNames } from "src/types/enums";
 
 import Button from "src/ui/Button";
-import Icon from "src/ui/Icons/Icon";
+import Icon from "src/ui/icons/Icon";
 import { genericAnimProps } from "src/utils/motion/shared/animations";
 import { sliderAnim } from "src/utils/motion/sliders/animations";
 

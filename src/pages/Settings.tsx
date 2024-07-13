@@ -27,8 +27,8 @@ import useLocalStorage, {
 import { initialUserData } from "src/utils/constants";
 
 import Setting from "src/features/settings/Setting";
-import LockClosed from "src/ui/Icons/LockClosed";
-import LockOpen from "src/ui/Icons/LockOpen";
+import LockClosed from "src/ui/icons/LockClosed";
+import LockOpen from "src/ui/icons/LockOpen";
 import SwatchRadio from "src/ui/form/SwatchRadio";
 import TextRadio from "src/ui/form/TextRadio";
 import Toggle from "src/ui/form/Toggle";

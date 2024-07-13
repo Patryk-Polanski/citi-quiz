@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useAppSelector } from "src/hooks/useStore";
 import { AnimDirection, IconNames } from "src/types/enums";
 
-import Icon from "src/ui/Icons/Icon";
+import Icon from "src/ui/icons/Icon";
 import Button from "src/ui/Button";
 import Input from "../form/Input";
 import {

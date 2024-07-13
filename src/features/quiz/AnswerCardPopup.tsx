@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion as m } from "framer-motion";
 
 import { IconNames } from "src/types/enums";
-import Icon from "src/ui/Icons/Icon";
+import Icon from "src/ui/icons/Icon";
 import { genericAnimProps, popAnim } from "src/utils/motion/shared/animations";
 
 export default function AnswerCardPopup({ passed }: { passed: boolean }) {

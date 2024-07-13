@@ -16,7 +16,7 @@ import { arraysAreEqual } from "src/utils/helpers";
 import { createSurvivalQuiz } from "src/utils/dataManipulation";
 
 import Button from "src/ui/Button";
-import Icon from "src/ui/Icons/Icon";
+import Icon from "src/ui/icons/Icon";
 import ProgressBar from "src/features/quiz/ProgressBar";
 import QuizHeader from "src/features/quiz/QuizHeader";
 import AnswerCard from "src/features/quiz/AnswerCard";

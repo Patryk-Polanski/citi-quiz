@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 import { initialUserData } from "src/utils/constants";
 import { useAppDispatch, useAppSelector } from "src/hooks/useStore";
@@ -10,13 +10,15 @@ import AppFooter from "./AppFooter";
 import BackgroundBlob from "src/ui/decorative/BackgroundBlob";
 import useLocalStorage from "src/hooks/useLocalStorage";
 import { setSettings } from "src/store/settings-slice";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "src/lib/firebase";
+import useQuizzes from "src/hooks/useQuizzes";
+import LoadingSpinner from "src/ui/decorative/LoadingSpinner";
 
 export default function AppLayout() {
   const dispatch = useAppDispatch();
   const [statsLocalStorage] = useLocalStorage("citiquiz", initialUserData);
   const { background, fontSize } = useAppSelector((store) => store.settings);
+  const { isLoading, isError, isEmptyError, data: quizessData } = useQuizzes();
+  const navigate = useNavigate();
 
   // todo: replace later with tanstack query when db is ready
   useEffect(() => {
@@ -29,18 +31,8 @@ export default function AppLayout() {
   }, [fontSize]);
 
   useEffect(() => {
-    // get quizzes from firestore
-    const quizzesDbRef = collection(db, "quizzes");
-    getDocs(quizzesDbRef)
-      .then((snapshot) => {
-        const quizzes = [];
-        snapshot.docs.forEach((doc) => {
-          quizzes.push({ ...doc.data(), id: doc.id });
-        });
-        console.log("db quizzes", quizzes);
-      })
-      .catch((err) => console.error(err));
-  }, []);
+    // isError && navigate("/error");
+  }, [isError, navigate]);
 
   return (
     <div
@@ -48,8 +40,16 @@ export default function AppLayout() {
     >
       <div className="flex min-h-screen flex-col bg-gradient-to-br from-white/50 to-white/20">
         <AppHeader />
-        <main className="container mx-auto grow">
-          <Outlet />
+        <main
+          className={`container mx-auto grow ${isLoading && "flex items-center justify-center"}`}
+        >
+          {isLoading && <LoadingSpinner />}
+          {(isError || isEmptyError) && (
+            <h4 className="mt-10 text-center">
+              Could not fetch data :( <br /> Please try again later
+            </h4>
+          )}
+          {!isLoading && !isError && !isEmptyError && <Outlet />}
         </main>
         <AppFooter />
         <BackgroundBlob classes="top-[200px] right-[200px] h-8 w-8" />
