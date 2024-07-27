@@ -12,7 +12,6 @@ const useQuizzes = () => {
       const quizzes: Quiz[] = [];
       const quizzesDbRef = collection(db, "quizzes");
       const snapshot = await getDocs(quizzesDbRef);
-      console.log("snaphsot", snapshot);
       snapshot.docs.forEach((doc) => {
         quizzes.push({
           ...(doc.data() as Omit<Quiz, "quizId">),

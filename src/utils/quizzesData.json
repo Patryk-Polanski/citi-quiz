@@ -1,0 +1,31 @@
+{
+  "quizzes": [
+    {
+      "questions": [
+        {
+          "questionId": "1-1",
+          "question": "What important event in the development of women's rights happened in 1928?",
+          "options": [
+            {
+              "answer": "Women were first given the right to vote",
+              "letter": "A"
+            },
+            {
+              "answer": "Women were given the right to to vote at the same as as men",
+              "letter": "B"
+            },
+            {
+              "answer": "The first divorce laws were introduced",
+              "letter": "C"
+            },
+            {
+              "answer": "Women were allowed to keep their own earnings and property",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        }
+      ]
+    }
+  ]
+}
