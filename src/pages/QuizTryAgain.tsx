@@ -172,7 +172,7 @@ export default function TryAgainQuizPage() {
                 <AnswerCard
                   option={option}
                   chosenLetter={chosenLetter}
-                  correctLetter={activeQuestion.answer}
+                  correctLetter={activeQuestion.correctAnswer}
                   questionResult={questionResult}
                   onOptionSelect={setChosenLetter}
                 />
