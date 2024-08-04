@@ -25,14 +25,14 @@ export default function QuizComplete({
   questionsNumber,
   activeQuizScore,
 }: QuizCompleteProps) {
-  const { quizId } = useParams();
+  const { quizNumber } = useParams();
   const quizzes = useAppSelector((store) => store.stats.quizzes);
 
   const highestScore = useMemo(() => {
-    if (!quizId) return null;
-    const quizStats = quizzes[Number(quizId) - 1];
+    if (!quizNumber) return null;
+    const quizStats = quizzes[Number(quizNumber) - 1];
     return calcHighestScore(quizStats || []);
-  }, [quizzes, quizId]);
+  }, [quizzes, quizNumber]);
 
   const activeQuizResults = useMemo(() => {
     return calcHighestScore(activeQuizScore || []);

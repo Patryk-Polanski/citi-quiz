@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 import { initialUserData } from "src/utils/constants";
 import { useAppDispatch, useAppSelector } from "src/hooks/useStore";
@@ -15,10 +15,25 @@ import LoadingSpinner from "src/ui/decorative/LoadingSpinner";
 
 export default function AppLayout() {
   const dispatch = useAppDispatch();
-  const [statsLocalStorage] = useLocalStorage("citiquiz", initialUserData);
+  const { isLoading, isError, isEmptyError, data: quizzesData } = useQuizzes();
+  const [statsLocalStorage, setStatsLocalStorage] = useLocalStorage(
+    "citiquiz",
+    {
+      stats: [],
+      settings: initialUserData.settings,
+    },
+  );
   const { background, fontSize } = useAppSelector((store) => store.settings);
-  const { isLoading, isError, isEmptyError, data: quizessData } = useQuizzes();
-  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!quizzesData) return;
+    setStatsLocalStorage((prevVal) => {
+      return {
+        ...prevVal,
+        stats: initialUserData.stats(quizzesData),
+      };
+    });
+  }, [quizzesData, setStatsLocalStorage]);
 
   // todo: replace later with tanstack query when db is ready
   useEffect(() => {
@@ -29,10 +44,6 @@ export default function AppLayout() {
   useEffect(() => {
     document.getElementsByTagName("html")[0].className = fontSize;
   }, [fontSize]);
-
-  useEffect(() => {
-    // isError && navigate("/error");
-  }, [isError, navigate]);
 
   return (
     <div

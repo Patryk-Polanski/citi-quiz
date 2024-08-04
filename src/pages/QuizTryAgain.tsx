@@ -8,10 +8,10 @@ import {
   updateActiveQuizScore,
   updateTryAgainQuestionIds,
 } from "src/store/stats-slice";
+import useQuizzes from "src/hooks/useQuizzes";
 import { useAppDispatch, useAppSelector } from "src/hooks/useStore";
 import { BlobGradients, IconNames } from "src/types/enums";
 import { type QuestionResult, type Question } from "src/types/quiz";
-import { TEMP_DATA } from "src/utils/constants";
 import { arraysAreEqual } from "src/utils/helpers";
 import { createTryAgainQuiz } from "src/utils/dataManipulation";
 import {
@@ -28,9 +28,9 @@ import AnswerCard from "src/features/quiz/AnswerCard";
 import TryAgainQuizComplete from "src/ui/dialogs/TryAgainQuizComplete";
 
 export default function TryAgainQuizPage() {
-  const { activeQuizId, activeQuizScore, tryAgainQuestionIds } = useAppSelector(
-    (store) => store.stats,
-  );
+  const { data: quizzesData } = useQuizzes();
+  const { activeQuizNumber, activeQuizScore, tryAgainQuestionIds } =
+    useAppSelector((store) => store.stats);
   const dispatch = useAppDispatch();
   const [questionIndex, setQuestionIndex] = useState(0);
   const [chosenLetter, setChosenLetter] = useState<string[] | null>(null);
@@ -42,10 +42,10 @@ export default function TryAgainQuizPage() {
   const tryAgainQuestionsIdsLength = useRef<number>(0);
 
   const activeQuiz = useMemo(() => {
-    if (!activeQuizId) return null;
+    if (!activeQuizNumber) return null;
 
-    return createTryAgainQuiz(TEMP_DATA, tryAgainQuestionIds);
-  }, [activeQuizId, tryAgainQuestionIds]);
+    return createTryAgainQuiz(quizzesData, tryAgainQuestionIds);
+  }, [activeQuizNumber, tryAgainQuestionIds, quizzesData]);
 
   const activeQuestion = useMemo(() => {
     if (!activeQuiz) return;
@@ -59,8 +59,8 @@ export default function TryAgainQuizPage() {
     if (!chosenLetter) return "unselected";
 
     // if chosenLetter arr is the same length as activeQuestion answer array, then arrays must be equal to be correct
-    if (chosenLetter.length === activeQuestion?.answer.length) {
-      if (arraysAreEqual(activeQuestion?.answer || [], chosenLetter)) {
+    if (chosenLetter.length === activeQuestion?.correctAnswer.length) {
+      if (arraysAreEqual(activeQuestion?.correctAnswer || [], chosenLetter)) {
         return "correct";
       } else {
         return "wrong";
@@ -68,10 +68,10 @@ export default function TryAgainQuizPage() {
     }
 
     // if chosen letter arr is not of the same length as activeQuestion answer array, check if all the answers are currently correct
-    if (chosenLetter.length !== activeQuestion?.answer.length) {
+    if (chosenLetter.length !== activeQuestion?.correctAnswer.length) {
       let arePickedLettersCorrect: boolean = true;
       chosenLetter.forEach((letter) => {
-        if (!activeQuestion?.answer.includes(letter))
+        if (!activeQuestion?.correctAnswer.includes(letter))
           arePickedLettersCorrect = false;
       });
       if (!arePickedLettersCorrect) return "wrong";
@@ -79,7 +79,7 @@ export default function TryAgainQuizPage() {
     }
 
     return "unselected";
-  }, [chosenLetter, activeQuestion?.answer]);
+  }, [chosenLetter, activeQuestion?.correctAnswer]);
 
   useEffect(() => {
     dispatch(setActiveQuiz("try-again"));
@@ -183,7 +183,7 @@ export default function TryAgainQuizPage() {
         {/* chosen letter needs to exist for next/finish buttons to appear */}
         <div ref={buttonRef}>
           {(chosenLetter !== null &&
-            chosenLetter.length === activeQuestion.answer.length) ||
+            chosenLetter.length === activeQuestion.correctAnswer.length) ||
           questionResult === "wrong" ? (
             <div className="mt-6 flex flex-col items-center justify-center gap-6">
               <Button onClick={handleNextQuestion} el="button">

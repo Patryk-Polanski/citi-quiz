@@ -25,7 +25,6 @@ export default function Help({ onClose }: HelpProps) {
       const target = e.target as HTMLElement;
       if (!target?.closest("#helpSlider")) {
         onClose();
-        console.log("close!");
       }
     };
     document.addEventListener("keydown", handleKeyDown);

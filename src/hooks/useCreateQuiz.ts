@@ -8,7 +8,7 @@ const useCreateQuiz = () => {
       const rawJsonQuizzes = await fetch("src/utils/quizzesData.json");
       const jsonQuizzes = await rawJsonQuizzes.json();
       const quizzesDbRef = collection(db, "quizzes");
-      addDoc(quizzesDbRef, jsonQuizzes.quizzes[0]);
+      addDoc(quizzesDbRef, jsonQuizzes.quizzes[10]);
     },
     onSuccess: () => {
       console.log("new quiz successfully added!");

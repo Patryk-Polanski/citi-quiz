@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { useState } from "react";
 import { db } from "src/lib/firebase";
 import { Quiz } from "src/types/quiz";
@@ -11,7 +11,8 @@ const useQuizzes = () => {
     queryFn: async () => {
       const quizzes: Quiz[] = [];
       const quizzesDbRef = collection(db, "quizzes");
-      const snapshot = await getDocs(quizzesDbRef);
+      const quizzesDBQuery = query(quizzesDbRef, orderBy("quizNumber"));
+      const snapshot = await getDocs(quizzesDBQuery);
       snapshot.docs.forEach((doc) => {
         quizzes.push({
           ...(doc.data() as Omit<Quiz, "quizId">),
@@ -24,7 +25,7 @@ const useQuizzes = () => {
       return quizzes;
     },
   });
-  return { isLoading, isError, isEmptyError, data };
+  return { isLoading, isError, isEmptyError, data: data as Quiz[] };
 };
 
 export default useQuizzes;

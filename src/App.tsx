@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         children: [
           { path: "/quiz/try-again", element: <TryAgainQuizPage /> },
           { path: "/quiz/survival", element: <SurvivalQuizPage /> },
-          { path: "/quiz/:quizId", element: <QuizPage /> },
+          { path: "/quiz/:quizNumber", element: <QuizPage /> },
         ],
       },
       { path: "/resources", element: <ResourcesPage /> },

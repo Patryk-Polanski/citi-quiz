@@ -21,6 +21,7 @@ import {
   setSettings,
 } from "src/store/settings-slice";
 
+import useQuizzes from "src/hooks/useQuizzes";
 import useLocalStorage, {
   type DefaultValueTypes,
 } from "src/hooks/useLocalStorage";
@@ -69,6 +70,7 @@ const BACKGROUNDS = [
 ];
 
 export default function SettingsPage() {
+  const { data: quizzesData } = useQuizzes();
   const { fontSize, background } = useAppSelector((store) => store.settings);
   const stats = useAppSelector((store) => store.stats);
   const dispatch = useAppDispatch();
@@ -93,12 +95,15 @@ export default function SettingsPage() {
 
   const handleEraseData = useCallback(() => {
     setClearData((prevVal) => !prevVal);
-    dispatch(setInitialStats(initialUserData.stats));
+    dispatch(setInitialStats(initialUserData.stats(quizzesData)));
     dispatch(setSettings(initialUserData.settings));
-    setStatsLocalStorage(initialUserData);
+    setStatsLocalStorage({
+      ...initialUserData.stats(quizzesData),
+      ...initialUserData.settings,
+    });
     resetAppSubtitle.current = "Application data has been reset";
     setIsClearDataAllowed(false);
-  }, [setStatsLocalStorage, dispatch]);
+  }, [setStatsLocalStorage, dispatch, quizzesData]);
 
   useEffect(() => {
     setStatsLocalStorage((prevVal: DefaultValueTypes) => ({

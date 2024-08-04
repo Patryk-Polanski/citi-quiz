@@ -8,10 +8,10 @@ import {
   updateTryAgainQuestionIds,
   updateSurvivalQuizHighestScore,
 } from "src/store/stats-slice";
+import useQuizzes from "src/hooks/useQuizzes";
 import { useAppDispatch, useAppSelector } from "src/hooks/useStore";
 import { BlobGradients, IconNames } from "src/types/enums";
 import { type QuestionResult, type Question } from "src/types/quiz";
-import { TEMP_DATA } from "src/utils/constants";
 import { arraysAreEqual } from "src/utils/helpers";
 import { createSurvivalQuiz } from "src/utils/dataManipulation";
 
@@ -28,7 +28,8 @@ import {
 import { blobAnim, genericAnimProps } from "src/utils/motion/shared/animations";
 
 export default function SurvivalQuizPage() {
-  const { activeQuizId, activeQuizScore, survivalQuizHighestScore } =
+  const { data: quizzesData } = useQuizzes();
+  const { activeQuizNumber, activeQuizScore, survivalQuizHighestScore } =
     useAppSelector((store) => store.stats);
   const dispatch = useAppDispatch();
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -41,9 +42,9 @@ export default function SurvivalQuizPage() {
   const [isQuizComplete, setIsQuizComplete] = useState(false);
 
   const activeQuiz = useMemo(() => {
-    if (!activeQuizId) return null;
-    return createSurvivalQuiz(TEMP_DATA);
-  }, [activeQuizId]);
+    if (!activeQuizNumber) return null;
+    return createSurvivalQuiz(quizzesData);
+  }, [activeQuizNumber]);
 
   const activeQuestion = useMemo(() => {
     if (!activeQuiz) return;
@@ -57,8 +58,8 @@ export default function SurvivalQuizPage() {
     if (!chosenLetter) return "unselected";
 
     // if chosenLetter arr is the same length as activeQuestion answer array, then arrays must be equal to be correct
-    if (chosenLetter.length === activeQuestion?.answer.length) {
-      if (arraysAreEqual(activeQuestion?.answer || [], chosenLetter)) {
+    if (chosenLetter.length === activeQuestion?.correctAnswer.length) {
+      if (arraysAreEqual(activeQuestion?.correctAnswer || [], chosenLetter)) {
         return "correct";
       } else {
         return "wrong";
@@ -66,10 +67,10 @@ export default function SurvivalQuizPage() {
     }
 
     // if chosen letter arr is not of the same length as activeQuestion answer array, check if all the answers are currently correct
-    if (chosenLetter.length !== activeQuestion?.answer.length) {
+    if (chosenLetter.length !== activeQuestion?.correctAnswer.length) {
       let arePickedLettersCorrect: boolean = true;
       chosenLetter.forEach((letter) => {
-        if (!activeQuestion?.answer.includes(letter))
+        if (!activeQuestion?.correctAnswer.includes(letter))
           arePickedLettersCorrect = false;
       });
       if (!arePickedLettersCorrect) return "wrong";
@@ -77,7 +78,7 @@ export default function SurvivalQuizPage() {
     }
 
     return "unselected";
-  }, [chosenLetter, activeQuestion?.answer]);
+  }, [chosenLetter, activeQuestion?.correctAnswer]);
 
   const handleRestartQuiz = () => {
     dispatch(resetActiveQuiz());
@@ -198,7 +199,7 @@ export default function SurvivalQuizPage() {
         {/* chosen letter needs to exist for next/finish buttons to appear */}
         <div ref={buttonRef}>
           {(chosenLetter !== null &&
-            chosenLetter.length === activeQuestion.answer.length) ||
+            chosenLetter.length === activeQuestion.correctAnswer.length) ||
           questionResult === "wrong" ? (
             <div className="mt-6 flex flex-col items-center justify-center gap-6">
               <Button onClick={handleNextQuestion} el="button">

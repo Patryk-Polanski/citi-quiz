@@ -1,0 +1,53 @@
+{
+  "quizNumber": "",
+  "questions": [
+    {
+      "questionId": "",
+      "question": "",
+      "options": [
+        {
+          "answer": "",
+          "letter": "A"
+        },
+        {
+          "answer": "",
+          "letter": "B"
+        },
+        {
+          "answer": "",
+          "letter": "C"
+        },
+        {
+          "answer": "",
+          "letter": "D"
+        }
+      ],
+      "correctAnswer": [""]
+    }
+  ]
+}
+
+
+{
+  "questionId": "",
+  "question": "",
+  "options": [
+    {
+      "answer": "",
+      "letter": "A"
+    },
+    {
+      "answer": "",
+      "letter": "B"
+    },
+    {
+      "answer": "",
+      "letter": "C"
+    },
+    {
+      "answer": "",
+      "letter": "D"
+    }
+  ],
+  "correctAnswer": [""]
+}

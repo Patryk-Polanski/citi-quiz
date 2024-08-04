@@ -7,7 +7,7 @@ export type Question = {
   questionId: string;
   question: string;
   options: Option[];
-  answer: string[];
+  correctAnswer: string[];
   explanation: string;
 };
 

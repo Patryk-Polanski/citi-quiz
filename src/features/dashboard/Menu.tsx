@@ -3,7 +3,7 @@ import { motion as m } from "framer-motion";
 
 import { useAppSelector } from "src/hooks/useStore";
 import { BlobGradients, IconNames } from "src/types/enums";
-import { TEMP_DATA } from "src/utils/constants";
+import useQuizzes from "src/hooks/useQuizzes";
 
 import { type MenuCardTypes } from "src/types/cards";
 import MenuCard from "./MenuCard";
@@ -14,6 +14,7 @@ import {
 } from "src/utils/motion/cards/animations";
 
 export default function Menu() {
+  const { data: quizzesData } = useQuizzes();
   const { tryAgainQuestionIds, survivalQuizHighestScore } = useAppSelector(
     (store) => store.stats,
   );
@@ -21,7 +22,7 @@ export default function Menu() {
     () => [
       {
         title: "All tests",
-        subtitle: TEMP_DATA.length + " quizzes",
+        subtitle: quizzesData.length + " quizzes",
         link: "/quizzes",
         blobColor: BlobGradients.Green,
         icon: IconNames.Rocket,

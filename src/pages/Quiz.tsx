@@ -9,10 +9,10 @@ import {
   updateQuizzesStats,
   updateTryAgainQuestionIds,
 } from "src/store/stats-slice";
+import useQuizzes from "src/hooks/useQuizzes";
 import { useAppDispatch, useAppSelector } from "src/hooks/useStore";
 import { BlobGradients, IconNames } from "src/types/enums";
 import { type QuestionResult, type Question, Quiz } from "src/types/quiz";
-import { TEMP_DATA } from "src/utils/constants";
 import { arraysAreEqual } from "src/utils/helpers";
 
 import Button from "src/ui/Button";
@@ -28,9 +28,10 @@ import {
 import { blobAnim, genericAnimProps } from "src/utils/motion/shared/animations";
 
 export default function QuizPage() {
-  const { quizId } = useParams();
+  const { data: quizzesData } = useQuizzes();
+  const { quizNumber } = useParams();
   const stats = useAppSelector((store) => store.stats);
-  const { activeQuizId, activeQuizScore } = stats;
+  const { activeQuizNumber, activeQuizScore } = stats;
   const dispatch = useAppDispatch();
   const [questionIndex, setQuestionIndex] = useState(0);
   const [chosenLetter, setChosenLetter] = useState<string[] | null>(null);
@@ -41,12 +42,12 @@ export default function QuizPage() {
   const [isQuizComplete, setIsQuizComplete] = useState(false);
 
   const activeQuiz = useMemo(() => {
-    if (!activeQuizId) return null;
+    if (!activeQuizNumber) return null;
 
-    return TEMP_DATA.find((quiz) => quiz.quizId === activeQuizId) as
+    return quizzesData.find((quiz) => quiz.quizNumber === activeQuizNumber) as
       | Quiz
       | undefined;
-  }, [activeQuizId]);
+  }, [activeQuizNumber, quizzesData]);
 
   const activeQuestion = useMemo(() => {
     if (!activeQuiz) return;
@@ -60,8 +61,8 @@ export default function QuizPage() {
     if (!chosenLetter) return "unselected";
 
     // if chosenLetter arr is the same length as activeQuestion answer array, then arrays must be equal to be correct
-    if (chosenLetter.length === activeQuestion?.answer.length) {
-      if (arraysAreEqual(activeQuestion?.answer || [], chosenLetter)) {
+    if (chosenLetter.length === activeQuestion?.correctAnswer.length) {
+      if (arraysAreEqual(activeQuestion?.correctAnswer || [], chosenLetter)) {
         return "correct";
       } else {
         return "wrong";
@@ -69,10 +70,10 @@ export default function QuizPage() {
     }
 
     // if chosen letter arr is not of the same length as activeQuestion answer array, check if all the answers are currently correct
-    if (chosenLetter.length !== activeQuestion?.answer.length) {
+    if (chosenLetter.length !== activeQuestion?.correctAnswer.length) {
       let arePickedLettersCorrect: boolean = true;
       chosenLetter.forEach((letter) => {
-        if (!activeQuestion?.answer.includes(letter))
+        if (!activeQuestion?.correctAnswer.includes(letter))
           arePickedLettersCorrect = false;
       });
       if (!arePickedLettersCorrect) return "wrong";
@@ -80,12 +81,12 @@ export default function QuizPage() {
     }
 
     return "unselected";
-  }, [chosenLetter, activeQuestion?.answer]);
+  }, [chosenLetter, activeQuestion?.correctAnswer]);
 
   const handleRestartQuiz = () => {
-    if (quizId) {
+    if (quizNumber) {
       dispatch(resetActiveQuiz());
-      dispatch(setActiveQuiz(quizId));
+      dispatch(setActiveQuiz(Number(quizNumber)));
       setQuestionIndex(0);
       setChosenLetter(null);
       setIsQuizComplete(false);
@@ -93,11 +94,11 @@ export default function QuizPage() {
   };
 
   useEffect(() => {
-    dispatch(setActiveQuiz(quizId || null));
+    dispatch(setActiveQuiz(Number(quizNumber) || null));
     return () => {
       dispatch(resetActiveQuiz());
     };
-  }, [dispatch, quizId]);
+  }, [dispatch, quizNumber]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -131,12 +132,15 @@ export default function QuizPage() {
     activeQuestion?.questionId,
     dispatch,
     activeQuiz,
-    quizId,
+    quizNumber,
   ]);
 
   const handleNextQuestion = () => {
     // end the quiz
-    if (questionIndex + 1 === activeQuiz?.questions.length && activeQuizId) {
+    if (
+      questionIndex + 1 === activeQuiz?.questions.length &&
+      activeQuizNumber
+    ) {
       dispatch(updateQuizzesStats(activeQuizScore));
       dispatch(updateTryAgainQuestionIds(tempTryAgainQuestionIds));
       setIsQuizComplete(true);
@@ -162,10 +166,10 @@ export default function QuizPage() {
       <>
         <QuizHeader
           tempTryAgainQuestionIds={tempTryAgainQuestionIds}
-          quizId={activeQuiz.quizId}
+          quizNumber={activeQuiz.quizNumber}
         />
         <ProgressBar
-          quizId={activeQuiz.quizId}
+          quizNumber={activeQuiz.quizNumber}
           questionsNumber={activeQuiz.questions.length}
         />
         <div className="mt-8 text-center">
@@ -189,7 +193,7 @@ export default function QuizPage() {
                 <AnswerCard
                   option={option}
                   chosenLetter={chosenLetter}
-                  correctLetter={activeQuestion.answer}
+                  correctLetter={activeQuestion.correctAnswer}
                   questionResult={questionResult}
                   onOptionSelect={setChosenLetter}
                 />
@@ -200,7 +204,7 @@ export default function QuizPage() {
         {/* chosen letter needs to exist for next/finish buttons to appear */}
         <div ref={buttonRef}>
           {(chosenLetter !== null &&
-            chosenLetter.length === activeQuestion.answer.length) ||
+            chosenLetter.length === activeQuestion.correctAnswer.length) ||
           questionResult === "wrong" ? (
             <div className="mt-6 flex flex-col items-center justify-center gap-6">
               <Button onClick={handleNextQuestion} el="button">
@@ -223,7 +227,7 @@ export default function QuizPage() {
   // show error
   return (
     <div className="mt-8 flex flex-col items-center justify-center gap-8">
-      <p>Could not find a quiz with an id of {quizId}</p>
+      <p>Could not find a quiz number {quizNumber}</p>
       <Button el="link" href="/">
         <Icon
           iconName={IconNames.Chevron}

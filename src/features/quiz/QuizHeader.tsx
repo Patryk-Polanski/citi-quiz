@@ -3,18 +3,18 @@ import Icon from "src/ui/icons/Icon";
 import Countdown from "./Countdown";
 
 type QuizHeaderProps = {
-  quizId: string;
+  quizNumber: string;
   tempTryAgainQuestionIds: string[];
 };
 
 export default function QuizHeader({
-  quizId,
+  quizNumber,
   tempTryAgainQuestionIds,
 }: QuizHeaderProps) {
   return (
     <div className="flex items-end justify-between">
-      <h3 className="mr-auto">Quiz {quizId.replace("-", " ")}</h3>
-      {quizId !== "try-again" && quizId !== "survival" ? (
+      <h3 className="mr-auto">Quiz {quizNumber}</h3>
+      {quizNumber !== "try-again" && quizNumber !== "survival" ? (
         <Countdown tempTryAgainQuestionIds={tempTryAgainQuestionIds} />
       ) : (
         <span className="mr-2">no time limit</span>

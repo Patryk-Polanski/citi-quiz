@@ -6,7 +6,7 @@ import { DefaultValueTypes } from "src/hooks/useLocalStorage";
 const initialState: UserStats = {
   quizzes: [],
   tryAgainQuestionIds: [],
-  activeQuizId: null,
+  activeQuizNumber: null,
   activeQuizScore: [],
   survivalQuizHighestScore: 0,
 };
@@ -15,8 +15,8 @@ export const statsSlice = createSlice({
   name: "stats",
   initialState,
   reducers: {
-    setActiveQuiz(state, action: PayloadAction<UserStats["activeQuizId"]>) {
-      state.activeQuizId = action.payload;
+    setActiveQuiz(state, action: PayloadAction<UserStats["activeQuizNumber"]>) {
+      state.activeQuizNumber = action.payload;
     },
     setInitialStats(state, action: PayloadAction<DefaultValueTypes["stats"]>) {
       state.quizzes = action.payload.quizzes;
@@ -24,16 +24,16 @@ export const statsSlice = createSlice({
       state.survivalQuizHighestScore = action.payload.survivalQuizHighestScore;
     },
     updateQuizzesStats(state, action: PayloadAction<QuizStats[]>) {
-      if (!state.activeQuizId) return;
+      if (!state.activeQuizNumber) return;
 
       const currentHighestScore = calcHighestScore(
-        state.quizzes[Number(state.activeQuizId) - 1],
+        state.quizzes[state.activeQuizNumber - 1],
       );
       const finishedQuizScore = calcHighestScore(action.payload);
 
       if (finishedQuizScore > currentHighestScore) {
-        state.quizzes[Number(state.activeQuizId) - 1] = state.quizzes[
-          Number(state.activeQuizId) - 1
+        state.quizzes[state.activeQuizNumber - 1] = state.quizzes[
+          state.activeQuizNumber - 1
         ].map((question, index) => {
           if (action.payload[index]?.pass) return action.payload[index];
           return question;
@@ -44,7 +44,7 @@ export const statsSlice = createSlice({
       state.activeQuizScore.push(action.payload);
     },
     resetActiveQuiz(state) {
-      state.activeQuizId = null;
+      state.activeQuizNumber = null;
       state.activeQuizScore = [];
     },
     updateTryAgainQuestionIds(state, action: PayloadAction<string[]>) {

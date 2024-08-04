@@ -11,20 +11,20 @@ import {
 
 type ProgressBarProps = {
   questionsNumber: number | undefined;
-  quizId: string | undefined;
+  quizNumber: string | undefined;
   staggerChildren?: boolean;
 };
 
 export default function ProgressBar({
   questionsNumber,
-  quizId,
+  quizNumber,
   staggerChildren,
 }: ProgressBarProps) {
   const { activeQuizScore } = useAppSelector((state) => state.stats);
 
-  if (!questionsNumber || !quizId) return null;
+  if (!questionsNumber || !quizNumber) return null;
 
-  if (quizId === "survival") {
+  if (quizNumber === "survival") {
     return (
       <div className="mt-4 grid h-[14px] w-full overflow-hidden rounded-md opacity-70">
         <span

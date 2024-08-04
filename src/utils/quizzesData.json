@@ -1,29 +1,6263 @@
 {
   "quizzes": [
     {
+      "quizNumber": 1,
       "questions": [
         {
           "questionId": "1-1",
-          "question": "What important event in the development of women's rights happened in 1928?",
+          "question": "Is the following statement TRUE or FALSE? Northern Ireland is part of Great Britain.",
           "options": [
             {
-              "answer": "Women were first given the right to vote",
+              "answer": "True",
               "letter": "A"
             },
             {
-              "answer": "Women were given the right to to vote at the same as as men",
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "1-2",
+          "question": "The Grand National at Aintree is an event in which sport?",
+          "options": [
+            {
+              "answer": "Motor racing",
+              "letter": "A"
+            },
+            {
+              "answer": "Sailing",
               "letter": "B"
             },
             {
-              "answer": "The first divorce laws were introduced",
+              "answer": "Horse racing",
               "letter": "C"
             },
             {
-              "answer": "Women were allowed to keep their own earnings and property",
+              "answer": "Athletics",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "1-3",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "Many civilian volunteers helped the British Navy to rescue more than 300,000 men from the beaches around Dunkirk.",
+              "letter": "A"
+            },
+            {
+              "answer": "300,000 men were rescued from the beaches around Dunkirk solely by British Navy ships.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "1-4",
+          "question": "Which TWO of the following are British values based on?",
+          "options": [
+            {
+              "answer": "Traditions",
+              "letter": "A"
+            },
+            {
+              "answer": "EU law",
+              "letter": "B"
+            },
+            {
+              "answer": "Party politics",
+              "letter": "C"
+            },
+            {
+              "answer": "History",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A", "D"]
+        },
+        {
+          "questionId": "1-5",
+          "question": "What practice did Sake Dean Mahomet introduce to Britain?",
+          "options": [
+            {
+              "answer": "Cycling",
+              "letter": "A"
+            },
+            {
+              "answer": "Drinking coffee",
+              "letter": "B"
+            },
+            {
+              "answer": "The Indian art of head massage",
+              "letter": "C"
+            },
+            {
+              "answer": "Drinking tea",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "1-6",
+          "question": "What happens on 11 November every year?",
+          "options": [
+            {
+              "answer": "Bonfire Night",
+              "letter": "A"
+            },
+            {
+              "answer": "Remembrance Day",
+              "letter": "B"
+            },
+            {
+              "answer": "Good Friday",
+              "letter": "C"
+            },
+            {
+              "answer": "Shrove Tuesday",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "1-7",
+          "question": "Which monarch spent much of their childhood in France and was at the centre of a power struggle on their return?",
+          "options": [
+            {
+              "answer": "Mary, Queen of Scots",
+              "letter": "A"
+            },
+            {
+              "answer": "Elizabeth I",
+              "letter": "B"
+            },
+            {
+              "answer": "George I",
+              "letter": "C"
+            },
+            {
+              "answer": "George II",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "1-8",
+          "question": "The leader of the opposition appoints which of the following?",
+          "options": [
+            {
+              "answer": "An alternative cabinet",
+              "letter": "A"
+            },
+            {
+              "answer": "A shadow cabinet",
+              "letter": "B"
+            },
+            {
+              "answer": "A judiciary cabinet",
+              "letter": "C"
+            },
+            {
+              "answer": "A Whig cabinet",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "1-9",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "The Scottish National Gallery is in Edinburgh.",
+              "letter": "A"
+            },
+            {
+              "answer": "The Scottish National Gallery is in Aberdeen.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "1-10",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "Refuges and shelters offer a safe place to stay for victims of domestic violence.",
+              "letter": "A"
+            },
+            {
+              "answer": "Citizens Advice offers a safe place to stay for victims of domestic violence.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "1-11",
+          "question": "Which country makes up most of the total UK population?",
+          "options": [
+            {
+              "answer": "England",
+              "letter": "A"
+            },
+            {
+              "answer": "Northern Ireland",
+              "letter": "B"
+            },
+            {
+              "answer": "Scotland",
+              "letter": "C"
+            },
+            {
+              "answer": "Wales",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "1-12",
+          "question": "In which city is the Scottish Parliament based?",
+          "options": [
+            {
+              "answer": "Sheffield",
+              "letter": "A"
+            },
+            {
+              "answer": "Edinburgh",
+              "letter": "B"
+            },
+            {
+              "answer": "Glasgow",
+              "letter": "C"
+            },
+            {
+              "answer": "Cardiff",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "1-13",
+          "question": "Who suspected Mary, Queen of Scots of wanting to take the throne and kept her prisoner for 20 years?",
+          "options": [
+            {
+              "answer": "Elizabeth I",
+              "letter": "A"
+            },
+            {
+              "answer": "Henry VIII",
+              "letter": "B"
+            },
+            {
+              "answer": "Edward VI",
+              "letter": "C"
+            },
+            {
+              "answer": "Charles I",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "1-14",
+          "question": "Who wrote the Harry Potter series of books?",
+          "options": [
+            {
+              "answer": "E L James",
+              "letter": "A"
+            },
+            {
+              "answer": "R L Stevenson",
+              "letter": "B"
+            },
+            {
+              "answer": "J K Rowling",
+              "letter": "C"
+            },
+            {
+              "answer": "Graham Greene",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "1-15",
+          "question": "Why did Parliament look to restore Charles II to the throne in 1660?",
+          "options": [
+            {
+              "answer": "There was no clear leader after the death of Oliver Cromwell",
+              "letter": "A"
+            },
+            {
+              "answer": "They believed in the Divine Right of Kings",
+              "letter": "B"
+            },
+            {
+              "answer": "They wanted a Catholic king",
+              "letter": "C"
+            },
+            {
+              "answer": "He wanted to give women the vote",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "1-16",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "The small claims procedure is an informal way of helping people who have been victims of identity theft or fraud.",
+              "letter": "A"
+            },
+            {
+              "answer": "The small claims procedure is an informal way of helping people settle minor disputes without needing a lawyer.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "1-17",
+          "question": "A snack made from flour, dried fruits and spices, and served either hot or cold is which of the following?",
+          "options": [
+            {
+              "answer": "A Scottish bun",
+              "letter": "A"
+            },
+            {
+              "answer": "An English muffin",
+              "letter": "B"
+            },
+            {
+              "answer": "An Irish pie",
+              "letter": "C"
+            },
+            {
+              "answer": "A Welsh cake",
               "letter": "D"
             }
           ],
           "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "1-18",
+          "question": "How often must a car over three years old have an MOT test?",
+          "options": [
+            {
+              "answer": "Every six months",
+              "letter": "A"
+            },
+            {
+              "answer": "Every year",
+              "letter": "B"
+            },
+            {
+              "answer": "Every three years",
+              "letter": "C"
+            },
+            {
+              "answer": "Never",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "1-19",
+          "question": "What were women campaigning for the right to vote known as?",
+          "options": [
+            {
+              "answer": "Suffragettes",
+              "letter": "A"
+            },
+            {
+              "answer": "Votettes",
+              "letter": "B"
+            },
+            {
+              "answer": "Democrattes",
+              "letter": "C"
+            },
+            {
+              "answer": "Feminettes",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "1-20",
+          "question": "Devolved administrations in the UK control which of the following?",
+          "options": [
+            {
+              "answer": "Defence policy",
+              "letter": "A"
+            },
+            {
+              "answer": "Education",
+              "letter": "B"
+            },
+            {
+              "answer": "Foreign affairs",
+              "letter": "C"
+            },
+            {
+              "answer": "Immigration",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "1-21",
+          "question": "Which of these is a famous UK landmark?",
+          "options": [
+            {
+              "answer": "Loch Lomond and the Trossachs National Park",
+              "letter": "A"
+            },
+            {
+              "answer": "Yellowstone Park",
+              "letter": "B"
+            },
+            {
+              "answer": "The Brandenburg Gate",
+              "letter": "C"
+            },
+            {
+              "answer": "The Black Forest",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "1-22",
+          "question": "To be selected to be on a jury where must your name be recorded?",
+          "options": [
+            {
+              "answer": "On the voter list",
+              "letter": "A"
+            },
+            {
+              "answer": "In The Phone Book",
+              "letter": "B"
+            },
+            {
+              "answer": "On your driving licence",
+              "letter": "C"
+            },
+            {
+              "answer": "On the electoral register",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "1-23",
+          "question": "Which of the following is a type of plane famously used in the Battle of Britain?",
+          "options": [
+            {
+              "answer": "Armada",
+              "letter": "A"
+            },
+            {
+              "answer": "Blitz",
+              "letter": "B"
+            },
+            {
+              "answer": "Spitfire",
+              "letter": "C"
+            },
+            {
+              "answer": "Concorde",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "1-24",
+          "question": "What does an MOT test stand for?",
+          "options": [
+            {
+              "answer": "Ministry of Truth test",
+              "letter": "A"
+            },
+            {
+              "answer": "Mode of Transport test",
+              "letter": "B"
+            },
+            {
+              "answer": "Music and Technology test",
+              "letter": "C"
+            },
+            {
+              "answer": "Ministry of Transport test",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        }
+      ]
+    },
+    {
+      "quizNumber": 2,
+      "questions": [
+        {
+          "questionId": "2-1",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "Arranged marriages are allowed in the UK as long as the parents agree.",
+              "letter": "A"
+            },
+            {
+              "answer": "Arranged marriages are allowed in the UK as long as the people to be married agree.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "2-2",
+          "question": "On his escape from the Battle of Worcester, Charles II famously hid where?",
+          "options": [
+            {
+              "answer": "In a barn",
+              "letter": "A"
+            },
+            {
+              "answer": "In an oak tree",
+              "letter": "B"
+            },
+            {
+              "answer": "In a cellar",
+              "letter": "C"
+            },
+            {
+              "answer": "In a church",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "2-3",
+          "question": "Is the following statement TRUE or FALSE? Northern Ireland and Scotland have their own banknotes, which are valid in other parts of the UK.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "2-4",
+          "question": "The Archbishop of Canterbury can most accurately be described as what?",
+          "options": [
+            {
+              "answer": "The spiritual leader of the Church of England",
+              "letter": "A"
+            },
+            {
+              "answer": "The political leader of the Church of England",
+              "letter": "B"
+            },
+            {
+              "answer": "The administrative leader of the Church of England",
+              "letter": "C"
+            },
+            {
+              "answer": "The financial leader of the Church of England",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "2-5",
+          "question": "The phrase 'the Dunkirk spirit' refers to which key episode of the Second World War?",
+          "options": [
+            {
+              "answer": "The successful evacuation of around 300,000 men from France",
+              "letter": "A"
+            },
+            {
+              "answer": "The invasion of Italy by Allied forces",
+              "letter": "B"
+            },
+            {
+              "answer": "The British attack on the Somme",
+              "letter": "C"
+            },
+            {
+              "answer": "The bravery of the Poles throughout the war",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "2-6",
+          "question": "Is the statement below TRUE or FALSE? British overseas territories, such as St Helena, are part of the UK.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "2-7",
+          "question": "During the 18th century, new ideas about politics, philosophy and science were developed. What are these developments known as?",
+          "options": [
+            {
+              "answer": "The Movement",
+              "letter": "A"
+            },
+            {
+              "answer": "The Advancement",
+              "letter": "B"
+            },
+            {
+              "answer": "The Enlightenment",
+              "letter": "C"
+            },
+            {
+              "answer": "The Regression",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "2-8",
+          "question": "Which of the following is a purpose of the National Citizen Service programme?",
+          "options": [
+            {
+              "answer": "To support the police",
+              "letter": "A"
+            },
+            {
+              "answer": "To train young people for the army",
+              "letter": "B"
+            },
+            {
+              "answer": "To help secure Britain's borders",
+              "letter": "C"
+            },
+            {
+              "answer": "To give young people an opportunity to enjoy outdoor activities",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "2-9",
+          "question": "To apply to become a permanent resident or citizen of the UK, you will need to be able to do which TWO of the following?",
+          "options": [
+            {
+              "answer": "Speak and read English",
+              "letter": "A"
+            },
+            {
+              "answer": "Speak Welsh",
+              "letter": "B"
+            },
+            {
+              "answer": "Have a good understanding of life in the UK",
+              "letter": "C"
+            },
+            {
+              "answer": "Speak more than one language",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A", "C"]
+        },
+        {
+          "questionId": "2-10",
+          "question": "Which country of the UK is not represented on the Union Flag?",
+          "options": [
+            {
+              "answer": "Scotland",
+              "letter": "A"
+            },
+            {
+              "answer": "Wales",
+              "letter": "B"
+            },
+            {
+              "answer": "Northern Ireland",
+              "letter": "C"
+            },
+            {
+              "answer": "England",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "2-11",
+          "question": "Cardiff, Swansea and Newport are cities in which country of the UK?",
+          "options": [
+            {
+              "answer": "England",
+              "letter": "A"
+            },
+            {
+              "answer": "Scotland",
+              "letter": "B"
+            },
+            {
+              "answer": "Wales",
+              "letter": "C"
+            },
+            {
+              "answer": "Northern Ireland",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "2-12",
+          "question": "In 1746 Charles Edward Stuart's attempt to replace George II as king ended with defeat at the Battle of Culloden. In which part of Britain did he raise an army?",
+          "options": [
+            {
+              "answer": "Northern England",
+              "letter": "A"
+            },
+            {
+              "answer": "Southern England",
+              "letter": "B"
+            },
+            {
+              "answer": "Scotland",
+              "letter": "C"
+            },
+            {
+              "answer": "Wales",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "2-13",
+          "question": "Which famous religious building has been the coronation church since 1066 and is the final resting place for many monarchs?",
+          "options": [
+            {
+              "answer": "Westminster Abbey",
+              "letter": "A"
+            },
+            {
+              "answer": "York Minster",
+              "letter": "B"
+            },
+            {
+              "answer": "St Paul's Cathedral",
+              "letter": "C"
+            },
+            {
+              "answer": "Westminster Cathedral",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "2-14",
+          "question": "Employment law would apply to which of the following situations?",
+          "options": [
+            {
+              "answer": "Unpaid debts",
+              "letter": "A"
+            },
+            {
+              "answer": "Faulty goods bought in a shop",
+              "letter": "B"
+            },
+            {
+              "answer": "Eviction from a house or flat",
+              "letter": "C"
+            },
+            {
+              "answer": "Unfair dismissal from a job",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "2-15",
+          "question": "Which of these birds is traditionally associated with Christmas in the UK?",
+          "options": [
+            {
+              "answer": "Swan",
+              "letter": "A"
+            },
+            {
+              "answer": "Swallow",
+              "letter": "B"
+            },
+            {
+              "answer": "Turkey",
+              "letter": "C"
+            },
+            {
+              "answer": "Penguin",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "2-16",
+          "question": "By the 1760s there were substantial British colonies in which part of the world?",
+          "options": [
+            {
+              "answer": "North America",
+              "letter": "A"
+            },
+            {
+              "answer": "South America",
+              "letter": "B"
+            },
+            {
+              "answer": "Russia",
+              "letter": "C"
+            },
+            {
+              "answer": "The Middle East",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "2-17",
+          "question": "Who wrote The Daffodils?",
+          "options": [
+            {
+              "answer": "William Blake",
+              "letter": "A"
+            },
+            {
+              "answer": "Henry Purcell",
+              "letter": "B"
+            },
+            {
+              "answer": "William Wordsworth",
+              "letter": "C"
+            },
+            {
+              "answer": "Winston Churchill",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "2-18",
+          "question": "Pressure and lobby groups represent the interests of which TWO of the following?",
+          "options": [
+            {
+              "answer": "Minor political parties",
+              "letter": "A"
+            },
+            {
+              "answer": "Foreign ambassadors",
+              "letter": "B"
+            },
+            {
+              "answer": "Business organisations",
+              "letter": "C"
+            },
+            {
+              "answer": "Campaigning organisations",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C", "D"]
+        },
+        {
+          "questionId": "2-19",
+          "question": "After his death in 1965 Winston Churchill was afforded which honour?",
+          "options": [
+            {
+              "answer": "A state funeral",
+              "letter": "A"
+            },
+            {
+              "answer": "A tomb in Westminster Abbey",
+              "letter": "B"
+            },
+            {
+              "answer": "An annual national holiday was named after him",
+              "letter": "C"
+            },
+            {
+              "answer": "A burial at sea",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "2-20",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "The public may not listen to debates in the House of Commons or the House of Lords.",
+              "letter": "A"
+            },
+            {
+              "answer": "The public may listen to debates in the House of Commons and the House of Lords.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "2-21",
+          "question": "The UK was involved in which war starting in 1899?",
+          "options": [
+            {
+              "answer": "The Crimean War",
+              "letter": "A"
+            },
+            {
+              "answer": "The Hundred Years War",
+              "letter": "B"
+            },
+            {
+              "answer": "The Boer War",
+              "letter": "C"
+            },
+            {
+              "answer": "The American War of Independence",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "2-22",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "The Wimbledon Championships is the only 'Grand Slam' tennis event played on clay.",
+              "letter": "A"
+            },
+            {
+              "answer": "The Wimbledon Championships is the only 'Grand Slam' tennis event played on grass.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "2-23",
+          "question": "Is the statement below TRUE or FALSE? A jump jet capable of taking off and landing vertically was developed in the UK, and was called the Harrier.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "2-24",
+          "question": "What is the name of the card that is sent to registered voters to tell them where their polling station is and when the election will take place?",
+          "options": [
+            {
+              "answer": "Poll card",
+              "letter": "A"
+            },
+            {
+              "answer": "Elector card",
+              "letter": "B"
+            },
+            {
+              "answer": "Voter card",
+              "letter": "C"
+            },
+            {
+              "answer": "Registry card",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        }
+      ]
+    },
+    {
+      "quizNumber": 3,
+      "questions": [
+        {
+          "questionId": "3-1",
+          "question": "Which TWO of the following are freedoms citizens and permanent residents of the UK should respect?",
+          "options": [
+            {
+              "answer": "Freedom of speech",
+              "letter": "A"
+            },
+            {
+              "answer": "Half-day off work on Friday",
+              "letter": "B"
+            },
+            {
+              "answer": "Freedom from unfair discrimination",
+              "letter": "C"
+            },
+            {
+              "answer": "Free heating during winter",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A", "C"]
+        },
+        {
+          "questionId": "3-2",
+          "question": "Which monarch had the longest reign of the 19th century?",
+          "options": [
+            {
+              "answer": "Victoria",
+              "letter": "A"
+            },
+            {
+              "answer": "Henry VIII",
+              "letter": "B"
+            },
+            {
+              "answer": "Edward VI",
+              "letter": "C"
+            },
+            {
+              "answer": "Anne",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "3-3",
+          "question": "Which events triggered England becoming a republic?",
+          "options": [
+            {
+              "answer": "The Norman Conquest and Battle of Hastings",
+              "letter": "A"
+            },
+            {
+              "answer": "The Wars of the Roses",
+              "letter": "B"
+            },
+            {
+              "answer": "The English Civil War and Oliver Cromwell's death",
+              "letter": "C"
+            },
+            {
+              "answer": "The English Civil War and Charles I's execution",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "3-4",
+          "question": "Which sport can be traced back to 15th century Scotland?",
+          "options": [
+            {
+              "answer": "Motor racing",
+              "letter": "A"
+            },
+            {
+              "answer": "Tennis",
+              "letter": "B"
+            },
+            {
+              "answer": "Rugby union",
+              "letter": "C"
+            },
+            {
+              "answer": "Golf",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "3-5",
+          "question": "Which TWO of the following are shared values of the UK?",
+          "options": [
+            {
+              "answer": "To only look after yourself",
+              "letter": "A"
+            },
+            {
+              "answer": "To obey and respect the law",
+              "letter": "B"
+            },
+            {
+              "answer": "To treat others with fairness",
+              "letter": "C"
+            },
+            {
+              "answer": "To disregard the environment",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B", "C"]
+        },
+        {
+          "questionId": "3-6",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "Having a free press means that newspaper owners may not hold political views.",
+              "letter": "A"
+            },
+            {
+              "answer": "Having a free press means that newspapers are not controlled by government.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "3-7",
+          "question": "Who was Prime Minister when the Northern Ireland Assembly was elected in 1999?",
+          "options": [
+            {
+              "answer": "John Major",
+              "letter": "A"
+            },
+            {
+              "answer": "Boris Johnson",
+              "letter": "B"
+            },
+            {
+              "answer": "Tony Blair",
+              "letter": "C"
+            },
+            {
+              "answer": "Margaret Thatcher",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "3-8",
+          "question": "Which of the following were music hall performers who later became television stars?",
+          "options": [
+            {
+              "answer": "Margate and Wise",
+              "letter": "A"
+            },
+            {
+              "answer": "Morecambe and Wise",
+              "letter": "B"
+            },
+            {
+              "answer": "Maidstone and Wise",
+              "letter": "C"
+            },
+            {
+              "answer": "Matlock and Wise",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "3-9",
+          "question": "Which of these people was a great British playwright?",
+          "options": [
+            {
+              "answer": "Sir Francis Drake",
+              "letter": "A"
+            },
+            {
+              "answer": "Geoffrey Chaucer",
+              "letter": "B"
+            },
+            {
+              "answer": "William Caxton",
+              "letter": "C"
+            },
+            {
+              "answer": "William Shakespeare",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "3-10",
+          "question": "Which of the following takes place on 14 February every year?",
+          "options": [
+            {
+              "answer": "St Christopher's Day",
+              "letter": "A"
+            },
+            {
+              "answer": "St George's Day",
+              "letter": "B"
+            },
+            {
+              "answer": "Valentine's Day",
+              "letter": "C"
+            },
+            {
+              "answer": "All Saints Day",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "3-11",
+          "question": "What is the Bayeux Tapestry?",
+          "options": [
+            {
+              "answer": "A painting",
+              "letter": "A"
+            },
+            {
+              "answer": "An embroidery",
+              "letter": "B"
+            },
+            {
+              "answer": "A flag",
+              "letter": "C"
+            },
+            {
+              "answer": "A treaty",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "3-12",
+          "question": "Is this statement TRUE or FALSE? In Wales the established Church is the Church of Wales.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "3-13",
+          "question": "The Huguenots came to Britain as refugees from which country?",
+          "options": [
+            {
+              "answer": "Brazil",
+              "letter": "A"
+            },
+            {
+              "answer": "Turkey",
+              "letter": "B"
+            },
+            {
+              "answer": "Germany",
+              "letter": "C"
+            },
+            {
+              "answer": "France",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "3-14",
+          "question": "Henry Moore became famous in which field of the arts?",
+          "options": [
+            {
+              "answer": "Music",
+              "letter": "A"
+            },
+            {
+              "answer": "Theatre",
+              "letter": "B"
+            },
+            {
+              "answer": "Sculpture",
+              "letter": "C"
+            },
+            {
+              "answer": "Opera",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "3-15",
+          "question": "Which of the following is covered by criminal law?",
+          "options": [
+            {
+              "answer": "Drunk and disorderly behaviour",
+              "letter": "A"
+            },
+            {
+              "answer": "Disputes with your landlord",
+              "letter": "B"
+            },
+            {
+              "answer": "Employment issues such as unfair dismissal",
+              "letter": "C"
+            },
+            {
+              "answer": "Debt",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "3-16",
+          "question": "Which TWO of these careers did Winston Churchill follow before becoming a Conservative MP in 1900?",
+          "options": [
+            {
+              "answer": "Teacher",
+              "letter": "A"
+            },
+            {
+              "answer": "Vicar",
+              "letter": "B"
+            },
+            {
+              "answer": "Journalist",
+              "letter": "C"
+            },
+            {
+              "answer": "Soldier",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C", "D"]
+        },
+        {
+          "questionId": "3-17",
+          "question": "Is the following statement TRUE or FALSE? Volunteering and helping your community are important parts of being a good citizen.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "3-18",
+          "question": "Which Church of England prayer book was written during the reign of Edward VI, a version of which is still in use in some churches today?",
+          "options": [
+            {
+              "answer": "The Protestant Book of Prayer",
+              "letter": "A"
+            },
+            {
+              "answer": "The Roman Catholic Book of Prayer",
+              "letter": "B"
+            },
+            {
+              "answer": "The Book of Common Prayer",
+              "letter": "C"
+            },
+            {
+              "answer": "The Common Book of Prayer",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "3-19",
+          "question": "Which of the following can stand for public office?",
+          "options": [
+            {
+              "answer": "Civil servants",
+              "letter": "A"
+            },
+            {
+              "answer": "Members of the armed forces",
+              "letter": "B"
+            },
+            {
+              "answer": "People found guilty of certain criminal offences",
+              "letter": "C"
+            },
+            {
+              "answer": "British citizens born outside the UK",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "3-20",
+          "question": "Which Prime Minister oversaw the creation of the NHS?",
+          "options": [
+            {
+              "answer": "Clement Attlee",
+              "letter": "A"
+            },
+            {
+              "answer": "Winston Churchill",
+              "letter": "B"
+            },
+            {
+              "answer": "Edward Heath",
+              "letter": "C"
+            },
+            {
+              "answer": "Margaret Thatcher",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "3-21",
+          "question": "Which of the following is one of the King's important ceremonial roles?",
+          "options": [
+            {
+              "answer": "To chair debates in Parliament",
+              "letter": "A"
+            },
+            {
+              "answer": "To write laws",
+              "letter": "B"
+            },
+            {
+              "answer": "To receive foreign ambassadors and high commissioners",
+              "letter": "C"
+            },
+            {
+              "answer": "To negotiate trade agreements with other countries",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "3-22",
+          "question": "Where was the Battle of Britain fought?",
+          "options": [
+            {
+              "answer": "In the air",
+              "letter": "A"
+            },
+            {
+              "answer": "At sea",
+              "letter": "B"
+            },
+            {
+              "answer": "On the borders of Scotland",
+              "letter": "C"
+            },
+            {
+              "answer": "Underground",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "3-23",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "Benjamin Britten wrote A Young Person's Guide to the Orchestra.",
+              "letter": "A"
+            },
+            {
+              "answer": "Benjamin Britten wrote An Older Person's Guide to the Orchestra.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "3-24",
+          "question": "In what year were women over the age of 30 given the right to vote?",
+          "options": [
+            {
+              "answer": "1900",
+              "letter": "A"
+            },
+            {
+              "answer": "1910",
+              "letter": "B"
+            },
+            {
+              "answer": "1918",
+              "letter": "C"
+            },
+            {
+              "answer": "1938",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        }
+      ]
+    },
+    {
+      "quizNumber": 4,
+      "questions": [
+        {
+          "questionId": "4-1",
+          "question": "After his campaign in Ireland and his defeat of Charles II, Oliver Cromwell was given what title?",
+          "options": [
+            {
+              "answer": "King",
+              "letter": "A"
+            },
+            {
+              "answer": "Lord Lieutenant",
+              "letter": "B"
+            },
+            {
+              "answer": "Lord Protector",
+              "letter": "C"
+            },
+            {
+              "answer": "Chieftain",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "4-2",
+          "question": "What is the name of Scotland's patron saint?",
+          "options": [
+            {
+              "answer": "St Andrew",
+              "letter": "A"
+            },
+            {
+              "answer": "St David",
+              "letter": "B"
+            },
+            {
+              "answer": "St George",
+              "letter": "C"
+            },
+            {
+              "answer": "St Patrick",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "4-3",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "Tony Blair was Prime Minister at the time of the Good Friday Agreement in 1998.",
+              "letter": "A"
+            },
+            {
+              "answer": "Gordon Brown was Prime Minister at the time of the Good Friday Agreement in 1998.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "4-4",
+          "question": "Is the statement below TRUE or FALSE? In Northern Ireland a system called 'individual registration' operates and all those entitled to vote must complete their own registration form.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "4-5",
+          "question": "At what exact time and date in 1918 did the First World War officially end?",
+          "options": [
+            {
+              "answer": "11.00 am on 11 November",
+              "letter": "A"
+            },
+            {
+              "answer": "10.00 am on 10 October",
+              "letter": "B"
+            },
+            {
+              "answer": "6.00 am on 6 June",
+              "letter": "C"
+            },
+            {
+              "answer": "8.00 am on 8 August",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "4-6",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "Elizabeth I was a popular monarch, particularly after the English defeat of the Spanish Armada.",
+              "letter": "A"
+            },
+            {
+              "answer": "Elizabeth I was an unpopular monarch because she caused religious instability.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "4-7",
+          "question": "Which of these is an environmental charity?",
+          "options": [
+            {
+              "answer": "Local government",
+              "letter": "A"
+            },
+            {
+              "answer": "The Council of Europe",
+              "letter": "B"
+            },
+            {
+              "answer": "The London Eye",
+              "letter": "C"
+            },
+            {
+              "answer": "The Eden Project",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "4-8",
+          "question": "Whom did William the Conqueror defeat at the Battle of Hastings in 1066?",
+          "options": [
+            {
+              "answer": "King Cnut",
+              "letter": "A"
+            },
+            {
+              "answer": "Boudicca",
+              "letter": "B"
+            },
+            {
+              "answer": "Kenneth MacAlpin",
+              "letter": "C"
+            },
+            {
+              "answer": "King Harold",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "4-9",
+          "question": "Where does the UK Parliament sit?",
+          "options": [
+            {
+              "answer": "Westminster",
+              "letter": "A"
+            },
+            {
+              "answer": "Downing Street",
+              "letter": "B"
+            },
+            {
+              "answer": "Stormont",
+              "letter": "C"
+            },
+            {
+              "answer": "Edinburgh Castle",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "4-10",
+          "question": "What did missionaries teach the Anglo-Saxons?",
+          "options": [
+            {
+              "answer": "About other cultures",
+              "letter": "A"
+            },
+            {
+              "answer": "About Christianity",
+              "letter": "B"
+            },
+            {
+              "answer": "About other languages",
+              "letter": "C"
+            },
+            {
+              "answer": "About trade",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "4-11",
+          "question": "On which day do Christians paint an ash cross on their forehead as a symbol of death and sorrow for sin?",
+          "options": [
+            {
+              "answer": "Ash Wednesday",
+              "letter": "A"
+            },
+            {
+              "answer": "Christmas Day",
+              "letter": "B"
+            },
+            {
+              "answer": "Hanukkah",
+              "letter": "C"
+            },
+            {
+              "answer": "Remembrance Day",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "4-12",
+          "question": "William the Conqueror came from which modern country?",
+          "options": [
+            {
+              "answer": "Norway",
+              "letter": "A"
+            },
+            {
+              "answer": "Canada",
+              "letter": "B"
+            },
+            {
+              "answer": "Germany",
+              "letter": "C"
+            },
+            {
+              "answer": "France",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "4-13",
+          "question": "Holman Hunt, Millais and Rossetti were members of which important group of 19th-century artists?",
+          "options": [
+            {
+              "answer": "Impressionists",
+              "letter": "A"
+            },
+            {
+              "answer": "Expressionists",
+              "letter": "B"
+            },
+            {
+              "answer": "Abstract",
+              "letter": "C"
+            },
+            {
+              "answer": "Pre-Raphaelites",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "4-14",
+          "question": "Young people are sent a National Insurance number before which birthday?",
+          "options": [
+            {
+              "answer": "13th",
+              "letter": "A"
+            },
+            {
+              "answer": "15th",
+              "letter": "B"
+            },
+            {
+              "answer": "16th",
+              "letter": "C"
+            },
+            {
+              "answer": "18th",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "4-15",
+          "question": "What were The Canterbury Tales?",
+          "options": [
+            {
+              "answer": "A book of Christian doctrine",
+              "letter": "A"
+            },
+            {
+              "answer": "A series of poems",
+              "letter": "B"
+            },
+            {
+              "answer": "A Royal Charter",
+              "letter": "C"
+            },
+            {
+              "answer": "A story about Canterbury Cathedral",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "4-16",
+          "question": "Is the following statement TRUE or FALSE? The UK is a permanent member of the UN Security Council.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "4-17",
+          "question": "Is the following statement TRUE or FALSE? The Royal Society is the oldest surviving scientific society in the world.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "4-18",
+          "question": "Which TWO of the following are major political parties in the UK?",
+          "options": [
+            {
+              "answer": "Conservative Party",
+              "letter": "A"
+            },
+            {
+              "answer": "Social Democrats",
+              "letter": "B"
+            },
+            {
+              "answer": "Labour Party",
+              "letter": "C"
+            },
+            {
+              "answer": "Progressive Party",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A", "C"]
+        },
+        {
+          "questionId": "4-19",
+          "question": "What event is commemorated on 5 November every year?",
+          "options": [
+            {
+              "answer": "England's World Cup victory of 1966",
+              "letter": "A"
+            },
+            {
+              "answer": "The end of the First World War",
+              "letter": "B"
+            },
+            {
+              "answer": "A plot to blow up the Houses of Parliament",
+              "letter": "C"
+            },
+            {
+              "answer": "The Queen's birthday",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "4-20",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "Drivers over the age of 70 must renew their licence every three years.",
+              "letter": "A"
+            },
+            {
+              "answer": "People over the age of 70 are not allowed to drive.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "4-21",
+          "question": "Which TWO of the following countries play rugby union in the Six Nations Championship?",
+          "options": [
+            {
+              "answer": "Scotland",
+              "letter": "A"
+            },
+            {
+              "answer": "France",
+              "letter": "B"
+            },
+            {
+              "answer": "New Zealand",
+              "letter": "C"
+            },
+            {
+              "answer": "Argentina",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A", "B"]
+        },
+        {
+          "questionId": "4-22",
+          "question": "Who defeated the English at the Battle of Bannockburn?",
+          "options": [
+            {
+              "answer": "The Welsh",
+              "letter": "A"
+            },
+            {
+              "answer": "The Irish",
+              "letter": "B"
+            },
+            {
+              "answer": "The Scottish",
+              "letter": "C"
+            },
+            {
+              "answer": "The French",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "4-23",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "Remembrance Day commemorates soldiers who died in the First World War as well as those who have died in all conflicts involving the UK since then.",
+              "letter": "A"
+            },
+            {
+              "answer": "Remembrance Day only commemorates soldiers who died in the First World War.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "4-24",
+          "question": "What happens at a polling station or polling place?",
+          "options": [
+            {
+              "answer": "The census is collected",
+              "letter": "A"
+            },
+            {
+              "answer": "People vote in elections",
+              "letter": "B"
+            },
+            {
+              "answer": "Taxes are collected",
+              "letter": "C"
+            },
+            {
+              "answer": "People take their driving test",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        }
+      ]
+    },
+    {
+      "quizNumber": 5,
+      "questions": [
+        {
+          "questionId": "5-1",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "Elections for the Senedd are held using a first past the post system.",
+              "letter": "A"
+            },
+            {
+              "answer": "Elections for the Senedd are held using a system of proportional representation.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "5-2",
+          "question": "Who developed the jet engine during the 1930s?",
+          "options": [
+            {
+              "answer": "Bobby Moore",
+              "letter": "A"
+            },
+            {
+              "answer": "Sir Tim Berners-Lee",
+              "letter": "B"
+            },
+            {
+              "answer": "Alan Turing",
+              "letter": "C"
+            },
+            {
+              "answer": "Sir Frank Whittle",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "5-3",
+          "question": "Is the following statement TRUE or FALSE? Several Church of England bishops sit in the House of Commons.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "5-4",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "The Scottish Parliament was formed in 1999.",
+              "letter": "A"
+            },
+            {
+              "answer": "The Scottish Parliament was formed in 2009.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "5-5",
+          "question": "What type of charity is Friends of the Earth?",
+          "options": [
+            {
+              "answer": "Medical research",
+              "letter": "A"
+            },
+            {
+              "answer": "Environmental",
+              "letter": "B"
+            },
+            {
+              "answer": "Children's",
+              "letter": "C"
+            },
+            {
+              "answer": "Educational",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "5-6",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "The United Kingdom consists of England, Ireland, Scotland and Wales.",
+              "letter": "A"
+            },
+            {
+              "answer": "The United Kingdom consists of England, Scotland, Wales and Northern Ireland.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "5-7",
+          "question": "What is the name of the British athlete who has won 16 Paralympic medals, including 11 gold medals?",
+          "options": [
+            {
+              "answer": "Lewis Hamilton",
+              "letter": "A"
+            },
+            {
+              "answer": "Baroness Tanni Grey-Thompson",
+              "letter": "B"
+            },
+            {
+              "answer": "Dame Kelly Holmes",
+              "letter": "C"
+            },
+            {
+              "answer": "Dame Ellen MacArthur",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "5-8",
+          "question": "During which period were Isambard Kingdom Brunel and Florence Nightingale alive?",
+          "options": [
+            {
+              "answer": "Victorian",
+              "letter": "A"
+            },
+            {
+              "answer": "Tudor",
+              "letter": "B"
+            },
+            {
+              "answer": "Middle Ages",
+              "letter": "C"
+            },
+            {
+              "answer": "The 21st century",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "5-9",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "Sir Terence Conran was a 20th century fashion designer.",
+              "letter": "A"
+            },
+            {
+              "answer": "Sir Terence Conran was a 20th century interior designer.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "5-10",
+          "question": "What was the Blitz?",
+          "options": [
+            {
+              "answer": "Britain's departure from the EU",
+              "letter": "A"
+            },
+            {
+              "answer": "A supersonic airliner",
+              "letter": "B"
+            },
+            {
+              "answer": "Night-time bombings of British cities during the Second World War",
+              "letter": "C"
+            },
+            {
+              "answer": "A nickname for the first jet engine",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "5-11",
+          "question": "Is the following statement TRUE or FALSE? A newspaper's owner may try to influence government policy by running a campaign.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "5-12",
+          "question": "How is the British Broadcasting Corporation (BBC) funded?",
+          "options": [
+            {
+              "answer": "With money raised from TV licences",
+              "letter": "A"
+            },
+            {
+              "answer": "Through sponsorship by large national and multinational companies",
+              "letter": "B"
+            },
+            {
+              "answer": "Through advertising revenue",
+              "letter": "C"
+            },
+            {
+              "answer": "Through charitable donations",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "5-13",
+          "question": "Anyone who wishes to stand for public office must be at least what age?",
+          "options": [
+            {
+              "answer": "16",
+              "letter": "A"
+            },
+            {
+              "answer": "18",
+              "letter": "B"
+            },
+            {
+              "answer": "21",
+              "letter": "C"
+            },
+            {
+              "answer": "25",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "5-14",
+          "question": "During the Middle Ages, which TWO languages were used across England?",
+          "options": [
+            {
+              "answer": "Anglo-Saxon",
+              "letter": "A"
+            },
+            {
+              "answer": "Welsh",
+              "letter": "B"
+            },
+            {
+              "answer": "Danish",
+              "letter": "C"
+            },
+            {
+              "answer": "Norman French",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A", "D"]
+        },
+        {
+          "questionId": "5-15",
+          "question": "Which of the statements below is correct?",
+          "options": [
+            {
+              "answer": "Citizens must be at least 18 to vote.",
+              "letter": "A"
+            },
+            {
+              "answer": "Citizens must be at least 21 to vote.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "5-16",
+          "question": "Which British novelist created the fictional detective Sherlock Holmes?",
+          "options": [
+            {
+              "answer": "Sir Arthur Conan Doyle",
+              "letter": "A"
+            },
+            {
+              "answer": "Evelyn Waugh",
+              "letter": "B"
+            },
+            {
+              "answer": "Robert Louis Stevenson",
+              "letter": "C"
+            },
+            {
+              "answer": "Graham Greene",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "5-17",
+          "question": "Which festival takes place on 31 October?",
+          "options": [
+            {
+              "answer": "Mother's Day",
+              "letter": "A"
+            },
+            {
+              "answer": "Valentine's Day",
+              "letter": "B"
+            },
+            {
+              "answer": "Halloween",
+              "letter": "C"
+            },
+            {
+              "answer": "St. Andrew's Day",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "5-18",
+          "question": "Is the following statement TRUE or FALSE? The Houses of Lancaster and York used red and white roses as their respective symbols.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "5-19",
+          "question": "Is the following statement TRUE or FALSE? The candidate who wins the most votes in a constituency is elected as an MP.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "5-20",
+          "question": "What was the Spanish Armada?",
+          "options": [
+            {
+              "answer": "A fleet of Spanish ships",
+              "letter": "A"
+            },
+            {
+              "answer": "A Spanish princess",
+              "letter": "B"
+            },
+            {
+              "answer": "A treaty with Spain",
+              "letter": "C"
+            },
+            {
+              "answer": "The Spanish Army",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "5-21",
+          "question": "What is Sir Ridley Scott famous for?",
+          "options": [
+            {
+              "answer": "Directing films",
+              "letter": "A"
+            },
+            {
+              "answer": "Theatre production",
+              "letter": "B"
+            },
+            {
+              "answer": "Conducting orchestras.",
+              "letter": "C"
+            },
+            {
+              "answer": "Singing as an operatic tenor",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "5-22",
+          "question": "The Church of England is a Protestant church and has existed since which event?",
+          "options": [
+            {
+              "answer": "The Realisation",
+              "letter": "A"
+            },
+            {
+              "answer": "The Reformation",
+              "letter": "B"
+            },
+            {
+              "answer": "The Reorganisation",
+              "letter": "C"
+            },
+            {
+              "answer": "The Renaissance",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "5-23",
+          "question": "What are the 40 days before Easter called?",
+          "options": [
+            {
+              "answer": "Lent",
+              "letter": "A"
+            },
+            {
+              "answer": "Christmas",
+              "letter": "B"
+            },
+            {
+              "answer": "Hogmanay",
+              "letter": "C"
+            },
+            {
+              "answer": "Fast",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "5-24",
+          "question": "Who was the first man to be called Prime Minister?",
+          "options": [
+            {
+              "answer": "Sir Robert Walpole",
+              "letter": "A"
+            },
+            {
+              "answer": "William Pitt the Younger",
+              "letter": "B"
+            },
+            {
+              "answer": "Sir Herbert Walpole",
+              "letter": "C"
+            },
+            {
+              "answer": "William Pitt the Elder",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        }
+      ]
+    },
+    {
+      "quizNumber": 6,
+      "questions": [
+        {
+          "questionId": "6-1",
+          "question": "Which king invaded Ireland in the seventeenth century in an attempt to regain the throne with an army from France?",
+          "options": [
+            {
+              "answer": "Henry V",
+              "letter": "A"
+            },
+            {
+              "answer": "James II",
+              "letter": "B"
+            },
+            {
+              "answer": "Kenneth MacAlpin",
+              "letter": "C"
+            },
+            {
+              "answer": "John",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "6-2",
+          "question": "St George is the patron saint of which country?",
+          "options": [
+            {
+              "answer": "England",
+              "letter": "A"
+            },
+            {
+              "answer": "Scotland",
+              "letter": "B"
+            },
+            {
+              "answer": "Wales",
+              "letter": "C"
+            },
+            {
+              "answer": "Northern Ireland",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "6-3",
+          "question": "In which month do most local authorities hold elections?",
+          "options": [
+            {
+              "answer": "January",
+              "letter": "A"
+            },
+            {
+              "answer": "March",
+              "letter": "B"
+            },
+            {
+              "answer": "May",
+              "letter": "C"
+            },
+            {
+              "answer": "September",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "6-4",
+          "question": "Which war began after Germany invaded Poland?",
+          "options": [
+            {
+              "answer": "First World War",
+              "letter": "A"
+            },
+            {
+              "answer": "English Civil War",
+              "letter": "B"
+            },
+            {
+              "answer": "Second World War",
+              "letter": "C"
+            },
+            {
+              "answer": "Boer War",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "6-5",
+          "question": "What celebration is known as Hogmanay in Scotland?",
+          "options": [
+            {
+              "answer": "Halloween",
+              "letter": "A"
+            },
+            {
+              "answer": "Christmas",
+              "letter": "B"
+            },
+            {
+              "answer": "New Year's Eve",
+              "letter": "C"
+            },
+            {
+              "answer": "Easter",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "6-6",
+          "question": "Is the following statement TRUE or FALSE? Admiral Nelson was in charge of the British fleet at Trafalgar.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "6-7",
+          "question": "Is the following statement TRUE or FALSE? It is compulsory for 16- and 17-year-olds to participate in the National Citizen Service programme.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "6-8",
+          "question": "During Hitler's bombing campaign against the UK, known as the Blitz, which of these TWO areas suffered a great deal of damage?",
+          "options": [
+            {
+              "answer": "Coventry",
+              "letter": "A"
+            },
+            {
+              "answer": "Inverness",
+              "letter": "B"
+            },
+            {
+              "answer": "Falmouth",
+              "letter": "C"
+            },
+            {
+              "answer": "The East End of London",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A", "D"]
+        },
+        {
+          "questionId": "6-9",
+          "question": "What is the capital city of the UK?",
+          "options": [
+            {
+              "answer": "Birmingham",
+              "letter": "A"
+            },
+            {
+              "answer": "Liverpool",
+              "letter": "B"
+            },
+            {
+              "answer": "London",
+              "letter": "C"
+            },
+            {
+              "answer": "Sheffield",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "6-10",
+          "question": "Is the following statement TRUE or FALSE? Prince William is the heir to the British throne.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "6-11",
+          "question": "Where was William Shakespeare born?",
+          "options": [
+            {
+              "answer": "Stratford",
+              "letter": "A"
+            },
+            {
+              "answer": "Stratford-upon-Avon",
+              "letter": "B"
+            },
+            {
+              "answer": "Bradford-on-Avon",
+              "letter": "C"
+            },
+            {
+              "answer": "Bradford",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "6-12",
+          "question": "What type of television programme are Coronation Street and EastEnders?",
+          "options": [
+            {
+              "answer": "Sitcom",
+              "letter": "A"
+            },
+            {
+              "answer": "Documentary",
+              "letter": "B"
+            },
+            {
+              "answer": "Reality",
+              "letter": "C"
+            },
+            {
+              "answer": "Soap opera",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "6-13",
+          "question": "The first day of one notorious battle in 1916 resulted in 60,000 British casualties. What was this battle?",
+          "options": [
+            {
+              "answer": "The Battle of the Somme",
+              "letter": "A"
+            },
+            {
+              "answer": "The Battle of the Bulge",
+              "letter": "B"
+            },
+            {
+              "answer": "The Battle of Agincourt",
+              "letter": "C"
+            },
+            {
+              "answer": "The Battle of the River Plate",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "6-14",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "There is a National Horseracing Museum in Ascot, Berkshire.",
+              "letter": "A"
+            },
+            {
+              "answer": "There is a National Horseracing Museum in Newmarket, Suffolk.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "6-15",
+          "question": "What are members of the House of Lords known as?",
+          "options": [
+            {
+              "answer": "MPs",
+              "letter": "A"
+            },
+            {
+              "answer": "Peers",
+              "letter": "B"
+            },
+            {
+              "answer": "Monarchs",
+              "letter": "C"
+            },
+            {
+              "answer": "MHLs",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "6-16",
+          "question": "MPs have a duty to serve and represent which of the following groups?",
+          "options": [
+            {
+              "answer": "Their fellow MPs",
+              "letter": "A"
+            },
+            {
+              "answer": "Everyone in their constituency",
+              "letter": "B"
+            },
+            {
+              "answer": "Everyone in their constituency who voted for them",
+              "letter": "C"
+            },
+            {
+              "answer": "The House of Lords",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "6-17",
+          "question": "English kings fought a long war with France during the Middle Ages. What was it called?",
+          "options": [
+            {
+              "answer": "Crimean War",
+              "letter": "A"
+            },
+            {
+              "answer": "Fifty Year War",
+              "letter": "B"
+            },
+            {
+              "answer": "Hundred Years War",
+              "letter": "C"
+            },
+            {
+              "answer": "Boer War",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "6-18",
+          "question": "Is the following statement TRUE or FALSE? It is illegal to smoke in most enclosed public spaces in the UK.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "6-19",
+          "question": "The first people lived in Britain during which period?",
+          "options": [
+            {
+              "answer": "The Middle Ages",
+              "letter": "A"
+            },
+            {
+              "answer": "The Jurassic period",
+              "letter": "B"
+            },
+            {
+              "answer": "The Bronze Age",
+              "letter": "C"
+            },
+            {
+              "answer": "The Stone Age",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "6-20",
+          "question": "Is the following statement TRUE or FALSE? Eid ul Adha and Eid al-Fitr are religious festivals celebrated by Muslims in the UK.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "6-21",
+          "question": "What information will staff at polling stations ask voters for?",
+          "options": [
+            {
+              "answer": "Who they are voting for",
+              "letter": "A"
+            },
+            {
+              "answer": "How many votes they wish to cast",
+              "letter": "B"
+            },
+            {
+              "answer": "Who their relatives are",
+              "letter": "C"
+            },
+            {
+              "answer": "Their name and address",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "6-22",
+          "question": "Which TWO of the following are British inventions?",
+          "options": [
+            {
+              "answer": "Jet engine",
+              "letter": "A"
+            },
+            {
+              "answer": "Helicopter",
+              "letter": "B"
+            },
+            {
+              "answer": "Golf cart",
+              "letter": "C"
+            },
+            {
+              "answer": "Hovercraft",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A", "D"]
+        },
+        {
+          "questionId": "6-23",
+          "question": "Which of the following is a famous tennis tournament played in the UK every year?",
+          "options": [
+            {
+              "answer": "Wimbledon",
+              "letter": "A"
+            },
+            {
+              "answer": "The Grand National",
+              "letter": "B"
+            },
+            {
+              "answer": "The Open",
+              "letter": "C"
+            },
+            {
+              "answer": "Six Nations",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "6-24",
+          "question": "Which of the following is the fastest person to have sailed around the world, single-handed?",
+          "options": [
+            {
+              "answer": "Dame Agatha Christie",
+              "letter": "A"
+            },
+            {
+              "answer": "Dame Mary Peters",
+              "letter": "B"
+            },
+            {
+              "answer": "Dame Kelly Holmes",
+              "letter": "C"
+            },
+            {
+              "answer": "Dame Ellen MacArthur",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        }
+      ]
+    },
+    {
+      "quizNumber": 7,
+      "questions": [
+        {
+          "questionId": "7-1",
+          "question": "In 1913, the British government promised 'Home Rule' for Ireland. Why was this postponed?",
+          "options": [
+            {
+              "answer": "Brexit",
+              "letter": "A"
+            },
+            {
+              "answer": "The outbreak of the First World War",
+              "letter": "B"
+            },
+            {
+              "answer": "The outbreak of the Second World War",
+              "letter": "C"
+            },
+            {
+              "answer": "The Great Depression",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "7-2",
+          "question": "What UK patron saint's name is shared with the home of golf?",
+          "options": [
+            {
+              "answer": "St Andrew",
+              "letter": "A"
+            },
+            {
+              "answer": "St David",
+              "letter": "B"
+            },
+            {
+              "answer": "St Columba",
+              "letter": "C"
+            },
+            {
+              "answer": "St Patrick",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "7-3",
+          "question": "Is the following statement TRUE or FALSE? Using recycled materials to make new products uses less energy and means that we do not need to extract more raw materials from the earth.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "7-4",
+          "question": "Which king was executed by Parliament in 1649, after losing the English Civil War?",
+          "options": [
+            {
+              "answer": "William III",
+              "letter": "A"
+            },
+            {
+              "answer": "Richard III",
+              "letter": "B"
+            },
+            {
+              "answer": "Henry VIII",
+              "letter": "C"
+            },
+            {
+              "answer": "Charles I",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "7-5",
+          "question": "The Scottish Parliament can make laws in which of the following areas?",
+          "options": [
+            {
+              "answer": "Health",
+              "letter": "A"
+            },
+            {
+              "answer": "All taxes",
+              "letter": "B"
+            },
+            {
+              "answer": "Social security",
+              "letter": "C"
+            },
+            {
+              "answer": "Immigration",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "7-6",
+          "question": "What date each year is St George's Day?",
+          "options": [
+            {
+              "answer": "23 April",
+              "letter": "A"
+            },
+            {
+              "answer": "23 May",
+              "letter": "B"
+            },
+            {
+              "answer": "23 June",
+              "letter": "C"
+            },
+            {
+              "answer": "23 July",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "7-7",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "By the 18th century slavery in Britain was commonplace.",
+              "letter": "A"
+            },
+            {
+              "answer": "By the 18th century the slave trade was an established overseas industry but illegal within Britain.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "7-8",
+          "question": "What type of education became free under the Butler Act of 1944?",
+          "options": [
+            {
+              "answer": "Nursery",
+              "letter": "A"
+            },
+            {
+              "answer": "Primary",
+              "letter": "B"
+            },
+            {
+              "answer": "Secondary",
+              "letter": "C"
+            },
+            {
+              "answer": "University",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "7-9",
+          "question": "How are local authorities funded?",
+          "options": [
+            {
+              "answer": "By funding from central government only",
+              "letter": "A"
+            },
+            {
+              "answer": "By local taxes only",
+              "letter": "B"
+            },
+            {
+              "answer": "By central government funding and by local taxes",
+              "letter": "C"
+            },
+            {
+              "answer": "Local authorities are unfunded",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "7-10",
+          "question": "What is the capital city of Scotland?",
+          "options": [
+            {
+              "answer": "Edinburgh",
+              "letter": "A"
+            },
+            {
+              "answer": "Glasgow",
+              "letter": "B"
+            },
+            {
+              "answer": "Dundee",
+              "letter": "C"
+            },
+            {
+              "answer": "Aberdeen",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "7-11",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "The police must always obey the law, unless Parliament grants an exemption.",
+              "letter": "A"
+            },
+            {
+              "answer": "The police must always obey the law.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "7-12",
+          "question": "What did the Roman army do in AD 410?",
+          "options": [
+            {
+              "answer": "Invade Ireland",
+              "letter": "A"
+            },
+            {
+              "answer": "Leave Britain",
+              "letter": "B"
+            },
+            {
+              "answer": "Invade Scotland",
+              "letter": "C"
+            },
+            {
+              "answer": "Defeat Boudicca",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "7-13",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "Self-employed people don't have to pay National Insurance Contributions.",
+              "letter": "A"
+            },
+            {
+              "answer": "Self-employed people need to pay National Insurance Contributions themselves.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "7-14",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "It is legal to force someone to marry because children must obey their parents.",
+              "letter": "A"
+            },
+            {
+              "answer": "It is never legal to force someone into marriage.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "7-15",
+          "question": "The Romans remained in Britain for how many years?",
+          "options": [
+            {
+              "answer": "300",
+              "letter": "A"
+            },
+            {
+              "answer": "400",
+              "letter": "B"
+            },
+            {
+              "answer": "500",
+              "letter": "C"
+            },
+            {
+              "answer": "1,000",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "7-16",
+          "question": "Jane Seymour gave birth to the son Henry VIII wanted. What was his name?",
+          "options": [
+            {
+              "answer": "Henry",
+              "letter": "A"
+            },
+            {
+              "answer": "Edmund",
+              "letter": "B"
+            },
+            {
+              "answer": "Edward",
+              "letter": "C"
+            },
+            {
+              "answer": "Richard",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "7-17",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "Sir Isaac Newton was a famous scientist.",
+              "letter": "A"
+            },
+            {
+              "answer": "Sir Isaac Newton was a famous composer",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "7-18",
+          "question": "Which of the following is a benefit of volunteering?",
+          "options": [
+            {
+              "answer": "Getting more state benefits",
+              "letter": "A"
+            },
+            {
+              "answer": "Getting paid",
+              "letter": "B"
+            },
+            {
+              "answer": "Having a chance to practise your English",
+              "letter": "C"
+            },
+            {
+              "answer": "A courtesy car",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "7-19",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "Canals were built by the Victorians who wanted to take recreational boat trips.",
+              "letter": "A"
+            },
+            {
+              "answer": "During the Industrial Revolution, canals were built to link factories to cities and ports.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "7-20",
+          "question": "During the Middle Ages in England, parliaments were called when the king needed to consult his nobles and for what other reason?",
+          "options": [
+            {
+              "answer": "To lower taxes",
+              "letter": "A"
+            },
+            {
+              "answer": "To reform the Church of England",
+              "letter": "B"
+            },
+            {
+              "answer": "To raise money",
+              "letter": "C"
+            },
+            {
+              "answer": "To call elections",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "7-21",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "The UK's constitution is unwritten.",
+              "letter": "A"
+            },
+            {
+              "answer": "The UK's constitution was originally a single document, now on display in the British Library.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "7-22",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "A Catholic Church of Scotland with an elected leadership was established in 1560.",
+              "letter": "A"
+            },
+            {
+              "answer": "A Protestant Church of Scotland with an elected leadership was established in 1560.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "7-23",
+          "question": "Which of the following is an important festival for Muslims in the UK?",
+          "options": [
+            {
+              "answer": "Hannukah",
+              "letter": "A"
+            },
+            {
+              "answer": "Vaisakhi",
+              "letter": "B"
+            },
+            {
+              "answer": "Eid al-Fitr",
+              "letter": "C"
+            },
+            {
+              "answer": "Hogmanay",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "7-24",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "The jet engine and radar were developed in Britain in the 1980s.",
+              "letter": "A"
+            },
+            {
+              "answer": "The jet engine and radar were developed in Britain in the 1930s.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        }
+      ]
+    },
+    {
+      "quizNumber": 8,
+      "questions": [
+        {
+          "questionId": "8-1",
+          "question": "Which of the following is located at Holyrood?",
+          "options": [
+            {
+              "answer": "The Houses of Parliament",
+              "letter": "A"
+            },
+            {
+              "answer": "The Senedd",
+              "letter": "B"
+            },
+            {
+              "answer": "The Northern Ireland Assembly",
+              "letter": "C"
+            },
+            {
+              "answer": "The Scottish Parliament",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "8-2",
+          "question": "Which British designer was famous for Art Deco ceramics?",
+          "options": [
+            {
+              "answer": "Thomas Chippendale",
+              "letter": "A"
+            },
+            {
+              "answer": "Clarice Cliff",
+              "letter": "B"
+            },
+            {
+              "answer": "Thomas Gainsborough",
+              "letter": "C"
+            },
+            {
+              "answer": "Vivienne Westwood",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "8-3",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "William Caxton was the first person in England to print books using the printing press.",
+              "letter": "A"
+            },
+            {
+              "answer": "William Caxton wrote a collection of poems in English called The Canterbury Tales.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "8-4",
+          "question": "At which of the following famous UK landmarks would you find biomes?",
+          "options": [
+            {
+              "answer": "The Giant's Causeway",
+              "letter": "A"
+            },
+            {
+              "answer": "The Eden Project",
+              "letter": "B"
+            },
+            {
+              "answer": "Snowdonia",
+              "letter": "C"
+            },
+            {
+              "answer": "Edinburgh Castle",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "8-5",
+          "question": "Is the following statement TRUE or FALSE? The Beveridge report of 1942 provided the basis of the modern welfare state.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "8-6",
+          "question": "What does 'canvassing' for a political party mean?",
+          "options": [
+            {
+              "answer": "To cast your vote for a party",
+              "letter": "A"
+            },
+            {
+              "answer": "To join a party",
+              "letter": "B"
+            },
+            {
+              "answer": "To oppose the views of the party",
+              "letter": "C"
+            },
+            {
+              "answer": "To ask for someone's support for the party",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "8-7",
+          "question": "Which TWO names are used for the English translation of the Bible produced during James I's reign?",
+          "options": [
+            {
+              "answer": "New Testament",
+              "letter": "A"
+            },
+            {
+              "answer": "King James Version",
+              "letter": "B"
+            },
+            {
+              "answer": "Authorised Version",
+              "letter": "C"
+            },
+            {
+              "answer": "Old Testament",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B", "C"]
+        },
+        {
+          "questionId": "8-8",
+          "question": "Which date each year is St Andrew's Day?",
+          "options": [
+            {
+              "answer": "30 January",
+              "letter": "A"
+            },
+            {
+              "answer": "30 February",
+              "letter": "B"
+            },
+            {
+              "answer": "30 November",
+              "letter": "C"
+            },
+            {
+              "answer": "30 December",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "8-9",
+          "question": "Is the following statement TRUE or FALSE? There are a total of five notes in UK currency - £5, £10, £20, £50 and £100.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "8-10",
+          "question": "What did hereditary peers lose in 1999?",
+          "options": [
+            {
+              "answer": "The right to own land",
+              "letter": "A"
+            },
+            {
+              "answer": "The automatic right to sit in the House of Lords",
+              "letter": "B"
+            },
+            {
+              "answer": "The right to elect other peers to the House of Lords",
+              "letter": "C"
+            },
+            {
+              "answer": "The right to speak in Parliament",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "8-11",
+          "question": "Is the following statement TRUE or FALSE? Following the Emancipation Act of 1833, the Royal Navy stopped slave ships from other countries and freed the slaves.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "8-12",
+          "question": "Is the following statement TRUE or FALSE? Members of the House of Lords are elected by a constituency.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "8-13",
+          "question": "The National Eisteddfod is a major cultural festival which takes place in which country?",
+          "options": [
+            {
+              "answer": "England",
+              "letter": "A"
+            },
+            {
+              "answer": "Scotland",
+              "letter": "B"
+            },
+            {
+              "answer": "Wales",
+              "letter": "C"
+            },
+            {
+              "answer": "Northern Ireland",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "8-14",
+          "question": "Is the following statement TRUE or FALSE? The police do not need to protect and help people who are not UK citizens.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "8-15",
+          "question": "Is the following statement TRUE or FALSE? The Elizabethan period is remembered for the richness of its poetry and drama, especially the plays and poems of William Shakespeare.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "8-16",
+          "question": "Which devolved government has been suspended several times?",
+          "options": [
+            {
+              "answer": "The Senedd",
+              "letter": "A"
+            },
+            {
+              "answer": "The Northern Ireland Assembly",
+              "letter": "B"
+            },
+            {
+              "answer": "The Scottish Parliament",
+              "letter": "C"
+            },
+            {
+              "answer": "The UK Parliament",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "8-17",
+          "question": "Who was Geoffrey Chaucer?",
+          "options": [
+            {
+              "answer": "Author of The Canterbury Tales",
+              "letter": "A"
+            },
+            {
+              "answer": "Archbishop of Canterbury",
+              "letter": "B"
+            },
+            {
+              "answer": "Lord Protector",
+              "letter": "C"
+            },
+            {
+              "answer": "Leader of the House of Commons",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "8-18",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "Chequers is the Prime Minister's country house.",
+              "letter": "A"
+            },
+            {
+              "answer": "Chequers is the Prime Minister's house in London.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "8-19",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "Murder, assault and theft are crimes.",
+              "letter": "A"
+            },
+            {
+              "answer": "Murder, assault and theft are examples of civil disputes.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "8-20",
+          "question": "Where is Stormont located?",
+          "options": [
+            {
+              "answer": "Belfast",
+              "letter": "A"
+            },
+            {
+              "answer": "Cardiff",
+              "letter": "B"
+            },
+            {
+              "answer": "London",
+              "letter": "C"
+            },
+            {
+              "answer": "Edinburgh",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "8-21",
+          "question": "In 1690 William III defeated James II at which battle, which is still celebrated in Northern Ireland today?",
+          "options": [
+            {
+              "answer": "Battle of Bosworth Field",
+              "letter": "A"
+            },
+            {
+              "answer": "Battle of the Aughrim",
+              "letter": "B"
+            },
+            {
+              "answer": "Battle of Sligo",
+              "letter": "C"
+            },
+            {
+              "answer": "Battle of the Boyne",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "8-22",
+          "question": "When William of Orange became king of England, Wales, Ireland and Scotland what was the name given to this event?",
+          "options": [
+            {
+              "answer": "Velvet Revolution",
+              "letter": "A"
+            },
+            {
+              "answer": "Glorious Revolution",
+              "letter": "B"
+            },
+            {
+              "answer": "French Revolution",
+              "letter": "C"
+            },
+            {
+              "answer": "Green Revolution",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "8-23",
+          "question": "When was the Battle of Britain?",
+          "options": [
+            {
+              "answer": "The summer of 1899",
+              "letter": "A"
+            },
+            {
+              "answer": "The summer of 1918",
+              "letter": "B"
+            },
+            {
+              "answer": "The summer of 1945",
+              "letter": "C"
+            },
+            {
+              "answer": "The summer of 1940",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "8-24",
+          "question": "Decorating a tree is part of which festival celebrated in the UK?",
+          "options": [
+            {
+              "answer": "Halloween",
+              "letter": "A"
+            },
+            {
+              "answer": "Harvest",
+              "letter": "B"
+            },
+            {
+              "answer": "Easter",
+              "letter": "C"
+            },
+            {
+              "answer": "Christmas",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        }
+      ]
+    },
+    {
+      "quizNumber": 9,
+      "questions": [
+        {
+          "questionId": "9-1",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "Members of the Northern Ireland Assembly are elected with a form of proportional representation.",
+              "letter": "A"
+            },
+            {
+              "answer": "Members of the Northern Ireland Assembly are elected using 'first past the post'.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "9-2",
+          "question": "What type of church is the national Church in Scotland?",
+          "options": [
+            {
+              "answer": "Baptist",
+              "letter": "A"
+            },
+            {
+              "answer": "Anglican",
+              "letter": "B"
+            },
+            {
+              "answer": "Presbyterian",
+              "letter": "C"
+            },
+            {
+              "answer": "Roman Catholic",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "9-3",
+          "question": "What improvement was made to working conditions for women and children in 1847?",
+          "options": [
+            {
+              "answer": "Women and children were banned from the workplace",
+              "letter": "A"
+            },
+            {
+              "answer": "The number of hours that women and children could work was limited to 10 hours per day",
+              "letter": "B"
+            },
+            {
+              "answer": "The number of hours that women and children could work was limited to 20 hours per day",
+              "letter": "C"
+            },
+            {
+              "answer": "Women and children could only work indoors",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "9-4",
+          "question": "In 1851, the Great Exhibition opened in Hyde Park, in which building made of iron and glass?",
+          "options": [
+            {
+              "answer": "The Eiffel Tower",
+              "letter": "A"
+            },
+            {
+              "answer": "The Tower of London",
+              "letter": "B"
+            },
+            {
+              "answer": "The Crystal Palace",
+              "letter": "C"
+            },
+            {
+              "answer": "The London Eye",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "9-5",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "Serfs were free and could do as they chose.",
+              "letter": "A"
+            },
+            {
+              "answer": "Serfs had to work for their lord and could not move away.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "9-6",
+          "question": "On which date each year is St David's day celebrated?",
+          "options": [
+            {
+              "answer": "1 January",
+              "letter": "A"
+            },
+            {
+              "answer": "1 March",
+              "letter": "B"
+            },
+            {
+              "answer": "1 May",
+              "letter": "C"
+            },
+            {
+              "answer": "1 July",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "9-7",
+          "question": "Which TWO of the following bands or groups are British?",
+          "options": [
+            {
+              "answer": "The Rolling Stones",
+              "letter": "A"
+            },
+            {
+              "answer": "The Jackson 5",
+              "letter": "B"
+            },
+            {
+              "answer": "The Beatles",
+              "letter": "C"
+            },
+            {
+              "answer": "The Osmonds",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A", "C"]
+        },
+        {
+          "questionId": "9-8",
+          "question": "Who decides what should happen in legal disputes over contracts, property rights or employment rights?",
+          "options": [
+            {
+              "answer": "The media",
+              "letter": "A"
+            },
+            {
+              "answer": "The police",
+              "letter": "B"
+            },
+            {
+              "answer": "The judiciary",
+              "letter": "C"
+            },
+            {
+              "answer": "The peers",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "9-9",
+          "question": "What was depicted in the stained glass windows of many cathedrals built in the Middle Ages?",
+          "options": [
+            {
+              "answer": "Stories about kings and coronations",
+              "letter": "A"
+            },
+            {
+              "answer": "Stories about battles and victories",
+              "letter": "B"
+            },
+            {
+              "answer": "Stories about the Bible and saints",
+              "letter": "C"
+            },
+            {
+              "answer": "Stories about communities and farming",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "9-10",
+          "question": "What are the BAFTAs the British equivalent of?",
+          "options": [
+            {
+              "answer": "The Victoria Cross",
+              "letter": "A"
+            },
+            {
+              "answer": "The Man Booker Prize",
+              "letter": "B"
+            },
+            {
+              "answer": "The Laurence Olivier Awards",
+              "letter": "C"
+            },
+            {
+              "answer": "The Oscars",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "9-11",
+          "question": "How many crosses make up the Union Flag?",
+          "options": [
+            {
+              "answer": "Two",
+              "letter": "A"
+            },
+            {
+              "answer": "Three",
+              "letter": "B"
+            },
+            {
+              "answer": "Four",
+              "letter": "C"
+            },
+            {
+              "answer": "Six",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "9-12",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "The UK experienced high levels of employment during the Great Depression of the 1930s.",
+              "letter": "A"
+            },
+            {
+              "answer": "During the Great Depression of the 1930s parts of the UK experienced mass unemployment.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "9-13",
+          "question": "Pumpkins, lit with candles, are used to celebrate which traditional festival?",
+          "options": [
+            {
+              "answer": "Bonfire Night",
+              "letter": "A"
+            },
+            {
+              "answer": "Halloween",
+              "letter": "B"
+            },
+            {
+              "answer": "Midsummer",
+              "letter": "C"
+            },
+            {
+              "answer": "Mayday",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "9-14",
+          "question": "Which TWO of the following are shared goals of the Commonwealth?",
+          "options": [
+            {
+              "answer": "The rule of law",
+              "letter": "A"
+            },
+            {
+              "answer": "Mutual dependency",
+              "letter": "B"
+            },
+            {
+              "answer": "Democracy",
+              "letter": "C"
+            },
+            {
+              "answer": "Discrimination against non-members",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A", "C"]
+        },
+        {
+          "questionId": "9-15",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "When the Act of Union created the Kingdom of Great Britain, Scotland kept its own legal and education systems.",
+              "letter": "A"
+            },
+            {
+              "answer": "When the Act of Union created the Kingdom of Great Britain, Scotland adopted England's legal and education systems.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "9-16",
+          "question": "PCSOs support police by doing which TWO of the following?",
+          "options": [
+            {
+              "answer": "Independently investigating crime",
+              "letter": "A"
+            },
+            {
+              "answer": "Patrolling the streets",
+              "letter": "B"
+            },
+            {
+              "answer": "Helping the police at crime scenes",
+              "letter": "C"
+            },
+            {
+              "answer": "Trying suspected criminals in court",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B", "C"]
+        },
+        {
+          "questionId": "9-17",
+          "question": "Why was Queen Mary given the nickname 'Bloody Mary'?",
+          "options": [
+            {
+              "answer": "She had red hair",
+              "letter": "A"
+            },
+            {
+              "answer": "Because of her persecution of Protestants",
+              "letter": "B"
+            },
+            {
+              "answer": "She had a bad temper",
+              "letter": "C"
+            },
+            {
+              "answer": "Because she executed her husband",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "9-18",
+          "question": "Is the following statement TRUE or FALSE? Employees need to pay National Insurance Contributions themselves.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "9-19",
+          "question": "During the reign of Henry VIII, which country of the union became formally united with England?",
+          "options": [
+            {
+              "answer": "Ireland",
+              "letter": "A"
+            },
+            {
+              "answer": "Wales",
+              "letter": "B"
+            },
+            {
+              "answer": "Scotland",
+              "letter": "C"
+            },
+            {
+              "answer": "Northern Ireland",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "9-20",
+          "question": "What is the role of a civil servant?",
+          "options": [
+            {
+              "answer": "To deliver public services",
+              "letter": "A"
+            },
+            {
+              "answer": "To work on tobacco plantations",
+              "letter": "B"
+            },
+            {
+              "answer": "To chair debates in the House of Commons",
+              "letter": "C"
+            },
+            {
+              "answer": "To tell jokes and make fun of people in court",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "9-21",
+          "question": "Which of these countries was part of the British Empire during Queen Victoria's reign?",
+          "options": [
+            {
+              "answer": "France",
+              "letter": "A"
+            },
+            {
+              "answer": "Switzerland",
+              "letter": "B"
+            },
+            {
+              "answer": "The USA",
+              "letter": "C"
+            },
+            {
+              "answer": "India",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "9-22",
+          "question": "The longest distance in mainland Britain, at 870 miles (1,400 kilometres), is between John O'Groats and where?",
+          "options": [
+            {
+              "answer": "Land's End",
+              "letter": "A"
+            },
+            {
+              "answer": "Dover",
+              "letter": "B"
+            },
+            {
+              "answer": "Bournemouth",
+              "letter": "C"
+            },
+            {
+              "answer": "Bideford",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "9-23",
+          "question": "Every MP represents which of the following?",
+          "options": [
+            {
+              "answer": "A constituency",
+              "letter": "A"
+            },
+            {
+              "answer": "A county",
+              "letter": "B"
+            },
+            {
+              "answer": "A city",
+              "letter": "C"
+            },
+            {
+              "answer": "Just the people who voted for them",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "9-24",
+          "question": "Is the following statement TRUE or FALSE? Income tax pays for services such as education, roads and the armed services.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        }
+      ]
+    },
+    {
+      "quizNumber": 10,
+      "questions": [
+        {
+          "questionId": "10-1",
+          "question": "Is the following statement TRUE or FALSE? There is no established church in Northern Ireland.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "10-2",
+          "question": "Which cabinet minister is responsible for crime, policing and immigration?",
+          "options": [
+            {
+              "answer": "Foreign Secretary",
+              "letter": "A"
+            },
+            {
+              "answer": "Home Secretary",
+              "letter": "B"
+            },
+            {
+              "answer": "Defence Secretary",
+              "letter": "C"
+            },
+            {
+              "answer": "Chancellor of the Exchequer",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "10-3",
+          "question": "Who was the first person in England to print books using a printing press?",
+          "options": [
+            {
+              "answer": "Geoffrey Chaucer",
+              "letter": "A"
+            },
+            {
+              "answer": "Sir Francis Drake",
+              "letter": "B"
+            },
+            {
+              "answer": "William Caxton",
+              "letter": "C"
+            },
+            {
+              "answer": "Richard Arkwright",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "10-4",
+          "question": "The game of golf is traditionally thought to have originated in which country?",
+          "options": [
+            {
+              "answer": "England",
+              "letter": "A"
+            },
+            {
+              "answer": "Spain",
+              "letter": "B"
+            },
+            {
+              "answer": "USA",
+              "letter": "C"
+            },
+            {
+              "answer": "Scotland",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "10-5",
+          "question": "England declared itself a republic in 1649 after what happened?",
+          "options": [
+            {
+              "answer": "Oliver Cromwell died",
+              "letter": "A"
+            },
+            {
+              "answer": "Richard Cromwell became Lord Protector",
+              "letter": "B"
+            },
+            {
+              "answer": "Charles II was crowned",
+              "letter": "C"
+            },
+            {
+              "answer": "Charles I was executed",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "10-6",
+          "question": "What are MPs who don't represent a political party called?",
+          "options": [
+            {
+              "answer": "Shadow Cabinet",
+              "letter": "A"
+            },
+            {
+              "answer": "Ministers",
+              "letter": "B"
+            },
+            {
+              "answer": "Civil servants",
+              "letter": "C"
+            },
+            {
+              "answer": "Independents",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "10-7",
+          "question": "Which of the following pieces of legislation gave every prisoner the right to a court hearing?",
+          "options": [
+            {
+              "answer": "The Bill of Rights",
+              "letter": "A"
+            },
+            {
+              "answer": "The Habeas Corpus Act",
+              "letter": "B"
+            },
+            {
+              "answer": "The Statute of Rhuddlan",
+              "letter": "C"
+            },
+            {
+              "answer": "The Butler Act",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "10-8",
+          "question": "What do the words 'Magna Carta' mean?",
+          "options": [
+            {
+              "answer": "Great Charter",
+              "letter": "A"
+            },
+            {
+              "answer": "Freedom of Speech",
+              "letter": "B"
+            },
+            {
+              "answer": "Bill of Rights",
+              "letter": "C"
+            },
+            {
+              "answer": "Great King",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "10-9",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "In 1703 Emmeline Pankhurst helped found the Women's Social and Political Union.",
+              "letter": "A"
+            },
+            {
+              "answer": "In 1903 Emmeline Pankhurst helped found the Women's Social and Political Union.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "10-10",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "The Commonwealth is a group of countries which support each other and work together.",
+              "letter": "A"
+            },
+            {
+              "answer": "The Commonwealth is a group of regions which compete together at the Olympics.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "10-11",
+          "question": "In the 19th century the UK became a world centre for which of the following sectors or industries?",
+          "options": [
+            {
+              "answer": "Financial services",
+              "letter": "A"
+            },
+            {
+              "answer": "Agriculture",
+              "letter": "B"
+            },
+            {
+              "answer": "Wine-making",
+              "letter": "C"
+            },
+            {
+              "answer": "Entertainment",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "10-12",
+          "question": "Where will you find Big Ben?",
+          "options": [
+            {
+              "answer": "Edinburgh",
+              "letter": "A"
+            },
+            {
+              "answer": "Cardiff",
+              "letter": "B"
+            },
+            {
+              "answer": "Glasgow",
+              "letter": "C"
+            },
+            {
+              "answer": "London",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "10-13",
+          "question": "Is the following statement TRUE or FALSE? Norman French influenced the development of the English language as we know it today.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "10-14",
+          "question": "Is the following statement TRUE or FALSE? In the UK, everybody has the right to choose their religion or choose not to practise a religion.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "10-15",
+          "question": "What is Stormont?",
+          "options": [
+            {
+              "answer": "The building in which the National Assembly for Wales sits",
+              "letter": "A"
+            },
+            {
+              "answer": "The building in which the Scottish Parliament sits",
+              "letter": "B"
+            },
+            {
+              "answer": "The building in which the UK Parliament sits",
+              "letter": "C"
+            },
+            {
+              "answer": "The building in which the Northern Ireland Assembly sits",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "10-16",
+          "question": "Which of the following is associated with Christmas?",
+          "options": [
+            {
+              "answer": "Santa Claus",
+              "letter": "A"
+            },
+            {
+              "answer": "Sending anonymous cards",
+              "letter": "B"
+            },
+            {
+              "answer": "Guy Fawkes",
+              "letter": "C"
+            },
+            {
+              "answer": "Practical jokes",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "10-17",
+          "question": "Is the following statement TRUE or FALSE? St Columba became the first Archbishop of Canterbury.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "10-18",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "In the UK, betting and gambling were illegal until 2005.",
+              "letter": "A"
+            },
+            {
+              "answer": "In the UK, betting and gambling are legal.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "10-19",
+          "question": "Which Anglo-Saxon poem tells of its hero's battles against monsters?",
+          "options": [
+            {
+              "answer": "Beowulf",
+              "letter": "A"
+            },
+            {
+              "answer": "The Fight at Finnsburh",
+              "letter": "B"
+            },
+            {
+              "answer": "Waldere",
+              "letter": "C"
+            },
+            {
+              "answer": "Deor",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "10-20",
+          "question": "A poll card includes which TWO pieces of information?",
+          "options": [
+            {
+              "answer": "The date of the election",
+              "letter": "A"
+            },
+            {
+              "answer": "Who you should vote for",
+              "letter": "B"
+            },
+            {
+              "answer": "Where the polling station or polling place is located",
+              "letter": "C"
+            },
+            {
+              "answer": "How much tax you should pay",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A", "C"]
+        },
+        {
+          "questionId": "10-21",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "The Axis powers in the Second World War were Germany, Italy and Japan.",
+              "letter": "A"
+            },
+            {
+              "answer": "The Axis powers in the Second World War were Germany, Russia and China.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "10-22",
+          "question": "In which country is the Lake District?",
+          "options": [
+            {
+              "answer": "Scotland",
+              "letter": "A"
+            },
+            {
+              "answer": "Northern Ireland",
+              "letter": "B"
+            },
+            {
+              "answer": "Wales",
+              "letter": "C"
+            },
+            {
+              "answer": "England",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "10-23",
+          "question": "May anyone look at the electoral register?",
+          "options": [
+            {
+              "answer": "No, only government officials can look at the register",
+              "letter": "A"
+            },
+            {
+              "answer": "Yes, but only under supervision",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "10-24",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "A civil servant is usually politically neutral.",
+              "letter": "A"
+            },
+            {
+              "answer": "A civil servant is always politically neutral.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        }
+      ]
+    },
+    {
+      "quizNumber": 11,
+      "questions": [
+        {
+          "questionId": "11-1",
+          "question": "Who wrote the poem The Tyger?",
+          "options": [
+            {
+              "answer": "Jane Austen",
+              "letter": "A"
+            },
+            {
+              "answer": "William Blake",
+              "letter": "B"
+            },
+            {
+              "answer": "William Shakespeare",
+              "letter": "C"
+            },
+            {
+              "answer": "Emmeline Pankhurst",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "11-2",
+          "question": "How often is Prime Minister's Questions held?",
+          "options": [
+            {
+              "answer": "Every day",
+              "letter": "A"
+            },
+            {
+              "answer": "Every day while Parliament is sitting",
+              "letter": "B"
+            },
+            {
+              "answer": "Every week",
+              "letter": "C"
+            },
+            {
+              "answer": "Every week while Parliament is sitting",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "11-3",
+          "question": "A famous boat race for rowers is contested on the River Thames each year between which university teams?",
+          "options": [
+            {
+              "answer": "Cambridge and London",
+              "letter": "A"
+            },
+            {
+              "answer": "Edinburgh and Oxford",
+              "letter": "B"
+            },
+            {
+              "answer": "Edinburgh and London",
+              "letter": "C"
+            },
+            {
+              "answer": "Cambridge and Oxford",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "11-4",
+          "question": "Is the following statement TRUE or FALSE? You must always tell a canvasser how you intend to vote.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "11-5",
+          "question": "Bobby Moore was the captain of which sports team in 1966?",
+          "options": [
+            {
+              "answer": "Welsh rugby team",
+              "letter": "A"
+            },
+            {
+              "answer": "English football team",
+              "letter": "B"
+            },
+            {
+              "answer": "Scottish rugby team",
+              "letter": "C"
+            },
+            {
+              "answer": "English cricket team",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "11-6",
+          "question": "Who did William III fight at the Battle of the Boyne in 1690?",
+          "options": [
+            {
+              "answer": "Charles II",
+              "letter": "A"
+            },
+            {
+              "answer": "Elizabeth II",
+              "letter": "B"
+            },
+            {
+              "answer": "Henry V",
+              "letter": "C"
+            },
+            {
+              "answer": "James II",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "11-7",
+          "question": "Is the following statement TRUE or FALSE? The Speaker is an MP.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "11-8",
+          "question": "Which TWO things is Sake Dean Mahomet most famous for?",
+          "options": [
+            {
+              "answer": "Opening the first curry house in Britain",
+              "letter": "A"
+            },
+            {
+              "answer": "Resisting British colonialism in Bengal",
+              "letter": "B"
+            },
+            {
+              "answer": "He was a general in the Bengal army",
+              "letter": "C"
+            },
+            {
+              "answer": "Introducing shampooing (Indian head massage) to Britain",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A", "D"]
+        },
+        {
+          "questionId": "11-9",
+          "question": "Who was Sir Edwin Lutyens?",
+          "options": [
+            {
+              "answer": "A British architect",
+              "letter": "A"
+            },
+            {
+              "answer": "A British composer",
+              "letter": "B"
+            },
+            {
+              "answer": "A British swimmer",
+              "letter": "C"
+            },
+            {
+              "answer": "A British scientist",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "11-10",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "A verdict of 'not proven' is possible in all UK courts.",
+              "letter": "A"
+            },
+            {
+              "answer": "A verdict of 'not proven' is only possible in Scottish courts",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "11-11",
+          "question": " Is the following statement TRUE or FALSE? Norwich and Bristol are cities in Wales.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "11-12",
+          "question": "After the 2010 General Election saw no political party win an overall majority for the first time since 1974, the Conservative Party formed a coalition government with which party?",
+          "options": [
+            {
+              "answer": "Green Party",
+              "letter": "A"
+            },
+            {
+              "answer": "Labour Party",
+              "letter": "B"
+            },
+            {
+              "answer": "Liberal Democrats",
+              "letter": "C"
+            },
+            {
+              "answer": "UKIP",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "11-13",
+          "question": "What are those elected to the Scottish Parliament known as?",
+          "options": [
+            {
+              "answer": "MPs",
+              "letter": "A"
+            },
+            {
+              "answer": "Lords",
+              "letter": "B"
+            },
+            {
+              "answer": "AMs",
+              "letter": "C"
+            },
+            {
+              "answer": "MSPs",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "11-14",
+          "question": "Where did the Vikings form their first communities in Britain?",
+          "options": [
+            {
+              "answer": "Wales and Scotland",
+              "letter": "A"
+            },
+            {
+              "answer": "Eastern England and Scotland",
+              "letter": "B"
+            },
+            {
+              "answer": "Northern Ireland and Wales",
+              "letter": "C"
+            },
+            {
+              "answer": "South-west England and Wales",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "11-15",
+          "question": "Official reports of parliamentary proceedings are published in which of the following?",
+          "options": [
+            {
+              "answer": "Juilliard",
+              "letter": "A"
+            },
+            {
+              "answer": "Hansard",
+              "letter": "B"
+            },
+            {
+              "answer": "The Telegraph",
+              "letter": "C"
+            },
+            {
+              "answer": "The Sunday Times",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "11-16",
+          "question": "Who wrote Charlie and the Chocolate Factory and George's Marvellous Medicine?",
+          "options": [
+            {
+              "answer": "Thomas Hardy",
+              "letter": "A"
+            },
+            {
+              "answer": "Kingsley Amis",
+              "letter": "B"
+            },
+            {
+              "answer": "Roald Dahl",
+              "letter": "C"
+            },
+            {
+              "answer": "Sir Arthur Conan Doyle",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "11-17",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "It is legal to send a girl abroad for circumcision or cutting.",
+              "letter": "A"
+            },
+            {
+              "answer": "It is illegal in the UK to send a girl abroad for circumcision or cutting.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "11-18",
+          "question": "Is the following statement TRUE or FALSE? The Houses of Parliament were built in the 19th century when the medieval 'gothic' style of architecture was popular.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "11-19",
+          "question": "Housing, debt, employment and consumer rights are covered by which law?",
+          "options": [
+            {
+              "answer": "Civil law",
+              "letter": "A"
+            },
+            {
+              "answer": "Criminal law",
+              "letter": "B"
+            },
+            {
+              "answer": "Military law",
+              "letter": "C"
+            },
+            {
+              "answer": "No laws",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "11-20",
+          "question": "What is another name used for the Church of England elsewhere in the world?",
+          "options": [
+            {
+              "answer": "Anglican Church",
+              "letter": "A"
+            },
+            {
+              "answer": "Mormon Church",
+              "letter": "B"
+            },
+            {
+              "answer": "Zen Church",
+              "letter": "C"
+            },
+            {
+              "answer": "Adventist Church",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "11-21",
+          "question": "Is the following statement TRUE or FALSE? Discrimination in the workplace is covered by criminal law.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "11-22",
+          "question": "Who appoints MPs to the cabinet?",
+          "options": [
+            {
+              "answer": "The Archbishop of Canterbury",
+              "letter": "A"
+            },
+            {
+              "answer": "The Queen",
+              "letter": "B"
+            },
+            {
+              "answer": "The Prime Minister",
+              "letter": "C"
+            },
+            {
+              "answer": "UK residents in a General Election",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "11-23",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "The attack on Normandy by Allied forces is often called D-Day.",
+              "letter": "A"
+            },
+            {
+              "answer": "D-Day was an Allied operation that attacked German forces in France by advancing through Spain.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "11-24",
+          "question": "The Senedd can make laws in which of the following areas?",
+          "options": [
+            {
+              "answer": "Immigration",
+              "letter": "A"
+            },
+            {
+              "answer": "Defence",
+              "letter": "B"
+            },
+            {
+              "answer": "Health and social services",
+              "letter": "C"
+            },
+            {
+              "answer": "International trade",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        }
+      ]
+    },
+    {
+      "quizNumber": 12,
+      "questions": [
+        {
+          "questionId": "12-1",
+          "question": "Where is the Children's Hearings System used to deal with children and young people who have committed an offence?",
+          "options": [
+            {
+              "answer": "Northern Ireland",
+              "letter": "A"
+            },
+            {
+              "answer": "Wales",
+              "letter": "B"
+            },
+            {
+              "answer": "England",
+              "letter": "C"
+            },
+            {
+              "answer": "Scotland",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "12-2",
+          "question": "What is the name of the swimmer who won gold medals at the 2008, 2012 and 2016 Paralympic Games?",
+          "options": [
+            {
+              "answer": "Jayne Torvill",
+              "letter": "A"
+            },
+            {
+              "answer": "Dame Kelly Holmes",
+              "letter": "B"
+            },
+            {
+              "answer": "Ellie Simmonds",
+              "letter": "C"
+            },
+            {
+              "answer": "Baroness Tanni Grey-Thompson",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "12-3",
+          "question": "The Northern Ireland Assembly can make decisions in which TWO of the following areas?",
+          "options": [
+            {
+              "answer": "Agriculture",
+              "letter": "A"
+            },
+            {
+              "answer": "Nuclear energy",
+              "letter": "B"
+            },
+            {
+              "answer": "Foreign policy",
+              "letter": "C"
+            },
+            {
+              "answer": "The environment",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A", "D"]
+        },
+        {
+          "questionId": "12-4",
+          "question": "Is the following statement TRUE or FALSE? The UK government has never used its power to suspend a devolved assembly.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "12-5",
+          "question": "During the Victorian age how did the government promote policies of free trade?",
+          "options": [
+            {
+              "answer": "Banning exports",
+              "letter": "A"
+            },
+            {
+              "answer": "Banning imports",
+              "letter": "B"
+            },
+            {
+              "answer": "Abolishing taxes on imported goods",
+              "letter": "C"
+            },
+            {
+              "answer": "Building the channel tunnel",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "12-6",
+          "question": "What did the Act of Union create?",
+          "options": [
+            {
+              "answer": "An official body to protect the rights of workers",
+              "letter": "A"
+            },
+            {
+              "answer": "The joint rule of William and Mary",
+              "letter": "B"
+            },
+            {
+              "answer": "The balance of power between the monarchy and Parliament",
+              "letter": "C"
+            },
+            {
+              "answer": "The Kingdom of Great Britain",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "12-7",
+          "question": "Which famous UK landmark is home to the Elizabeth Tower and Big Ben?",
+          "options": [
+            {
+              "answer": "St Paul's Cathedral",
+              "letter": "A"
+            },
+            {
+              "answer": "Houses of Parliament",
+              "letter": "B"
+            },
+            {
+              "answer": "The Tower of London",
+              "letter": "C"
+            },
+            {
+              "answer": "Buckingham Palace",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "12-8",
+          "question": "Police forces are headed by whom?",
+          "options": [
+            {
+              "answer": "Ministers",
+              "letter": "A"
+            },
+            {
+              "answer": "Generals",
+              "letter": "B"
+            },
+            {
+              "answer": "Mayors",
+              "letter": "C"
+            },
+            {
+              "answer": "Chief Constables",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "12-9",
+          "question": "What name was given to the process of removing individual small farms (crofts) in Scotland to make space for large flocks of sheep and cattle?",
+          "options": [
+            {
+              "answer": "The Industrial Revolution",
+              "letter": "A"
+            },
+            {
+              "answer": "Highland Clearances",
+              "letter": "B"
+            },
+            {
+              "answer": "Upland Reforms",
+              "letter": "C"
+            },
+            {
+              "answer": "The Enlightenment",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "12-10",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "People in the UK are living longer than ever before.",
+              "letter": "A"
+            },
+            {
+              "answer": "The average lifespan for UK residents is steadily decreasing.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "12-11",
+          "question": "Who or what were jesters?",
+          "options": [
+            {
+              "answer": "Silver coins of the 18th century",
+              "letter": "A"
+            },
+            {
+              "answer": "Combatants on horseback at medieval feasts",
+              "letter": "B"
+            },
+            {
+              "answer": "People who told jokes at medieval royal courts",
+              "letter": "C"
+            },
+            {
+              "answer": "Men who organised hunts in the Middle Ages",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "12-12",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "You will need the help of a lawyer to issue a small claim.",
+              "letter": "A"
+            },
+            {
+              "answer": "You do not need the help of a lawyer to issue a small claim.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "12-13",
+          "question": "Which monarch established the Church of England?",
+          "options": [
+            {
+              "answer": "Henry VIII",
+              "letter": "A"
+            },
+            {
+              "answer": "Elizabeth I",
+              "letter": "B"
+            },
+            {
+              "answer": "Edward I",
+              "letter": "C"
+            },
+            {
+              "answer": "Henry VII",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "12-14",
+          "question": "Is the following statement TRUE or FALSE? The Prime Minister appoints the cabinet.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "12-15",
+          "question": "Is the following statement TRUE or FALSE? The Bayeux Tapestry commemorates a military victory for William the Conqueror.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "12-16",
+          "question": "What is a school's PTA?",
+          "options": [
+            {
+              "answer": "Parents' trust association",
+              "letter": "A"
+            },
+            {
+              "answer": "Parent-teacher association",
+              "letter": "B"
+            },
+            {
+              "answer": "Primary Transport Agency",
+              "letter": "C"
+            },
+            {
+              "answer": "Primary teaching association",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "12-17",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "The Crimean War was the first war to receive extensive media coverage through photographs and news stories.",
+              "letter": "A"
+            },
+            {
+              "answer": "The Boer War was the first war to receive extensive media coverage through photographs and news stories.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "12-18",
+          "question": "Is the following statement TRUE or FALSE? It is acceptable in the UK to discriminate against someone because of their sexuality.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "12-19",
+          "question": "Where did the people of the Bronze Age bury their dead?",
+          "options": [
+            {
+              "answer": "Wheelbarrows",
+              "letter": "A"
+            },
+            {
+              "answer": "Round barrows",
+              "letter": "B"
+            },
+            {
+              "answer": "Cathedrals",
+              "letter": "C"
+            },
+            {
+              "answer": "Hill forts",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "12-20",
+          "question": "If a MP resigns or dies, what is the election that is held to replace them called?",
+          "options": [
+            {
+              "answer": "Re-election",
+              "letter": "A"
+            },
+            {
+              "answer": "General Election",
+              "letter": "B"
+            },
+            {
+              "answer": "By-election",
+              "letter": "C"
+            },
+            {
+              "answer": "Fresh election",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "12-21",
+          "question": "Under which monarch did English settlers begin to colonise America?",
+          "options": [
+            {
+              "answer": "Henry VIII",
+              "letter": "A"
+            },
+            {
+              "answer": "Edward II",
+              "letter": "B"
+            },
+            {
+              "answer": "Victoria",
+              "letter": "C"
+            },
+            {
+              "answer": "Elizabeth I",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "12-22",
+          "question": "In which UK city were the 2012 Paralympic Games hosted?",
+          "options": [
+            {
+              "answer": "Edinburgh",
+              "letter": "A"
+            },
+            {
+              "answer": "Swansea",
+              "letter": "B"
+            },
+            {
+              "answer": "Dublin",
+              "letter": "C"
+            },
+            {
+              "answer": "London",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "12-23",
+          "question": "On which day is it traditional to eat pancakes?",
+          "options": [
+            {
+              "answer": "Ash Wednesday",
+              "letter": "A"
+            },
+            {
+              "answer": "Shrove Tuesday",
+              "letter": "B"
+            },
+            {
+              "answer": "Easter Monday",
+              "letter": "C"
+            },
+            {
+              "answer": "Good Friday",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "12-24",
+          "question": "Is the following statement TRUE or FALSE? Judges are responsible for interpreting the law and ensuring that trials are conducted fairly.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        }
+      ]
+    },
+    {
+      "quizNumber": 13,
+      "questions": [
+        {
+          "questionId": "13-1",
+          "question": "",
+          "options": [
+            {
+              "answer": "",
+              "letter": "A"
+            },
+            {
+              "answer": "",
+              "letter": "B"
+            },
+            {
+              "answer": "",
+              "letter": "C"
+            },
+            {
+              "answer": "",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": [""]
+        },
+        {
+          "questionId": "13-2",
+          "question": "",
+          "options": [
+            {
+              "answer": "",
+              "letter": "A"
+            },
+            {
+              "answer": "",
+              "letter": "B"
+            },
+            {
+              "answer": "",
+              "letter": "C"
+            },
+            {
+              "answer": "",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": [""]
+        },
+        {
+          "questionId": "13-3",
+          "question": "",
+          "options": [
+            {
+              "answer": "",
+              "letter": "A"
+            },
+            {
+              "answer": "",
+              "letter": "B"
+            },
+            {
+              "answer": "",
+              "letter": "C"
+            },
+            {
+              "answer": "",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": [""]
+        },
+        {
+          "questionId": "13-4",
+          "question": "",
+          "options": [
+            {
+              "answer": "",
+              "letter": "A"
+            },
+            {
+              "answer": "",
+              "letter": "B"
+            },
+            {
+              "answer": "",
+              "letter": "C"
+            },
+            {
+              "answer": "",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": [""]
+        },
+        {
+          "questionId": "13-5",
+          "question": "",
+          "options": [
+            {
+              "answer": "",
+              "letter": "A"
+            },
+            {
+              "answer": "",
+              "letter": "B"
+            },
+            {
+              "answer": "",
+              "letter": "C"
+            },
+            {
+              "answer": "",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": [""]
+        },
+        {
+          "questionId": "13-6",
+          "question": "",
+          "options": [
+            {
+              "answer": "",
+              "letter": "A"
+            },
+            {
+              "answer": "",
+              "letter": "B"
+            },
+            {
+              "answer": "",
+              "letter": "C"
+            },
+            {
+              "answer": "",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": [""]
+        },
+        {
+          "questionId": "13-7",
+          "question": "",
+          "options": [
+            {
+              "answer": "",
+              "letter": "A"
+            },
+            {
+              "answer": "",
+              "letter": "B"
+            },
+            {
+              "answer": "",
+              "letter": "C"
+            },
+            {
+              "answer": "",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": [""]
+        },
+        {
+          "questionId": "13-8",
+          "question": "",
+          "options": [
+            {
+              "answer": "",
+              "letter": "A"
+            },
+            {
+              "answer": "",
+              "letter": "B"
+            },
+            {
+              "answer": "",
+              "letter": "C"
+            },
+            {
+              "answer": "",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": [""]
+        },
+        {
+          "questionId": "13-9",
+          "question": "",
+          "options": [
+            {
+              "answer": "",
+              "letter": "A"
+            },
+            {
+              "answer": "",
+              "letter": "B"
+            },
+            {
+              "answer": "",
+              "letter": "C"
+            },
+            {
+              "answer": "",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": [""]
+        },
+        {
+          "questionId": "13-10",
+          "question": "",
+          "options": [
+            {
+              "answer": "",
+              "letter": "A"
+            },
+            {
+              "answer": "",
+              "letter": "B"
+            },
+            {
+              "answer": "",
+              "letter": "C"
+            },
+            {
+              "answer": "",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": [""]
+        },
+        {
+          "questionId": "13-11",
+          "question": "",
+          "options": [
+            {
+              "answer": "",
+              "letter": "A"
+            },
+            {
+              "answer": "",
+              "letter": "B"
+            },
+            {
+              "answer": "",
+              "letter": "C"
+            },
+            {
+              "answer": "",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": [""]
+        },
+        {
+          "questionId": "13-12",
+          "question": "",
+          "options": [
+            {
+              "answer": "",
+              "letter": "A"
+            },
+            {
+              "answer": "",
+              "letter": "B"
+            },
+            {
+              "answer": "",
+              "letter": "C"
+            },
+            {
+              "answer": "",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": [""]
         }
       ]
     }
