@@ -1,7 +1,7 @@
 export type UserStats = {
   quizzes: QuizStats[][];
   tryAgainQuestionIds: string[];
-  activeQuizNumber: number | null;
+  activeQuizNumber: number | string | null;
   activeQuizScore: QuizStats[];
   survivalQuizHighestScore: number;
 };

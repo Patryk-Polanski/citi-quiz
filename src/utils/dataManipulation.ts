@@ -24,7 +24,7 @@ export function createTryAgainQuiz(
     return foundQuestion;
   });
 
-  return { quizId: "try-again", questions: tryAgainQuiz };
+  return { quizNumber: "try-again", questions: tryAgainQuiz };
 }
 
 export function createSurvivalQuiz(allQuizzes: Quiz[]) {
@@ -47,5 +47,5 @@ export function createSurvivalQuiz(allQuizzes: Quiz[]) {
     randomNumbers.splice(randomNumber, 1);
   });
 
-  return { quizId: "survival", questions: survivalQuizRandom };
+  return { quizNumber: "survival", questions: survivalQuizRandom };
 }

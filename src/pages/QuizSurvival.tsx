@@ -44,7 +44,7 @@ export default function SurvivalQuizPage() {
   const activeQuiz = useMemo(() => {
     if (!activeQuizNumber) return null;
     return createSurvivalQuiz(quizzesData);
-  }, [activeQuizNumber]);
+  }, [activeQuizNumber, quizzesData]);
 
   const activeQuestion = useMemo(() => {
     if (!activeQuiz) return;
@@ -161,10 +161,10 @@ export default function SurvivalQuizPage() {
       <>
         <QuizHeader
           tempTryAgainQuestionIds={tempTryAgainQuestionIds}
-          quizId={activeQuiz.quizId}
+          quizNumber={activeQuiz.quizNumber}
         />
         <ProgressBar
-          quizId={activeQuiz.quizId}
+          quizNumber={activeQuiz.quizNumber}
           questionsNumber={activeQuiz.questions.length}
         />
         <div className="mt-8 text-center">

@@ -145,10 +145,10 @@ export default function TryAgainQuizPage() {
       <>
         <QuizHeader
           tempTryAgainQuestionIds={tempTryAgainQuestionIds}
-          quizId={activeQuiz.quizId}
+          quizNumber={activeQuiz.quizNumber}
         />
         <ProgressBar
-          quizId={activeQuiz.quizId}
+          quizNumber={activeQuiz.quizNumber}
           questionsNumber={activeQuiz.questions.length}
         />
         <div className="mt-8 text-center">

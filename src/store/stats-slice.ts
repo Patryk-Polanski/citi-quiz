@@ -27,13 +27,13 @@ export const statsSlice = createSlice({
       if (!state.activeQuizNumber) return;
 
       const currentHighestScore = calcHighestScore(
-        state.quizzes[state.activeQuizNumber - 1],
+        state.quizzes[Number(state.activeQuizNumber) - 1],
       );
       const finishedQuizScore = calcHighestScore(action.payload);
 
       if (finishedQuizScore > currentHighestScore) {
-        state.quizzes[state.activeQuizNumber - 1] = state.quizzes[
-          state.activeQuizNumber - 1
+        state.quizzes[Number(state.activeQuizNumber) - 1] = state.quizzes[
+          Number(state.activeQuizNumber) - 1
         ].map((question, index) => {
           if (action.payload[index]?.pass) return action.payload[index];
           return question;
