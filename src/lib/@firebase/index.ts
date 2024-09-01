@@ -1,8 +1,19 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+
+import { fetchData, addData } from "./setup-db";
+import {
+  createUser,
+  loginUser,
+  logoutUser,
+  resetUserPassword,
+  updateUserEmail,
+  updateUserPassword,
+} from "./setup-auth";
 
 // safe to expose
-export const firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyAgXifSjW3AjSCPnRG8lRAynYb9dN9tovs",
   authDomain: "citiquiz-c20ee.firebaseapp.com",
   projectId: "citiquiz-c20ee",
@@ -16,5 +27,17 @@ initializeApp(firebaseConfig);
 
 // init services
 const db = getFirestore();
+const auth = getAuth();
 
-export { db };
+export {
+  db,
+  auth,
+  fetchData,
+  addData,
+  createUser,
+  loginUser,
+  logoutUser,
+  resetUserPassword,
+  updateUserEmail,
+  updateUserPassword,
+};

@@ -6963,279 +6963,1008 @@
       "questions": [
         {
           "questionId": "15-1",
-          "question": "",
+          "question": "Charles I was unwilling to reach an agreement with Parliament. Following his defeat in the English Civil War, what happened to him?",
           "options": [
             {
-              "answer": "",
+              "answer": "He was exiled",
               "letter": "A"
             },
             {
-              "answer": "",
+              "answer": "He was executed",
               "letter": "B"
             },
             {
-              "answer": "",
+              "answer": "He was exonerated",
               "letter": "C"
             },
             {
-              "answer": "",
+              "answer": "He was excommunicated",
               "letter": "D"
             }
           ],
-          "correctAnswer": [""]
+          "correctAnswer": ["B"]
         },
         {
           "questionId": "15-2",
-          "question": "",
+          "question": "Is the following statement TRUE or FALSE? Queen Victoria's reign ended in 1952, and she was succeeded by Elizabeth II.",
           "options": [
             {
-              "answer": "",
+              "answer": "True",
               "letter": "A"
             },
             {
-              "answer": "",
+              "answer": "False",
               "letter": "B"
-            },
-            {
-              "answer": "",
-              "letter": "C"
-            },
-            {
-              "answer": "",
-              "letter": "D"
             }
           ],
-          "correctAnswer": [""]
+          "correctAnswer": ["B"]
         },
         {
           "questionId": "15-3",
-          "question": "",
+          "question": "Skara Brae is a prehistoric village found off the coast of which country?",
           "options": [
             {
-              "answer": "",
+              "answer": "England",
               "letter": "A"
             },
             {
-              "answer": "",
+              "answer": "Scotland",
               "letter": "B"
             },
             {
-              "answer": "",
+              "answer": "France",
               "letter": "C"
             },
             {
-              "answer": "",
+              "answer": "Wales",
               "letter": "D"
             }
           ],
-          "correctAnswer": [""]
+          "correctAnswer": ["B"]
         },
         {
           "questionId": "15-4",
-          "question": "",
+          "question": "Which of the following provide legal advice, normally for a fee?",
           "options": [
             {
-              "answer": "",
+              "answer": "MPs",
               "letter": "A"
             },
             {
-              "answer": "",
+              "answer": "Doctors",
               "letter": "B"
             },
             {
-              "answer": "",
+              "answer": "Solicitors",
               "letter": "C"
             },
             {
-              "answer": "",
+              "answer": "The police",
               "letter": "D"
             }
           ],
-          "correctAnswer": [""]
+          "correctAnswer": ["C"]
         },
         {
           "questionId": "15-5",
-          "question": "",
+          "question": "Who wrote the play Macbeth?",
           "options": [
             {
-              "answer": "",
+              "answer": "Geoffrey Chaucer",
               "letter": "A"
             },
             {
-              "answer": "",
+              "answer": "Dame Agatha Christie",
               "letter": "B"
             },
             {
-              "answer": "",
+              "answer": "William Shakespeare",
               "letter": "C"
             },
             {
-              "answer": "",
+              "answer": "William Wordsworth",
               "letter": "D"
             }
           ],
-          "correctAnswer": [""]
+          "correctAnswer": ["C"]
         },
         {
           "questionId": "15-6",
-          "question": "",
+          "question": "Is the following statement TRUE or FALSE? You can only complain about the police to the Chief Constable of the police force involved.",
           "options": [
             {
-              "answer": "",
+              "answer": "True",
               "letter": "A"
             },
             {
-              "answer": "",
+              "answer": "False",
               "letter": "B"
-            },
-            {
-              "answer": "",
-              "letter": "C"
-            },
-            {
-              "answer": "",
-              "letter": "D"
             }
           ],
-          "correctAnswer": [""]
+          "correctAnswer": ["B"]
         },
         {
           "questionId": "15-7",
-          "question": "",
+          "question": "When England became a republic, after Charles I lost the English Civil War, it no longer had what?",
           "options": [
             {
-              "answer": "",
+              "answer": "A parliament",
               "letter": "A"
             },
             {
-              "answer": "",
+              "answer": "A national anthem",
               "letter": "B"
             },
             {
-              "answer": "",
+              "answer": "A monarch",
               "letter": "C"
             },
             {
-              "answer": "",
+              "answer": "A Prime Minister",
               "letter": "D"
             }
           ],
-          "correctAnswer": [""]
+          "correctAnswer": ["C"]
         },
         {
           "questionId": "15-8",
-          "question": "",
+          "question": "Is the following statement TRUE or FALSE? The first Union Flag was created in 1606.",
           "options": [
             {
-              "answer": "",
+              "answer": "True",
               "letter": "A"
             },
             {
-              "answer": "",
+              "answer": "False",
               "letter": "B"
-            },
-            {
-              "answer": "",
-              "letter": "C"
-            },
-            {
-              "answer": "",
-              "letter": "D"
             }
           ],
-          "correctAnswer": [""]
+          "correctAnswer": ["A"]
         },
         {
           "questionId": "15-9",
-          "question": "",
+          "question": "Which of the following statements is correct?",
           "options": [
             {
-              "answer": "",
+              "answer": "Thomas Chippendale was an 18th century designer of furniture.",
               "letter": "A"
             },
             {
-              "answer": "",
+              "answer": "Sir Terence Conran was an 18th century designer of furniture.",
               "letter": "B"
-            },
-            {
-              "answer": "",
-              "letter": "C"
-            },
-            {
-              "answer": "",
-              "letter": "D"
             }
           ],
-          "correctAnswer": [""]
+          "correctAnswer": ["A"]
         },
         {
           "questionId": "15-10",
-          "question": "",
+          "question": "Sake Dean Mahomet opened which establishment in George Street, London in 1810?",
           "options": [
             {
-              "answer": "",
+              "answer": "Hindoostane Coffee House",
               "letter": "A"
             },
             {
-              "answer": "",
+              "answer": "Pakistan Curry House",
               "letter": "B"
             },
             {
-              "answer": "",
+              "answer": "Mahomet Coffee House",
               "letter": "C"
             },
             {
-              "answer": "",
+              "answer": "Mahomet Shampoo Parlour",
               "letter": "D"
             }
           ],
-          "correctAnswer": [""]
+          "correctAnswer": ["A"]
         },
         {
           "questionId": "15-11",
-          "question": "",
+          "question": "Is the following statement TRUE or FALSE? All MPs represent one of the main political parties.",
           "options": [
             {
-              "answer": "",
+              "answer": "True",
               "letter": "A"
             },
             {
-              "answer": "",
+              "answer": "False",
               "letter": "B"
-            },
-            {
-              "answer": "",
-              "letter": "C"
-            },
-            {
-              "answer": "",
-              "letter": "D"
             }
           ],
-          "correctAnswer": [""]
+          "correctAnswer": ["B"]
         },
         {
           "questionId": "15-12",
-          "question": "",
+          "question": "Who succeeded David Cameron to become Prime Minister on 13 July 2016?",
           "options": [
             {
-              "answer": "",
+              "answer": "Margaret Thatcher",
               "letter": "A"
             },
             {
-              "answer": "",
+              "answer": "Boris Johnson",
               "letter": "B"
             },
             {
-              "answer": "",
+              "answer": "Theresa May",
               "letter": "C"
             },
             {
-              "answer": "",
+              "answer": "Winston Churchill",
               "letter": "D"
             }
           ],
-          "correctAnswer": [""]
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "15-13",
+          "question": "Where in London is the White Tower?",
+          "options": [
+            {
+              "answer": "Tower of London",
+              "letter": "A"
+            },
+            {
+              "answer": "Buckingham Palace",
+              "letter": "B"
+            },
+            {
+              "answer": "Palace of Westminster",
+              "letter": "C"
+            },
+            {
+              "answer": "St Paul's Cathedral",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "15-14",
+          "question": "Who could not get Parliament to agree to their religious and foreign policy views and tried to rule without Parliament?",
+          "options": [
+            {
+              "answer": "Charles I",
+              "letter": "A"
+            },
+            {
+              "answer": "Elizabeth I",
+              "letter": "B"
+            },
+            {
+              "answer": "Bloody Mary",
+              "letter": "C"
+            },
+            {
+              "answer": "Henry VIII",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "15-15",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "In the Northern Ireland Assembly, all ministerial offices are held by the majority party.",
+              "letter": "A"
+            },
+            {
+              "answer": "In the Northern Ireland Assembly, ministerial offices are shared among the main parties.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "15-16",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "The UK has a constitutional monarchy, which means that the king or queen appoints the government, as chosen in a democratic election.",
+              "letter": "A"
+            },
+            {
+              "answer": "The UK has a constitutional monarchy, which means that the king or queen alone chooses the government.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "15-17",
+          "question": "Which of the following is paid for by National Insurance Contributions?",
+          "options": [
+            {
+              "answer": "State retirement pensions",
+              "letter": "A"
+            },
+            {
+              "answer": "The armed forces",
+              "letter": "B"
+            },
+            {
+              "answer": "Parliamentary expenses",
+              "letter": "C"
+            },
+            {
+              "answer": "The Department for Work and Pensions",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "15-18",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "Many of the Viking invaders stayed in Britain, in an area known as the Danelaw.",
+              "letter": "A"
+            },
+            {
+              "answer": "Many of the Viking invaders stayed in Britain, in an area known as Deptford.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "15-19",
+          "question": "Which TWO languages are spoken in the Senedd?",
+          "options": [
+            {
+              "answer": "Walloon",
+              "letter": "A"
+            },
+            {
+              "answer": "English",
+              "letter": "B"
+            },
+            {
+              "answer": "Welsh",
+              "letter": "C"
+            },
+            {
+              "answer": "Ulster Scots",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B", "C"]
+        },
+        {
+          "questionId": "15-20",
+          "question": "Is the following statement TRUE or FALSE? The UK is a parliamentary democracy.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "15-21",
+          "question": "Which cathedral contains a famous example of a stained glass window from the Middle Ages?",
+          "options": [
+            {
+              "answer": "Liverpool",
+              "letter": "A"
+            },
+            {
+              "answer": "Guildford",
+              "letter": "B"
+            },
+            {
+              "answer": "York Minster",
+              "letter": "C"
+            },
+            {
+              "answer": "Coventry",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "15-22",
+          "question": "Who did John Major succeed as Prime Minister?",
+          "options": [
+            {
+              "answer": "Tony Blair",
+              "letter": "A"
+            },
+            {
+              "answer": "Clement Attlee",
+              "letter": "B"
+            },
+            {
+              "answer": "Sir Robert Walpole",
+              "letter": "C"
+            },
+            {
+              "answer": "Margaret Thatcher",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "15-23",
+          "question": "Which of these is associated with Halloween?",
+          "options": [
+            {
+              "answer": "Trick or treat",
+              "letter": "A"
+            },
+            {
+              "answer": "Fireworks",
+              "letter": "B"
+            },
+            {
+              "answer": "Mistletoe",
+              "letter": "C"
+            },
+            {
+              "answer": "Hot cross buns",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "15-24",
+          "question": "Which German act of aggression in 1939 caused Britain and France to declare war on Germany?",
+          "options": [
+            {
+              "answer": "The invasion of Spain",
+              "letter": "A"
+            },
+            {
+              "answer": "The invasion of Russia",
+              "letter": "B"
+            },
+            {
+              "answer": "The invasion of Italy",
+              "letter": "C"
+            },
+            {
+              "answer": "The invasion of Poland",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        }
+      ]
+    },
+    {
+      "quizNumber": 16,
+      "questions": [
+        {
+          "questionId": "16-1",
+          "question": "In 1918, women over the age of 30 were given the right to vote. This was partly in recognition of the contribution women made to the war effort during which war?",
+          "options": [
+            {
+              "answer": "First World War",
+              "letter": "A"
+            },
+            {
+              "answer": "Crimean War",
+              "letter": "B"
+            },
+            {
+              "answer": "Second World War",
+              "letter": "C"
+            },
+            {
+              "answer": "Cold War",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "16-2",
+          "question": "Is the following statement TRUE or FALSE? Towns, cities and rural areas are governed by civil servants appointed by the government.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "16-3",
+          "question": "What is the name of the cricket Test series played between England and Australia?",
+          "options": [
+            {
+              "answer": "The Urn",
+              "letter": "A"
+            },
+            {
+              "answer": "The Oval",
+              "letter": "B"
+            },
+            {
+              "answer": "The Ashes",
+              "letter": "C"
+            },
+            {
+              "answer": "Royal Ascot",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "16-4",
+          "question": "What is the name of the National Anthem of the UK?",
+          "options": [
+            {
+              "answer": "Land of Hope and Glory",
+              "letter": "A"
+            },
+            {
+              "answer": "I Vow to Thee, My Country",
+              "letter": "B"
+            },
+            {
+              "answer": "The Star Spangled Banner",
+              "letter": "C"
+            },
+            {
+              "answer": "God Save the King",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "16-5",
+          "question": "Is the following statement TRUE or FALSE? James VI of Scotland inherited the throne of England when Elizabeth I died.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "16-6",
+          "question": "Which TWO of the following names may be given to the day before Lent starts?",
+          "options": [
+            {
+              "answer": "Ash Wednesday",
+              "letter": "A"
+            },
+            {
+              "answer": "Shrove Tuesday",
+              "letter": "B"
+            },
+            {
+              "answer": "Good Friday",
+              "letter": "C"
+            },
+            {
+              "answer": "Pancake Day",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B", "D"]
+        },
+        {
+          "questionId": "16-7",
+          "question": "Which other country, alongside Britain, developed Concorde, the supersonic passenger aircraft?",
+          "options": [
+            {
+              "answer": "Germany",
+              "letter": "A"
+            },
+            {
+              "answer": "France",
+              "letter": "B"
+            },
+            {
+              "answer": "Canada",
+              "letter": "C"
+            },
+            {
+              "answer": "South Africa",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "16-8",
+          "question": "Which TWO of the following are famous British sportsmen or women?",
+          "options": [
+            {
+              "answer": "Baroness Tanni Grey-Thompson",
+              "letter": "A"
+            },
+            {
+              "answer": "Mary Quant",
+              "letter": "B"
+            },
+            {
+              "answer": "David Weir",
+              "letter": "C"
+            },
+            {
+              "answer": "William Beveridge",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A", "C"]
+        },
+        {
+          "questionId": "16-9",
+          "question": "Is the following statement TRUE or FALSE? Anyone over the age of 14 can legally buy tobacco products in the UK.",
+          "options": [
+            {
+              "answer": "True",
+              "letter": "A"
+            },
+            {
+              "answer": "False",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "16-10",
+          "question": "By 1200, the English ruled an area of Ireland around Dublin known as what?",
+          "options": [
+            {
+              "answer": "The Light",
+              "letter": "A"
+            },
+            {
+              "answer": "The Pict",
+              "letter": "B"
+            },
+            {
+              "answer": "The Pale",
+              "letter": "C"
+            },
+            {
+              "answer": "The Plain",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "16-11",
+          "question": "Snowdon is the highest mountain in which country?",
+          "options": [
+            {
+              "answer": "England",
+              "letter": "A"
+            },
+            {
+              "answer": "Wales",
+              "letter": "B"
+            },
+            {
+              "answer": "Scotland",
+              "letter": "C"
+            },
+            {
+              "answer": "Northern Ireland",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "16-12",
+          "question": "How long can you use a driving licence from another country to drive in the UK?",
+          "options": [
+            {
+              "answer": "2 months",
+              "letter": "A"
+            },
+            {
+              "answer": "6 months",
+              "letter": "B"
+            },
+            {
+              "answer": "12 months",
+              "letter": "C"
+            },
+            {
+              "answer": "24 months",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "16-13",
+          "question": "Who was William Shakespeare?",
+          "options": [
+            {
+              "answer": "A naval commander",
+              "letter": "A"
+            },
+            {
+              "answer": "A Scottish patriot",
+              "letter": "B"
+            },
+            {
+              "answer": "An English parliamentarian",
+              "letter": "C"
+            },
+            {
+              "answer": "A poet, actor and playwright",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "16-14",
+          "question": "Which of the following statements is correct?",
+          "options": [
+            {
+              "answer": "The King is the elected leader of the Commonwealth.",
+              "letter": "A"
+            },
+            {
+              "answer": "The King is the ceremonial head of the Commonwealth.",
+              "letter": "B"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "16-15",
+          "question": "During the First World War the British fought against countries including Germany, the Ottoman Empire and the Austro-Hungarian Empire. What was this alliance known as?",
+          "options": [
+            {
+              "answer": "The Middle Powers",
+              "letter": "A"
+            },
+            {
+              "answer": "The Central Powers",
+              "letter": "B"
+            },
+            {
+              "answer": "The Germanic Powers",
+              "letter": "C"
+            },
+            {
+              "answer": "The Autocratic Powers",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "16-16",
+          "question": "Which flower is associated with England?",
+          "options": [
+            {
+              "answer": "Lily",
+              "letter": "A"
+            },
+            {
+              "answer": "Daisy",
+              "letter": "B"
+            },
+            {
+              "answer": "Daffodil",
+              "letter": "C"
+            },
+            {
+              "answer": "Rose",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "16-17",
+          "question": "Which of the following great thinkers or scientists is associated with the Enlightenment?",
+          "options": [
+            {
+              "answer": "Edwin Lutyens",
+              "letter": "A"
+            },
+            {
+              "answer": "Keith Campbell",
+              "letter": "B"
+            },
+            {
+              "answer": "Roald Dahl",
+              "letter": "C"
+            },
+            {
+              "answer": "James Watt",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "16-18",
+          "question": "What religion was Guy Fawkes, of Gunpowder Plot fame?",
+          "options": [
+            {
+              "answer": "Protestant",
+              "letter": "A"
+            },
+            {
+              "answer": "Catholic",
+              "letter": "B"
+            },
+            {
+              "answer": "Methodist",
+              "letter": "C"
+            },
+            {
+              "answer": "Jewish",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "16-19",
+          "question": "Which South American country invaded the Falkland Islands in 1982?",
+          "options": [
+            {
+              "answer": "Peru",
+              "letter": "A"
+            },
+            {
+              "answer": "Argentina",
+              "letter": "B"
+            },
+            {
+              "answer": "Chile",
+              "letter": "C"
+            },
+            {
+              "answer": "Bolivia",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "16-20",
+          "question": "Who was king of England at the time of the Norman invasion in 1066?",
+          "options": [
+            {
+              "answer": "Herbert",
+              "letter": "A"
+            },
+            {
+              "answer": "Hubert",
+              "letter": "B"
+            },
+            {
+              "answer": "Harold",
+              "letter": "C"
+            },
+            {
+              "answer": "Henry",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
+        },
+        {
+          "questionId": "16-21",
+          "question": "In 1485, the Wars of the Roses ended with which battle?",
+          "options": [
+            {
+              "answer": "The Battle of Bolton Field",
+              "letter": "A"
+            },
+            {
+              "answer": "The Battle of Bakewell Field",
+              "letter": "B"
+            },
+            {
+              "answer": "The Battle of Bognor Field",
+              "letter": "C"
+            },
+            {
+              "answer": "The Battle of Bosworth Field",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["D"]
+        },
+        {
+          "questionId": "16-22",
+          "question": "Some people, particularly in Scotland, continued to support James II after his exile. What were these supporters called?",
+          "options": [
+            {
+              "answer": "Luddites",
+              "letter": "A"
+            },
+            {
+              "answer": "Jacobites",
+              "letter": "B"
+            },
+            {
+              "answer": "Monarchists",
+              "letter": "C"
+            },
+            {
+              "answer": "Clans",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["B"]
+        },
+        {
+          "questionId": "16-23",
+          "question": "What event in 1851 took place at the Crystal Palace in Hyde Park and showed goods and exhibits from Britain and across the world?",
+          "options": [
+            {
+              "answer": "The Great Exhibition",
+              "letter": "A"
+            },
+            {
+              "answer": "The Great Show",
+              "letter": "B"
+            },
+            {
+              "answer": "The Great Event",
+              "letter": "C"
+            },
+            {
+              "answer": "The Great Occasion",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["A"]
+        },
+        {
+          "questionId": "16-24",
+          "question": "William of Orange was the Protestant ruler of which country?",
+          "options": [
+            {
+              "answer": "Spain",
+              "letter": "A"
+            },
+            {
+              "answer": "France",
+              "letter": "B"
+            },
+            {
+              "answer": "The Netherlands",
+              "letter": "C"
+            },
+            {
+              "answer": "Portugal",
+              "letter": "D"
+            }
+          ],
+          "correctAnswer": ["C"]
         }
       ]
     }

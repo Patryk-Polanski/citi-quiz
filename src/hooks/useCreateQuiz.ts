@@ -1,14 +1,12 @@
 import { useMutation } from "@tanstack/react-query";
-import { addDoc, collection } from "firebase/firestore";
-import { db } from "src/lib/firebase";
+import { addData } from "src/lib/@firebase";
 
 const useCreateQuiz = () => {
   const { mutate: createQuiz, isPending: isCreatingQuiz } = useMutation({
     mutationFn: async () => {
       const rawJsonQuizzes = await fetch("src/utils/quizzesData.json");
       const jsonQuizzes = await rawJsonQuizzes.json();
-      const quizzesDbRef = collection(db, "quizzes");
-      addDoc(quizzesDbRef, jsonQuizzes.quizzes[13]);
+      addData("quizzes", jsonQuizzes.quizzes[15]);
     },
     onSuccess: () => {
       console.log("new quiz successfully added!");
