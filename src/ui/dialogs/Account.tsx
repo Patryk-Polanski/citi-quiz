@@ -1,23 +1,25 @@
 import { motion as m } from "framer-motion";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { useAppSelector } from "src/hooks/useStore";
 import { AnimDirection, IconNames } from "src/types/enums";
 
 import Icon from "src/ui/icons/Icon";
 import Button from "src/ui/Button";
-import Input from "../form/Input";
 import {
   genericAnimProps,
   slideAnim,
 } from "src/utils/motion/shared/animations";
+import Signup from "src/features/authentication/Signup";
+import Login from "src/features/authentication/Login";
+import Logout from "src/features/authentication/Logout";
 
 const commonTabClasses =
   "w-[48%] text-slate-700 font-semibold after:border-t-white/0 hover:after:border-t-white/0";
 
 enum AccountWindows {
   Login = "login",
-  Register = "register",
+  Signup = "signup",
   User = "user",
 }
 
@@ -29,9 +31,6 @@ export default function Account({ onClose }: AccountProps) {
   const [windowState, setWindowState] = useState<AccountWindows>(
     AccountWindows.Login,
   );
-  const usernameRef = useRef<HTMLInputElement | null>(null);
-  const passwordRef = useRef<HTMLInputElement | null>(null);
-  const passwordConfirmationRef = useRef<HTMLInputElement | null>(null);
   const { background } = useAppSelector((store) => store.settings);
 
   const activeTabClasses = useMemo(
@@ -57,31 +56,6 @@ export default function Account({ onClose }: AccountProps) {
     [onClose],
   );
 
-  const handleLoginSubmit = useCallback(
-    (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      console.log(
-        "onLoginSubmit",
-        usernameRef.current?.value,
-        passwordRef.current?.value,
-      );
-    },
-    [],
-  );
-
-  const handleRegisterSubmit = useCallback(
-    (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      console.log(
-        "onRegisterSubmit",
-        usernameRef.current?.value,
-        passwordRef.current?.value,
-        passwordConfirmationRef.current?.value,
-      );
-    },
-    [],
-  );
-
   return (
     <m.div
       key="account-dialog"
@@ -103,82 +77,9 @@ export default function Account({ onClose }: AccountProps) {
             >
               <Icon iconName={IconNames.Close} className="h-6 w-6" />
             </Button>
-            {windowState === AccountWindows.Login && (
-              <div className="text-center">
-                <h5 className="mt-2 text-center font-bold">
-                  Login to save your quizzes data
-                </h5>
-                <form
-                  className="mb-2 mt-4 flex flex-col gap-3"
-                  onSubmit={handleLoginSubmit}
-                >
-                  <Input
-                    id="username"
-                    label="Username:"
-                    name="username"
-                    inputRef={usernameRef}
-                  />
-                  <Input
-                    id="password"
-                    label="Password:"
-                    name="password"
-                    type="password"
-                    inputRef={passwordRef}
-                  />
-                  <Button
-                    el="button"
-                    type="submit"
-                    classes="mt-2 self-center text-sm px-6 py-3 rounded-lg after:rounded-lg font-bold"
-                  >
-                    Submit
-                  </Button>
-                </form>
-              </div>
-            )}
-            {windowState === AccountWindows.Register && (
-              <div className="text-center">
-                <h5 className="mt-2 text-center font-bold">
-                  Create an account
-                </h5>
-                <form
-                  className="mb-2 mt-4 flex flex-col gap-3"
-                  onSubmit={handleRegisterSubmit}
-                >
-                  <Input
-                    id="username"
-                    label="Username:"
-                    name="username"
-                    inputRef={usernameRef}
-                  />
-                  <Input
-                    id="password"
-                    label="Password:"
-                    name="password"
-                    type="password"
-                    inputRef={passwordRef}
-                  />
-                  <Input
-                    id="conform-password"
-                    label="Confirm password:"
-                    name="conform-password"
-                    type="password"
-                    inputRef={passwordConfirmationRef}
-                  />
-                  <Button
-                    el="button"
-                    type="submit"
-                    classes="mt-2 self-center text-sm px-6 py-3 rounded-lg after:rounded-lg font-bold"
-                  >
-                    Submit
-                  </Button>
-                </form>
-              </div>
-            )}
-            {windowState === AccountWindows.User && (
-              <div className="text-center">
-                <h5 className="mt-2 text-center">Would you like to log out?</h5>
-              </div>
-            )}
+            {windowState === AccountWindows.Login && <Login />}
+            {windowState === AccountWindows.Signup && <Signup />}
+            {windowState === AccountWindows.User && <Logout />}
           </div>
         </div>
         <div className="flex justify-between">
@@ -193,10 +94,10 @@ export default function Account({ onClose }: AccountProps) {
               </Button>
               <Button
                 el="button"
-                classes={`rounded-tl-none rounded-tr-none after:rounded-tl-none after:rounded-tr-none after:border-white hover:after:border-white ${commonTabClasses} ${windowState === AccountWindows.Register && activeTabClasses}`}
-                onClick={() => setWindowState(AccountWindows.Register)}
+                classes={`rounded-tl-none rounded-tr-none after:rounded-tl-none after:rounded-tr-none after:border-white hover:after:border-white ${commonTabClasses} ${windowState === AccountWindows.Signup && activeTabClasses}`}
+                onClick={() => setWindowState(AccountWindows.Signup)}
               >
-                Register
+                Sign up
               </Button>
             </>
           ) : (

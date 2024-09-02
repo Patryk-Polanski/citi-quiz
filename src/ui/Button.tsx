@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 
 type ButtonProps = {
   el: "button";
+  children: React.ReactNode;
   classes?: string;
   omitStyles?: boolean;
+  isLoading?: boolean;
 } & ComponentPropsWithoutRef<"button">;
 
 type LinkProps = {
@@ -26,5 +28,9 @@ export default function Button(props: ButtonProps | LinkProps) {
   if (props.el === "link")
     return <Link className={classes} to={props.href} {...props}></Link>;
 
-  return <button className={classes} {...props}></button>;
+  return (
+    <button className={classes} {...props}>
+      {!props.isLoading ? props.children : "Loading"}
+    </button>
+  );
 }
