@@ -2,8 +2,8 @@ import { useMutation } from "@tanstack/react-query";
 
 import { loginUser as authLoginUser } from "src/lib/@firebase";
 
-const useSignup = () => {
-  const { mutate: loginUser, isPending: isLogginUserIn } = useMutation({
+const useLogin = () => {
+  const { mutate: loginUser, isPending: isLoggingUserIn } = useMutation({
     mutationFn: async ({
       email,
       password,
@@ -11,7 +11,7 @@ const useSignup = () => {
       email: string;
       password: string;
     }) => {
-      authLoginUser(email, password);
+      await authLoginUser(email, password);
     },
     onSuccess: () => {
       console.log("user signed in");
@@ -21,7 +21,7 @@ const useSignup = () => {
     },
   });
 
-  return { loginUser, isLogginUserIn };
+  return { loginUser, isLoggingUserIn };
 };
 
-export default useSignup;
+export default useLogin;

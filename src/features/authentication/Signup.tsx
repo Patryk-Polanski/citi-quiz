@@ -24,31 +24,35 @@ export default function Signup() {
     async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
-      if (checkIfEmpty(emailRef?.current?.value))
+      if (checkIfEmpty(emailRef?.current?.value)) {
         return setValidationErrors((prevVal) => ({
           ...prevVal,
           email: "Email cannot be empty",
         }));
-      if (checkIfEmpty(passwordRef?.current?.value))
+      }
+      if (checkIfEmpty(passwordRef?.current?.value)) {
         return setValidationErrors((prevVal) => ({
           ...prevVal,
           password: "Password cannot be empty",
         }));
-      if (checkIfEmpty(passwordConfirmationRef?.current?.value))
+      }
+      if (checkIfEmpty(passwordConfirmationRef?.current?.value)) {
         return setValidationErrors((prevVal) => ({
           ...prevVal,
           passwordConfirmation: "Password confirmation cannot be empty",
         }));
+      }
       if (
         checkIfNotIdentical(
           passwordRef?.current?.value,
           passwordConfirmationRef?.current?.value,
         )
-      )
+      ) {
         return setValidationErrors((prevVal) => ({
           ...prevVal,
           passwordConfirmation: "Both passwords must be identical",
         }));
+      }
 
       await createUser({
         email: emailRef?.current?.value as string,

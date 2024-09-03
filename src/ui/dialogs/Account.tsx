@@ -13,6 +13,7 @@ import {
 import Signup from "src/features/authentication/Signup";
 import Login from "src/features/authentication/Login";
 import Logout from "src/features/authentication/Logout";
+import useLogout from "src/hooks/useLogout";
 
 const commonTabClasses =
   "w-[48%] text-slate-700 font-semibold after:border-t-white/0 hover:after:border-t-white/0";
@@ -28,6 +29,7 @@ type AccountProps = {
 };
 
 export default function Account({ onClose }: AccountProps) {
+  const { logoutUser, isLoggingUserOut } = useLogout();
   const [windowState, setWindowState] = useState<AccountWindows>(
     AccountWindows.Login,
   );
@@ -106,13 +108,17 @@ export default function Account({ onClose }: AccountProps) {
                 el="button"
                 classes={`rounded-tl-none rounded-tr-none after:rounded-tl-none after:rounded-tr-none after:border-white hover:after:border-white ${commonTabClasses}`}
                 onClick={onClose}
+                disabled={isLoggingUserOut}
+                isLoading={isLoggingUserOut}
               >
                 No
               </Button>
               <Button
                 el="button"
                 classes={`rounded-tl-none rounded-tr-none after:rounded-tl-none after:rounded-tr-none after:border-white hover:after:border-white ${commonTabClasses}`}
-                onClick={() => console.log("log user out")}
+                onClick={() => logoutUser()}
+                disabled={isLoggingUserOut}
+                isLoading={isLoggingUserOut}
               >
                 Yes
               </Button>

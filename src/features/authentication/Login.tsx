@@ -1,22 +1,43 @@
-import { useCallback, useRef } from "react";
+import { useCallback, useRef, useState } from "react";
+import useLogin from "src/hooks/useLogin";
 
 import Button from "src/ui/Button";
 import Input from "src/ui/form/Input";
+import { checkIfEmpty } from "src/utils/validation/account";
 
 export default function Login() {
-  const usernameRef = useRef<HTMLInputElement | null>(null);
+  const { loginUser, isLoggingUserIn } = useLogin();
+  const emailRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
+  const [validationErrors, setValidationErrors] = useState({
+    email: "",
+    password: "",
+  });
 
   const handleLoginSubmit = useCallback(
-    (e: React.FormEvent<HTMLFormElement>) => {
+    async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      console.log(
-        "onLoginSubmit",
-        usernameRef.current?.value,
-        passwordRef.current?.value,
-      );
+
+      if (checkIfEmpty(emailRef?.current?.value)) {
+        return setValidationErrors((prevVal) => ({
+          ...prevVal,
+          email: "Email cannot be empty",
+        }));
+      }
+
+      if (checkIfEmpty(passwordRef?.current?.value)) {
+        return setValidationErrors((prevVal) => ({
+          ...prevVal,
+          password: "Password cannot be empty",
+        }));
+      }
+
+      await loginUser({
+        email: emailRef?.current?.value as string,
+        password: passwordRef?.current?.value as string,
+      });
     },
-    [],
+    [loginUser],
   );
 
   return (
@@ -29,11 +50,13 @@ export default function Login() {
         onSubmit={handleLoginSubmit}
       >
         <Input
-          id="username"
-          label="Username:"
-          name="username"
-          inputRef={usernameRef}
+          id="email"
+          label="Email:"
+          name="email"
+          type="email"
+          inputRef={emailRef}
         />
+        {validationErrors.email && <p>{validationErrors.email}</p>}
         <Input
           id="password"
           label="Password:"
@@ -41,10 +64,13 @@ export default function Login() {
           type="password"
           inputRef={passwordRef}
         />
+        {validationErrors.password && <p>{validationErrors.password}</p>}
         <Button
           el="button"
           type="submit"
           classes="mt-2 self-center text-sm px-6 py-3 rounded-lg after:rounded-lg font-bold"
+          disabled={isLoggingUserIn}
+          isLoading={isLoggingUserIn}
         >
           Submit
         </Button>
