@@ -16,8 +16,18 @@ const useLogin = () => {
     onSuccess: () => {
       console.log("user signed in");
     },
-    onError: () => {
-      console.error("could not sign in the user");
+    onError: (error) => {
+      console.error("could not sign in the user", error);
+
+      if (error.message.includes("auth/user-not-found"))
+        error.message = "Email not found. Try again";
+      else if (error.message.includes("auth/wrong-password"))
+        error.message = "Wrong password. Try again";
+      else if (error.message.includes("auth/too-many-requests"))
+        error.message = "Too many faileds attempts. Try again later";
+      else error.message = error.message.substring(0, 60) + "...";
+
+      throw new Error(error.message);
     },
   });
 

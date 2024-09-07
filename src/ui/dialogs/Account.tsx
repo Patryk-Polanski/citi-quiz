@@ -2,7 +2,7 @@ import { motion as m } from "framer-motion";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { useAppSelector } from "src/hooks/useStore";
-import { AnimDirection, IconNames } from "src/types/enums";
+import { AccountWindows, AnimDirection, IconNames } from "src/types/enums";
 
 import Icon from "src/ui/icons/Icon";
 import Button from "src/ui/Button";
@@ -17,11 +17,6 @@ import useLogout from "src/hooks/useLogout";
 
 const commonTabClasses =
   "w-[48%] text-slate-700 font-semibold after:border-t-white/0 hover:after:border-t-white/0";
-
-enum AccountWindows {
-  Login = "login",
-  Signup = "signup",
-}
 
 type AccountProps = {
   onClose: () => void;
@@ -39,6 +34,10 @@ export default function Account({ onClose }: AccountProps) {
     () => `${background} text-white`,
     [background],
   );
+
+  useEffect(() => {
+    if (user !== null) setWindowState(AccountWindows.User);
+  }, [user]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -66,11 +65,11 @@ export default function Account({ onClose }: AccountProps) {
       {...genericAnimProps}
       variants={slideAnim(AnimDirection.up, true)}
     >
-      <div id="accountModal" className="-translate-y-16">
+      <div id="accountModal" className="w-[90%] max-w-[400px] -translate-y-16">
         <div
-          className={`min-h-28 overflow-hidden rounded-tl-3xl rounded-tr-3xl border-2 border-white ${background} text-white sm:min-w-96`}
+          className={`min-h-28 overflow-hidden rounded-tl-3xl rounded-tr-3xl border-2 border-white ${background} w-full text-white`}
         >
-          <div className="min-h-28 bg-gradient-to-br from-white/60 to-white/30 p-5 font-medium sm:min-w-96">
+          <div className="min-h-28 w-full bg-gradient-to-br from-white/60 to-white/30 p-5 font-medium">
             <Button
               el="button"
               onClick={onClose}
@@ -79,17 +78,17 @@ export default function Account({ onClose }: AccountProps) {
             >
               <Icon iconName={IconNames.Close} className="h-6 w-6" />
             </Button>
-            {user ? (
+            {user && windowState === AccountWindows.User ? (
               <Logout />
-            ) : windowState === AccountWindows.Login && !isLoggingUserOut ? (
+            ) : windowState === AccountWindows.Login ? (
               <Login closePopup={onClose} />
-            ) : windowState === AccountWindows.Signup && !isLoggingUserOut ? (
+            ) : windowState === AccountWindows.Signup ? (
               <Signup closePopup={onClose} />
             ) : null}
           </div>
         </div>
         <div className="flex justify-between">
-          {user ? (
+          {user && windowState === AccountWindows.User ? (
             <>
               <Button
                 el="button"

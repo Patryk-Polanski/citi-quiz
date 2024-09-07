@@ -75,3 +75,9 @@ export enum AnimDirection {
   up = "UP",
   down = "DOWN",
 }
+
+export enum AccountWindows {
+  Login = "login",
+  Signup = "signup",
+  User = "user",
+}

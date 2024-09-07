@@ -1,9 +1,10 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import useSignup from "src/hooks/useSignup";
 
 import Button from "src/ui/Button";
 import Input from "src/ui/form/Input";
+import FormError from "src/ui/FormError";
 import {
   checkIfEmpty,
   checkIfNotIdentical,
@@ -13,36 +14,51 @@ type SignupProps = {
   closePopup: () => void;
 };
 
+const formErrorsInitialState = {
+  email: "",
+  password: "",
+  passwordConfirmation: "",
+  auth: "",
+};
+
 export default function Signup({ closePopup }: SignupProps) {
   const { createUser, isCreatingUser } = useSignup();
   const emailRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
   const passwordConfirmationRef = useRef<HTMLInputElement | null>(null);
-  const [validationErrors, setValidationErrors] = useState({
-    email: "",
-    password: "",
-    passwordConfirmation: "",
-  });
-  const [signupError, setSignupError] = useState("");
+  const [formErrors, setFormErrors] = useState(formErrorsInitialState);
+
+  useEffect(() => {
+    if (
+      formErrors.email ||
+      formErrors.password ||
+      formErrors.passwordConfirmation ||
+      formErrors.auth
+    ) {
+      setTimeout(() => {
+        setFormErrors(formErrorsInitialState);
+      }, 10000);
+    }
+  }, [formErrors]);
 
   const handleSignup = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
       if (checkIfEmpty(emailRef?.current?.value)) {
-        return setValidationErrors((prevVal) => ({
+        return setFormErrors((prevVal) => ({
           ...prevVal,
           email: "Email cannot be empty",
         }));
       }
       if (checkIfEmpty(passwordRef?.current?.value)) {
-        return setValidationErrors((prevVal) => ({
+        return setFormErrors((prevVal) => ({
           ...prevVal,
           password: "Password cannot be empty",
         }));
       }
       if (checkIfEmpty(passwordConfirmationRef?.current?.value)) {
-        return setValidationErrors((prevVal) => ({
+        return setFormErrors((prevVal) => ({
           ...prevVal,
           passwordConfirmation: "Password confirmation cannot be empty",
         }));
@@ -53,21 +69,29 @@ export default function Signup({ closePopup }: SignupProps) {
           passwordConfirmationRef?.current?.value,
         )
       ) {
-        return setValidationErrors((prevVal) => ({
+        return setFormErrors((prevVal) => ({
           ...prevVal,
           passwordConfirmation: "Both passwords must be identical",
         }));
       }
 
-      try {
-        await createUser({
+      createUser(
+        {
           email: emailRef?.current?.value as string,
           password: passwordRef?.current?.value as string,
-        });
-        closePopup();
-      } catch {
-        setSignupError("Could not sign up, try again later");
-      }
+        },
+        {
+          onSuccess: () => {
+            closePopup();
+          },
+          onError: (error) => {
+            setFormErrors((prevVal) => ({
+              ...prevVal,
+              auth: error.message,
+            }));
+          },
+        },
+      );
     },
     [createUser, closePopup],
   );
@@ -84,7 +108,7 @@ export default function Signup({ closePopup }: SignupProps) {
           inputRef={emailRef}
           maxLength={64}
         />
-        {validationErrors.email && <p>{validationErrors.email}</p>}
+        {formErrors.email && <p>{formErrors.email}</p>}
         <Input
           id="password"
           label="Password:"
@@ -93,7 +117,6 @@ export default function Signup({ closePopup }: SignupProps) {
           inputRef={passwordRef}
           maxLength={20}
         />
-        {validationErrors.password && <p>{validationErrors.password}</p>}
         <Input
           id="conform-password"
           label="Confirm password:"
@@ -102,9 +125,6 @@ export default function Signup({ closePopup }: SignupProps) {
           inputRef={passwordConfirmationRef}
           maxLength={20}
         />
-        {validationErrors.passwordConfirmation && (
-          <p>{validationErrors.passwordConfirmation}</p>
-        )}
         <Button
           el="button"
           type="submit"
@@ -114,6 +134,11 @@ export default function Signup({ closePopup }: SignupProps) {
         >
           Submit
         </Button>
+        {formErrors.password && <FormError error={formErrors.password} />}
+        {formErrors.passwordConfirmation && (
+          <FormError error={formErrors.passwordConfirmation} />
+        )}
+        {formErrors.auth && <FormError error={formErrors.auth} />}
       </form>
     </div>
   );

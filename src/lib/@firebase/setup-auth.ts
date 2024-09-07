@@ -27,20 +27,19 @@ const createUser = async (email: string, password: string) => {
 };
 
 const loginUser = async (email: string, password: string) => {
-  try {
-    const userCredential = await signInWithEmailAndPassword(
-      auth,
-      email,
-      password,
-    );
-    const user = userCredential.user;
-    return user;
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error("Error signing in:", error.message);
-    }
-    throw error;
-  }
+  // try {
+  const userCredential = await signInWithEmailAndPassword(
+    auth,
+    email,
+    password,
+  );
+  const user = userCredential.user;
+  return user;
+  // } catch (error) {
+  //   if (error instanceof Error) {
+  //     throw new Error(error.message);
+  //   }
+  // }
 };
 
 const logoutUser = async () => {
