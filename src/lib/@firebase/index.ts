@@ -4,6 +4,7 @@ import { getAuth } from "firebase/auth";
 
 import { fetchData, addData } from "./setup-db";
 import {
+  onAuthStateChanged,
   createUser,
   loginUser,
   logoutUser,
@@ -29,9 +30,12 @@ initializeApp(firebaseConfig);
 const db = getFirestore();
 const auth = getAuth();
 
+const onAuthChange = onAuthStateChanged.bind(null, auth);
+
 export {
   db,
   auth,
+  onAuthChange,
   fetchData,
   addData,
   createUser,

@@ -21,7 +21,6 @@ const commonTabClasses =
 enum AccountWindows {
   Login = "login",
   Signup = "signup",
-  User = "user",
 }
 
 type AccountProps = {
@@ -29,6 +28,7 @@ type AccountProps = {
 };
 
 export default function Account({ onClose }: AccountProps) {
+  const { user } = useAppSelector((store) => store.auth);
   const { logoutUser, isLoggingUserOut } = useLogout();
   const [windowState, setWindowState] = useState<AccountWindows>(
     AccountWindows.Login,
@@ -64,7 +64,7 @@ export default function Account({ onClose }: AccountProps) {
       onClick={handleClose}
       className="fixed inset-0 z-40 flex items-center justify-center bg-white/60"
       {...genericAnimProps}
-      variants={slideAnim(AnimDirection.up)}
+      variants={slideAnim(AnimDirection.up, true)}
     >
       <div id="accountModal" className="-translate-y-16">
         <div
@@ -79,13 +79,42 @@ export default function Account({ onClose }: AccountProps) {
             >
               <Icon iconName={IconNames.Close} className="h-6 w-6" />
             </Button>
-            {windowState === AccountWindows.Login && <Login />}
-            {windowState === AccountWindows.Signup && <Signup />}
-            {windowState === AccountWindows.User && <Logout />}
+            {user ? (
+              <Logout />
+            ) : windowState === AccountWindows.Login && !isLoggingUserOut ? (
+              <Login closePopup={onClose} />
+            ) : windowState === AccountWindows.Signup && !isLoggingUserOut ? (
+              <Signup closePopup={onClose} />
+            ) : null}
           </div>
         </div>
         <div className="flex justify-between">
-          {windowState !== AccountWindows.User ? (
+          {user ? (
+            <>
+              <Button
+                el="button"
+                classes={`rounded-tl-none rounded-tr-none after:rounded-tl-none after:rounded-tr-none after:border-white hover:after:border-white ${commonTabClasses}`}
+                onClick={onClose}
+                disabled={isLoggingUserOut}
+                isLoading={isLoggingUserOut}
+              >
+                No
+              </Button>
+              <Button
+                el="button"
+                classes={`rounded-tl-none rounded-tr-none after:rounded-tl-none after:rounded-tr-none after:border-white hover:after:border-white ${commonTabClasses}`}
+                onClick={() => {
+                  logoutUser();
+                  onClose();
+                  setWindowState(AccountWindows.Login);
+                }}
+                disabled={isLoggingUserOut}
+                isLoading={isLoggingUserOut}
+              >
+                Yes
+              </Button>
+            </>
+          ) : (
             <>
               <Button
                 el="button"
@@ -100,27 +129,6 @@ export default function Account({ onClose }: AccountProps) {
                 onClick={() => setWindowState(AccountWindows.Signup)}
               >
                 Sign up
-              </Button>
-            </>
-          ) : (
-            <>
-              <Button
-                el="button"
-                classes={`rounded-tl-none rounded-tr-none after:rounded-tl-none after:rounded-tr-none after:border-white hover:after:border-white ${commonTabClasses}`}
-                onClick={onClose}
-                disabled={isLoggingUserOut}
-                isLoading={isLoggingUserOut}
-              >
-                No
-              </Button>
-              <Button
-                el="button"
-                classes={`rounded-tl-none rounded-tr-none after:rounded-tl-none after:rounded-tr-none after:border-white hover:after:border-white ${commonTabClasses}`}
-                onClick={() => logoutUser()}
-                disabled={isLoggingUserOut}
-                isLoading={isLoggingUserOut}
-              >
-                Yes
               </Button>
             </>
           )}

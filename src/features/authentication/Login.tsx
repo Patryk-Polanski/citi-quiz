@@ -5,7 +5,11 @@ import Button from "src/ui/Button";
 import Input from "src/ui/form/Input";
 import { checkIfEmpty } from "src/utils/validation/account";
 
-export default function Login() {
+type LoginProps = {
+  closePopup: () => void;
+};
+
+export default function Login({ closePopup }: LoginProps) {
   const { loginUser, isLoggingUserIn } = useLogin();
   const emailRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
@@ -13,6 +17,7 @@ export default function Login() {
     email: "",
     password: "",
   });
+  const [loginError, setLoginError] = useState("");
 
   const handleLoginSubmit = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
@@ -32,12 +37,17 @@ export default function Login() {
         }));
       }
 
-      await loginUser({
-        email: emailRef?.current?.value as string,
-        password: passwordRef?.current?.value as string,
-      });
+      try {
+        await loginUser({
+          email: emailRef?.current?.value as string,
+          password: passwordRef?.current?.value as string,
+        });
+        closePopup();
+      } catch {
+        setLoginError("Could not sign in, try again later");
+      }
     },
-    [loginUser],
+    [loginUser, closePopup],
   );
 
   return (
@@ -55,6 +65,7 @@ export default function Login() {
           name="email"
           type="email"
           inputRef={emailRef}
+          maxLength={64}
         />
         {validationErrors.email && <p>{validationErrors.email}</p>}
         <Input
@@ -63,6 +74,7 @@ export default function Login() {
           name="password"
           type="password"
           inputRef={passwordRef}
+          maxLength={20}
         />
         {validationErrors.password && <p>{validationErrors.password}</p>}
         <Button
@@ -74,6 +86,7 @@ export default function Login() {
         >
           Submit
         </Button>
+        {loginError && <p>{loginError}</p>}
       </form>
     </div>
   );

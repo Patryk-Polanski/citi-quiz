@@ -9,7 +9,11 @@ import {
   checkIfNotIdentical,
 } from "src/utils/validation/account";
 
-export default function Signup() {
+type SignupProps = {
+  closePopup: () => void;
+};
+
+export default function Signup({ closePopup }: SignupProps) {
   const { createUser, isCreatingUser } = useSignup();
   const emailRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
@@ -19,6 +23,7 @@ export default function Signup() {
     password: "",
     passwordConfirmation: "",
   });
+  const [signupError, setSignupError] = useState("");
 
   const handleSignup = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
@@ -54,12 +59,17 @@ export default function Signup() {
         }));
       }
 
-      await createUser({
-        email: emailRef?.current?.value as string,
-        password: passwordRef?.current?.value as string,
-      });
+      try {
+        await createUser({
+          email: emailRef?.current?.value as string,
+          password: passwordRef?.current?.value as string,
+        });
+        closePopup();
+      } catch {
+        setSignupError("Could not sign up, try again later");
+      }
     },
-    [createUser],
+    [createUser, closePopup],
   );
 
   return (

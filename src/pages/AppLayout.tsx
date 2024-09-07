@@ -4,6 +4,8 @@ import { Outlet } from "react-router-dom";
 import { initialUserData } from "src/utils/constants";
 import { useAppDispatch, useAppSelector } from "src/hooks/useStore";
 import { setInitialStats } from "src/store/stats-slice";
+import { setUser } from "src/store/auth-slice";
+import { onAuthChange } from "src/lib/@firebase";
 
 import AppHeader from "./AppHeader";
 import AppFooter from "./AppFooter";
@@ -24,6 +26,14 @@ export default function AppLayout() {
     },
   );
   const { background, fontSize } = useAppSelector((store) => store.settings);
+
+  useEffect(() => {
+    const unsub = onAuthChange((user) => {
+      dispatch(setUser(user));
+    });
+
+    return unsub;
+  }, [dispatch]);
 
   useEffect(() => {
     if (!quizzesData) return;
