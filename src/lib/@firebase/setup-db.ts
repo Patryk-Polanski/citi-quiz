@@ -5,6 +5,8 @@ import {
   orderBy,
   query,
   addDoc,
+  setDoc,
+  doc,
 } from "firebase/firestore";
 
 const fetchData = async (dbName: string, orderConfig: string = "") => {
@@ -22,4 +24,8 @@ const addData = (dbName: string, newData: unknown) => {
   addDoc(dbRef, newData);
 };
 
-export { db, fetchData, addData };
+const setData = (dbName: string, docName: string, newData: unknown) => {
+  setDoc(doc(db, dbName, docName), newData);
+};
+
+export { fetchData, addData, setData };

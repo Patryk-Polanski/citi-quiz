@@ -1,3 +1,5 @@
+import { QuizStats } from "./stats";
+
 export type Option = {
   letter: string;
   answer: string;
@@ -22,3 +24,7 @@ export type QuestionResult =
   | "correct"
   | "correct-multiple"
   | "wrong";
+
+export type QuizObject = {
+  [key: string]: QuizStats;
+};
