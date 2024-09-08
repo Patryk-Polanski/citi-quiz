@@ -8,6 +8,7 @@ import Icon from "src/ui/icons/Icon";
 import Button from "src/ui/Button";
 import {
   genericAnimProps,
+  opacityAnim,
   slideAnim,
 } from "src/utils/motion/shared/animations";
 import Signup from "src/features/authentication/Signup";
@@ -58,14 +59,25 @@ export default function Account({ onClose }: AccountProps) {
   );
 
   return (
-    <m.div
+    <div
       key="account-dialog"
       onClick={handleClose}
-      className="fixed inset-0 z-40 flex items-center justify-center bg-white/60"
-      {...genericAnimProps}
-      variants={slideAnim(AnimDirection.up, true)}
+      className="fixed inset-0 z-40 flex items-center justify-center"
     >
-      <div id="accountModal" className="w-[90%] max-w-[400px] -translate-y-16">
+      <m.div
+        className="absolute inset-0 z-10 bg-white/60"
+        variants={opacityAnim()}
+        {...genericAnimProps}
+      ></m.div>
+      <m.div
+        id="accountModal"
+        className="relative z-20 w-[90%] max-w-[400px] -translate-y-16"
+        variants={slideAnim(AnimDirection.up)}
+        onAnimationComplete={() => {
+          if (!user) setWindowState(AccountWindows.Login);
+        }}
+        {...genericAnimProps}
+      >
         <div
           className={`min-h-28 overflow-hidden rounded-tl-3xl rounded-tr-3xl border-2 border-white ${background} w-full text-white`}
         >
@@ -105,7 +117,6 @@ export default function Account({ onClose }: AccountProps) {
                 onClick={() => {
                   logoutUser();
                   onClose();
-                  setWindowState(AccountWindows.Login);
                 }}
                 disabled={isLoggingUserOut}
                 isLoading={isLoggingUserOut}
@@ -132,7 +143,7 @@ export default function Account({ onClose }: AccountProps) {
             </>
           )}
         </div>
-      </div>
-    </m.div>
+      </m.div>
+    </div>
   );
 }

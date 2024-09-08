@@ -22,7 +22,21 @@ export const slideAnimParent = {
   },
 };
 
-export const slideAnim = (direction: AnimDirection = AnimDirection.down, omitExit: boolean = false) => {
+export const opacityAnim = () => {
+  return {
+    initial: {
+      opacity: 0,
+    },
+    animate: {
+      opacity: 1,
+    },
+    exit: {
+      opacity: 0,
+    },
+  };
+};
+
+export const slideAnim = (direction: AnimDirection = AnimDirection.down) => {
   return {
     initial: {
       opacity: 0,
@@ -35,17 +49,13 @@ export const slideAnim = (direction: AnimDirection = AnimDirection.down, omitExi
       opacity: 1,
       transform: "translateY(0)",
     },
-    ...(omitExit
-      ? {}
-      : {
-          exit: {
-            opacity: 0,
-            transform:
-              direction === AnimDirection.down
-                ? "translateY(-1rem)"
-                : "translateY(1rem)",
-          },
-        }),
+    exit: {
+      opacity: 0,
+      transform:
+        direction === AnimDirection.down
+          ? "translateY(-1rem)"
+          : "translateY(1rem)",
+    },
   };
 };
 
