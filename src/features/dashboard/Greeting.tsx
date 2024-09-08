@@ -20,6 +20,7 @@ const randomEmojiIndex = generateRandomNumber(
 const greetingFontSize = 18;
 
 export default function Greeting() {
+  const { user } = useAppSelector((store) => store.auth);
   const [emojisReady, setEmojisReady] = useState(false);
   const dispatch = useAppDispatch();
   const { emojiIndex } = useAppSelector((store) => store.greeting);
@@ -45,7 +46,7 @@ export default function Greeting() {
         ref={greetingRef}
       >
         <span className="mb-2 w-full text-center sm:mb-0 sm:w-fit">
-          Welcome back,
+          {user ? "Welcome back," : "Welcome,"}
         </span>
         {/* emoji name */}
         <span className="ml-1 h-[36px] overflow-hidden rounded-md">

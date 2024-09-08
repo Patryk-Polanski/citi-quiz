@@ -11,6 +11,7 @@ import {
   resetUserPassword,
   updateUserEmail,
   updateUserPassword,
+  completeProfile,
 } from "./setup-auth";
 
 // safe to expose
@@ -44,4 +45,5 @@ export {
   resetUserPassword,
   updateUserEmail,
   updateUserPassword,
+  completeProfile,
 };

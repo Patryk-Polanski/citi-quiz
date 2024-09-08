@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import useSignup from "src/hooks/useSignup";
+import useCompleteProfile from "src/hooks/useCompleteProfile";
 
 import Button from "src/ui/Button";
 import Input from "src/ui/form/Input";
@@ -16,14 +17,16 @@ type SignupProps = {
 
 const formErrorsInitialState = {
   email: "",
+  username: "",
   password: "",
   passwordConfirmation: "",
   auth: "",
 };
 
 export default function Signup({ closePopup }: SignupProps) {
-  const { createUser, isCreatingUser } = useSignup();
+  const { createUser, isCreatingUser, isCompletingProfile } = useSignup();
   const emailRef = useRef<HTMLInputElement | null>(null);
+  const usernameRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
   const passwordConfirmationRef = useRef<HTMLInputElement | null>(null);
   const [formErrors, setFormErrors] = useState(formErrorsInitialState);
@@ -31,6 +34,7 @@ export default function Signup({ closePopup }: SignupProps) {
   useEffect(() => {
     if (
       formErrors.email ||
+      formErrors.username ||
       formErrors.password ||
       formErrors.passwordConfirmation ||
       formErrors.auth
@@ -49,6 +53,12 @@ export default function Signup({ closePopup }: SignupProps) {
         return setFormErrors((prevVal) => ({
           ...prevVal,
           email: "Email cannot be empty",
+        }));
+      }
+      if (checkIfEmpty(usernameRef?.current?.value)) {
+        return setFormErrors((prevVal) => ({
+          ...prevVal,
+          username: "Username cannot be empty",
         }));
       }
       if (checkIfEmpty(passwordRef?.current?.value)) {
@@ -79,6 +89,7 @@ export default function Signup({ closePopup }: SignupProps) {
         {
           email: emailRef?.current?.value as string,
           password: passwordRef?.current?.value as string,
+          username: usernameRef?.current?.value as string,
         },
         {
           onSuccess: () => {
@@ -108,7 +119,12 @@ export default function Signup({ closePopup }: SignupProps) {
           inputRef={emailRef}
           maxLength={64}
         />
-        {formErrors.email && <p>{formErrors.email}</p>}
+        <Input
+          id="username"
+          label="Username:"
+          name="username"
+          inputRef={usernameRef}
+        />
         <Input
           id="password"
           label="Password:"
@@ -129,11 +145,13 @@ export default function Signup({ closePopup }: SignupProps) {
           el="button"
           type="submit"
           classes="mt-2 self-center text-sm px-6 py-3 rounded-lg after:rounded-lg font-bold"
-          disabled={isCreatingUser}
-          isLoading={isCreatingUser}
+          disabled={isCreatingUser || isCompletingProfile}
+          isLoading={isCreatingUser || isCompletingProfile}
         >
           Submit
         </Button>
+        {formErrors.email && <FormError error={formErrors.email} />}
+        {formErrors.username && <FormError error={formErrors.username} />}
         {formErrors.password && <FormError error={formErrors.password} />}
         {formErrors.passwordConfirmation && (
           <FormError error={formErrors.passwordConfirmation} />

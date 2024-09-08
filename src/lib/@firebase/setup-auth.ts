@@ -7,27 +7,20 @@ import {
   signOut,
   updatePassword,
   onAuthStateChanged,
+  updateProfile,
 } from "firebase/auth";
 
 const createUser = async (email: string, password: string) => {
-  try {
-    const userCredential = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password,
-    );
-    const user = userCredential.user;
-    return user;
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error("Error signing in:", error.message);
-    }
-    throw error;
-  }
+  const userCredential = await createUserWithEmailAndPassword(
+    auth,
+    email,
+    password,
+  );
+  const user = userCredential.user;
+  return user;
 };
 
 const loginUser = async (email: string, password: string) => {
-  // try {
   const userCredential = await signInWithEmailAndPassword(
     auth,
     email,
@@ -35,11 +28,6 @@ const loginUser = async (email: string, password: string) => {
   );
   const user = userCredential.user;
   return user;
-  // } catch (error) {
-  //   if (error instanceof Error) {
-  //     throw new Error(error.message);
-  //   }
-  // }
 };
 
 const logoutUser = async () => {
@@ -58,6 +46,10 @@ const updateUserPassword = async (newPassword: string) => {
   if (auth.currentUser) updatePassword(auth.currentUser, newPassword);
 };
 
+const completeProfile = async (displayName: string) => {
+  if (auth.currentUser) updateProfile(auth.currentUser, { displayName });
+};
+
 export {
   onAuthStateChanged,
   createUser,
@@ -66,4 +58,5 @@ export {
   resetUserPassword,
   updateUserEmail,
   updateUserPassword,
+  completeProfile,
 };

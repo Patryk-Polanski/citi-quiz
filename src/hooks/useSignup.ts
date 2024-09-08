@@ -1,20 +1,25 @@
 import { useMutation } from "@tanstack/react-query";
 
 import { createUser as authCreateUser } from "src/lib/@firebase";
+import useCompleteProfile from "./useCompleteProfile";
 
 const useSignup = () => {
+  const { completeProfile, isCompletingProfile } = useCompleteProfile();
   const { mutate: createUser, isPending: isCreatingUser } = useMutation({
     mutationFn: async ({
       email,
       password,
+      username,
     }: {
       email: string;
       password: string;
+      username: string;
     }) => {
       await authCreateUser(email, password);
     },
-    onSuccess: () => {
+    onSuccess: async (data, variables) => {
       console.log("new user created");
+      await completeProfile({ displayName: variables.username });
     },
     onError: (error) => {
       console.error("could not create new user", error);
@@ -31,7 +36,7 @@ const useSignup = () => {
     },
   });
 
-  return { createUser, isCreatingUser };
+  return { createUser, isCreatingUser, isCompletingProfile };
 };
 
 export default useSignup;

@@ -16,7 +16,12 @@ export const authSlice = createSlice({
     setUser(state, action: PayloadAction<AuthTypes["user"]>) {
       state.user = action.payload;
     },
+    setUserName(state, action: PayloadAction<string>) {
+      if (state.user) {
+        state.user.displayName = action.payload;
+      }
+    },
   },
 });
 
-export const { setUser } = authSlice.actions;
+export const { setUser, setUserName } = authSlice.actions;

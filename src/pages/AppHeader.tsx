@@ -2,6 +2,7 @@ import { createPortal } from "react-dom";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
+import { useAppSelector } from "src/hooks/useStore";
 import { IconNames } from "../types/enums";
 import Help from "src/ui/sliders/Help";
 
@@ -14,6 +15,7 @@ import { AnimatePresence } from "framer-motion";
 const urlswithBackBtn = ["/quizzes", "/settings", "/resources", "/faqs"];
 
 export default function AppHeader() {
+  const { user } = useAppSelector((store) => store.auth);
   const [isHelpSliderOpen, setIsHelpSliderOpen] = useState(false);
   const [isAccountModalOpen, setIsAccountModalOpen] = useState(false);
   const location = useLocation();
@@ -52,9 +54,10 @@ export default function AppHeader() {
         <Button
           el="button"
           omitStyles
-          classes="col-span-2 justify-self-end self-start"
+          classes="col-span-2 justify-self-end self-start flex flex-col-reverse sm:flex-row items-center gap-3"
           onClick={() => setIsAccountModalOpen(true)}
         >
+          {user?.displayName && <p>{user?.displayName}</p>}
           <Icon className="h-auto w-14 md:w-16" iconName={IconNames.Account} />
         </Button>
       </header>

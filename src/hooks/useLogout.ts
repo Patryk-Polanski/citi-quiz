@@ -10,8 +10,8 @@ const useLogout = () => {
     onSuccess: () => {
       console.log("user signed out");
     },
-    onError: () => {
-      console.log("could not sign out the user");
+    onError: (error) => {
+      console.error("ould not sign out the user", error);
     },
   });
 
