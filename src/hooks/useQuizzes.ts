@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import { fetchData } from "src/lib/@firebase";
+import { fetchCollection } from "src/lib/@firebase";
 import { Quiz } from "src/types/quiz";
 
 const useQuizzes = () => {
@@ -9,7 +9,7 @@ const useQuizzes = () => {
     queryKey: ["quizzes"],
     queryFn: async () => {
       const quizzes: Quiz[] = [];
-      const snapshot = await fetchData("quizzes", "quizNumber");
+      const snapshot = await fetchCollection("quizzes", "quizNumber");
       snapshot?.docs?.forEach((doc) => {
         quizzes.push({
           ...(doc.data() as Omit<Quiz, "quizId">),

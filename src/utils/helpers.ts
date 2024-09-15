@@ -1,5 +1,5 @@
 import { EmojiReactions } from "src/types/enums";
-import { Quiz, QuizObject } from "src/types/quiz";
+import { QuizObject } from "src/types/quiz";
 import { QuizStats } from "src/types/stats";
 
 export function generateRandomNumber(min: number, max: number) {
@@ -50,7 +50,15 @@ export function transformQuizzesArrToObj(quizzes: QuizStats[][]) {
 
   quizzes.forEach((quiz) => {
     quiz.forEach((question) => {
-      result[question.questionId] = question;
+      const questionInfo = question.questionId?.split("-");
+      const quizId = Number(questionInfo?.[0]);
+      const questionId = Number(questionInfo?.[1]);
+
+      if (typeof result[quizId] !== "object") {
+        result[quizId] = {};
+      }
+
+      result[quizId][questionId] = question;
     });
   });
 
@@ -58,8 +66,6 @@ export function transformQuizzesArrToObj(quizzes: QuizStats[][]) {
 }
 
 export function transformObjToQuizzesArr(obj: QuizObject) {
-  const quizzes = [];
-  const quizArray = Object.values(obj);
-  quizzes.push(quizArray);
-  return quizzes;
+  const result = Object.values(obj);
+  return result;
 }

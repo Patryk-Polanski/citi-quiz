@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
-import { fetchData, addData, setData } from "./setup-db";
+import { fetchCollection, addData, setData, fetchDocument } from "./setup-db";
 import {
   onAuthStateChanged,
   createUser,
@@ -37,7 +37,8 @@ export {
   db,
   auth,
   onAuthChange,
-  fetchData,
+  fetchCollection,
+  fetchDocument,
   addData,
   setData,
   createUser,

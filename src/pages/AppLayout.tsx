@@ -14,10 +14,24 @@ import useLocalStorage from "src/hooks/useLocalStorage";
 import { setSettings } from "src/store/settings-slice";
 import useQuizzes from "src/hooks/useQuizzes";
 import LoadingSpinner from "src/ui/decorative/LoadingSpinner";
+import userUserStats from "src/hooks/useUserStats";
 
 export default function AppLayout() {
+  const { user } = useAppSelector((store) => store.auth);
+  const { background, fontSize } = useAppSelector((store) => store.settings);
   const dispatch = useAppDispatch();
-  const { isLoading, isError, isEmptyError, data: quizzesData } = useQuizzes();
+  const {
+    isLoading: isUserStatsLoading,
+    isError: isUserStatsError,
+    data: userData,
+  } = userUserStats(user?.uid);
+
+  const {
+    isLoading: isQuizzesLoading,
+    isError: isQuizzesError,
+    isEmptyError: isQuizzesEmptyError,
+    data: quizzesData,
+  } = useQuizzes();
   const [statsLocalStorage, setStatsLocalStorage] = useLocalStorage(
     "citiquiz",
     {
@@ -25,7 +39,6 @@ export default function AppLayout() {
       settings: initialUserData.settings,
     },
   );
-  const { background, fontSize } = useAppSelector((store) => store.settings);
 
   useEffect(() => {
     const unsub = onAuthChange((user) => {
@@ -45,11 +58,15 @@ export default function AppLayout() {
     });
   }, [quizzesData, setStatsLocalStorage]);
 
-  // todo: replace later with tanstack query when db is ready
   useEffect(() => {
-    dispatch(setInitialStats(statsLocalStorage.stats));
-    dispatch(setSettings(statsLocalStorage.settings));
-  }, [statsLocalStorage, dispatch]);
+    if (user && userData) {
+      dispatch(setInitialStats(userData.stats));
+      dispatch(setSettings(userData.settings));
+    } else {
+      dispatch(setInitialStats(statsLocalStorage.stats));
+      dispatch(setSettings(statsLocalStorage.settings));
+    }
+  }, [statsLocalStorage, dispatch, user, userData]);
 
   useEffect(() => {
     document.getElementsByTagName("html")[0].className = fontSize;
@@ -62,15 +79,17 @@ export default function AppLayout() {
       <div className="flex min-h-screen flex-col bg-gradient-to-br from-white/50 to-white/20">
         <AppHeader />
         <main
-          className={`container mx-auto grow ${isLoading && "flex items-center justify-center"}`}
+          className={`container mx-auto grow ${isQuizzesLoading && "flex items-center justify-center"}`}
         >
-          {isLoading && <LoadingSpinner />}
-          {(isError || isEmptyError) && (
+          {isQuizzesLoading || (isUserStatsLoading && <LoadingSpinner />)}
+          {(isQuizzesError || isQuizzesEmptyError) && (
             <h4 className="mt-10 text-center">
               Could not fetch data :( <br /> Please try again later
             </h4>
           )}
-          {!isLoading && !isError && !isEmptyError && <Outlet />}
+          {!isQuizzesLoading && !isQuizzesError && !isQuizzesEmptyError && (
+            <Outlet />
+          )}
         </main>
         <AppFooter />
         <BackgroundBlob classes="top-[200px] right-[200px] h-8 w-8" />
