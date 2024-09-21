@@ -7,6 +7,7 @@ import {
   query,
   addDoc,
   setDoc,
+  updateDoc,
   doc,
 } from "firebase/firestore";
 
@@ -44,8 +45,24 @@ const addData = (dbName: string, newData: unknown) => {
   addDoc(dbRef, newData);
 };
 
-const setData = (dbName: string, docName: string, newData: unknown) => {
-  setDoc(doc(db, dbName, docName), newData);
+const setData = (collectionName: string, docName: string, newData: unknown) => {
+  if (!collectionName || !docName)
+    return console.error("setData: Invalid arguments passed in");
+
+  setDoc(doc(db, collectionName, docName), newData);
 };
 
-export { fetchCollection, addData, setData, fetchDocument };
+const updateData = (
+  collectionName: string | undefined,
+  docName: string | undefined,
+  dataToUpdate: {
+    [key: string]: unknown;
+  },
+) => {
+  if (!collectionName || !docName)
+    return console.error("updateData: Invalid arguments passed in");
+
+  updateDoc(doc(db, collectionName, docName), dataToUpdate);
+};
+
+export { fetchCollection, addData, setData, fetchDocument, updateData };

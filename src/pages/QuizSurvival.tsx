@@ -14,6 +14,7 @@ import { BlobGradients, IconNames } from "src/types/enums";
 import { type QuestionResult, type Question } from "src/types/quiz";
 import { arraysAreEqual } from "src/utils/helpers";
 import { createSurvivalQuiz } from "src/utils/dataManipulation";
+import useUpdateUserStats from "src/hooks/useUpdateUserStats";
 
 import Button from "src/ui/Button";
 import Icon from "src/ui/icons/Icon";
@@ -31,6 +32,7 @@ export default function SurvivalQuizPage() {
   const { data: quizzesData } = useQuizzes();
   const { activeQuizNumber, activeQuizScore, survivalQuizHighestScore } =
     useAppSelector((store) => store.stats);
+  const { updateUserStats } = useUpdateUserStats();
   const dispatch = useAppDispatch();
   const [questionIndex, setQuestionIndex] = useState(0);
   const [terminateQuizEarly, setTerminateQuizEarly] = useState(false);
@@ -135,6 +137,11 @@ export default function SurvivalQuizPage() {
     ) {
       if (activeQuizScore.length > survivalQuizHighestScore) {
         dispatch(updateSurvivalQuizHighestScore(activeQuizScore.length - 1));
+        updateUserStats({
+          dataToUpdate: {
+            "stats.survivalQuizHighestScore": activeQuizScore.length - 1,
+          },
+        });
       }
       dispatch(updateTryAgainQuestionIds(tempTryAgainQuestionIds));
       setIsQuizComplete(true);

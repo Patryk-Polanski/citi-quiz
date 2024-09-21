@@ -2,7 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
-import { fetchCollection, addData, setData, fetchDocument } from "./setup-db";
+import {
+  fetchCollection,
+  addData,
+  setData,
+  fetchDocument,
+  updateData,
+} from "./setup-db";
 import {
   onAuthStateChanged,
   createUser,
@@ -48,4 +54,5 @@ export {
   updateUserEmail,
   updateUserPassword,
   completeProfile,
+  updateData,
 };
