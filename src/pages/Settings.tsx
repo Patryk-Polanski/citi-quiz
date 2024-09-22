@@ -35,6 +35,8 @@ import LockOpen from "src/ui/icons/LockOpen";
 import SwatchRadio from "src/ui/form/SwatchRadio";
 import TextRadio from "src/ui/form/TextRadio";
 import Toggle from "src/ui/form/Toggle";
+import Input from "src/ui/form/Input";
+import Button from "src/ui/Button";
 
 const FONT_SIZES = [
   {
@@ -78,9 +80,15 @@ export default function SettingsPage() {
   const dispatch = useAppDispatch();
   const [isClearDataAllowed, setIsClearDataAllowed] = useState(false);
   const [clearData, setClearData] = useState(false);
+  const [isProcessingPasswordResetLink, setIsProcessingPasswordResetLink] =
+    useState(false);
   const resetAppSubtitle = useRef("*This will delete all data");
+  const resetEmailSubtitle = useRef(
+    "Enter your email to receive password reset link",
+  );
   const [statsLocalStorage, setStatsLocalStorage] = useLocalStorage("citiquiz");
   const { updateUserStats } = useUpdateUserStats();
+  const emailRef = useRef<HTMLInputElement | null>(null);
 
   const handleFontSizeChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -145,6 +153,13 @@ export default function SettingsPage() {
       },
     }));
   }, [setStatsLocalStorage, fontSize, background, stats]);
+
+  const handlePasswordResetLink = useCallback(() => {
+    setIsProcessingPasswordResetLink(true);
+
+    // onSuccess
+    // resetEmailSubtitle.current = "If your email is correct, you'll receive password reset link"
+  }, []);
 
   return (
     <section>
@@ -219,6 +234,37 @@ export default function SettingsPage() {
             </div>
           </Setting>
         </m.div>
+        {user && (
+          <m.div variants={slideAnim()}>
+            <Setting
+              title="Forgot password reset link"
+              subtitle={resetEmailSubtitle.current}
+            >
+              <form
+                className="mb-2 mt-4 flex flex-col items-end justify-end gap-3 sm:flex-row"
+                onSubmit={handlePasswordResetLink}
+              >
+                <Input
+                  id="email"
+                  label="Email:"
+                  name="email"
+                  type="email"
+                  inputRef={emailRef}
+                  maxLength={64}
+                />
+                <Button
+                  el="button"
+                  type="submit"
+                  classes="mt-2 self-center text-sm px-6 py-3 rounded-lg after:rounded-lg font-bold"
+                  disabled={isProcessingPasswordResetLink}
+                  isLoading={isProcessingPasswordResetLink}
+                >
+                  Submit
+                </Button>
+              </form>
+            </Setting>
+          </m.div>
+        )}
       </m.div>
     </section>
   );

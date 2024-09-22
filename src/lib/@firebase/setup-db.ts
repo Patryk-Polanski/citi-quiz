@@ -8,7 +8,7 @@ import {
   addDoc,
   setDoc,
   updateDoc,
-  doc,
+  doc
 } from "firebase/firestore";
 
 const fetchCollection = async (
