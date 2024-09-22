@@ -19,6 +19,7 @@ import {
   genericCardsAnim,
 } from "src/utils/motion/cards/animations";
 import { blobAnim, genericAnimProps } from "src/utils/motion/shared/animations";
+import useUpdateUserStats from "src/hooks/useUpdateUserStats";
 
 import Button from "src/ui/Button";
 import Icon from "src/ui/icons/Icon";
@@ -28,6 +29,7 @@ import AnswerCard from "src/features/quiz/AnswerCard";
 import TryAgainQuizComplete from "src/ui/dialogs/TryAgainQuizComplete";
 
 export default function TryAgainQuizPage() {
+  const { user } = useAppSelector((store) => store.auth);
   const { data: quizzesData } = useQuizzes();
   const { activeQuizNumber, activeQuizScore, tryAgainQuestionIds } =
     useAppSelector((store) => store.stats);
@@ -40,6 +42,7 @@ export default function TryAgainQuizPage() {
   const buttonRef = useRef<HTMLDivElement | null>(null);
   const [isQuizComplete, setIsQuizComplete] = useState(false);
   const tryAgainQuestionsIdsLength = useRef<number>(0);
+  const { updateUserStats } = useUpdateUserStats();
 
   const activeQuiz = useMemo(() => {
     if (!activeQuizNumber) return null;
@@ -122,7 +125,24 @@ export default function TryAgainQuizPage() {
     if (questionIndex + 1 === activeQuiz?.questions.length) {
       tryAgainQuestionsIdsLength.current = tryAgainQuestionIds.length;
       dispatch(resetTryAgainQuestionIds());
+      if (user) {
+        updateUserStats({
+          dataToUpdate: {
+            "stats.tryAgainQuestionIds": [],
+          },
+        });
+      }
       dispatch(updateTryAgainQuestionIds(tempTryAgainQuestionIds));
+      if (user) {
+        const mergedTryAgainQuestionIds = [
+          ...new Set([tryAgainQuestionIds, ...tempTryAgainQuestionIds]),
+        ];
+        updateUserStats({
+          dataToUpdate: {
+            "stats.tryAgainQuestionIds": mergedTryAgainQuestionIds,
+          },
+        });
+      }
       setIsQuizComplete(true);
       return;
     }

@@ -30,8 +30,13 @@ import { blobAnim, genericAnimProps } from "src/utils/motion/shared/animations";
 
 export default function SurvivalQuizPage() {
   const { data: quizzesData } = useQuizzes();
-  const { activeQuizNumber, activeQuizScore, survivalQuizHighestScore } =
-    useAppSelector((store) => store.stats);
+  const { user } = useAppSelector((store) => store.auth);
+  const {
+    activeQuizNumber,
+    activeQuizScore,
+    survivalQuizHighestScore,
+    tryAgainQuestionIds,
+  } = useAppSelector((store) => store.stats);
   const { updateUserStats } = useUpdateUserStats();
   const dispatch = useAppDispatch();
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -137,13 +142,25 @@ export default function SurvivalQuizPage() {
     ) {
       if (activeQuizScore.length > survivalQuizHighestScore) {
         dispatch(updateSurvivalQuizHighestScore(activeQuizScore.length - 1));
+        if (user) {
+          updateUserStats({
+            dataToUpdate: {
+              "stats.survivalQuizHighestScore": activeQuizScore.length - 1,
+            },
+          });
+        }
+      }
+      dispatch(updateTryAgainQuestionIds(tempTryAgainQuestionIds));
+      if (user) {
+        const mergedTryAgainQuestionIds = [
+          ...new Set([...tryAgainQuestionIds, ...tempTryAgainQuestionIds]),
+        ];
         updateUserStats({
           dataToUpdate: {
-            "stats.survivalQuizHighestScore": activeQuizScore.length - 1,
+            "stats.tryAgainQuestionIds": mergedTryAgainQuestionIds,
           },
         });
       }
-      dispatch(updateTryAgainQuestionIds(tempTryAgainQuestionIds));
       setIsQuizComplete(true);
       return;
     }

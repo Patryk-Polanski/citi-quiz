@@ -26,12 +26,15 @@ import {
   genericCardsAnim,
 } from "src/utils/motion/cards/animations";
 import { blobAnim, genericAnimProps } from "src/utils/motion/shared/animations";
+import useUpdateUserStats from "src/hooks/useUpdateUserStats";
 
 export default function QuizPage() {
   const { data: quizzesData } = useQuizzes();
   const { quizNumber } = useParams();
-  const stats = useAppSelector((store) => store.stats);
+  const { tryAgainQuestionIds } = useAppSelector((store) => store.stats);
+  const { user } = useAppSelector((store) => store.auth);
   const { activeQuizNumber, activeQuizScore } = stats;
+  const { updateUserStats } = useUpdateUserStats();
   const dispatch = useAppDispatch();
   const [questionIndex, setQuestionIndex] = useState(0);
   const [chosenLetter, setChosenLetter] = useState<string[] | null>(null);
@@ -143,6 +146,16 @@ export default function QuizPage() {
     ) {
       dispatch(updateQuizzesStats(activeQuizScore));
       dispatch(updateTryAgainQuestionIds(tempTryAgainQuestionIds));
+      if (user) {
+        const mergedTryAgainQuestionIds = [
+          ...new Set([tryAgainQuestionIds, ...tempTryAgainQuestionIds]),
+        ];
+        updateUserStats({
+          dataToUpdate: {
+            "stats.tryAgainQuestionIds": mergedTryAgainQuestionIds,
+          },
+        });
+      }
       setIsQuizComplete(true);
       return;
     }
