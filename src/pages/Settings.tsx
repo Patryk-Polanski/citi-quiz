@@ -85,15 +85,29 @@ export default function SettingsPage() {
   const handleFontSizeChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       dispatch(setFontSize(e.target.value));
+      if (user) {
+        updateUserStats({
+          dataToUpdate: {
+            "settings.fontSize": e.target.value,
+          },
+        });
+      }
     },
-    [dispatch],
+    [dispatch, updateUserStats, user],
   );
 
   const handleBackgroundChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       dispatch(setBackground(e.target.value));
+      if (user) {
+        updateUserStats({
+          dataToUpdate: {
+            "settings.background": e.target.value,
+          },
+        });
+      }
     },
-    [dispatch],
+    [dispatch, updateUserStats, user],
   );
 
   const handleEraseData = useCallback(() => {
@@ -119,7 +133,7 @@ export default function SettingsPage() {
     }
     resetAppSubtitle.current = "Application data has been reset";
     setIsClearDataAllowed(false);
-  }, [setStatsLocalStorage, dispatch, quizzesData]);
+  }, [setStatsLocalStorage, dispatch, quizzesData, updateUserStats, user]);
 
   useEffect(() => {
     setStatsLocalStorage((prevVal: DefaultValueTypes) => ({
