@@ -13,8 +13,7 @@ import {
   slideAnimParent,
 } from "src/utils/motion/shared/animations";
 
-import { useAppSelector } from "src/hooks/useStore";
-import { useAppDispatch } from "src/hooks/useStore";
+import { useAppDispatch, useAppSelector } from "src/hooks/useStore";
 import {
   setFontSize,
   setBackground,
@@ -22,10 +21,13 @@ import {
 } from "src/store/settings-slice";
 
 import useQuizzes from "src/hooks/useQuizzes";
+import useUpdateUserStats from "src/hooks/useUpdateUserStats";
 import useLocalStorage, {
   type DefaultValueTypes,
 } from "src/hooks/useLocalStorage";
 import { initialUserData } from "src/utils/constants";
+import { setInitialStats } from "src/store/stats-slice";
+import { transformQuizzesArrToObj } from "src/utils/dataManipulation";
 
 import Setting from "src/features/settings/Setting";
 import LockClosed from "src/ui/icons/LockClosed";
@@ -33,7 +35,6 @@ import LockOpen from "src/ui/icons/LockOpen";
 import SwatchRadio from "src/ui/form/SwatchRadio";
 import TextRadio from "src/ui/form/TextRadio";
 import Toggle from "src/ui/form/Toggle";
-import { setInitialStats } from "src/store/stats-slice";
 
 const FONT_SIZES = [
   {
@@ -71,6 +72,7 @@ const BACKGROUNDS = [
 
 export default function SettingsPage() {
   const { data: quizzesData } = useQuizzes();
+  const { user } = useAppSelector((store) => store.auth);
   const { fontSize, background } = useAppSelector((store) => store.settings);
   const stats = useAppSelector((store) => store.stats);
   const dispatch = useAppDispatch();
@@ -78,6 +80,7 @@ export default function SettingsPage() {
   const [clearData, setClearData] = useState(false);
   const resetAppSubtitle = useRef("*This will delete all data");
   const [statsLocalStorage, setStatsLocalStorage] = useLocalStorage("citiquiz");
+  const { updateUserStats } = useUpdateUserStats();
 
   const handleFontSizeChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -95,12 +98,25 @@ export default function SettingsPage() {
 
   const handleEraseData = useCallback(() => {
     setClearData((prevVal) => !prevVal);
-    dispatch(setInitialStats(initialUserData.stats(quizzesData)));
+    const initialStats = initialUserData.stats(quizzesData);
+    dispatch(setInitialStats(initialStats));
     dispatch(setSettings(initialUserData.settings));
     setStatsLocalStorage({
       ...initialUserData.stats(quizzesData),
       ...initialUserData.settings,
     });
+    if (user) {
+      const formattedQuizzes = transformQuizzesArrToObj(initialStats.quizzes);
+      updateUserStats({
+        dataToUpdate: {
+          stats: {
+            quizzes: formattedQuizzes,
+            tryAgainQuestionIds: [],
+            survivalQuizHighestScore: 0,
+          },
+        },
+      });
+    }
     resetAppSubtitle.current = "Application data has been reset";
     setIsClearDataAllowed(false);
   }, [setStatsLocalStorage, dispatch, quizzesData]);
