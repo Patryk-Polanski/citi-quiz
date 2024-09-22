@@ -44,28 +44,3 @@ export function arraysAreEqual(
   // If all elements match, arrays are equal
   return true;
 }
-
-export function transformQuizzesArrToObj(quizzes: QuizStats[][]) {
-  const result = {};
-
-  quizzes.forEach((quiz) => {
-    quiz.forEach((question) => {
-      const questionInfo = question.questionId?.split("-");
-      const quizId = Number(questionInfo?.[0]);
-      const questionId = Number(questionInfo?.[1]);
-
-      if (typeof result[quizId] !== "object") {
-        result[quizId] = {};
-      }
-
-      result[quizId][questionId] = question;
-    });
-  });
-
-  return result;
-}
-
-export function transformObjToQuizzesArr(obj: QuizObject) {
-  const result = Object.values(obj);
-  return result;
-}

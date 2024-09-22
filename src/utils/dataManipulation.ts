@@ -3,7 +3,7 @@ import { Question, Quiz } from "src/types/quiz";
 import { generateRandomNumber } from "./helpers";
 
 export function calcHighestScore(quizResults: QuizStats[]) {
-  return quizResults.reduce(
+  return quizResults?.reduce(
     (acc, question) => (question.pass ? acc + 1 : acc),
     0,
   );
@@ -48,4 +48,31 @@ export function createSurvivalQuiz(allQuizzes: Quiz[]) {
   });
 
   return { quizNumber: "survival", questions: survivalQuizRandom };
+}
+
+export function transformQuizzesArrToObj(quizzes: QuizStats[][]) {
+  const result = {};
+
+  quizzes.forEach((quiz) => {
+    quiz.forEach((question) => {
+      const questionInfo = question.questionId?.split("-");
+      const quizId = Number(questionInfo?.[0]);
+      const questionId = Number(questionInfo?.[1]);
+
+      if (typeof result[quizId] !== "object") {
+        result[quizId] = {};
+      }
+      result[quizId][questionId] = question;
+    });
+  });
+
+  return result;
+}
+
+export function transformObjToQuizzesArr(obj: QuizObject) {
+  const quizArray = Object.values(obj);
+  const formattedQuizzesAndQuestions = quizArray.map((quizzObj) => {
+    return Object.values(quizzObj);
+  });
+  return formattedQuizzesAndQuestions;
 }

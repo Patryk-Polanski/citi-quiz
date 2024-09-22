@@ -3,7 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import { setData } from "src/lib/@firebase";
 import useQuizzes from "./useQuizzes";
 import { initialUserData } from "src/utils/constants";
-import { transformQuizzesArrToObj } from "src/utils/helpers";
+import { transformQuizzesArrToObj } from "src/utils/dataManipulation";
 
 const useCreateUserData = () => {
   const { data: quizzesData } = useQuizzes();

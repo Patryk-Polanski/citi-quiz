@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchDocument } from "src/lib/@firebase";
-import { transformObjToQuizzesArr } from "src/utils/helpers";
+import { transformObjToQuizzesArr } from "src/utils/dataManipulation";
 
 const useUserStats = (userId: string | undefined) => {
   const { isLoading, isError, data } = useQuery({
