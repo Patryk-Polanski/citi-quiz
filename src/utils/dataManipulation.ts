@@ -1,6 +1,8 @@
+import { MutableRefObject } from "react";
+
 import { QuizStats } from "src/types/stats";
 import { Question, Quiz } from "src/types/quiz";
-import { generateRandomNumber } from "./helpers";
+import { arraysAreEqual, generateRandomNumber } from "./helpers";
 
 export function calcHighestScore(quizResults: QuizStats[]) {
   return quizResults?.reduce(
@@ -48,6 +50,38 @@ export function createSurvivalQuiz(allQuizzes: Quiz[]) {
   });
 
   return { quizNumber: "survival", questions: survivalQuizRandom };
+}
+
+export function calculateQuestionResult(
+  buttonRef: MutableRefObject<HTMLDivElement | null>,
+  correctAnswer: string[] | undefined,
+  chosenLetter: string[] | null,
+) {
+  if (buttonRef.current)
+    buttonRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  if (!chosenLetter) return "unselected";
+
+  // if chosenLetter arr is the same length as activeQuestion answer array, then arrays must be equal to be correct
+  if (chosenLetter.length === correctAnswer?.length) {
+    if (arraysAreEqual(correctAnswer || [], chosenLetter)) {
+      return "correct";
+    } else {
+      return "wrong";
+    }
+  }
+
+  // if chosen letter arr is not of the same length as activeQuestion answer array, check if all the answers are currently correct
+  if (chosenLetter.length !== correctAnswer?.length) {
+    let arePickedLettersCorrect: boolean = true;
+    chosenLetter.forEach((letter) => {
+      if (!correctAnswer?.includes(letter)) arePickedLettersCorrect = false;
+    });
+    if (!arePickedLettersCorrect) return "wrong";
+    return "correct-multiple";
+  }
+
+  return "unselected";
 }
 
 export function transformQuizzesArrToObj(quizzes: QuizStats[][]) {

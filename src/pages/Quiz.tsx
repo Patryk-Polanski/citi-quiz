@@ -27,12 +27,14 @@ import {
 } from "src/utils/motion/cards/animations";
 import { blobAnim, genericAnimProps } from "src/utils/motion/shared/animations";
 import useUpdateUserStats from "src/hooks/useUpdateUserStats";
+import { calculateQuestionResult } from "src/utils/dataManipulation";
 
 export default function QuizPage() {
   const { data: quizzesData } = useQuizzes();
   const { quizNumber } = useParams();
   const { tryAgainQuestionIds } = useAppSelector((store) => store.stats);
   const { user } = useAppSelector((store) => store.auth);
+  const stats = useAppSelector((store) => store.stats);
   const { activeQuizNumber, activeQuizScore } = stats;
   const { updateUserStats } = useUpdateUserStats();
   const dispatch = useAppDispatch();
@@ -57,34 +59,15 @@ export default function QuizPage() {
     return activeQuiz.questions[questionIndex] as Question | null;
   }, [activeQuiz, questionIndex]);
 
-  const questionResult: QuestionResult = useMemo(() => {
-    if (buttonRef.current)
-      buttonRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-
-    if (!chosenLetter) return "unselected";
-
-    // if chosenLetter arr is the same length as activeQuestion answer array, then arrays must be equal to be correct
-    if (chosenLetter.length === activeQuestion?.correctAnswer.length) {
-      if (arraysAreEqual(activeQuestion?.correctAnswer || [], chosenLetter)) {
-        return "correct";
-      } else {
-        return "wrong";
-      }
-    }
-
-    // if chosen letter arr is not of the same length as activeQuestion answer array, check if all the answers are currently correct
-    if (chosenLetter.length !== activeQuestion?.correctAnswer.length) {
-      let arePickedLettersCorrect: boolean = true;
-      chosenLetter.forEach((letter) => {
-        if (!activeQuestion?.correctAnswer.includes(letter))
-          arePickedLettersCorrect = false;
-      });
-      if (!arePickedLettersCorrect) return "wrong";
-      return "correct-multiple";
-    }
-
-    return "unselected";
-  }, [chosenLetter, activeQuestion?.correctAnswer]);
+  const questionResult: QuestionResult = useMemo(
+    () =>
+      calculateQuestionResult(
+        buttonRef,
+        activeQuestion?.correctAnswer,
+        chosenLetter,
+      ),
+    [chosenLetter, activeQuestion?.correctAnswer],
+  );
 
   const handleRestartQuiz = () => {
     if (quizNumber) {

@@ -13,7 +13,10 @@ import { useAppDispatch, useAppSelector } from "src/hooks/useStore";
 import { BlobGradients, IconNames } from "src/types/enums";
 import { type QuestionResult, type Question } from "src/types/quiz";
 import { arraysAreEqual } from "src/utils/helpers";
-import { createTryAgainQuiz } from "src/utils/dataManipulation";
+import {
+  calculateQuestionResult,
+  createTryAgainQuiz,
+} from "src/utils/dataManipulation";
 import {
   genericCardAnim,
   genericCardsAnim,
@@ -55,34 +58,15 @@ export default function TryAgainQuizPage() {
     return activeQuiz.questions[questionIndex] as Question | null;
   }, [activeQuiz, questionIndex]);
 
-  const questionResult: QuestionResult = useMemo(() => {
-    if (buttonRef.current)
-      buttonRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-
-    if (!chosenLetter) return "unselected";
-
-    // if chosenLetter arr is the same length as activeQuestion answer array, then arrays must be equal to be correct
-    if (chosenLetter.length === activeQuestion?.correctAnswer.length) {
-      if (arraysAreEqual(activeQuestion?.correctAnswer || [], chosenLetter)) {
-        return "correct";
-      } else {
-        return "wrong";
-      }
-    }
-
-    // if chosen letter arr is not of the same length as activeQuestion answer array, check if all the answers are currently correct
-    if (chosenLetter.length !== activeQuestion?.correctAnswer.length) {
-      let arePickedLettersCorrect: boolean = true;
-      chosenLetter.forEach((letter) => {
-        if (!activeQuestion?.correctAnswer.includes(letter))
-          arePickedLettersCorrect = false;
-      });
-      if (!arePickedLettersCorrect) return "wrong";
-      return "correct-multiple";
-    }
-
-    return "unselected";
-  }, [chosenLetter, activeQuestion?.correctAnswer]);
+  const questionResult: QuestionResult = useMemo(
+    () =>
+      calculateQuestionResult(
+        buttonRef,
+        activeQuestion?.correctAnswer,
+        chosenLetter,
+      ),
+    [chosenLetter, activeQuestion?.correctAnswer],
+  );
 
   useEffect(() => {
     dispatch(setActiveQuiz("try-again"));
