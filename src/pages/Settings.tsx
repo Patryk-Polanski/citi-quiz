@@ -37,6 +37,8 @@ import TextRadio from "src/ui/form/TextRadio";
 import Toggle from "src/ui/form/Toggle";
 import Input from "src/ui/form/Input";
 import Button from "src/ui/Button";
+import usePasswordResetLink from "src/hooks/usePasswordResetLink";
+import { checkIfEmpty } from "src/utils/validation/account";
 
 const FONT_SIZES = [
   {
@@ -74,14 +76,14 @@ const BACKGROUNDS = [
 
 export default function SettingsPage() {
   const { data: quizzesData } = useQuizzes();
+  const { sendPasswordResetLink, isSendingPasswordResetLinkPending } =
+    usePasswordResetLink();
   const { user } = useAppSelector((store) => store.auth);
   const { fontSize, background } = useAppSelector((store) => store.settings);
   const stats = useAppSelector((store) => store.stats);
   const dispatch = useAppDispatch();
   const [isClearDataAllowed, setIsClearDataAllowed] = useState(false);
   const [clearData, setClearData] = useState(false);
-  const [isProcessingPasswordResetLink, setIsProcessingPasswordResetLink] =
-    useState(false);
   const resetAppSubtitle = useRef("*This will delete all data");
   const resetEmailSubtitle = useRef(
     "Enter your email to receive password reset link",
@@ -154,12 +156,27 @@ export default function SettingsPage() {
     }));
   }, [setStatsLocalStorage, fontSize, background, stats]);
 
-  const handlePasswordResetLink = useCallback(() => {
-    setIsProcessingPasswordResetLink(true);
+  const handlePasswordResetLink = useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      if (checkIfEmpty(emailRef?.current?.value)) {
+        return (resetEmailSubtitle.current = "Email cannot be empty");
+      }
 
-    // onSuccess
-    // resetEmailSubtitle.current = "If your email is correct, you'll receive password reset link"
-  }, []);
+      sendPasswordResetLink(
+        { email: emailRef?.current?.value as string },
+        {
+          onSuccess: () => {
+            resetEmailSubtitle.current = "Check your email for reset link";
+            if (emailRef?.current) {
+              emailRef.current.value = "";
+            }
+          },
+        },
+      );
+    },
+    [sendPasswordResetLink],
+  );
 
   return (
     <section>
@@ -256,8 +273,8 @@ export default function SettingsPage() {
                   el="button"
                   type="submit"
                   classes="mt-2 self-center text-sm px-6 py-3 rounded-lg after:rounded-lg font-bold"
-                  disabled={isProcessingPasswordResetLink}
-                  isLoading={isProcessingPasswordResetLink}
+                  disabled={isSendingPasswordResetLinkPending}
+                  isLoading={isSendingPasswordResetLinkPending}
                 >
                   Submit
                 </Button>

@@ -34,7 +34,7 @@ const logoutUser = async () => {
   await signOut(auth);
 };
 
-const resetUserPassword = async (email: string) => {
+const resetUserPasswordEmail = async (email: string) => {
   sendPasswordResetEmail(auth, email);
 };
 
@@ -55,7 +55,7 @@ export {
   createUser,
   loginUser,
   logoutUser,
-  resetUserPassword,
+  resetUserPasswordEmail,
   updateUserEmail,
   updateUserPassword,
   completeProfile,
