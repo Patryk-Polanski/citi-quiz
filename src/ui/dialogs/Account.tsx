@@ -19,6 +19,12 @@ import useLogout from "src/hooks/useLogout";
 const commonTabClasses =
   "w-[48%] text-slate-700 font-semibold after:border-t-white/0 hover:after:border-t-white/0";
 
+const accountModalStyles = {
+  maxHeight: "calc(100vh - 48px)",
+  paddingBottom: "24px",
+  paddingTop: "24px",
+};
+
 type AccountProps = {
   onClose: () => void;
 };
@@ -71,7 +77,8 @@ export default function Account({ onClose }: AccountProps) {
       ></m.div>
       <m.div
         id="accountModal"
-        className="relative z-20 w-[90%] max-w-[400px] -translate-y-16"
+        style={accountModalStyles}
+        className="hideScrollbars relative z-20 w-full max-w-[400px] overflow-y-scroll px-2"
         variants={slideAnim(AnimDirection.up)}
         onAnimationComplete={() => {
           if (!user) setWindowState(AccountWindows.Login);

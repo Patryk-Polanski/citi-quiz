@@ -52,6 +52,18 @@ h6,
   @apply text-sm;
 }
 
+/* Misc */
+
+.hideScrollbars {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+}
+
+.hideScrollbars::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
 /* loading spinner */
 
 .loadingSpinner::after,
