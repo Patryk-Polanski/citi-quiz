@@ -1,8 +1,10 @@
-import { MutableRefObject } from "react";
+import { MutableRefObject, Dispatch } from "react";
 
 import { QuizStats } from "src/types/stats";
-import { Question, Quiz } from "src/types/quiz";
+import { Question, QuestionResult, Quiz } from "src/types/quiz";
 import { arraysAreEqual, generateRandomNumber } from "./helpers";
+import { AppDispatch } from "src/store/store";
+import { updateActiveQuizScore } from "src/store/stats-slice";
 
 export function calcHighestScore(quizResults: QuizStats[]) {
   return quizResults?.reduce(
@@ -82,6 +84,33 @@ export function calculateQuestionResult(
   }
 
   return "unselected";
+}
+
+export function updateQuizWithQuestionResult(
+  questionId: string | undefined,
+  questionResult: QuestionResult,
+  dispatch: AppDispatch,
+  setTempTryAgainQuestionIds: Dispatch<React.SetStateAction<string[]>>,
+) {
+  if (!questionId) return;
+
+  if (questionResult === "correct") {
+    dispatch(
+      updateActiveQuizScore({
+        questionId: questionId,
+        pass: true,
+      }),
+    );
+  } else if (questionResult === "wrong") {
+    setTempTryAgainQuestionIds((prevState) => [...prevState, questionId]);
+
+    dispatch(
+      updateActiveQuizScore({
+        questionId: questionId,
+        pass: false,
+      }),
+    );
+  }
 }
 
 export function transformQuizzesArrToObj(quizzes: QuizStats[][]) {

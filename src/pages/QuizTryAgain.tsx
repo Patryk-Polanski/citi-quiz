@@ -5,17 +5,17 @@ import {
   resetActiveQuiz,
   resetTryAgainQuestionIds,
   setActiveQuiz,
-  updateActiveQuizScore,
   updateTryAgainQuestionIds,
 } from "src/store/stats-slice";
 import useQuizzes from "src/hooks/useQuizzes";
 import { useAppDispatch, useAppSelector } from "src/hooks/useStore";
 import { BlobGradients, IconNames } from "src/types/enums";
 import { type QuestionResult, type Question } from "src/types/quiz";
-import { arraysAreEqual } from "src/utils/helpers";
+
 import {
   calculateQuestionResult,
   createTryAgainQuiz,
+  updateQuizWithQuestionResult,
 } from "src/utils/dataManipulation";
 import {
   genericCardAnim,
@@ -80,28 +80,12 @@ export default function TryAgainQuizPage() {
   }, [questionIndex]);
 
   useEffect(() => {
-    if (!activeQuestion?.questionId) return;
-
-    if (questionResult === "correct") {
-      dispatch(
-        updateActiveQuizScore({
-          questionId: activeQuestion.questionId,
-          pass: true,
-        }),
-      );
-    } else if (questionResult === "wrong") {
-      setTempTryAgainQuestionIds((prevState) => [
-        ...prevState,
-        activeQuestion.questionId,
-      ]);
-
-      dispatch(
-        updateActiveQuizScore({
-          questionId: activeQuestion.questionId,
-          pass: false,
-        }),
-      );
-    }
+    updateQuizWithQuestionResult(
+      activeQuestion?.questionId,
+      questionResult,
+      dispatch,
+      setTempTryAgainQuestionIds,
+    );
   }, [questionResult, activeQuestion?.questionId, dispatch, activeQuiz]);
 
   const handleNextQuestion = () => {
