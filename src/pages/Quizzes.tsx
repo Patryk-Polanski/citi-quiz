@@ -38,8 +38,8 @@ export default function QuizzesPage() {
           quizzesData.map((quiz) => {
             const quizStats = quizzesStats[Number(quiz.quizNumber) - 1];
             return (
-              <m.div variants={genericCardAnim}>
-                <QuizCard key={quiz.quizId} quiz={quiz} quizStats={quizStats} />
+              <m.div key={quiz.quizId} variants={genericCardAnim}>
+                <QuizCard quiz={quiz} quizStats={quizStats} />
               </m.div>
             );
           }),

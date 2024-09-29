@@ -96,6 +96,7 @@ export default function SurvivalQuizPage() {
       questionResult,
       dispatch,
       setTempTryAgainQuestionIds,
+      setTerminateQuizEarly,
     );
   }, [questionResult, activeQuestion?.questionId, dispatch, activeQuiz]);
 

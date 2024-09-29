@@ -91,6 +91,7 @@ export function updateQuizWithQuestionResult(
   questionResult: QuestionResult,
   dispatch: AppDispatch,
   setTempTryAgainQuestionIds: Dispatch<React.SetStateAction<string[]>>,
+  setTerminateQuizEarly?: React.Dispatch<React.SetStateAction<boolean>>,
 ) {
   if (!questionId) return;
 
@@ -110,6 +111,10 @@ export function updateQuizWithQuestionResult(
         pass: false,
       }),
     );
+
+    if (setTerminateQuizEarly) {
+      setTerminateQuizEarly(true);
+    }
   }
 }
 
