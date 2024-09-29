@@ -276,7 +276,7 @@ export default function SettingsPage() {
                   disabled={isSendingPasswordResetLinkPending}
                   isLoading={isSendingPasswordResetLinkPending}
                 >
-                  Submit
+                  Send
                 </Button>
               </form>
             </Setting>
