@@ -10,11 +10,11 @@ import { onAuthChange } from "src/lib/@firebase";
 import AppHeader from "./AppHeader";
 import AppFooter from "./AppFooter";
 import BackgroundBlob from "src/ui/decorative/BackgroundBlob";
-import useLocalStorage from "src/hooks/useLocalStorage";
+import useLocalStorage, { DefaultValueTypes } from "src/hooks/useLocalStorage";
 import { setSettings } from "src/store/settings-slice";
 import useQuizzes from "src/hooks/useQuizzes";
 import LoadingSpinner from "src/ui/decorative/LoadingSpinner";
-import userUserStats from "src/hooks/useUserStats";
+import useUserStats from "src/hooks/useUserStats";
 
 export default function AppLayout() {
   const { user } = useAppSelector((store) => store.auth);
@@ -24,7 +24,7 @@ export default function AppLayout() {
     isLoading: isUserStatsLoading,
     isError: isUserStatsError,
     data: userData,
-  } = userUserStats(user?.uid);
+  } = useUserStats(user?.uid);
 
   const {
     isLoading: isQuizzesLoading,
@@ -35,7 +35,11 @@ export default function AppLayout() {
   const [statsLocalStorage, setStatsLocalStorage] = useLocalStorage(
     "citiquiz",
     {
-      stats: [],
+      stats: {
+        quizzes: [],
+        tryAgainQuestionIds: [],
+        survivalQuizHighestScore: 0,
+      },
       settings: initialUserData.settings,
     },
   );
@@ -50,10 +54,13 @@ export default function AppLayout() {
 
   useEffect(() => {
     if (!quizzesData) return;
-    setStatsLocalStorage((prevVal) => {
+    setStatsLocalStorage((prevVal: DefaultValueTypes) => {
       return {
         ...prevVal,
-        stats: initialUserData.stats(quizzesData),
+        stats: {
+          ...prevVal.stats,
+          quizzes: initialUserData.stats(quizzesData).quizzes,
+        },
       };
     });
   }, [quizzesData, setStatsLocalStorage]);

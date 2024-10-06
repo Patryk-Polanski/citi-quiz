@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import type { UserStats } from "src/types/stats";
+import { useAppSelector } from "src/hooks/useStore";
 
 export type DefaultValueTypes =
   | {
@@ -22,14 +23,17 @@ const useLocalStorage = (
   DefaultValueTypes,
   React.Dispatch<React.SetStateAction<DefaultValueTypes>>,
 ] => {
+  const { user } = useAppSelector((store) => store.auth);
   const [value, setValue] = useState(() => {
+    if (user) return {};
     try {
       const savedVal = localStorage.getItem(key);
       if (savedVal !== null) {
         return JSON.parse(savedVal) as DefaultValueTypes;
       }
-      if (defaultValue) return defaultValue;
-      else return {};
+      if (defaultValue) {
+        return defaultValue;
+      } else return {};
     } catch {
       if (defaultValue) return defaultValue;
       else return {};
@@ -37,6 +41,7 @@ const useLocalStorage = (
   });
 
   useEffect(() => {
+    if (user) return;
     try {
       const rawValue = JSON.stringify(value);
       if (rawValue) {
@@ -47,7 +52,7 @@ const useLocalStorage = (
     } catch {
       return;
     }
-  }, [value, key]);
+  }, [value, key, user]);
 
   return [value, setValue];
 };
