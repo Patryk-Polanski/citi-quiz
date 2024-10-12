@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createPortal } from "react-dom";
 import { IconNames } from "src/types/enums";
 
-import useCreateQuiz from "src/hooks/useCreateQuiz";
+// import useCreateQuiz from "src/hooks/useCreateQuiz";
 
 import Button from "src/ui/Button";
 import Icon from "src/ui/icons/Icon";
@@ -10,7 +10,7 @@ import Help from "src/ui/sliders/Help";
 
 export default function AppFooter() {
   const [isHelpSliderOpen, setIsHelpSliderOpen] = useState(false);
-  const { createQuiz, isCreatingQuiz } = useCreateQuiz();
+  // const { createQuiz, isCreatingQuiz } = useCreateQuiz();
 
   return (
     <>
@@ -34,6 +34,8 @@ export default function AppFooter() {
           </Button>
         </small>
       </footer>
+      {/* 
+      Adding new quiz will not work anymore due to updated firestore security rules
       <div
         style={{
           display: "flex",
@@ -44,7 +46,7 @@ export default function AppFooter() {
         <Button el="button" onClick={() => createQuiz()}>
           {!isCreatingQuiz ? "Add Quiz" : "Loading"}
         </Button>
-      </div>
+      </div> */}
       {createPortal(
         isHelpSliderOpen ? (
           <Help onClose={() => setIsHelpSliderOpen(false)} />
