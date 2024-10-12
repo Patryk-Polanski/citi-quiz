@@ -59,7 +59,8 @@ export default function AppLayout() {
         ...prevVal,
         stats: {
           ...prevVal.stats,
-          quizzes: initialUserData.stats(quizzesData).quizzes,
+          quizzes:
+            prevVal.stats.quizzes || initialUserData.stats(quizzesData).quizzes,
         },
       };
     });
