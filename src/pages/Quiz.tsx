@@ -27,16 +27,17 @@ import { blobAnim, genericAnimProps } from "src/utils/motion/shared/animations";
 import useUpdateUserStats from "src/hooks/useUpdateUserStats";
 import {
   calculateQuestionResult,
+  transformQuizzesArrToObj,
   updateQuizWithQuestionResult,
 } from "src/utils/dataManipulation";
 
 export default function QuizPage() {
   const { data: quizzesData } = useQuizzes();
   const { quizNumber } = useParams();
-  const { tryAgainQuestionIds } = useAppSelector((store) => store.stats);
   const { user } = useAppSelector((store) => store.auth);
   const stats = useAppSelector((store) => store.stats);
-  const { activeQuizNumber, activeQuizScore } = stats;
+  const { activeQuizNumber, activeQuizScore, tryAgainQuestionIds, quizzes } =
+    stats;
   const { updateUserStats } = useUpdateUserStats();
   const dispatch = useAppDispatch();
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -99,6 +100,16 @@ export default function QuizPage() {
       setTempTryAgainQuestionIds,
     );
   }, [questionResult, activeQuestion?.questionId, dispatch, activeQuiz]);
+
+  useEffect(() => {
+    if (user) {
+      updateUserStats({
+        dataToUpdate: {
+          "stats.quizzes": transformQuizzesArrToObj(quizzes),
+        },
+      });
+    }
+  }, [quizzes, updateUserStats, user]);
 
   const handleNextQuestion = () => {
     // end the quiz
