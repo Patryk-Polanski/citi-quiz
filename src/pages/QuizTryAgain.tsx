@@ -102,12 +102,9 @@ export default function TryAgainQuizPage() {
       }
       dispatch(updateTryAgainQuestionIds(tempTryAgainQuestionIds));
       if (user) {
-        const mergedTryAgainQuestionIds = [
-          ...new Set([tryAgainQuestionIds, ...tempTryAgainQuestionIds]),
-        ];
         updateUserStats({
           dataToUpdate: {
-            "stats.tryAgainQuestionIds": mergedTryAgainQuestionIds,
+            "stats.tryAgainQuestionIds": tempTryAgainQuestionIds,
           },
         });
       }

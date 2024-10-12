@@ -110,7 +110,7 @@ export default function QuizPage() {
       dispatch(updateTryAgainQuestionIds(tempTryAgainQuestionIds));
       if (user) {
         const mergedTryAgainQuestionIds = [
-          ...new Set([tryAgainQuestionIds, ...tempTryAgainQuestionIds]),
+          ...new Set([...tryAgainQuestionIds, ...tempTryAgainQuestionIds]),
         ];
         updateUserStats({
           dataToUpdate: {
