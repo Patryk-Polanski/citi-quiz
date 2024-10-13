@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchDocument } from "src/lib/@firebase";
 import { transformObjToQuizzesArr } from "src/utils/dataManipulation";
-import { DefaultValueTypes } from "./useLocalStorage";
+import { DefaultValueTypes } from "src/types/stats";
 
 const useUserStats = (userId: string | undefined) => {
   const { isLoading, isError, data } = useQuery({

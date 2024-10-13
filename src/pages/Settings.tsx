@@ -22,9 +22,7 @@ import {
 
 import useQuizzes from "src/hooks/useQuizzes";
 import useUpdateUserStats from "src/hooks/useUpdateUserStats";
-import useLocalStorage, {
-  type DefaultValueTypes,
-} from "src/hooks/useLocalStorage";
+import { DefaultValueTypes } from "src/types/stats";
 import { initialUserData } from "src/utils/constants";
 import { setInitialStats } from "src/store/stats-slice";
 import { transformQuizzesArrToObj } from "src/utils/dataManipulation";
@@ -39,6 +37,7 @@ import Input from "src/ui/form/Input";
 import Button from "src/ui/Button";
 import usePasswordResetLink from "src/hooks/usePasswordResetLink";
 import { checkIfEmpty } from "src/utils/validation/account";
+import useLocalStorage from "src/hooks/useLocalStorage";
 
 const FONT_SIZES = [
   {

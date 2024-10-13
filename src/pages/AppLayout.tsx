@@ -10,12 +10,13 @@ import { onAuthChange } from "src/lib/@firebase";
 import AppHeader from "./AppHeader";
 import AppFooter from "./AppFooter";
 import BackgroundBlob from "src/ui/decorative/BackgroundBlob";
-import useLocalStorage, { DefaultValueTypes } from "src/hooks/useLocalStorage";
+import { DefaultStatsValueTypes, DefaultValueTypes } from "src/types/stats";
 import { setSettings } from "src/store/settings-slice";
 import useQuizzes from "src/hooks/useQuizzes";
 import LoadingSpinner from "src/ui/decorative/LoadingSpinner";
 import useUserStats from "src/hooks/useUserStats";
 import { SettingsTypes } from "src/types/settings";
+import useLocalStorage from "src/hooks/useLocalStorage";
 
 export default function AppLayout() {
   const { user } = useAppSelector((store) => store.auth);
@@ -74,7 +75,8 @@ export default function AppLayout() {
 
   useEffect(() => {
     if (user && userData) {
-      if ("stats" in userData) dispatch(setInitialStats(userData.stats));
+      if ("stats" in userData)
+        dispatch(setInitialStats(userData.stats as DefaultStatsValueTypes));
       if ("settings" in userData)
         dispatch(setSettings(userData.settings as SettingsTypes));
     } else {

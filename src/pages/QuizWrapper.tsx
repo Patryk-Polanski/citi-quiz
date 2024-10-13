@@ -1,13 +1,13 @@
 import { useEffect, useRef } from "react";
 import { Outlet } from "react-router-dom";
 
-import useLocalStorage, { DefaultValueTypes } from "src/hooks/useLocalStorage";
+import useLocalStorage from "src/hooks/useLocalStorage";
+import { DefaultValueTypes } from "src/types/stats";
 import { useAppSelector } from "src/hooks/useStore";
 
 export default function QuizWrapper() {
   const stats = useAppSelector((store) => store.stats);
-  const [_statsLocalStorage, setStatsLocalStorage] =
-    useLocalStorage("citiquiz");
+  const [, setStatsLocalStorage] = useLocalStorage("citiquiz");
   const isInitialMount = useRef(true);
 
   useEffect(() => {
