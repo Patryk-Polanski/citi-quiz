@@ -58,18 +58,22 @@ const BACKGROUNDS = [
   {
     id: "bg-sky-700",
     value: "bg-sky-600",
+    beforeValue: "before:bg-sky-600",
   },
   {
     id: "bg-orange-700",
     value: "bg-orange-700",
+    beforeValue: "before:bg-orange-700",
   },
   {
     id: "bg-green-700",
     value: "bg-green-700",
+    beforeValue: "before:bg-green-700",
   },
   {
     id: "bg-red-700",
     value: "bg-red-700",
+    beforeValue: "before:bg-red-700",
   },
 ];
 
@@ -213,7 +217,7 @@ export default function SettingsPage() {
                   id={color.id}
                   name="background"
                   value={color.value}
-                  swatchClass={`before:${color.value}`}
+                  swatchClass={color.beforeValue}
                   background={background}
                   onChange={handleBackgroundChange}
                 />
