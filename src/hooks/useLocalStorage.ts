@@ -1,20 +1,6 @@
 import { useEffect, useState } from "react";
-import type { UserStats } from "src/types/stats";
+import type { DefaultValueTypes } from "src/types/stats";
 import { useAppSelector } from "src/hooks/useStore";
-
-export type DefaultValueTypes =
-  | {
-      stats: {
-        quizzes: UserStats["quizzes"];
-        tryAgainQuestionIds: UserStats["tryAgainQuestionIds"];
-        survivalQuizHighestScore: UserStats["survivalQuizHighestScore"];
-      };
-      settings: {
-        fontSize: string;
-        background: string;
-      };
-    }
-  | object;
 
 const useLocalStorage = (
   key: string,
