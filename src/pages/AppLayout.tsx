@@ -100,7 +100,7 @@ export default function AppLayout() {
         <main
           className={`container mx-auto grow ${isQuizzesLoading && "flex items-center justify-center"}`}
         >
-          {isQuizzesLoading || (isUserStatsLoading && <LoadingSpinner />)}
+          {(isQuizzesLoading || isUserStatsLoading) && <LoadingSpinner />}
           {(isQuizzesError || isQuizzesEmptyError) && (
             <h4 className="mt-10 text-center">
               Could not fetch data :( <br /> Please try again later

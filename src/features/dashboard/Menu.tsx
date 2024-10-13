@@ -63,7 +63,7 @@ export default function Menu() {
         icon: IconNames.Question,
       },
     ],
-    [tryAgainQuestionIds, survivalQuizHighestScore],
+    [tryAgainQuestionIds, survivalQuizHighestScore, quizzesData.length],
   );
 
   return (
