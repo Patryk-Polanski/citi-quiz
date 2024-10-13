@@ -52,7 +52,7 @@ export default function SurvivalQuizComplete({
               {activeQuizResults}/{questionsNumber} - {activeQuizPercentage}%
             </span>
             <ProgressBar
-              quizId={"survival"}
+              quizNumber={"survival"}
               questionsNumber={questionsNumber}
               staggerChildren
             />

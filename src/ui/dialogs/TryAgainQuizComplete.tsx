@@ -58,7 +58,7 @@ export default function TryAgainQuizComplete({
               {activeQuizResults}/{questionsNumber} - {activeQuizPercentage}%
             </span>
             <ProgressBar
-              quizId={quizId}
+              quizNumber={quizId}
               questionsNumber={questionsNumber}
               staggerChildren
             />

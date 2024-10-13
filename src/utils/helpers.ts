@@ -1,6 +1,4 @@
 import { EmojiReactions } from "src/types/enums";
-import { QuizObject } from "src/types/quiz";
-import { QuizStats } from "src/types/stats";
 
 export function generateRandomNumber(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1)) + min;

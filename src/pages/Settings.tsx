@@ -88,7 +88,7 @@ export default function SettingsPage() {
   const resetEmailSubtitle = useRef(
     "Enter your email to receive password reset link",
   );
-  const [statsLocalStorage, setStatsLocalStorage] = useLocalStorage("citiquiz");
+  const [, setStatsLocalStorage] = useLocalStorage("citiquiz");
   const { updateUserStats } = useUpdateUserStats();
   const emailRef = useRef<HTMLInputElement | null>(null);
 

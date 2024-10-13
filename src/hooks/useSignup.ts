@@ -11,11 +11,10 @@ const useSignup = () => {
     mutationFn: async ({
       email,
       password,
-      username,
     }: {
       email: string;
       password: string;
-      username: string;
+      username: string; // Keep this for the onSuccess callback
     }) => {
       const user = await authCreateUser(email, password);
       return user;

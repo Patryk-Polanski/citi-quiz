@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import useSignup from "src/hooks/useSignup";
-import useCompleteProfile from "src/hooks/useCompleteProfile";
 
 import Button from "src/ui/Button";
 import Input from "src/ui/form/Input";

@@ -11,7 +11,7 @@ const useCompleteProfile = () => {
       mutationFn: async ({ displayName }: { displayName: string }) => {
         await authCompleteProfile(displayName);
       },
-      onSuccess: async (data, variables) => {
+      onSuccess: async (_data, variables) => {
         console.log("completed profile");
         dispatch(setUserName(variables.displayName));
       },

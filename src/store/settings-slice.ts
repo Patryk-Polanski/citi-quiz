@@ -1,9 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-
-type SettingsTypes = {
-  fontSize: string;
-  background: string;
-};
+import { SettingsTypes } from "src/types/settings";
 
 const initialState: SettingsTypes = {
   fontSize: "medium",

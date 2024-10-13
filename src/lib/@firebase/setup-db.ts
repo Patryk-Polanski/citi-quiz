@@ -8,7 +8,8 @@ import {
   addDoc,
   setDoc,
   updateDoc,
-  doc
+  doc,
+  FieldValue,
 } from "firebase/firestore";
 
 const fetchCollection = async (
@@ -56,7 +57,7 @@ const updateData = (
   collectionName: string | undefined,
   docName: string | undefined,
   dataToUpdate: {
-    [key: string]: unknown;
+    [key: string]: FieldValue | Partial<unknown> | undefined;
   },
 ) => {
   if (!collectionName || !docName)

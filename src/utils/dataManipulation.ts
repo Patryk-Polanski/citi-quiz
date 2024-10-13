@@ -1,7 +1,7 @@
 import { MutableRefObject, Dispatch } from "react";
 
 import { QuizStats } from "src/types/stats";
-import { Question, QuestionResult, Quiz } from "src/types/quiz";
+import { Question, QuestionResult, Quiz, QuizObject } from "src/types/quiz";
 import { arraysAreEqual, generateRandomNumber } from "./helpers";
 import { AppDispatch } from "src/store/store";
 import { updateActiveQuizScore } from "src/store/stats-slice";
@@ -118,8 +118,10 @@ export function updateQuizWithQuestionResult(
   }
 }
 
-export function transformQuizzesArrToObj(quizzes: QuizStats[][]) {
-  const result = {};
+export function transformQuizzesArrToObj(quizzes: QuizStats[][]): {
+  [quizId: number]: { [questionId: number]: QuizStats };
+} {
+  const result: { [quizId: number]: { [questionId: number]: QuizStats } } = {};
 
   quizzes.forEach((quiz) => {
     quiz.forEach((question) => {

@@ -1,12 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchDocument } from "src/lib/@firebase";
 import { transformObjToQuizzesArr } from "src/utils/dataManipulation";
+import { DefaultValueTypes } from "./useLocalStorage";
 
 const useUserStats = (userId: string | undefined) => {
   const { isLoading, isError, data } = useQuery({
     queryKey: ["userData", userId],
     queryFn: async ({ queryKey }) => {
-      const [_key, userId] = queryKey;
+      const [, userId] = queryKey;
       if (!userId) return null;
 
       const docSnap = await fetchDocument("userData", userId);
@@ -20,7 +21,7 @@ const useUserStats = (userId: string | undefined) => {
           ...dbData?.stats,
           quizzes: formattedQuizzes,
         },
-      };
+      } as DefaultValueTypes;
     },
   });
 

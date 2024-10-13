@@ -15,16 +15,15 @@ import { setSettings } from "src/store/settings-slice";
 import useQuizzes from "src/hooks/useQuizzes";
 import LoadingSpinner from "src/ui/decorative/LoadingSpinner";
 import useUserStats from "src/hooks/useUserStats";
+import { SettingsTypes } from "src/types/settings";
 
 export default function AppLayout() {
   const { user } = useAppSelector((store) => store.auth);
   const { background, fontSize } = useAppSelector((store) => store.settings);
   const dispatch = useAppDispatch();
-  const {
-    isLoading: isUserStatsLoading,
-    isError: isUserStatsError,
-    data: userData,
-  } = useUserStats(user?.uid);
+  const { isLoading: isUserStatsLoading, data: userData } = useUserStats(
+    user?.uid,
+  );
 
   const {
     isLoading: isQuizzesLoading,
@@ -55,24 +54,34 @@ export default function AppLayout() {
   useEffect(() => {
     if (!quizzesData) return;
     setStatsLocalStorage((prevVal: DefaultValueTypes) => {
-      return {
-        ...prevVal,
-        stats: {
-          ...prevVal.stats,
-          quizzes:
-            prevVal.stats.quizzes || initialUserData.stats(quizzesData).quizzes,
-        },
-      };
+      if ("stats" in prevVal) {
+        return {
+          ...prevVal,
+          stats: {
+            ...prevVal.stats,
+            quizzes:
+              prevVal.stats.quizzes ||
+              initialUserData.stats(quizzesData).quizzes,
+          },
+        };
+      } else {
+        return {
+          ...prevVal,
+        };
+      }
     });
   }, [quizzesData, setStatsLocalStorage]);
 
   useEffect(() => {
     if (user && userData) {
-      dispatch(setInitialStats(userData.stats));
-      dispatch(setSettings(userData.settings));
+      if ("stats" in userData) dispatch(setInitialStats(userData.stats));
+      if ("settings" in userData)
+        dispatch(setSettings(userData.settings as SettingsTypes));
     } else {
-      dispatch(setInitialStats(statsLocalStorage.stats));
-      dispatch(setSettings(statsLocalStorage.settings));
+      if ("stats" in statsLocalStorage)
+        dispatch(setInitialStats(statsLocalStorage.stats));
+      if ("settings" in statsLocalStorage)
+        dispatch(setSettings(statsLocalStorage.settings));
     }
   }, [statsLocalStorage, dispatch, user, userData]);
 
