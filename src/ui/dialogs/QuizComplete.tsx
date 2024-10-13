@@ -3,7 +3,7 @@ import { motion as m } from "framer-motion";
 import Icon from "src/ui/icons/Icon";
 import Button from "src/ui/Button";
 import { AnimDirection, BlobGradients, IconNames } from "src/types/enums";
-import Emoji from "src/ui/Emojis/Emoji";
+import Emoji from "src/ui/emojis/Emoji";
 import { useParams } from "react-router-dom";
 import ProgressBar from "src/features/quiz/ProgressBar";
 import { useAppSelector } from "src/hooks/useStore";

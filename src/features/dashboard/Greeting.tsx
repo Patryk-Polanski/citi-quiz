@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useAppSelector, useAppDispatch } from "src/hooks/useStore";
 import { setGreeting } from "src/store/greeting-slice";
 import { EmojiNames } from "src/types/enums";
-import Emoji from "src/ui/Emojis/Emoji";
+import Emoji from "src/ui/emojis/Emoji";
 import { generateRandomNumber } from "src/utils/helpers";
 
 const emojisData = Object.values(EmojiNames);
