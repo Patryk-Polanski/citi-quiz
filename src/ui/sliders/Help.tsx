@@ -82,6 +82,7 @@ export default function Help({ onClose }: HelpProps) {
             >
               https://www.linkedin.com/in/patryk-polanski/
             </Button>
+            <br />
             <Button
               el="link"
               className="underline"

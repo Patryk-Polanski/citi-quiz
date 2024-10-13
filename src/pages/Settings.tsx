@@ -56,7 +56,7 @@ const FONT_SIZES = [
 
 const BACKGROUNDS = [
   {
-    id: "bg-sky-700",
+    id: "bg-sky-600",
     value: "bg-sky-600",
     beforeValue: "before:bg-sky-600",
   },
