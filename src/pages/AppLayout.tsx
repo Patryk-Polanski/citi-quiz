@@ -61,7 +61,7 @@ export default function AppLayout() {
           stats: {
             ...prevVal.stats,
             quizzes:
-              prevVal.stats.quizzes ||
+              (prevVal.stats.quizzes.length > 0 && prevVal.stats.quizzes) ||
               initialUserData.stats(quizzesData).quizzes,
           },
         };
